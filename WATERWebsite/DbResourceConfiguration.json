@@ -1,0 +1,15 @@
+{
+  //"ResourceAccessMode": "DbResourceManager",
+  "ConnectionString": "Server=LOAY\\SQLEXPRESS;Database=WATER_DB;Encrypt=False;Trusted_Connection=True;MultipleActiveResultSets=true",
+  //"ConnectionString": "Server=.;Database=ManufactureDB;Encrypt=False;Trusted_Connection=True;MultipleActiveResultSets=true",
+  "DataProvider": "SqlServer",
+  "ResourceTableName": "Localizations"
+  //"ResxExportProjectType": "Project",
+  //"ResxBaseFolder": "~/Properties/",
+  //"StronglyTypedGlobalResource": "~/Properties/Resources.cs",
+  //"ResourceBaseNamespace": "AppResources",
+  //"AddMissingResources": true,
+  //"LocalizationFormWebPath": "~/LocalizationAdmin/",
+  //"GoogleApiKey": "XXXfaSyDcvmGhGN7FlynP9QUZOLF8_4K8iF9ChWo",
+  //"BingClientId": "12345-4b99-47ed-be7e-caf733526020"
+}
