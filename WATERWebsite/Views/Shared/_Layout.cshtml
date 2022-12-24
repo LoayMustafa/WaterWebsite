@@ -167,7 +167,7 @@
                                                 <a href="~/about.html">@DbRes.T("AboutUS", "Resources", lang)</a>
                                             </li>
                                             <li class="menu-item-has-children">
-                                                <a href="~/services.html">@DbRes.T("Services", "Resources", lang)</a>
+                                                <a asp-action="index" asp-controller="Services">@DbRes.T("Services", "Resources", lang)</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="~/services-style1.html">Services Style 1</a></li>
                                                     <li><a href="~/services-style2.html">Services Style 2</a></li>
@@ -450,7 +450,7 @@
     </div>
 
     <!-- Footer Start -->
-    <footer id="rs-footer" class="rs-footer footer-main-home" style="background:black;">
+    <footer id="rs-footer" class="rs-footer footer-main-home">
         <div class="footer-top">
             <div class="container">
                 <div class="row">

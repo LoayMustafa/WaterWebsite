@@ -19,6 +19,8 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<Service> Service { get; set; } = null!;
         public virtual DbSet<SpecializedService> SpecializedService { get; set; } = null!;
         public virtual DbSet<ServiceItem> ServiceItem { get; set; } = null!;
+        public virtual DbSet<ServiceProject> ServiceProject { get; set; } = null!;
+        public virtual DbSet<ServiceSpecializedService> ServiceSpecializedService { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -87,6 +89,39 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.ServiceBriefA).HasMaxLength(255);
 
+                entity.HasMany(s => s.Projects)
+                    .WithMany(p => p.Services)
+                    .UsingEntity<ServiceProject>(
+                        j => j
+                            .HasOne(sp => sp.Project)
+                            .WithMany(p => p.ServiceProjects)
+                            .HasForeignKey(sp => sp.ProjectId),
+                        j => j
+                            .HasOne(sp => sp.Service)
+                            .WithMany(s => s.ServiceProjects)
+                            .HasForeignKey(sp => sp.ServiceId),
+                        j =>
+                        {
+                            j.HasKey(p => new { p.ServiceId, p.ProjectId });
+                        }
+                    );
+
+                entity.HasMany(s => s.SpecializedServices)
+                    .WithMany(p => p.Services)
+                    .UsingEntity<ServiceSpecializedService>(
+                        j => j
+                            .HasOne(sps => sps.SpecializedService)
+                            .WithMany(ss => ss.ServiceSpecializedServices)
+                            .HasForeignKey(sp => sp.SpecializedServiceId),
+                        j => j
+                            .HasOne(sps => sps.Service)
+                            .WithMany(s => s.ServiceSpecializedServices)
+                            .HasForeignKey(sp => sp.ServiceId),
+                        j =>
+                        {
+                            j.HasKey(p => new { p.ServiceId, p.SpecializedServiceId });
+                        }
+                    );
             });
 
             modelBuilder.Entity<SpecializedService>(entity =>

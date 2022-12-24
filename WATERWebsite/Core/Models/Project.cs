@@ -26,6 +26,8 @@
         public DateTime ProjectDate { get; set; }
         public virtual ICollection<Employee>? Employees { get; set; }
         public virtual ICollection<Service>? Services { get; set; }
+        public List<ServiceProject>? ServiceProjects { get; set; }
+
 
     }
 }

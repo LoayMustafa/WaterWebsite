@@ -18,5 +18,7 @@
         public string SpecializedServiceLogo { get; set; } = string.Empty;
         public virtual ICollection<Service>? Services { get; set; }
         public virtual ICollection<ServiceItem>? ServiceItems { get; set; }
+        public List<ServiceSpecializedService>? ServiceSpecializedServices { get; set; }
+
     }
 }

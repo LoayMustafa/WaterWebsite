@@ -18,5 +18,7 @@
         public string ServiceLogo { get; set; } = string.Empty;
         public virtual ICollection<Project>? Projects { get; set; }
         public virtual ICollection<SpecializedService>? SpecializedServices { get; set; }
+        public List<ServiceProject>? ServiceProjects { get; set; }
+        public List<ServiceSpecializedService>? ServiceSpecializedServices { get; set; }
     }
 }

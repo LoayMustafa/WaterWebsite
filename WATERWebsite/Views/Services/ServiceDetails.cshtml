@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WATERWebsite.Core.ViewModels.ServicesIndexViewModel>
+﻿@model WATERWebsite.Core.ViewModels.ServiceDetailsViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,23 +30,25 @@
 <div class="rs-services services-style13 gray-bg6 pt-120 pb-120 md-pt-80 md-pb-80">
     <div class="container">
         <div class="row">
-            @foreach (var item in Model)
-            {
-                ser++;
-                <div class="col-xl-4 col-md-6 mb-20">
-                    <div class="services-item">
-                        <div class="serial-number">	@ser</div>
-                        <div class="services-icon">
-                            <img src="assets/images/services/style12/icons/ser1.png" alt="Images">
-                        </div>
-                        <div class="services-text">
-                            <h4 class="title"><a asp-action="ServiceDetails" asp-route-ServiceCode="@item.ServiceCode">@item.ServiceName</a></h4>
-                            <p class="services-txt">
-                                @item.ServiceBrief
-                            </p>
+            @if(Model.SpecializedService != null){
+                @foreach (var item in Model.SpecializedService)
+                {
+                    ser++;
+                    <div class="col-xl-4 col-md-6 mb-20">
+                        <div class="services-item">
+                            <div class="serial-number">	@ser</div>
+                            <div class="services-icon">
+                                <img src="assets/images/services/style12/icons/ser1.png" alt="Images">
+                            </div>
+                            <div class="services-text">
+                                <h4 class="title"><a href="general-construction.html">@item.SpecializedServiceNameE</a></h4>
+                                <p class="services-txt">
+                                    @item.SpecializedServiceNameE
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                }
             }
         </div>
     </div>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WATERWebsite.Presistance;
 
@@ -11,9 +12,10 @@ using WATERWebsite.Presistance;
 namespace WATERWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221224215055_addServiceProjectRelation")]
+    partial class addServiceProjectRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -250,6 +252,21 @@ namespace WATERWebsite.Migrations
                     b.ToTable("ServiceItemSpecializedService");
                 });
 
+            modelBuilder.Entity("ServiceSpecializedService", b =>
+                {
+                    b.Property<int>("ServicesServiceCode")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpecializedServicesSpecializedServiceCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("ServicesServiceCode", "SpecializedServicesSpecializedServiceCode");
+
+                    b.HasIndex("SpecializedServicesSpecializedServiceCode");
+
+                    b.ToTable("ServiceSpecializedService");
+                });
+
             modelBuilder.Entity("WATERWebsite.Core.Models.Employee", b =>
                 {
                     b.Property<int>("EmployeeCode")
@@ -466,21 +483,6 @@ namespace WATERWebsite.Migrations
                     b.ToTable("ServiceProject");
                 });
 
-            modelBuilder.Entity("WATERWebsite.Core.Models.ServiceSpecializedService", b =>
-                {
-                    b.Property<int>("ServiceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpecializedServiceId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ServiceId", "SpecializedServiceId");
-
-                    b.HasIndex("SpecializedServiceId");
-
-                    b.ToTable("ServiceSpecializedService");
-                });
-
             modelBuilder.Entity("WATERWebsite.Core.Models.SpecializedService", b =>
                 {
                     b.Property<int>("SpecializedServiceCode")
@@ -607,6 +609,21 @@ namespace WATERWebsite.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ServiceSpecializedService", b =>
+                {
+                    b.HasOne("WATERWebsite.Core.Models.Service", null)
+                        .WithMany()
+                        .HasForeignKey("ServicesServiceCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WATERWebsite.Core.Models.SpecializedService", null)
+                        .WithMany()
+                        .HasForeignKey("SpecializedServicesSpecializedServiceCode")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("WATERWebsite.Core.Models.ServiceProject", b =>
                 {
                     b.HasOne("WATERWebsite.Core.Models.Project", "Project")
@@ -626,25 +643,6 @@ namespace WATERWebsite.Migrations
                     b.Navigation("Service");
                 });
 
-            modelBuilder.Entity("WATERWebsite.Core.Models.ServiceSpecializedService", b =>
-                {
-                    b.HasOne("WATERWebsite.Core.Models.Service", "Service")
-                        .WithMany("ServiceSpecializedServices")
-                        .HasForeignKey("ServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WATERWebsite.Core.Models.SpecializedService", "SpecializedService")
-                        .WithMany("ServiceSpecializedServices")
-                        .HasForeignKey("SpecializedServiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Service");
-
-                    b.Navigation("SpecializedService");
-                });
-
             modelBuilder.Entity("WATERWebsite.Core.Models.Project", b =>
                 {
                     b.Navigation("ServiceProjects");
@@ -653,13 +651,6 @@ namespace WATERWebsite.Migrations
             modelBuilder.Entity("WATERWebsite.Core.Models.Service", b =>
                 {
                     b.Navigation("ServiceProjects");
-
-                    b.Navigation("ServiceSpecializedServices");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.SpecializedService", b =>
-                {
-                    b.Navigation("ServiceSpecializedServices");
                 });
 #pragma warning restore 612, 618
         }
