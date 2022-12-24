@@ -56,7 +56,8 @@ namespace WATERWebsite.Controllers
             foreach(var specializedServiceId in serviceSpecialized)
             {
                 var specializedService = _db.SpecializedService.Find(specializedServiceId.SpecializedServiceId);
-                specializedServiceList.Add(specializedService);
+                if (specializedService != null)
+                    specializedServiceList.Add(specializedService);
             }
 
             ServiceDetailsViewModel serviceItem = new ServiceDetailsViewModel()
