@@ -24,10 +24,11 @@
         public string? ProjectOverviewA { get; set; }
         public string ProjectPhotoPath { get; set; } = string.Empty;
         public DateTime ProjectDate { get; set; }
-        public virtual ICollection<Employee>? Employees { get; set; }
         public virtual ICollection<Service>? Services { get; set; }
+        public virtual ICollection<ServiceItem>? ServiceItems { get; set; }
+        public virtual ICollection<Employee>? Employees { get; set; }
         public List<ServiceProject>? ServiceProjects { get; set; }
-
+        public List<ProjectsServiceItems>? ProjectsServiceItems { get; set; }
 
     }
 }

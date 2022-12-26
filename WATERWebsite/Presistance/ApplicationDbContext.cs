@@ -135,7 +135,6 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.SpecializedServiceNameA).HasMaxLength(255);
 
                 entity.Property(c => c.SpecializedServiceBriefA).HasMaxLength(255);
-
             });
 
             modelBuilder.Entity<ServiceItem>(entity =>
@@ -145,6 +144,44 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.ServiceItemNameE).HasMaxLength(255);
 
                 entity.Property(c => c.ServiceItemNameA).HasMaxLength(255);
+
+                entity.Property(c => c.ServiceItemDescriptionE).HasMaxLength(255);
+
+                entity.Property(c => c.ServiceItemDescriptionA).HasMaxLength(255);
+
+                entity.HasMany(s => s.SpecializedServices)
+                    .WithMany(p => p.ServiceItems)
+                    .UsingEntity<SpecializedServicesItems>(
+                        j => j
+                            .HasOne(s => s.SpecializedServices)
+                            .WithMany(i => i.SpecializedServicesItems)
+                            .HasForeignKey(sp => sp.SpecializedServiceId),
+                        j => j
+                            .HasOne(i => i.ServiceItems)
+                            .WithMany(s => s.SpecializedServicesItems)
+                            .HasForeignKey(sp => sp.ServiceItemId),
+                        j =>
+                        {
+                            j.HasKey(p => new { p.ServiceItemId, p.SpecializedServiceId });
+                        }
+                    );
+
+                entity.HasMany(s => s.Projects)
+                    .WithMany(p => p.ServiceItems)
+                    .UsingEntity<ProjectsServiceItems>(
+                        j => j
+                            .HasOne(s => s.Projects)
+                            .WithMany(i => i.ProjectsServiceItems)
+                            .HasForeignKey(sp => sp.ProjectId),
+                        j => j
+                            .HasOne(i => i.ServiceItems)
+                            .WithMany(s => s.ProjectsServiceItems)
+                            .HasForeignKey(sp => sp.ServiceItemId),
+                        j =>
+                        {
+                            j.HasKey(p => new { p.ProjectId, p.ServiceItemId });
+                        }
+                    );
 
             });
         }

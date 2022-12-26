@@ -19,6 +19,7 @@
         public virtual ICollection<Service>? Services { get; set; }
         public virtual ICollection<ServiceItem>? ServiceItems { get; set; }
         public List<ServiceSpecializedService>? ServiceSpecializedServices { get; set; }
+        public List<SpecializedServicesItems>? SpecializedServicesItems { get; set; }
 
     }
 }
