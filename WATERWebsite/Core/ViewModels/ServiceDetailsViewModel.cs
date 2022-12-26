@@ -11,5 +11,7 @@ namespace WATERWebsite.Core.ViewModels
         public string ServicePhotoPath { get; set; } = string.Empty;
         public string ServiceLogo { get; set; } = string.Empty;
         public List<SpecializedService>? SpecializedService { get; set; }
+        public List<Service>? Services { get; set; }
+
     }
 }

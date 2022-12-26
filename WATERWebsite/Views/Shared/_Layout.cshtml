@@ -48,8 +48,24 @@
     <!-- responsive css -->
     <link rel="stylesheet" type="text/css" href="~/assets/css/responsive.css">
 </head>
+
 <body class="defult-home">
-    <!--Full width header Start-->
+
+    <div class="offwrap"></div>
+
+    <!--Preloader start here-->
+    <div id="pre-load">
+        <div id="loader" class="loader">
+            <div class="loader-container">
+                <div class="loader-icon"><img src="assets/images/fav.png" alt="Konstruk - Construction & Building Html Template "></div>
+            </div>
+        </div>
+    </div>
+    <!--Preloader area end here-->
+    <!-- Main content Start -->
+    <div class="main-content">
+
+        <!--Full width header Start-->
     <div class="full-width-header">
         <!--Header Start-->
         <header id="rs-header" class="rs-header header-style1">
@@ -164,7 +180,7 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                <a href="~/about.html">@DbRes.T("AboutUS", "Resources", lang)</a>
+                                                <a asp-action="index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a>
                                             </li>
                                             <li class="menu-item-has-children">
                                                 <a asp-action="index" asp-controller="Services">@DbRes.T("Services", "Resources", lang)</a>
@@ -442,13 +458,13 @@
         <!--Header End-->
     </div>
     <!--Full width header End-->
-
-    <div class="container">
-        <main role="main" class="pb-3">
+    
+    <!--renderbody-->
             @RenderBody()
-        </main>
-    </div>
+        <!--renderbody end-->
 
+    </div>
+    <!-- Main content End -->
     <!-- Footer Start -->
     <footer id="rs-footer" class="rs-footer footer-main-home">
         <div class="footer-top">

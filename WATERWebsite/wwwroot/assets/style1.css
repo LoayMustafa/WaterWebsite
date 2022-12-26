@@ -210,7 +210,7 @@ ul {
   color: #ffffff;
 }
 .bg1 {
-  background: url(images/bg/about-bg.jpg);
+  background: url(../imgs/bg/about-bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -236,7 +236,7 @@ ul {
 }
 .bg5 {
   background-color: #010D14 !important;
-  background: url(images/bg/double-sec-bg.png) !important;
+  background: url(../imgs/bg/double-sec-bg.png) !important;
   background-position: bottom center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -348,12 +348,12 @@ ul {
 }
 .bg22 {
   background-color: #010D14;
-  background: url(images/bg/about-single-bg.jpg);
+  background: url(../imgs/bg/about-single-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .bg23 {
-  background: url(images/bg/konstruk-bg.jpg);
+  background: url(/imgs/bg/konstruk-bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3872,7 +3872,7 @@ body .search-modal .close:hover {
   color: #0c57a5;
 }
 .rs-breadcrumbs.img1 {
-  background: url(images/breadcrumbs/inr-1.jpg);
+  background: url(../imgs/breadcrumbs/inr-1.jpg);
 }
 .rs-breadcrumbs.img2 {
   background: url(images/breadcrumbs/inr-2.jpg);
@@ -10613,8 +10613,8 @@ body .search-modal .close:hover {
 	32. Footer Section CSS
 ------------------------------------*/
 .rs-footer.footer-main-home {
-  background-image: url(images/bg/footer-bg.jpg);
-  background-size: cover;
+    background-image: url(../imgs/bg/footer-bg.jpg);
+    background-size: cover;
 }
 .rs-footer.footer-main-home .footer-top {
   padding: 85px 0 70px;

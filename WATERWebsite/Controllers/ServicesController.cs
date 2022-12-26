@@ -50,6 +50,8 @@ namespace WATERWebsite.Controllers
             if (service == null)
                 return View("Error");
 
+            var services = _db.Service.ToList();
+
             var serviceSpecialized = _db.ServiceSpecializedService.Where(c => c.ServiceId == ServiceCode).ToList();
             List<SpecializedService> specializedServiceList = new List<SpecializedService>();
 
@@ -67,7 +69,8 @@ namespace WATERWebsite.Controllers
                 ServiceOverview = lang == "ar" ? service.ServiceOverviewA : service.ServiceOverviewE,
                 ServiceLogo = service.ServiceLogo,
                 ServicePhotoPath = service.ServicePhotoPath,
-                SpecializedService = specializedServiceList
+                SpecializedService = specializedServiceList,
+                Services = services
             };
             
             return View(serviceItem);
