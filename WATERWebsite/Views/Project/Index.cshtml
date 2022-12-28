@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WATERWebsite.Core.ViewModels.ProjectViewModels.ProjectIndexViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img3">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                Projects
+            </h1>
+            <span class="sub-text">
+                Excepteur sint occaecat cupidatat non proident, sunt in coulpa qui official<br>
+                modeserunt mollit anim id est 20 years experience.
+            </span>
+            <ul class="breadcrumbs-area">
+                <li title="Go to konstruk">
+                    <a class="active" asp-action="index" asp-controller="Home">Home</a>
+                </li>
+                <li>Projects</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Project Section Start -->
+<div class="rs-project project-style5 yellow-modify4 pt-120 pb-120 md-pt-80 md-pb-80">
+    <div class="container">
+        <div class="row">
+            @if (Model.Count() > 0)
+            {
+                foreach (var project in Model)
+                {
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="project-item">
+                            <div class="project-img">
+                                <img src="imgs/project/style1/7.jpg" alt="Images">
+                            </div>
+                            <div class="project-content">
+                                <span class="category"><a asp-action="ProjectDetails" asp-route-ProjectCode="@project.ProjectCode">@project.ProjectLocation</a></span>
+                                <h3 class="title"><a asp-action="ProjectDetails" asp-route-ProjectCode="@project.ProjectCode">@project.ProjectName</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+<!-- Project Section End -->

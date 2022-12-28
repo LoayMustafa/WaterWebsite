@@ -21,6 +21,7 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<ServiceItem> ServiceItem { get; set; } = null!;
         public virtual DbSet<ServiceProject> ServiceProject { get; set; } = null!;
         public virtual DbSet<ServiceSpecializedService> ServiceSpecializedService { get; set; } = null!;
+        public virtual DbSet<ProjectsServiceItems> ProjectsServiceItems { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -56,8 +57,6 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.ProjectNameE).HasMaxLength(255);
 
-                entity.Property(c => c.ProjectCapacityE).HasMaxLength(25);
-
                 entity.Property(c => c.ProjectOwnerE).HasMaxLength(255);
 
                 entity.Property(c => c.ProjectOperatorE).HasMaxLength(255);
@@ -66,7 +65,7 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.ProjectNameA).HasMaxLength(255);
 
-                entity.Property(c => c.ProjectCapacityA).HasMaxLength(25);
+                entity.Property(c => c.ProjectCapacity).HasMaxLength(25);
 
                 entity.Property(c => c.ProjectOwnerA).HasMaxLength(255);
 

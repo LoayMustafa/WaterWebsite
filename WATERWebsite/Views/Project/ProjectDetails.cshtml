@@ -1,0 +1,212 @@
+﻿@model WATERWebsite.Core.ViewModels.ProjectViewModels.ProjectDetailsViewModel
+@{
+    ViewData["Title"] = "ProjectDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img1">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                @Model.ProjectName
+            </h1>
+            <span class="sub-text">
+                @Model.ProjectLocation
+            </span>
+            <ul class="breadcrumbs-area">
+                <li title="Go to konstruk">
+                    <a class="active" asp-action="index" asp-controller="Project">Projects</a>
+                </li>
+                <li>@Model.ProjectName</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Slider Section Start -->
+<div class="rs-slider case-slider-style3 pt-120 md-pt-80">
+    <div class="container">
+        <div class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="0" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="1" data-ipad-device-nav="true" data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="true" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="true" data-md-device-dots="false">
+            <div class="slider-img">
+                <img src="~/imgs/slider/style3/sl1.jpg" alt="Slider">
+            </div>
+            <div class="slider-img">
+                <img src="~/imgs/slider/style3/sl2.jpg" alt="Slider">
+            </div>
+            <div class="slider-img">
+                <img src="~/imgs/slider/style3/sl3.jpg" alt="Slider">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Slider Section End -->
+<!-- Project Details Section Start -->
+<div class="rs-project-details pt-70 md-pt-80">
+    <div class="container">
+        <div class="project-information mb-45">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 md-mb-30">
+                    <div class="project-content">
+                        <div class="project-right-border"></div>
+                        <h4 class="title">Owner</h4>
+                        <div class="description">
+                            <p>@Model.ProjectOwner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 md-mb-30 pl-50 md-pl-15">
+                    <div class="project-content">
+                        <div class="project-right-border"></div>
+                        <h4 class="title">Operator</h4>
+                        <div class="description">
+                            <p>@Model.ProjectOperator</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 sm-mb-30 pl-50 md-pl-15">
+                    <div class="project-content">
+                        <div class="project-right-border"></div>
+                        <h4 class="title">Developer</h4>
+                        <div class="description">
+                            <p>@Model.ProjectDeveloper</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 pl-50 md-pl-15">
+                    <div class="project-content">
+                        <h4 class="title">Date</h4>
+                        <div class="description">
+                            <p>@Model.ProjectDate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="project-txt mb-30">
+            <h2 class="title pb-35 mb-10">Project Overview</h2>
+
+            <div class="desc">
+                @Model.ProjectOverview
+            </div>
+        </div>
+        @*<div class="project-txt mb-50">
+            <div class="desc">
+                The languages only differ in their grammar, their pronu nciation and their most common words. pronunciation and more common words. If several languages coalesce. nciation and their most common words. pronunciation and more common words.
+            </div>
+        </div>*@
+        <!-- Counter Section Start -->
+        <div class="rs-counter counter-style6">
+            <div class="counter-top bg23 md-pt-80 md-pb-80">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 md-mb-40">
+                        <div class="rs-counter-list">
+                            <div class="counter-text">
+                                <div class="counter-icon">
+                                    <img src="~/imgs/counter/pro-single/icons1.png" alt="">
+                                </div>
+                                <span class="title">Capacity</span>
+                                <div class="counter-number">
+                                    <span class="title">@Model.ProjectCapacity m3/day </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Counter Section End -->
+
+        <div class="rs-project-goals pt-115 md-pt-75">
+            <div class="row y-middle">
+                <div class="col-lg-6 pr-50 md-pr-15 md-mb-30">
+                    <div class="project-content mb-45">
+                        <div class="project-title">
+                            <h2 class="title pb-35">Project Services</h2>
+                        </div>
+                        <div class="desc pb-30">
+                            European languages are members of the same family. The languages only differ in their grammar, their pronu nciation and their most common words.. are of the same family.
+                        </div>
+                        <ul class="check-lists check-lists3 check-single">
+                            @if (Model.ProjectServiceItemsDto?.Count() > 0)
+                            {
+                                foreach(var service in Model.ProjectServiceItemsDto)
+                                {
+                                    <li>@service.ServiceName</li>
+                                }
+                            }
+                        </ul>
+                        <div class="desc pt-20">
+                            Pronunciation and more common words. If several languages the coalesce.  over the years, sometimes by accident, sometimes on purpose. Over the years, sometimes by  purpose.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-30">
+                    <div class="project-goal">
+                        <img src="~/imgs/project/details/pro-img1.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+@*            <div class="outcome-project pt-90 md-pt-80 pb-90 md-pb-80">
+                <div class="row y-middle">
+                    <div class="col-lg-6 md-mb-30">
+                        <div class="rs-videos career-style1">
+                            <div class="images-video">
+                                <img src="assets/images/project/details/pro-video.png" alt="">
+                            </div>
+                            <div class="overly-border">
+                                <a class="popup-videos" href="https://www.youtube.com/watch?v=LpdRAyIGg8I">
+                                    <i class="fa fa-play"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 pl-45 md-pl-15 mt-55">
+                        <div class="project-content mb-45 md-mb-0">
+                            <div class="project-title">
+                                <h2 class="title pb-35">Final Outcome of This Project</h2>
+                            </div>
+                            <div class="desc pb-20">
+                                The languages only differ in their grammar, their pronu nciation and their most common words. sometimes by accident, sometimes on purpose. European languages are members of the same family european languages are members of the same family.
+                            </div>
+                            <ul class="check-lists check-lists3 check-single">
+                                <li>How will digital activities impact traditional manufacturing.</li>
+                                <li>All these digital elements and projects aim to enhance .</li>
+                                <li>I monitor my staff with software that takes screenshots.</li>
+                                <li>Dolore magna niacin sodium aliquam hendrerit.</li>
+                                <li>Minim veniam quis niacin nostrud exerci dolor.</li>
+                            </ul>
+                            <div class="desc pt-20">
+                                If several languages coalesce.  over the years, sometimes by accident, sometimes on purpose. Over the years, sometimes by accident, on purpose uropean languages the same family
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+    <!-- Call To Action Choose Start -->
+    @*<div class="rs-cta bg4 pt-120 pb-120 md-pt-80 md-pb-80">
+        <div class="container">
+            <div class="call-action">
+                <div class="sec-title text-center">
+                    <span class="sub-text yellow-color">
+                        Work With Us !
+                    </span>
+                    <h2 class="title white-color pb-20">
+                        Have any upcoming project
+                    </h2>
+                    <p class="desc desc3 pb-35">
+                        Leverage agile frameworks to provide a robust synopsis for high level overviews.<br>
+                        Iterative approaches to corporate strategy foster collaborative thinking
+                    </p>
+                    <div class="btn-part">
+                        <a class="readon more contact" href="contact.html">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <!-- Call To Action Choose End -->
+</div>
+<!-- Project Details Section End -->
