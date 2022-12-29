@@ -1,0 +1,97 @@
+﻿@model WATERWebsite.Core.ViewModels.EmployeeViewModels.EmployeeDetailsViewModel
+@{
+    ViewData["Title"] = "EmpolyeeDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img6">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                Team - Single
+            </h1>
+            <span class="sub-text">
+                Excepteur sint occaecat cupidatat non proident, sunt in coulpa qui official<br>
+                modeserunt mollit anim id est 20 years experience.
+            </span>
+            <ul class="breadcrumbs-area">
+                <li title="Go to konstruk">
+                    <a class="active" href="index.html">Home</a>
+                </li>
+                <li>Team - Single</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->*@
+
+<!-- Team Start -->
+<div class="rs-team-single pt-120 pb-120 bg24 md-pt-80 md-pb-80">
+    <div class="container">
+        <div class="btm-info-team">
+            <div class="row align-items-center">
+                <div class="col-lg-5 md-mb-50">
+                    <div class="images-part">
+                        <img src="@Model.EmployeePhotoPath" alt="@Model.EmployeeName">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="con-info">
+                        <span class="designation-info">@Model.EmployeeJob</span>
+                        <h2 class="title">@Model.EmployeeName</h2>
+                        <div class="short-desc">
+                            @Model.EmployeeDescription
+                        </div>
+                        <div class="ps-informations">
+                            <ul class="personal-info">
+                                <li>
+                                    <span><i class="fa fa-envelope-open-o"></i></span>
+                                    <a href="@Model.EmployeeEmail">@Model.EmployeeEmail</a>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-phone"></i></span> @Model.EmployeePhone
+                                </li>
+                            </ul>
+                            <ul class="social-info">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+@*<!-- Careers Start -->
+<div class="rs-careers pt-120 pb-120 md-pt-80 md-pb-60">
+    <div class="container">
+        <div class="row y-middle">
+            <div class="col-lg-6 md-mb-50">
+                <div class="single-img">
+                    <img src="assets/images/services/services-single/ser5.jpg" alt="Img">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="sec-title mt-30 pl-30 md-pl-15">
+                    <h2 class="title title4 ser-style5 pb-30">@Model.EmployeeName Skills</h2>
+                    <p class="margin-0 pb-25">
+                        Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that Taking seamless key performance indicators.
+                    </p>
+                    <ul class="check-lists3">
+                        @if (Model.Skills?.Count > 0){
+                            foreach (var skill in Model.Skills)
+                            {
+                                <li>@skill</li>
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Careers End -->*@

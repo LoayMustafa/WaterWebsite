@@ -229,7 +229,7 @@ ul {
 }
 .bg4 {
   background-color: #010D14;
-  background: url(images/bg/cta-bg.jpg);
+  background: url(../imgs/bg/cta-bg.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -249,7 +249,7 @@ ul {
 }
 .bg7 {
   background-color: #010D14;
-  background: url(images/bg/double-sec-bg.png);
+  background: url(../imgs/double-sec-bg.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2075,6 +2075,14 @@ blockquote p {
   line-height: 46px;
   color: #010d14;
   margin: 0;
+}
+
+h3 .story {
+    font-weight: 700;
+    line-height: 46px;
+    color: #010d14;
+    margin: 0;
+    font-family: 'Roboto';
 }
 .sec-title2 .desc-big {
   font-size: 16px;
@@ -7001,12 +7009,12 @@ body .search-modal .close:hover {
   color: #fff;
 }
 .rs-skillbar.skillbar-style1 .video-img {
-  background-image: url(images/video/video-image5.jpg);
+  background-image: url(../imgs/video/video-image51.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  padding: 313px 0 313px;
+  padding: 200px 0 200px;
 }
 /* ------------------------------------
 	19. Services Section CSS

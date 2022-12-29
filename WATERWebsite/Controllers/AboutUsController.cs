@@ -16,14 +16,16 @@ namespace WATERWebsite.Controllers
         public IActionResult Index()
         {
             //Get Employees
-            var empolyees = _db.Employee.Select(c => new AboutUsTeamViewModel
+            var employees = _db.Employee.Select(c => new AboutUsTeamViewModel
             {
-                EmpolyeeName = lang == "ar" ? c.EmployeeNameA : c.EmployeeNameE,
-                EmpolyeeJob = lang == "ar" ? c.EmployeeJobA : c.EmployeeJobE,
-                EmpolyeeDescription = c.EmployeeDescription,
+                EmployeeCode = c.EmployeeCode,
+                EmployeeName = lang == "ar" ? c.EmployeeNameA : c.EmployeeNameE,
+                EmployeeJob = lang == "ar" ? c.EmployeeJobA : c.EmployeeJobE,
+                EmployeeDescription = lang == "ar" ? c.EmployeeDescriptionA : c.EmployeeDescriptionE,
+                EmployeePhotoPath = c.EmployeePhotoPath
             }).ToList();
 
-            return View(empolyees);
+            return View(employees);
         }
     }
 }

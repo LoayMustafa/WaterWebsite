@@ -22,6 +22,7 @@ namespace WATERWebsite.Controllers
                 ProjectCode = c.ProjectCode,
                 ProjectName = lang == "ar" ? c.ProjectNameA : c.ProjectNameE,
                 ProjectLocation = lang == "ar" ? c.ProjectLocationA : c.ProjectLocationE,
+                ProjectPhotoPath = c.ProjectPhotoPath
             }).ToList();
 
             return View(projects);
