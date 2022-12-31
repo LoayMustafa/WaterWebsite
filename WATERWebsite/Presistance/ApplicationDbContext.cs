@@ -22,6 +22,7 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<ServiceProject> ServiceProject { get; set; } = null!;
         public virtual DbSet<ServiceSpecializedService> ServiceSpecializedService { get; set; } = null!;
         public virtual DbSet<ProjectsServiceItems> ProjectsServiceItems { get; set; } = null!;
+        public virtual DbSet<SpecializedServicesItems> SpecializedServicesItems { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -179,6 +180,23 @@ namespace WATERWebsite.Presistance
                         j =>
                         {
                             j.HasKey(p => new { p.ProjectId, p.ServiceItemId });
+                        }
+                    );
+
+                entity.HasMany(s => s.SpecializedServices)
+                    .WithMany(p => p.ServiceItems)
+                    .UsingEntity<SpecializedServicesItems>(
+                        j => j
+                            .HasOne(s => s.SpecializedServices)
+                            .WithMany(i => i.SpecializedServicesItems)
+                            .HasForeignKey(sp => sp.SpecializedServiceId),
+                        j => j
+                            .HasOne(i => i.ServiceItems)
+                            .WithMany(s => s.SpecializedServicesItems)
+                            .HasForeignKey(sp => sp.ServiceItemId),
+                        j =>
+                        {
+                            j.HasKey(p => new { p.SpecializedServiceId, p.ServiceItemId });
                         }
                     );
 

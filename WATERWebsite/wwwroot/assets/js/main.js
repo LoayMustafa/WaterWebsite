@@ -57,8 +57,8 @@
     }
     var searchParent = $('.search-parent');
     if(searchParent.length){ 
-        $( ".search-parent" ).on( "click", function() {
-          $( this).toggleClass( "open_add_class", 1000 );
+        $(".search-parent").on("click", function () {
+            $(this).toggleClass("open_add_class", 1000);
         });
     }
    

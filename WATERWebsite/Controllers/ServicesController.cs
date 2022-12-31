@@ -54,12 +54,18 @@ namespace WATERWebsite.Controllers
 
             var serviceSpecialized = _db.ServiceSpecializedService.Where(c => c.ServiceId == ServiceCode).ToList();
             List<SpecializedService> specializedServiceList = new List<SpecializedService>();
-
+            //var colapss = "";
             foreach(var specializedServiceId in serviceSpecialized)
             {
                 var specializedService = _db.SpecializedService.Find(specializedServiceId.SpecializedServiceId);
                 if (specializedService != null)
                     specializedServiceList.Add(specializedService);
+
+                var specialServiceItems = _db.SpecializedServicesItems.Where(c => c.SpecializedServiceId == specializedServiceId.SpecializedServiceId).ToList();
+                foreach(var item in specialServiceItems)
+                {
+                    var items = _db.ServiceItem.Find(item.ServiceItemId);
+                }
             }
 
             ServiceDetailsViewModel serviceItem = new ServiceDetailsViewModel()
@@ -67,7 +73,7 @@ namespace WATERWebsite.Controllers
                 ServiceName = lang == "ar" ? service.ServiceNameA : service.ServiceNameE,
                 ServiceBrief = lang == "ar" ? service.ServiceBriefA : service.ServiceBriefE,
                 ServiceOverview = lang == "ar" ? service.ServiceOverviewA : service.ServiceOverviewE,
-                ServiceLogo = service.ServiceLogo,
+                ServiceLogo = service.ServiceLogo,                
                 ServicePhotoPath = service.ServicePhotoPath,
                 SpecializedService = specializedServiceList,
                 Services = services

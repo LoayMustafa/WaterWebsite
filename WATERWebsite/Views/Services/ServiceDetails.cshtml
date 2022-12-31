@@ -6,7 +6,7 @@
 }
 
 <!-- Breadcrumbs Start -->
-<div class="rs-breadcrumbs img2">
+<div class="rs-breadcrumbs img3">
     <div class="container">
         <div class="breadcrumbs-inner">
             <h1 class="page-title">
@@ -18,9 +18,9 @@
             </span>
             <ul class="breadcrumbs-area">
                 <li title="Go to konstruk">
-                    <a class="active" href="index.html">Home</a>
+                    <a class="active" asp-action="Index">Services</a>
                 </li>
-                <li>Services Style 1</li>
+                <li>@Model.ServiceName</li>
             </ul>
         </div>
     </div>
@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-lg-8 md-mb-50">
                 <div class="services-img mb-35">
-                    <img src="~/assets/images/services/services-single/ser1.jpg" alt="">
+                    <img src="@Model.ServicePhotoPath" alt="">
                 </div>
                 <div class="services-title pb-24">
                     <h2 class="title">We Ensure Best Service</h2>
@@ -50,11 +50,11 @@
                     }
                 </ul>
                 
-                <p class="desc-part pb-50">
+                <p class="desc-part pb-10">
                     @Model.ServiceOverview
                 </p>
                 <!-- Faq Section Start -->
-                <div class="rs-faq faq-style1 faq-modify1 pt-120 pb-100 md-pt-80 md-pb-60">
+                <div class="rs-faq faq-style1 faq-modify1 pt-100 pb-100 md-pt-80 md-pb-60">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 md-mb-50">
@@ -66,11 +66,25 @@
                                             {
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <a class="card-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">@ss.SpecializedServiceNameA</a>
+                                                        <a class="card-link collapsed" href="#" data-bs-toggle="collapse" 
+                                                        data-bs-target="#c_@ss.SpecializedServiceCode" aria-expanded="false">@ss.SpecializedServiceNameE</a>
                                                     </div>
-                                                    <div id="collapseTwo" class="collapse" data-bs-parent="#accordion" style="">
+                                                    <div id="c_@ss.SpecializedServiceCode" class="collapse" data-bs-parent="#accordion" style="">
                                                         <div class="card-body">
-                                                            @ss.SpecializedServiceBriefE
+                                                            <p>@ss.SpecializedServiceBriefE</p>
+                                                            <br>
+                                                            <h3>Specialized Service Overview</h3>
+                                                            <p>@ss.SpecializedServiceOverviewE</p>
+                                                            <br>
+                                                            @if (ss.SpecializedServicesItems != null)
+                                                            {
+                                                                @foreach (var item in ss.SpecializedServicesItems)
+                                                                {
+                                                                    <ul>
+                                                                        <li>@item.ServiceItems?.ServiceItemNameE</li>
+                                                                    </ul>
+                                                                }
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
@@ -83,14 +97,6 @@
                     </div>
                 </div>
                 <!-- Faq Section End -->
-                <div class="row mb-60 md-mb-30">
-                    <div class="col-lg-6 col-md-6 sm-mb-30">
-                        <img class="bdru-4" src="~/assets/images/services/services-single/ser3.jpg" alt="">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <img class="bdru-4" src="~/assets/images/services/services-single/ser4.jpg" alt="">
-                    </div>
-                </div>
             </div>
             <div class="col-lg-4 pl-36 md-pl-15">
                 <ul class="services-list mb-50">
@@ -98,7 +104,7 @@
                     {
                         @foreach (var service in Model.Services)
                         {
-                            <li><a href="general-construction.html">@service.ServiceNameE</a></li>
+                            <li><a asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceNameE</a></li>
                         }
                     }
                 </ul>
@@ -122,8 +128,3 @@
     </div>
 </div>
 <!-- Services Single End -->
-<script>
-    $('#show.bs.collapse').on('hidden.bs.collapse', function () {
-        $('#collapseThree').hide();
-    })
-</script>

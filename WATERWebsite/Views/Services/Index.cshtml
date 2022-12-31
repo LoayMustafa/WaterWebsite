@@ -18,9 +18,9 @@
             </span>
             <ul class="breadcrumbs-area">
                 <li title="Go to konstruk">
-                    <a class="active" href="index.html">Home</a>
+                    <a class="active" href="/">Home</a>
                 </li>
-                <li>Services Style 1</li>
+                <li>Services</li>
             </ul>
         </div>
     </div>
@@ -37,7 +37,7 @@
                     <div class="services-item">
                         <div class="serial-number">	@ser</div>
                         <div class="services-icon">
-                            <img src="assets/images/services/style12/icons/ser1.png" alt="Images">
+                            <img src="@item.ServiceLogo" alt="Images">
                         </div>
                         <div class="services-text">
                             <h4 class="title"><a asp-action="ServiceDetails" asp-route-ServiceCode="@item.ServiceCode">@item.ServiceName</a></h4>

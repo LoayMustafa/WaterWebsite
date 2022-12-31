@@ -134,7 +134,10 @@
                             </div>
                             <div class="services-content">
                                 <div class="services-titles">
-                                    <h4 class="title"><a href="general-construction.html">@service.ServiceName</a></h4>
+                                    <h4 class="title">
+                                        <a asp-action="ServiceDetails" asp-controller="Services"
+                                   asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a>
+                                    </h4>
                                 </div>
                                 <p class="services-txt">
                                     @service.ServiceBrief

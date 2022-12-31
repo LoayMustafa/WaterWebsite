@@ -57,7 +57,7 @@
     <div id="pre-load">
         <div id="loader" class="loader">
             <div class="loader-container">
-                <div class="loader-icon"><img src="~/assets/images/fav.png" alt="Konstruk - Construction & Building Html Template "></div>
+                <div class="loader-icon"><img src="~/assets/images/fav.png" alt="WATER Logo"></div>
             </div>
         </div>
     </div>
@@ -144,7 +144,7 @@
                                 <div class="main-menu">
                                     <nav class="rs-menu hidden-md">
                                         <ul class="nav-menu">
-                                            <li class="current-menu-item">
+                                            <li id="home">
                                                     <a asp-action="Index" asp-controller="Home">@DbRes.T("Home", "Resources", lang)</a>
                                             </li>
                                             <li>
@@ -181,7 +181,7 @@
                                             <li><a href="~/#"><i class="fa fa-instagram"></i></a></li>
                                         </ul>
                                     </li>
-                                    <li class="search-parent">
+                                    @*<li class="search-parent">
                                         <a class="hidden-xs rs-search" href="~/#">
                                             <i class="fi fi-rr-search"></i>
                                         </a>
@@ -196,7 +196,7 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </li>
+                                    </li>*@
                                     <li class="btn-quote"><a class="quote-button" href="~/#">Get A Quote<i class="fi fi-rr-arrow-small-right"></i></a></li>
                                     <li class="humburger">
                                         <a id="nav-expander" class="nav-expander bar" href="~/#">
@@ -231,13 +231,13 @@
                     </a>
                 </div>
                     <ul class="nav-menu">
-                        <li class="current-menu-item">
+                        <li id="home">
                             <a asp-action="Index" asp-controller="Home">@DbRes.T("Home", "Resources", lang)</a>
                         </li>
                         <li>
                             <a asp-action="index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a>
                         </li>
-                        <li class="menu-item-has-children">
+                        <li>
                             <a asp-action="index" asp-controller="Services">@DbRes.T("Services", "Resources", lang)</a>
                         </li>
                         <li>
@@ -442,5 +442,21 @@
     <script src="~/assets/js/contact.form.js"></script>
     <!-- main js -->
     <script src="~/assets/js/main.js"></script>
+    <script>
+        $(function () {
+            var current = location.pathname;
+            if (current === "/"){
+                current = "home";
+                $("#home").addClass('current-menu-item');
+            }
+            $('.nav-menu li a').each(function () {
+                var $this = $(this);
+                // if the current path is like this link, make it active
+                if ($this.attr('href').indexOf(current) !== -1) {
+                    $this.addClass('current-menu-item');
+                }
+            })
+        })
+    </script>
 </body>
 </html>
