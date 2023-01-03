@@ -14,8 +14,8 @@
 @media only screen and (max-width: 1880px) {
     .rs-slider.rs-slider-style2.rs-slider-style5 #nivoSlider img:not(.sl-icons),
     .rs-slider.rs-slider-style2 #nivoSlider img:not(.sl-icons, .sl-icons1, .sl-icons2){
-        height: 815px !important;
-        width: auto !important;
+        /*height: 815px !important;*/
+        /*width: auto !important;*/
     }
     .rs-slider.rs-slider-style2 #nivoSlider .slies-img{
         width: 0 !important
