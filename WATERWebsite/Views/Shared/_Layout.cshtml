@@ -70,41 +70,8 @@
             <!--Header Start-->
             <header id="rs-header" class="rs-header header-style3 header-transparent">
                 <!-- Toolbar Area Start -->
-                <div class="toolbar-area topbar-style1 topber-modify2 paste-color-modify1 hidden-md">
-                    <div class="container">
-                        <div class="row rs-vertical-middle">
-                            <div class="col-lg-7">
-                                <div class="toolbar-contact">
-                                    <ul class="rs-contact-info">
-                                        <li>
-                                            <i class="fi fi-rr-envelope-plus"></i>
-                                            <a href="mailto:info@water-consult.net">info@water-consult.net</a>
-                                        </li>
-                                        <li>
-                                            <i class="fi fi-rr-phone-call"></i>
-                                            <a href="tel:01000327035"> 01000327035 </a>
-                                        </li>
-                                        <li>
-                                            <i class="fi-rr-map-marker-home"></i>
-                                            Salah Salem, Cairo, Egypt
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-5">
-                                <div class="toolbar-sl-share">
-                                    <ul class="clearfix">
-                                        <li class="opening"> <em><i class="fi fi-rr-time-add"></i> Hours: Sat-Thurs: 9.00 am - 5.00 pm</em> </li>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @RenderSection("Toolbar" , required:false);
+
                 <!-- Toolbar Area End -->
                 <!-- Menu Start -->
                 <div class="menu-area menu-sticky">
@@ -186,7 +153,7 @@
                     </div>
                     <div class="rs-offcanvas-inner">
                         <div class="canvas-logo">
-                            <a href="index.html"><img src="~/assets/water/logo-blue.png" alt="logo"></a>
+                            <a href="/"><img src="~/assets/water/logo-blue.png" alt="logo"></a>
                         </div>
                         <div class="offcanvas-text">
                             <p>
@@ -401,7 +368,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="copyright text-lg-start text-center">
-                            <p>© 2023 WATER.  Designed By <a href="https://www.linkedin.com/in/loay-mustafa-22b4ab257/" target="blank">Loay Badwy</a></p>
+                            <p>© 2023 WATER.  All Rights Reserved. @*<a href="https://www.linkedin.com/in/loay-mustafa-22b4ab257/" target="blank">Loay Badwy</a>*@</p>
                         </div>
                     </div>
                 </div>

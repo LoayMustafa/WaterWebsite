@@ -71,12 +71,12 @@
             boxCols: 8,
             boxRows: 4,
             animSpeed: 600,
-            pauseTime: 5000000000,
+            pauseTime: 5000,
             startSlide: 0,
             directionNav: true,
             controlNavThumbs: false,
-            pauseOnHover: true,
-            manualAdvance: false
+            pauseOnHover: false,
+            manualAdvance: false,
         });
     } 
 

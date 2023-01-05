@@ -462,6 +462,11 @@
         font-size: 16px;
         line-height: 26px;
     }
+    .rs-slider.rs-slider-style2 .container {
+        position: relative;
+        height: 100%;
+        margin-top: 50px;
+    }
 }
 
 @media screen and (min-width: 992px){
@@ -685,7 +690,7 @@
         margin: 0 0 20px;
     }
     .full-width-header .rs-header .menu-area .logo-area img {
-        max-height: 30px;
+        max-height: 40px;
     }
     .full-width-header .rs-header .expand-btn-inner ul .humburger .nav-expander .bar {
         padding: 20px 8px 20px;
@@ -1034,7 +1039,7 @@
         line-height: 70px;
     }
     .full-width-header .rs-header .menu-area .logo-area img {
-        max-height: 25px;
+        max-height: 40px;
     }
     .rs-services.services-main-home .services-item .services-wrap .services-content .service-inner .services-txt {
         font-size: 14px;

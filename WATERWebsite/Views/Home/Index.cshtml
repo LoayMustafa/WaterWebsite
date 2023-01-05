@@ -6,12 +6,50 @@
 
     //var lang = "ar";
 }
+@section Toolbar{
+    <div class="toolbar-area topbar-style1 topber-modify2 paste-color-modify1 hidden-md">
+        <div class="container">
+            <div class="rs-vertical-middle">
+                <div class="float-left">
+                    <div class="toolbar-contact">
+                        <ul class="rs-contact-info">
+                            <li>
+                                <i class="fi fi-rr-envelope-plus"></i>
+                                <a href="mailto:info@water-consult.net">info@water-consult.net</a>
+                            </li>
+                            <li>
+                                <i class="fi fi-rr-phone-call"></i>
+                                <a href="tel:01000327035"> 01000327035 </a>
+                            </li>
+                            <li>
+                                <i class="fi-rr-map-marker-home"></i>
+                                Salah Salem, Cairo, Egypt
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="toolbar-sl-share">
+                        <ul class="clearfix">
+                            <li class="opening"> <em><i class="fi fi-rr-time-add"></i> Hours: Sat-Thurs: 9.00 am - 5.00 pm</em> </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
 <!-- Slider Start -->
 <div id="rs-slider" class="rs-slider rs-slider-style2 rs-slider-style7">
     <div class="bend niceties">
         <div id="nivoSlider" class="slides">
-            <img src="imgs/slider/style1/h2-15.jpg" alt="" title="#slide-1" />
-            <img src="imgs/slider/style1/h2-15.jpg" alt="" title="#slide-2" />
+            <img src="imgs/slider/style1/h2-16.jpg" alt="" title="#slide-1" />
+            <img src="imgs/slider/style1/h2-17.jpg" alt="" title="#slide-2" />
         </div>
         <!-- Slide 1 -->
         <div id="slide-1" class="slider-direction">
@@ -132,7 +170,7 @@
                                 </a>
                             </div>
                             <div class="services-content">
-                                <div class="services-titles">
+                                <div class="services-titles" style="height:70px;">
                                     <h4 class="title">
                                         <a asp-action="ServiceDetails" asp-controller="Services"
                                    asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a>
