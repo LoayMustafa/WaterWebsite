@@ -36,25 +36,25 @@ namespace WATERWebsite.Controllers
                 return NotFound();
 
             //Get Project Service Items
-            var projectServItems = _db.ProjectsServiceItems.Where(c => c.ProjectId == ProjectCode);
+            //var projectServItems = _db.ProjectsServiceItems.Where(c => c.ProjectId == ProjectCode);
 
-            List<ProjectServiceItemsDto> projectServiceItemsList = new List<ProjectServiceItemsDto>();
-            if (projectServItems != null)
-            {
-                foreach (var item in projectServItems)
-                {
-                    var service = _db.ServiceItem.Find(item.ServiceItemId);
-                    if (service != null)
-                    {
-                        ProjectServiceItemsDto projectServiceItem = new ProjectServiceItemsDto()
-                        {
-                            ServiceName = lang == "ar" ? service.ServiceItemNameA : service.ServiceItemNameE,
-                        };
-                        projectServiceItemsList.Add(projectServiceItem);
-                    }
+            //List<ProjectServiceItemsDto> projectServiceItemsList = new List<ProjectServiceItemsDto>();
+            //if (projectServItems != null)
+            //{
+            //    foreach (var item in projectServItems)
+            //    {
+            //        var service = _db.ServiceItem.Find(item.ServiceItemId);
+            //        if (service != null)
+            //        {
+            //            ProjectServiceItemsDto projectServiceItem = new ProjectServiceItemsDto()
+            //            {
+            //                ServiceName = lang == "ar" ? service.ServiceItemNameA : service.ServiceItemNameE,
+            //            };
+            //            projectServiceItemsList.Add(projectServiceItem);
+            //        }
 
-                }
-            }
+            //    }
+            //}
 
             ProjectDetailsViewModel viewModel = new ProjectDetailsViewModel
             {
@@ -67,7 +67,7 @@ namespace WATERWebsite.Controllers
                 ProjectOperator = lang == "ar" ? project.ProjectOperatorA : project.ProjectOperatorE,
                 ProjectPhotoPath = project.ProjectPhotoPath,
                 ProjectDate = project.ProjectDate.ToString("dd/MM/yyyy"),
-                ProjectServiceItemsDto = projectServiceItemsList
+                //ProjectServiceItemsDto = projectServiceItemsList
             };
             return View(viewModel);
         }

@@ -1,0 +1,101 @@
+﻿@model WATERWebsite.Core.ViewModels.AdminIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ServiceModal">Add Service</button>
+<select class="form-select" id="multiple-select-clear-field ProjectCodes" name="ProjectCodes" data-placeholder="Choose anything" multiple asp-items="@Model.Projects">
+    <option></option>
+</select>
+<div class="modal fade" id="ServiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Service</h5>
+            </div>
+            <div class="modal-body">
+                <div id="rs-checkout" class="rs-checkout">
+                    <div class="container">
+                        <div class="full-grid">
+                            <form method="Post" asp-action="CreateService">
+                                <div class="billing-fields">
+
+                                    <div class="form-content-box">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ServiceNameE" name="ServiceNameE">Service Name (EN): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceNameE" name="ServiceNameE" class="form-control-mod" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ServiceNameA" name="ServiceNameA">Service Name (AR): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceNameA" name="ServiceNameA" class="form-control-mod" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ServiceBriefE" name="ServiceBriefE">Service Brief (EN): </label>
+                                                    <textarea id="ServiceBriefE" name="ServiceBriefE" placeholder="Give A Brief About This Service"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ServiceBriefA" name="ServiceBriefA">Service Brief (AR): </label>
+                                                    <textarea id="ServiceBriefA" name="ServiceBriefA" placeholder="Give A Brief About This Service"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ServiceOverviewE" name="ServiceOverviewE">Service Overview (EN): </label>
+                                                    <textarea id="ServiceOverviewE" name="ServiceOverviewE" placeholder="Explain This Service"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ServiceOverviewA" name="ServiceOverviewA">Service Overview (AR): </label>
+                                                    <textarea id="ServiceOverviewA" name="ServiceOverviewA" placeholder="Explain This Service"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            @*<div class="col-md-6 col-sm-12 col-xs-12">
+                                            <label id="DivisionCodes" name="DivisionCodes">Divisions: </label>
+                                            <select class="form-select" id="basic-usage" name="DivisionCodes" asp-items="@Model.Divisions" multiple>
+                                            <option></option>
+                                            </select>
+                                            </div>*@
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <label id="ProjectCodes" name="ProjectCodes">Projects: </label>
+                                                <select class="form-select" id="multiple-select-clear-field ProjectCodes" name="ProjectCodes" data-placeholder="Choose anything" multiple asp-items="@Model.Projects">
+                                                    <option></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Send message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/assets/js/jquery.min.js"></script>
+<!-- Scripts -->
+
+<script>
+    $('#ServiceModal').on('shown.bs.modal', function () {
+        $('#ServiceModal').trigger('focus')
+    });
+</script>

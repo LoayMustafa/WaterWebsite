@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WATERWebsite.Presistance;
 
@@ -11,9 +12,10 @@ using WATERWebsite.Presistance;
 namespace WATERWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230108121015_addProjectServicesTbl")]
+    partial class addProjectServicesTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -249,21 +251,6 @@ namespace WATERWebsite.Migrations
                     b.HasKey("DivisionCode");
 
                     b.ToTable("Division");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.DivisionSubServices", b =>
-                {
-                    b.Property<int>("DivisionCode")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SubServiceCode")
-                        .HasColumnType("int");
-
-                    b.HasKey("DivisionCode", "SubServiceCode");
-
-                    b.HasIndex("SubServiceCode");
-
-                    b.ToTable("DivisionSubServices");
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Employee", b =>
@@ -551,27 +538,6 @@ namespace WATERWebsite.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WATERWebsite.Core.Models.DivisionSubServices", b =>
-                {
-                    b.HasOne("WATERWebsite.Core.Models.Division", "DivisionCodeNavigation")
-                        .WithMany("DivisionSubServices")
-                        .HasForeignKey("DivisionCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("Fk_DivisionSubServices_Division");
-
-                    b.HasOne("WATERWebsite.Core.Models.SubService", "SubServiceCodeNavigation")
-                        .WithMany("DivisionSubServices")
-                        .HasForeignKey("SubServiceCode")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("Fk_DivisionSubServices_SubService");
-
-                    b.Navigation("DivisionCodeNavigation");
-
-                    b.Navigation("SubServiceCodeNavigation");
-                });
-
             modelBuilder.Entity("WATERWebsite.Core.Models.ProjectServices", b =>
                 {
                     b.HasOne("WATERWebsite.Core.Models.Project", "ProjectCodeNavigation")
@@ -616,8 +582,6 @@ namespace WATERWebsite.Migrations
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Division", b =>
                 {
-                    b.Navigation("DivisionSubServices");
-
                     b.Navigation("ServiceDivisons");
                 });
 
@@ -631,11 +595,6 @@ namespace WATERWebsite.Migrations
                     b.Navigation("ProjectServices");
 
                     b.Navigation("ServiceDivisons");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.SubService", b =>
-                {
-                    b.Navigation("DivisionSubServices");
                 });
 #pragma warning restore 612, 618
         }

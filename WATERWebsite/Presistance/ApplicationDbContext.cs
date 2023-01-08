@@ -17,12 +17,11 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<Employee> Employee { get; set; } = null!;
         public virtual DbSet<Project> Project { get; set; } = null!;
         public virtual DbSet<Service> Service { get; set; } = null!;
-        public virtual DbSet<SpecializedService> SpecializedService { get; set; } = null!;
-        public virtual DbSet<ServiceItem> ServiceItem { get; set; } = null!;
-        public virtual DbSet<ServiceProject> ServiceProject { get; set; } = null!;
-        public virtual DbSet<ServiceSpecializedService> ServiceSpecializedService { get; set; } = null!;
-        public virtual DbSet<ProjectsServiceItems> ProjectsServiceItems { get; set; } = null!;
-        public virtual DbSet<SpecializedServicesItems> SpecializedServicesItems { get; set; } = null!;
+        public virtual DbSet<Division> Division { get; set; } = null!;
+        public virtual DbSet<SubService> SubService { get; set; } = null!;
+        public virtual DbSet<ServiceDivisons> ServiceDivisons { get; set; } = null!;
+        public virtual DbSet<ProjectServices> ProjectServices { get; set; } = null!;
+        public virtual DbSet<DivisionSubServices> DivisionSubServices { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -88,118 +87,77 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.ServiceNameA).HasMaxLength(255);
 
                 entity.Property(c => c.ServiceBriefA).HasMaxLength(255);
-
-                entity.HasMany(s => s.Projects)
-                    .WithMany(p => p.Services)
-                    .UsingEntity<ServiceProject>(
-                        j => j
-                            .HasOne(sp => sp.Project)
-                            .WithMany(p => p.ServiceProjects)
-                            .HasForeignKey(sp => sp.ProjectId),
-                        j => j
-                            .HasOne(sp => sp.Service)
-                            .WithMany(s => s.ServiceProjects)
-                            .HasForeignKey(sp => sp.ServiceId),
-                        j =>
-                        {
-                            j.HasKey(p => new { p.ServiceId, p.ProjectId });
-                        }
-                    );
-
-                entity.HasMany(s => s.SpecializedServices)
-                    .WithMany(p => p.Services)
-                    .UsingEntity<ServiceSpecializedService>(
-                        j => j
-                            .HasOne(sps => sps.SpecializedService)
-                            .WithMany(ss => ss.ServiceSpecializedServices)
-                            .HasForeignKey(sp => sp.SpecializedServiceId),
-                        j => j
-                            .HasOne(sps => sps.Service)
-                            .WithMany(s => s.ServiceSpecializedServices)
-                            .HasForeignKey(sp => sp.ServiceId),
-                        j =>
-                        {
-                            j.HasKey(p => new { p.ServiceId, p.SpecializedServiceId });
-                        }
-                    );
             });
 
-            modelBuilder.Entity<SpecializedService>(entity =>
+            modelBuilder.Entity<Division>(entity =>
             {
-                entity.HasKey(c => c.SpecializedServiceCode);
+                entity.HasKey(c => c.DivisionCode);
 
-                entity.Property(c => c.SpecializedServiceNameE).HasMaxLength(255);
+                entity.Property(c => c.DivisionNameE).HasMaxLength(255);
 
-                entity.Property(c => c.SpecializedServiceBriefE).HasMaxLength(255);
+                entity.Property(c => c.DivisionNameA).HasMaxLength(255);
 
-                entity.Property(c => c.SpecializedServiceNameA).HasMaxLength(255);
+                entity.Property(c => c.DivisionNameA).HasMaxLength(255);
 
-                entity.Property(c => c.SpecializedServiceBriefA).HasMaxLength(255);
+                entity.Property(c => c.DivisionNameA).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<ServiceItem>(entity =>
+            modelBuilder.Entity<ServiceDivisons>(entity =>
             {
-                entity.HasKey(c => c.ServiceItemCode);
+                entity.HasKey(e => new { e.ServiceCode, e.DivisionCode });
 
-                entity.Property(c => c.ServiceItemNameE).HasMaxLength(255);
+                entity.HasOne(d => d.ServiceCodeNavigation)
+                    .WithMany(p => p.ServiceDivisons)
+                    .HasForeignKey(d => d.ServiceCode)
+                    .HasConstraintName("Fk_ServiceDivisions_Service");
 
-                entity.Property(c => c.ServiceItemNameA).HasMaxLength(255);
+                entity.HasOne(d => d.DivisionCodeNavigation)
+                    .WithMany(p => p.ServiceDivisons)
+                    .HasForeignKey(d => d.DivisionCode)
+                    .HasConstraintName("Fk_ServiceDivisions_Division");
+            });
 
-                entity.Property(c => c.ServiceItemDescriptionE).HasMaxLength(255);
+            modelBuilder.Entity<SubService>(entity =>
+            {
+                entity.HasKey(c => c.SubServiceCode);
 
-                entity.Property(c => c.ServiceItemDescriptionA).HasMaxLength(255);
+                entity.Property(c => c.SubServiceNameE).HasMaxLength(255);
 
-                entity.HasMany(s => s.SpecializedServices)
-                    .WithMany(p => p.ServiceItems)
-                    .UsingEntity<SpecializedServicesItems>(
-                        j => j
-                            .HasOne(s => s.SpecializedServices)
-                            .WithMany(i => i.SpecializedServicesItems)
-                            .HasForeignKey(sp => sp.SpecializedServiceId),
-                        j => j
-                            .HasOne(i => i.ServiceItems)
-                            .WithMany(s => s.SpecializedServicesItems)
-                            .HasForeignKey(sp => sp.ServiceItemId),
-                        j =>
-                        {
-                            j.HasKey(p => new { p.ServiceItemId, p.SpecializedServiceId });
-                        }
-                    );
+                entity.Property(c => c.SubServiceNameA).HasMaxLength(255);
 
-                entity.HasMany(s => s.Projects)
-                    .WithMany(p => p.ServiceItems)
-                    .UsingEntity<ProjectsServiceItems>(
-                        j => j
-                            .HasOne(s => s.Projects)
-                            .WithMany(i => i.ProjectsServiceItems)
-                            .HasForeignKey(sp => sp.ProjectId),
-                        j => j
-                            .HasOne(i => i.ServiceItems)
-                            .WithMany(s => s.ProjectsServiceItems)
-                            .HasForeignKey(sp => sp.ServiceItemId),
-                        j =>
-                        {
-                            j.HasKey(p => new { p.ProjectId, p.ServiceItemId });
-                        }
-                    );
+                entity.Property(c => c.SubServiceBriefA).HasMaxLength(255);
 
-                entity.HasMany(s => s.SpecializedServices)
-                    .WithMany(p => p.ServiceItems)
-                    .UsingEntity<SpecializedServicesItems>(
-                        j => j
-                            .HasOne(s => s.SpecializedServices)
-                            .WithMany(i => i.SpecializedServicesItems)
-                            .HasForeignKey(sp => sp.SpecializedServiceId),
-                        j => j
-                            .HasOne(i => i.ServiceItems)
-                            .WithMany(s => s.SpecializedServicesItems)
-                            .HasForeignKey(sp => sp.ServiceItemId),
-                        j =>
-                        {
-                            j.HasKey(p => new { p.SpecializedServiceId, p.ServiceItemId });
-                        }
-                    );
+                entity.Property(c => c.SubServiceBriefE).HasMaxLength(255);
+            });
 
+            modelBuilder.Entity<ProjectServices>(entity =>
+            {
+                entity.HasKey(e => new { e.ProjectCode, e.ServiceCode });
+
+                entity.HasOne(d => d.ProjectCodeNavigation)
+                    .WithMany(p => p.ProjectServices)
+                    .HasForeignKey(d => d.ProjectCode)
+                    .HasConstraintName("Fk_ProjectServices_Project");
+
+                entity.HasOne(d => d.ServiceCodeNavigation)
+                    .WithMany(p => p.ProjectServices)
+                    .HasForeignKey(d => d.ServiceCode)
+                    .HasConstraintName("Fk_ProjectServices_Service");
+            });
+
+            modelBuilder.Entity<DivisionSubServices>(entity =>
+            {
+                entity.HasKey(e => new { e.DivisionCode, e.SubServiceCode });
+
+                entity.HasOne(d => d.DivisionCodeNavigation)
+                    .WithMany(p => p.DivisionSubServices)
+                    .HasForeignKey(d => d.DivisionCode)
+                    .HasConstraintName("Fk_DivisionSubServices_Division");
+
+                entity.HasOne(d => d.SubServiceCodeNavigation)
+                    .WithMany(p => p.DivisionSubServices)
+                    .HasForeignKey(d => d.SubServiceCode)
+                    .HasConstraintName("Fk_DivisionSubServices_SubService");
             });
         }
     }

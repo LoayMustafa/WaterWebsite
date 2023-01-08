@@ -4,8 +4,7 @@
     {
         public Project()
         {
-            this.Employees = new HashSet<Employee>();
-            this.Services = new HashSet<Service>();
+            ProjectServices = new HashSet<ProjectServices>();
         }
         public int ProjectCode { get; set; }
         public string ProjectNameE { get; set; } = string.Empty;
@@ -23,11 +22,7 @@
         public string? ProjectOverviewA { get; set; }
         public string ProjectPhotoPath { get; set; } = string.Empty;
         public DateTime ProjectDate { get; set; }
-        public virtual ICollection<Service>? Services { get; set; }
-        public virtual ICollection<ServiceItem>? ServiceItems { get; set; }
-        public virtual ICollection<Employee>? Employees { get; set; }
-        public List<ServiceProject>? ServiceProjects { get; set; }
-        public List<ProjectsServiceItems>? ProjectsServiceItems { get; set; }
+        public ICollection<ProjectServices>? ProjectServices { get; set; }
 
     }
 }

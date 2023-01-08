@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WATERWebsite.Core.DTOs;
 using WATERWebsite.Core.Models;
 using WATERWebsite.Core.ViewModels;
 using WATERWebsite.Presistance;
@@ -52,21 +53,21 @@ namespace WATERWebsite.Controllers
 
             var services = _db.Service.ToList();
 
-            var serviceSpecialized = _db.ServiceSpecializedService.Where(c => c.ServiceId == ServiceCode).ToList();
-            List<SpecializedService> specializedServiceList = new List<SpecializedService>();
-            //var colapss = "";
-            foreach(var specializedServiceId in serviceSpecialized)
-            {
-                var specializedService = _db.SpecializedService.Find(specializedServiceId.SpecializedServiceId);
-                if (specializedService != null)
-                    specializedServiceList.Add(specializedService);
+            //var serviceSpecialized = _db.ServiceSpecializedService.Where(c => c.ServiceId == ServiceCode).ToList();
+            //List<SpecializedService> specializedServiceList = new List<SpecializedService>();
+            ////var colapss = "";
+            //foreach(var specializedServiceId in serviceSpecialized)
+            //{
+            //    var specializedService = _db.SpecializedService.Find(specializedServiceId.SpecializedServiceId);
+            //    if (specializedService != null)
+            //        specializedServiceList.Add(specializedService);
 
-                var specialServiceItems = _db.SpecializedServicesItems.Where(c => c.SpecializedServiceId == specializedServiceId.SpecializedServiceId).ToList();
-                foreach(var item in specialServiceItems)
-                {
-                    var items = _db.ServiceItem.Find(item.ServiceItemId);
-                }
-            }
+            //    var specialServiceItems = _db.SpecializedServicesItems.Where(c => c.SpecializedServiceId == specializedServiceId.SpecializedServiceId).ToList();
+            //    foreach(var item in specialServiceItems)
+            //    {
+            //        var items = _db.ServiceItem.Find(item.ServiceItemId);
+            //    }
+            //}
 
             ServiceDetailsViewModel serviceItem = new ServiceDetailsViewModel()
             {
@@ -75,11 +76,12 @@ namespace WATERWebsite.Controllers
                 ServiceOverview = lang == "ar" ? service.ServiceOverviewA : service.ServiceOverviewE,
                 ServiceLogo = service.ServiceLogo,                
                 ServicePhotoPath = service.ServicePhotoPath,
-                SpecializedService = specializedServiceList,
+                //SpecializedService = specializedServiceList,
                 Services = services
             };
             
             return View(serviceItem);
         }
+        
     }
 }

@@ -3469,7 +3469,6 @@ body.modal-open {
 }
 body .modal.show .modal-dialog {
   width: 100%;
-  max-width: 500px;
 }
 body .modal {
   z-index: 9999;
