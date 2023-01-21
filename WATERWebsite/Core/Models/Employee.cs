@@ -13,5 +13,6 @@
         public string? EmployeePhone { get; set; }
         public string? EmployeeEmail { get; set; }
         public string? EmployeeCV { get; set; }
+        public bool? IsKey { get; set; }
     }
 }

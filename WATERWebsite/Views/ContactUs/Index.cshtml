@@ -1,0 +1,196 @@
+﻿@model WATERWebsite.Core.ViewModels.ContactUsViewModels.ContactUsMailViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .error{
+        color:red;
+        font-style:italic;
+    }
+</style>
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img6">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                Contact Us
+            </h1>
+            <span class="sub-text">
+                You Can Contact Us NOW!
+            </span>
+            <ul class="breadcrumbs-area">
+                <li title="Go to konstruk">
+                    <a class="active" href="/">Home</a>
+                </li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Contact Section Start -->
+<div class="rs-contact contact-style6 pb-120 md-pb-80">
+    <div class="row no-gutters">
+        <div class="col-lg-4">
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.528196917985!2d31.313388900000003!3d30.079055600000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb209c0ace60a2a5f!2zMzDCsDA0JzQ0LjYiTiAzMcKwMTgnNDguMiJF!5e0!3m2!1sen!2seg!4v1674312296848!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="contact-section">
+                <div class="contact-wrap">
+                    <div class="sec-title mb-60">
+                        <h2 class="title title4 ser-style4">Get in touch</h2>
+                    </div>
+                    <form id="contact-form">
+                        <fieldset>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                    <input class="from-control" type="text" asp-for="ClientName" placeholder="Your Name *" required="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                    <input class="from-control" type="text" asp-for="EmailFrom" placeholder="E-Mail *" required="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                    <input class="from-control" type="text" asp-for="ClientNumber" placeholder="Phone Number" required="">
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                    <input class="from-control" type="text" asp-for="Subject" placeholder="Subject *" required="">
+                                </div>
+                                <div class="col-lg-12 mb-30">
+                                    <textarea class="from-control" asp-for="body" placeholder="Your Message Here *" required=""></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <input type="file" asp-for="Attachments" placeholder="Attach File if You Want">
+                                </div>
+                            </div>
+                            <div class="btn-part">
+                                <div class="form-group mb-0">
+                                    <input type="submit" id="OnSubmit" class="btn btn-primary">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 contact-project"></div>
+    </div>
+    <!-- Contact Icons Section End -->
+    <div class="rs-contact pt-120 md-pt-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 md-mb-30">
+                    <div class="contact-box">
+                        <div class="contact-icon">
+                            <img src="assets/images/contact/style1/icons/1.png" alt="images">
+                        </div>
+                        <div class="content-text">
+                            <h4 class="title"><a href="#">Office address</a></h4>
+                            <p class="services-txt">
+                                8 El Obour Buildings - Salah Salem,
+                                <br> Governorate, Egypt
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 sm-mb-30">
+                    <div class="contact-box">
+                        <div class="contact-icon">
+                            <img src="assets/images/contact/style1/icons/2.png" alt="images">
+                        </div>
+                        <div class="content-text">
+                            <h4 class="title"><a href="#">Email us</a></h4>
+                            <span><a href="mailto:info@water-consult.net ">info@water-consult.net</a></span><br>
+                            <span><a href="mailto:info@codesless.com">info@codesless.com</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-box">
+                        <div class="contact-icon">
+                            <img src="assets/images/contact/style1/icons/3.png" alt="images">
+                        </div>
+                        <div class="content-text">
+                            <h4 class="title"><a href="#">Call us</a></h4>
+                            <span><a href="tel:01000327035">01000327035</a></span><br>
+                            <span> <a href="tel:01200797973">01200797973</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Icons Section End -->
+</div>
+<!-- Contact Section End -->
+<!-- jquery latest version -->
+<script src="~/assets/js/jquery.min.js"></script>
+
+<script>
+    $('#OnSubmit').on('click', function (event) {
+        $('#contact-form').validate({ // initialize the plugin
+            rules: {
+                ClientName: {
+                    required: true,
+                },
+                EmailFrom: {
+                    required: true,
+                },
+                Subject: {
+                    required: true,
+                },
+                body: {
+                    required: true,
+                },
+                ClientNumber: {
+                    required: true,
+                    number:true,
+                }
+            },
+            messages:{
+                ClientName: {
+                    required: 'Please Enter Your Name',
+                },
+                EmailFrom: {
+                    required: 'Please Enter Your Email',
+                },
+                Subject: {
+                    required: 'Please Enter Your Subject',
+                },
+                body: {
+                    required: 'Please Enter Your Message',
+                },
+                ClientNumber: {
+                    required: 'Please Enter Your Number',
+                }
+            },
+            submitHandler: function () {
+
+                $('#OnSubmit').attr("disabled", "disabled");
+
+                $.ajax({
+                    type: "Post",
+                    data: $("#contact-form").serialize(),
+                    url: "/ContactUs/SendMail",
+                    success: function (res) {
+                        debugger;
+                        if (res.success)
+                            location.href = "/ContactUs"
+                        else {
+                            alert(res.errorMessage)
+                            $('#OnSubmit').show()
+                        }
+                    },
+                    error: function (err) {
+                        alert("Sorry Error in Sending Email")
+                        $('#OnSubmit').show()
+                    }
+                })
+            }
+
+        });
+    })
+
+</script>

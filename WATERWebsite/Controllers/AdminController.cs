@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using WATERWebsite.Core.DTOs;
+using WATERWebsite.Core.DTOs.ProjectDtos;
+using WATERWebsite.Core.DTOs.ServiceDtos;
 using WATERWebsite.Core.Models;
 using WATERWebsite.Core.ViewModels;
 using WATERWebsite.Presistance;
@@ -27,6 +28,51 @@ namespace WATERWebsite.Controllers
             };
             return View(viewModel);
         }
+
+        #region Service
+        [HttpGet]
+        public IActionResult CreateProject()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateProject(CreateProjectDto dto)
+        {
+            Project project = new Project
+            {
+                ProjectNameE = dto.ProjectNameE,
+                ProjectNameA = dto.ProjectNameA,
+                ProjectDeveloperA = dto.ProjectDeveloperA,
+                ProjectDeveloperE = dto.ProjectDeveloperE,
+                ProjectOverviewE = dto.ProjectOverviewE,
+                ProjectOverviewA = dto.ProjectOverviewA,
+                ProjectLocationA = dto.ProjectLocationA,
+                ProjectLocationE = dto.ProjectLocationE,
+                ProjectOperatorA = dto.ProjectOperatorA,
+                ProjectOperatorE = dto.ProjectOperatorE,
+                ProjectOwnerA = dto.ProjectOwnerA,
+                ProjectOwnerE = dto.ProjectOwnerE,
+                ProjectDate = dto.ProjectDate,
+                ProjectCapacity = dto.ProjectCapacity,
+            };
+
+            if (dto.ServiceCodes != null)
+            {
+                var services = _db.Service.Where(c => dto.ServiceCodes.Contains(c.ServiceCode)).ToList();
+                foreach (var service in services)
+                {
+                    ProjectServices projectService = new ProjectServices
+                    {
+                        ServiceCode = service.ServiceCode,
+                        ProjectCode = project.ProjectCode,
+                    };
+                    _db.ProjectServices.Add(projectService);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+        #endregion
 
         #region Service
         [HttpGet]

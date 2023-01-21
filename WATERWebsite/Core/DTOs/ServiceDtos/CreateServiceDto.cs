@@ -1,6 +1,6 @@
 ﻿using WATERWebsite.Core.Models;
 
-namespace WATERWebsite.Core.DTOs
+namespace WATERWebsite.Core.DTOs.ServiceDtos
 {
     public class CreateServiceDto
     {
@@ -13,7 +13,7 @@ namespace WATERWebsite.Core.DTOs
         public string? ServiceBriefA { get; set; }
         public string ServicePhotoPath { get; set; } = string.Empty;
         public string ServiceLogo { get; set; } = string.Empty;
-        public List<int> ProjectCodes { get; set; }
-        public List<int> DivisionCodes { get; set; }
+        public List<int>? ProjectCodes { get; set; }
+        public List<int>? DivisionCodes { get; set; }
     }
 }

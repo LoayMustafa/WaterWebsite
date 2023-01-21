@@ -109,7 +109,7 @@
                                                     <a asp-action="Index" asp-controller="Home">@DbRes.T("Blog", "Resources", lang)</a>
                                                 </li>
                                                 <li>
-                                                    <a asp-action="Index" asp-controller="Home">@DbRes.T("ContactUs", "Resources", lang)</a>
+                                                    <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
                                                 </li>
                                             </ul> <!-- //.nav-menu -->
                                         </nav>
@@ -428,6 +428,7 @@
     <script src="~/assets/js/contact.form.js"></script>
     <!-- main js -->
     <script src="~/assets/js/main.js"></script>
+    <script src="~/assets/js/jquery.validate.min.js"></script>
     <script>
         $(function () {
             var current = location.pathname;
