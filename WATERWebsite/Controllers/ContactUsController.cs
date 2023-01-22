@@ -23,7 +23,7 @@ namespace WATERWebsite.Controllers
             await _mailingService.SendEmailAsync("loaybadwy10@gmail.com",viewModel.EmailFrom, viewModel.ClientName, viewModel.ClientNumber, 
                             viewModel.Subject,viewModel.body, viewModel.Attachments);
 
-            return Json(new { success = true});
+            return Json(new { success = true });
         }
     }
 }

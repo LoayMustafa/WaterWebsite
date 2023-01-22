@@ -1901,6 +1901,7 @@ blockquote p {
   line-height: 53px;
   color: #010d14;
   margin: 0;
+  font-family: 'Roboto';
 }
 .sec-title .title.title2 {
   font-size: 36px;
@@ -2411,7 +2412,7 @@ h3 .story {
 .full-width-header .rs-header .toolbar-area.topbar-style1.topber-modify2.paste-color-modify1 .toolbar-contact .rs-contact-info li a:hover,
 .full-width-header .rs-header .toolbar-area.topbar-style1.topber-modify2.paste-color-modify1 .toolbar-sl-share .clearfix .opening em i,
 .full-width-header .rs-header .toolbar-area.topbar-style1.topber-modify2.paste-color-modify1 .toolbar-contact .rs-contact-info li i {
-  color: #0D659D;
+  color: #c3ceda;
 }
 .full-width-header .rs-header .toolbar-area.topbar-style1.topber-modify3 {
   background: #0052da;
@@ -5755,7 +5756,7 @@ body .search-modal .close:hover {
 }
 .rs-contact.contact-style6 .contact-section {
   padding: 126px 40px 85px 40px;
-  background-color: #010D14;
+  background-color: #2b2b2b;
 }
 .rs-contact.contact-style6 .contact-section .contact-wrap {
   padding: 0px 40px 0px 40px;
@@ -5801,7 +5802,7 @@ body .search-modal .close:hover {
 }
 .rs-contact.contact-style6 .contact-box {
   padding: 35px 35px 35px 35px;
-  background-color: #010D14;
+  background-color: #2b2b2b;
   border-radius: 3px 3px 3px 3px;
   margin: 0 -4px 0 0;
   text-align: center;
@@ -7138,7 +7139,7 @@ body .search-modal .close:hover {
     background-color: #FFFFFF;
     padding: 50px 35px 43px 35px;
     box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.05);
-    max-height:475px;
+    height:475px;
 }
 .rs-services.services-style1 .services-slider .services-img {
   margin: 0px 0px 39px 0px;
@@ -10688,7 +10689,7 @@ body .search-modal .close:hover {
   position: relative;
 }
 .rs-footer.footer-main-home .footer-top .address-widget li i {
-  color: #0D659D;
+  color: #FFFFFF;
   position: absolute;
   left: 0;
 }
@@ -10729,7 +10730,7 @@ body .search-modal .close:hover {
   content: "\f113";
   left: 0;
   top: 0;
-  color: #0D659D;
+  color: #FFFFFF;
   margin-right: 10px;
   font-size: 13px;
   font-family: Flaticon;
