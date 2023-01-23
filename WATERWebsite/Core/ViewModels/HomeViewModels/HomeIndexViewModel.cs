@@ -1,4 +1,5 @@
-﻿using WATERWebsite.Core.DTOs.ProjectDtos;
+﻿using WATERWebsite.Core.DTOs.BlogDtos;
+using WATERWebsite.Core.DTOs.ProjectDtos;
 using WATERWebsite.Core.DTOs.ServiceDtos;
 
 namespace WATERWebsite.Core.ViewModels.HomeViewModels
@@ -7,6 +8,7 @@ namespace WATERWebsite.Core.ViewModels.HomeViewModels
     {
         public List<ServicesDto>? ServicesDto { get; set; }
         public List<ProjectHomeDto>? ProjectHomeDto { get; set; }
+        public List<BlogHomeDto>? BlogHomeDto { get; set; }
 
     }
 }

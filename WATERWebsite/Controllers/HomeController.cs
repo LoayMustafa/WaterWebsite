@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WATERWebsite.Core.DTOs.BlogDtos;
 using WATERWebsite.Core.DTOs.ProjectDtos;
 using WATERWebsite.Core.DTOs.ServiceDtos;
 using WATERWebsite.Core.ViewModels.HomeViewModels;
@@ -48,12 +49,21 @@ namespace WATERWebsite.Controllers
             //GetPartners
 
             //GetBlogs
-
+            var blogs =_db.Blog.Select(c => new BlogHomeDto
+            {
+                BlogCode = c.BlogCode,
+                BlogBrief = lang == "ar" ? c.BlogBriefA : c.BlogBriefE,
+                BlogTitle = lang == "ar" ? c.BlogTitleA : c.BlogTitleE,
+                BlogPublisher = lang == "ar" ? c.BlogPublisherA : c.BlogPublisherE,
+                BlogDate = c.BlogDate.ToString("dd/MM/yyyy"),
+                BlogPhoto = c.BlogPhoto,
+            }).ToList();
 
             HomeIndexViewModel viewModel = new HomeIndexViewModel
             {
                 ServicesDto = services,
                 ProjectHomeDto = projects,
+                BlogHomeDto = blogs
             };
 
             return View(viewModel);

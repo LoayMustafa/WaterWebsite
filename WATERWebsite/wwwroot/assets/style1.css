@@ -8862,6 +8862,7 @@ body .search-modal .close:hover {
 .rs-blog.blog-main-home .blog-item .image-wrap {
   position: relative;
   overflow: hidden;
+  height:170px;
 }
 .rs-blog.blog-main-home .blog-item .image-wrap a img {
   transition: all 0.5s ease 0s;
@@ -8916,6 +8917,11 @@ body .search-modal .close:hover {
 }
 .rs-blog.blog-main-home .blog-item .blog-content .blog-title a {
   color: #010d14;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 300px;
+    display: block
 }
 .rs-blog.blog-main-home .blog-item .blog-content .blog-title a:hover {
   color: #0D659D;
@@ -8929,6 +8935,7 @@ body .search-modal .close:hover {
 }
 .rs-blog.blog-main-home.blog-modify1 .blog-item {
   padding: 15px;
+  height: 500px;
 }
 .rs-blog.blog-main-home.blog-modify1 .blog-item .blog-content {
   padding: 30px 30px 18px 30px;
@@ -8940,7 +8947,12 @@ body .search-modal .close:hover {
   margin-bottom: 18px;
 }
 .rs-blog.blog-main-home.blog-modify1 .blog-content .desc {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 300px;
+    display: block;
 }
 .rs-blog.blog-main-home.blog-modify2 .blog-item {
   padding: 15px;

@@ -22,6 +22,7 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<ServiceDivisons> ServiceDivisons { get; set; } = null!;
         public virtual DbSet<ProjectServices> ProjectServices { get; set; } = null!;
         public virtual DbSet<DivisionSubServices> DivisionSubServices { get; set; } = null!;
+        public virtual DbSet<Blog> Blog { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -158,6 +159,27 @@ namespace WATERWebsite.Presistance
                     .WithMany(p => p.DivisionSubServices)
                     .HasForeignKey(d => d.SubServiceCode)
                     .HasConstraintName("Fk_DivisionSubServices_SubService");
+            });
+
+            modelBuilder.Entity<Blog>(entity =>
+            {
+                entity.HasKey(c => c.BlogCode);
+
+                entity.Property(c => c.BlogCode).ValueGeneratedOnAdd();
+
+                entity.Property(c => c.BlogBriefA).HasMaxLength(255);
+
+                entity.Property(c => c.BlogBriefE).HasMaxLength(255);
+
+                entity.Property(c => c.BlogTitleA).HasMaxLength(255);
+
+                entity.Property(c => c.BlogTitleE).HasMaxLength(255);
+
+                entity.Property(c => c.BlogDate).HasColumnType("datetime");
+                
+                entity.Property(c => c.BlogPublisherE).HasMaxLength(25);
+                
+                entity.Property(c => c.BlogPublisherA).HasMaxLength(25);
             });
         }
     }
