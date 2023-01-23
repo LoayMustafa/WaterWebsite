@@ -1,7 +1,13 @@
-﻿@model IEnumerable<WATERWebsite.Core.ViewModels.AboutUsViewModels.AboutUsTeamViewModel>
+﻿@using Westwind.Globalization;
+@model IEnumerable<WATERWebsite.Core.ViewModels.AboutUsViewModels.AboutUsTeamViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var lang = "ar";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
 }
 
 <!-- Breadcrumbs Start -->
@@ -9,11 +15,10 @@
     <div class="container">
         <div class="breadcrumbs-inner">
             <h1 class="page-title">
-                About Us
+                @DbRes.T("AboutUS", "Resources", lang)
             </h1>
             <span class="sub-text">
-                We have demonstrated our presence in this industry for more than 8 years by developing locally and regionally;
-                by launching 3 branches in Egypt. The office proudly inaugurated 3 more branches in Oman.
+                @DbRes.T("AboutUsBrief", "Resources", lang)
             </span>
             <ul class="breadcrumbs-area">
                 <li title="Go to konstruk">
@@ -38,14 +43,13 @@
                 <div class="sec-title">
                     <span class="sub-text">
                         <img src="assets/images/shape-1.png" alt="Images">
-                        Who We Are
+                        @DbRes.T("WhoWeAre", "Resources", lang)
                     </span>
                     <h2 class="title pb-20">
-                        Our Vision:
+                        @DbRes.T("OurVision", "Resources", lang):
                     </h2>
                     <p class="desc pb-37">
-                        To be an international leading multidisciplinary engineering services firm by virtue of our exceptional team,
-                        superior services, and innovative solutions.
+                        @DbRes.T("OurVisionBrief", "Resources", lang):
                     </p>
                     <div class="row y-middle">
                         <div class="col-lg-4 col-md-4 sm-mb-30">
@@ -79,7 +83,7 @@
                     <div class="row mt-47 md-mt-25">
                         <div class="col-lg-6 col-md-4 sm-mb-30">
                             <div class="btn-part">
-                                <a class="readon more know" href="about.html">Know more</a>
+                                <a class="readon more know" href="about.html">@DbRes.T("KnowMore", "Resources", lang)</a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-8">
@@ -101,12 +105,11 @@
             <div class="col-lg-6 pr-60 md-pr-15 mt-40 md-mb-40">
                 <div class="sec-title mb-45">
                     <h2 class="title title4 pb-30">
-                        Our Mission:
+                        @DbRes.T("OurMission", "Resources", lang):
                     </h2>
                     <p class="desc desc8">
-                        To help clients maximize their businesses on a local, regional,<br />
-                        and global scale through our tailored strategic business consulting while building
-                        and sustaining long-term relationships with those clients.
+                        @DbRes.T("OurMissionBrief1", "Resources", lang),<br />
+                        @DbRes.T("OurMissionBrief2", "Resources", lang)
                     </p>
                 </div>
                 <!-- Skillbar Section Start -->
@@ -155,11 +158,11 @@
 <div id="rs-services" class="rs-services services-style3 bg5 pt-120 pb-120 md-pt-70 md-pb-80">
     <div class="ml-25">
         <div class="sec-title2 text-center mb-65 md-mb-45">
-            <span class="sub-title">Our Story</span>
+            <span class="sub-title">@DbRes.T("OurStory", "Resources", lang)</span>
             <h3 class="story" style="font-family:'Roboto';">
-                Water Consult was founded in 2014 by Dr. Eng. Ibrahim Hendy.
+                @DbRes.T("OurStoryBrief1", "Resources", lang).
                 <br>
-                as a leading multidisciplinary engineering realm.
+                @DbRes.T("OurStoryBrief2", "Resources", lang).
             </h3>
             <div class="heading-border-line"></div>
         </div>
@@ -171,20 +174,16 @@
                         <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                     </div>
                     <div class="services-text">
-                        <h2 class="title">Growth Strategy</h2>
+                            <h2 class="title">@DbRes.T("GrowthStrategy", "Resources", lang)</h2>
                         <p class="services-txt">
-                            We have demonstrated our presence in this industry for more than 8 years by developing locally and regionally;
-                            by launching 3 branches in Egypt. The office proudly inaugurated 3 more branches in Oman
-                        </p>
+                                @DbRes.T("GrowthStrategyBrief", "Resources", lang)
+                            </p>
                         <p class="services-txt">
-                            Despite the region's revolutions and the exponential growth in demand for engineering services,
-                            Water Consult has always endeavored to be at the forefront of the industrial world, providing the highest quality solutions.
-                        </p>
+                                @DbRes.T("GrowthStrategyBrief1", "Resources", lang)
+                            </p>
                         <p class="services-txt">
-                            The firm was developed to accomplish the highest levels of integrated engineering and consulting services,
-                            which are based on scientific methodologies and international standards,
-                            with project management to keep pace with the world's technological and industrial development.
-                        </p>
+                                @DbRes.T("GrowthStrategyBrief2", "Resources", lang)
+                            </p>
                     </div>
                 </div>
             </div>
@@ -197,11 +196,11 @@
                         <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                     </div>
                     <div class="services-text">
-                        <h2 class="title">Nature of Services</h2>
+                        <h2 class="title">
+                            @DbRes.T("NatureOfServices", "Resources", lang)
+                        </h2>
                         <p class="services-txt">
-                            Our focus is on providing the most qualified tailored strategic advice to assist companies and clients in maximizing their businesses at the local,
-                            regional, and international levels, while developing strong and long-term relationships with them and always striving to meet their needs.
-                            Undoubtedly, none of this would be possible without our team’s expertise
+                            @DbRes.T("NatureOfServicesBrief", "Resources", lang)
                         </p>
                     </div>
                 </div>
@@ -212,11 +211,9 @@
                         <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                     </div>
                     <div class="services-text">
-                        <h2 class="title">Expertise Team</h2>
+                        <h2 class="title">@DbRes.T("ExpertiseTeam", "Resources", lang)</h2>
                         <p class="services-txt">
-                            Over the past 8 years, Water Consult has grown with our innovative team of master's degree and doctoral-level engineers,
-                            including Hydraulic Experts, Soil Mechanics and Foundation Experts, Project Managers, Supervisors, Civil Engineers,
-                            Architects, Planners, and Survey Engineers, and others who are capable of managing hundreds of projects.
+                            @DbRes.T("ExpertiseTeamBrief", "Resources", lang)
                         </p>
                     </div>
                 </div>
@@ -230,10 +227,9 @@
                     <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                 </div>
                 <div class="services-text">
-                    <h2 class="title">Satisfied Clients</h2>
+                    <h2 class="title">@DbRes.T("SatisfiedClients", "Resources", lang)</h2>
                     <p class="services-txt">
-                        Over the past many years, we have successfully supervised the implementation of thousands of projects in a variety of industries,
-                        and we are pleased to have satisfied over 1200 clients by overseeing their projects, whether in or outside Egypt.
+                        @DbRes.T("SatisfiedClientsBrief", "Resources", lang)
                     </p>
                 </div>
             </div>
@@ -244,11 +240,9 @@
                     <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                 </div>
                 <div class="services-text">
-                    <h2 class="title">ISO Accreditation</h2>
+                    <h2 class="title">@DbRes.T("ISOAccreditation", "Resources", lang)</h2>
                     <p class="services-txt">
-                        Since Egypt has the fewest number of houses of expertise, we aim to become one of the best ones and 
-                        pursuit of getting the ISO accreditation for quality and supervision.
-                        It’s notable to mention that we are registered in the Egyptian Engineers Syndicate.
+                        @DbRes.T("ISOAccreditationBrief", "Resources", lang)
                     </p>
                 </div>
             </div>
@@ -272,7 +266,7 @@
             </div>
             <div class="col-lg-4 text-right md-left md-mb-40">
                 <div class="btn-part mt-20">
-                    <a class="readon more touch" href="contact.html">Get In Touch</a>
+                    <a class="readon more touch" href="contact.html">@DbRes.T("GetInTouch", "Resources", lang)</a>
                 </div>
             </div>
         </div>
@@ -376,7 +370,9 @@
                 }
             }
         </div>
-        View All
+        <div class="btn-part mb-30">
+            <a class="readon more contact" href="/Employee/">View All</a>
+        </div>
     </div>
 </div>
 <!-- Team Section End -->

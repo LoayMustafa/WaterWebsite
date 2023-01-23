@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = "EmpolyeeDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var lang = "ar";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
 }
 
 @*<!-- Breadcrumbs Start -->

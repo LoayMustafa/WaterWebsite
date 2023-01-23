@@ -2,10 +2,13 @@
 
 @{
     var lang = "ar";
-    lang = "en";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
 }
 <!DOCTYPE html>
-<html lang="en" @* dir="rtl"*@>
+<html lang="en" @*dir="rtl"*@>
 <head>
     <!-- meta tag -->
     <meta charset="utf-8">
@@ -103,14 +106,18 @@
                                                     <a asp-action="index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a>
                                                 </li>
                                                 <li>
-                                                    <a asp-action="Index" asp-controller="Home">@DbRes.T("Pages", "Resources", lang)</a>
-                                                </li>
-                                                <li>
                                                     <a asp-action="Index" asp-controller="Home">@DbRes.T("Blog", "Resources", lang)</a>
                                                 </li>
                                                 <li>
                                                     <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
                                                 </li>
+                                                <li>
+                                                    <a class="lang" href="/Home/SetLanguage?lang=ar">العربية</a>
+                                                </li>
+                                                <li>
+                                                    <a class="lang" href="/Home/SetLanguage?lang=en">English</a>
+                                                </li>
+
                                             </ul> <!-- //.nav-menu -->
                                         </nav>
                                     </div> <!-- //.main-menu -->
@@ -225,13 +232,10 @@
                             <a asp-action="index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Home">@DbRes.T("Pages", "Resources", lang)</a>
-                        </li>
-                        <li>
                             <a asp-action="Index" asp-controller="Home">@DbRes.T("Blog", "Resources", lang)</a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Home">@DbRes.T("ContactUs", "Resources", lang)</a>
+                            <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
                         </li>
                     </ul> <!-- //.nav-menu -->
                     <!-- //.nav-menu -->
@@ -363,7 +367,7 @@
                             <li><a asp-action="Index" asp-controller="Services">Services</a></li>
                             <li><a asp-action="Index" asp-controller="Projects">Project</a></li>
                             <li><a asp-action="Index" asp-controller="Home">Blog</a></li>
-                            <li><a asp-action="Index" asp-controller="Home">Contact</a></li>
+                            <li><a asp-action="Index" asp-controller="ContactUs">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -441,6 +445,30 @@
                 // if the current path is like this link, make it active
                 if ($this.attr('href').indexOf(current) !== -1) {
                     $this.addClass('current-menu-item');
+                }
+            })
+        })
+
+        $('.lang').on('click', function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+            let url = $(this).attr('href')
+            console.log(url)
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (res) {
+                    debugger;
+                    if (res.success) {
+                        location.reload()
+                    } else {
+                        alert("Error")
+                    }
+                },
+                error: function (err) {
+                    console.log(err)
+                    alert("Error")
+
                 }
             })
         })

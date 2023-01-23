@@ -8,7 +8,7 @@ namespace WATERWebsite.Controllers
     public class ProjectController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private string lang = "en";
+        private string lang = "ar";
 
         public ProjectController(ApplicationDbContext context)
         {

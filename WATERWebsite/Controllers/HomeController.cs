@@ -12,7 +12,7 @@ namespace WATERWebsite.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly ApplicationDbContext _db;
-        private string lang = "en";
+        private string lang = "ar";
 
         public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment, ApplicationDbContext context)
         {
@@ -23,7 +23,10 @@ namespace WATERWebsite.Controllers
 
         public IActionResult Index()
         {
-
+            if (HttpContext.Session.GetString("lang") != null)
+            {
+                lang = HttpContext?.Session.GetString("lang") ?? "ar";
+            }
             //Get Services
             var services = _db.Service.Select(c => new ServicesDto
             {
@@ -53,8 +56,13 @@ namespace WATERWebsite.Controllers
                 ProjectHomeDto = projects,
             };
 
-            
             return View(viewModel);
+        }
+
+        public IActionResult SetLanguage(string lang)
+        {
+            HttpContext.Session.SetString("lang", lang);
+            return Json(new { success = true });
         }
     }
 }

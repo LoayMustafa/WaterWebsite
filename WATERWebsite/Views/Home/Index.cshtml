@@ -4,7 +4,11 @@
     ViewData["Title"] = "Home page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    //var lang = "ar";
+    var lang = "ar";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
 }
 @section Toolbar{
     <div class="toolbar-area topbar-style1 topber-modify2 paste-color-modify1 hidden-md">

@@ -9,7 +9,7 @@ namespace WATERWebsite.Controllers
     public class ServicesController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private string lang = "en";
+        private string lang = "ar";
 
         public ServicesController(ApplicationDbContext context)
         {
@@ -17,10 +17,10 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult Index()
         {
-            //if (HttpContext.Session.GetString("lang") != null)
-            //{
-            //    lang = HttpContext?.Session.GetString("lang") ?? "ar";
-            //}
+            if (HttpContext.Session.GetString("lang") != null)
+            {
+                lang = HttpContext?.Session.GetString("lang") ?? "ar";
+            }
 
             var services = _db.Service.ToList();
             List<ServicesIndexViewModel> servicesList = new List<ServicesIndexViewModel>();
@@ -42,11 +42,6 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult ServiceDetails(int ServiceCode)
         {
-            //if (HttpContext.Session.GetString("lang") != null)
-            //{
-            //    lang = HttpContext?.Session.GetString("lang") ?? "ar";
-            //}
-
             var service = _db.Service.Find(ServiceCode);
             if (service == null)
                 return View("Error");

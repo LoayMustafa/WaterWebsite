@@ -3,6 +3,11 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var ser = 0;
+    var lang = "ar";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
 }
 
 <!-- Breadcrumbs Start -->

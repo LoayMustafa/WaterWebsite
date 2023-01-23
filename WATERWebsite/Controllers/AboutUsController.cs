@@ -7,7 +7,7 @@ namespace WATERWebsite.Controllers
     public class AboutUsController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private string lang = "en";
+        private string lang = "ar";
 
         public AboutUsController(ApplicationDbContext context)
         {
@@ -15,6 +15,7 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult Index()
         {
+            lang = HttpContext?.Session.GetString("lang") ?? "ar";
             //Get Employees
             var employees = _db.Employee.Select(c => new AboutUsTeamViewModel
             {
