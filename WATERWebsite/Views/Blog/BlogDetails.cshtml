@@ -1,0 +1,57 @@
+﻿@model WATERWebsite.Core.ViewModels.BlogViewModels.BlogIndexViewModel
+
+@{
+    ViewData["Title"] = "BlogDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img3">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                @Model.BlogTitle
+            </h1>
+            <span class="sub-text">
+            </span>
+            <ul class="breadcrumbs-area">
+                <li title="Go to konstruk">
+                    <a class="active" href="/">Home</a>
+                </li>
+                <li>Blog</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Blog Section Start -->
+<div class="rs-inner-blog pt-120 pb-105 md-pt-80 md-pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 md-mb-50">
+                <div class="blog-details">
+                    <div class="bs-img mb-50">
+                        <a href="#"><img src="@Model.BlogPhoto" alt=""></a>
+                    </div>
+                    <div class="blog-meta row">
+                        <div class="author col-md-2">
+                            <i class="fi fi-rr-user"></i> @Model.BlogPublisher
+                        </div>
+
+                        <div class="blog-date col-md-2">
+                            <i class="fi fi-rr-calendar"></i> @Model.BlogDate
+                        </div>
+                    </div>
+                    <br />
+                    <div class="blog-full">
+                        <div class="blog-content-full">
+                            <p class="pb-25">
+                                @Model.BlogContent
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Blog Section End -->

@@ -1,0 +1,185 @@
+﻿@model IEnumerable<WATERWebsite.Core.ViewModels.BlogViewModels.BlogIndexViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img4">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                Blog
+            </h1>
+            <span class="sub-text">
+                Follow Out Latest News.
+            </span>
+            <ul class="breadcrumbs-area">
+                <li title="Go to konstruk">
+                    <a class="active" href="/">Home</a>
+                </li>
+                <li>Blog</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Blog Section Start -->
+<div class="rs-inner-blog pt-120 pb-105 md-pt-80 md-pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 md-mb-50">
+                <div class="row">
+                    @if (Model.Count() > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="col-lg-12 mb-50">
+                                <div class="blog-item">
+                                    <div class="blog-img">
+                                        <a href="blog-single.html"><img src="@item.BlogPhoto" alt=""></a>
+                                    </div>
+                                    <div class="blog-content">
+                                        <h3 class="blog-title"><a href="blog-single.html">@item.BlogTitle</a></h3>
+                                        <div class="blog-meta">
+                                            <ul class="btm-cate">
+                                                <li>
+                                                    <div class="author">
+                                                        <i class="fi fi-rr-user"></i> @item.BlogPublisher
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="blog-date">
+                                                        <i class="fi fi-rr-calendar"></i> @item.BlogDate
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="blog-desc">
+                                            @item.BlogBrief
+                                        </div>
+                                        <div class="blog-button inner-btn">
+                                            <a class="blog-btn" asp-action="BlogDetails" asp-route-BlogCode="@item.BlogCode">Continue Reading</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    <div class="col-lg-12 mb-50">
+                        <div class="blog-item">
+                            <div class="blog-img">
+                                <a href="blog-single.html"><img src="assets/images/blog/style1/1.jpg" alt=""></a>
+                            </div>
+                            <div class="blog-content">
+                                <h3 class="blog-title"><a href="blog-single.html">We really appreciate content about the construction</a></h3>
+                                <div class="blog-meta">
+                                    <ul class="btm-cate">
+                                        <li>
+                                            <div class="author">
+                                                <i class="fi fi-rr-user"></i> Devsdesign
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="blog-date">
+                                                <i class="fi fi-rr-calendar"></i> May 26, 2022
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="tag-line">
+                                                <i class="fi fi-rr-book"></i>
+                                                <a href="#">Educational</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="blog-desc">
+                                    The brand has responded by partnering with skincare experts on social and web content, providing ingredient deep-dives and re-sharing followers’ tips and tricks on social media. The trand has responded by partnering with skincare experts on social and web content, providing ingredient deep-dives and...
+                                </div>
+                                <div class="blog-button inner-btn">
+                                    <a class="blog-btn" href="blog-single.html">Continue Reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-lg-4 col-md-12 pl-25 md-pl-15">
+                <div class="widget-area">
+                <div class="search-widget mb-50">
+                <div class="search-wrap">
+                <input type="search" placeholder="Searching..." name="s" class="search-input" value="">
+                <button type="submit" value="Search"><i class="flaticon-search"></i></button>
+                </div>
+                </div>
+                <div class="recent-posts mb-50">
+                <div class="widget-title">
+                <h3 class="title">Recent Posts</h3>
+                </div>
+                <div class="recent-post-widget no-border">
+                <div class="post-img">
+                <a href="blog-single.html"><img src="assets/images/blog/style1/1.jpg" alt=""></a>
+                </div>
+                <div class="post-desc">
+                <a href="blog-single.html">We really appreciate content about the construction</a>
+                <span class="date-post"> <i class="fi fi-rr-calendar"></i>May 26, 2022</span>
+                </div>
+                </div>
+                <div class="recent-post-widget">
+                <div class="post-img">
+                <a href="blog-single.html"><img src="assets/images/blog/style1/2.jpg" alt=""></a>
+                </div>
+                <div class="post-desc">
+                <a href="blog-single.html">Best practices construction law on construction</a>
+                <span class="date-post"> <i class="fi fi-rr-calendar"></i>May 26, 2022</span>
+                </div>
+                </div>
+                <div class="recent-post-widget">
+                <div class="post-img">
+                <a href="blog-single.html"><img src="assets/images/blog/style1/3.jpg" alt=""></a>
+                </div>
+                <div class="post-desc">
+                <a href="blog-single.html">Although many people may overlook the need</a>
+                <span class="date-post"> <i class="fi fi-rr-calendar"></i>May 26, 2022</span>
+                </div>
+                </div>
+                <div class="recent-post-widget">
+                <div class="post-img">
+                <a href="blog-single.html"><img src="assets/images/blog/style1/4.jpg" alt=""></a>
+                </div>
+                <div class="post-desc">
+                <a href="blog-single.html">Construction executive holds a very special place</a>
+                <span class="date-post"> <i class="fi fi-rr-calendar"></i>May 26, 2022</span>
+                </div>
+                </div>
+                </div>
+                <div class="categories mb-50">
+                <div class="widget-title mb-15">
+                <h3 class="title">Categories</h3>
+                </div>
+                <ul>
+                <li><a href="#">Commercial</a></li>
+                <li><a href="#">Educational</a></li>
+                <li><a href="#">Residential</a></li>
+                </ul>
+                </div>
+                <div class="tags-cloud">
+                <div class="widget-title pb-23">
+                <h3 class="title">Tags</h3>
+                </div>
+                <div class="tagcloud">
+                <a href="#">Architecture</a>
+                <a href="#">Building</a>
+                <a href="#">Business</a>
+                <a href="#">Dental</a>
+                <a href="#">Design</a>
+                <a href="#">Kaouwa</a>
+                <a href="#">Real Estates</a>
+                <a href="#">World</a>
+                </div>
+                </div>
+                </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+    <!-- Blog Section End -->

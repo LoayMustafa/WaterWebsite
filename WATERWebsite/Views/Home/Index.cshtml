@@ -377,20 +377,20 @@
                 {
                     <div class="blog-item">
                         <div class="image-wrap">
-                            <a href="blog-single.html"><img src="@blog.BlogPhoto" alt=""></a>
+                            <a asp-controller="Blog" asp-action="Index" asp-route-BlogCode="@blog.BlogCode"><img src="@blog.BlogPhoto" alt=""></a>
                         </div>
                         <div class="blog-content">
                             <ul class="blog-meta">
                                 <li class="date"><i class="fa fa-calendar-check-o"></i>@blog.BlogDate</li>
                                 <li class="admin"><i class="fa fa-user-o"></i>@blog.BlogPublisher</li>
                             </ul>
-                            <h3 class="blog-title"><a href="blog-single.html">@blog.BlogTitle</a></h3>
+                            <h3 class="blog-title"><a asp-controller="Blog" asp-action="Index" asp-route-BlogCode="@blog.BlogCode">@blog.BlogTitle</a></h3>
                             <p class="desc">@blog.BlogBrief</p>
                             <div class="blog-button blog-bnt2">
                                 <a href="blog-single.html">
-                                    <span class="btn-text">
+                                    <a class="btn-text" asp-controller="Blog" asp-action="Index" asp-route-BlogCode="@blog.BlogCode">
                                         Read More
-                                    </span>
+                                    </a>
                                     <i class="fi fi-rr-arrow-small-right"></i>
                                 </a>
                             </div>

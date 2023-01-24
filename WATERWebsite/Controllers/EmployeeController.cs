@@ -7,14 +7,15 @@ namespace WATERWebsite.Controllers
     public class EmployeeController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private string lang = "ar";
+        private string lang = "en";
 
-        public EmployeeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment, ApplicationDbContext context)
+        public EmployeeController(ApplicationDbContext context)
         {
             _db = context;
         }
         public IActionResult Index()
         {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
 
             var emplyees = _db.Employee.Select(c => new EmployeeIndexViewModel
             {
@@ -31,7 +32,7 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult EmpolyeeDetails(int EmployeeCode)
         {
-            //Get Employee
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
 
             var employee = _db.Employee.Find(EmployeeCode);
             if (employee == null)

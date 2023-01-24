@@ -8,7 +8,7 @@ namespace WATERWebsite.Controllers
     public class ProjectController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private string lang = "ar";
+        private string lang = "en";
 
         public ProjectController(ApplicationDbContext context)
         {
@@ -16,6 +16,8 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult Index()
         {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
+
             //Get Projects
             var projects = _db.Project.Select(c => new ProjectIndexViewModel
             {
@@ -26,10 +28,6 @@ namespace WATERWebsite.Controllers
                 Services = _db.ProjectServices.Where(x => x.ProjectCode == c.ProjectCode).Select(x => x.ProjectCodeNavigation.ProjectNameE).ToList(),
                 //Divisions = _db.ServiceDivisons.Where(x => x.se == c.ProjectCode).Select(x => x.ProjectCodeNavigation.ProjectNameE).ToList(),
             }).ToList();
-
-            foreach(var project in projects)
-            {
-            }
 
             return View(projects);
         }
