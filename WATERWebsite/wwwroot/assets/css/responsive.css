@@ -609,6 +609,7 @@
     .readon.more.know {
         padding: 15px 30px 15px 30px;
         font-size: 16px;
+        float: none;
     }
     .readon.more.submit {
         padding: 15px 25px 15px 25px;

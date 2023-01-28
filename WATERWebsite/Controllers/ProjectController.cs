@@ -34,6 +34,8 @@ namespace WATERWebsite.Controllers
 
         public IActionResult ProjectDetails(int ProjectCode)
         {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
+
             //Get Project
             var project = _db.Project.Find(ProjectCode);
             if (project == null)

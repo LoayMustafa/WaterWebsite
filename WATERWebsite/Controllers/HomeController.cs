@@ -10,16 +10,12 @@ namespace WATERWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly ApplicationDbContext _db;
-        private string lang = "ar";
+        private string lang = "en";
 
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment, ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context)
         {
             _db = context;
-            _logger = logger;
-            _hostingEnvironment = hostingEnvironment;
         }
 
         public IActionResult Index()

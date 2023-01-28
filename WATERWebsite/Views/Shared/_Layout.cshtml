@@ -1,14 +1,14 @@
 ﻿@using Westwind.Globalization;
 
 @{
-    var lang = "ar";
+    var lang = "en";
     if (Context.Session.GetString("lang") != null)
     {
         lang = Context.Session.GetString("lang");
     }
 }
 <!DOCTYPE html>
-<html lang="en" @*dir="rtl"*@>
+<html lang="en" dir="@DbRes.T("layout", "Resources", lang)">
 <head>
     <!-- meta tag -->
     <meta charset="utf-8">
@@ -47,7 +47,13 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/rs-spacing.css">
     <!-- style css -->
     @*<link rel="stylesheet" type="text/css" href="~/assets/style.css">*@ <!-- This stylesheet dynamically changed from style.less -->
-    <link rel="stylesheet" type="text/css" href="~/assets/style1.css"> <!-- This stylesheet dynamically changed from style.less -->
+    @if (lang =="ar"){
+        <link rel="stylesheet" type="text/css" href="~/assets/style1Arabic.css"> <!-- This stylesheet dynamically changed from style.less -->
+    }
+    @if (lang == "en")
+    {
+        <link rel="stylesheet" type="text/css" href="~/assets/style1.css"> <!-- This stylesheet dynamically changed from style.less -->
+    }
     <!-- responsive css -->
     <link rel="stylesheet" type="text/css" href="~/assets/css/responsive.css">
 </head>
