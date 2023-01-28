@@ -952,6 +952,10 @@ blockquote p {
   padding: 16px 35px 16px 35px;
   float:left;
 }
+.readon.more.contact.footer {
+  padding: 16px 35px 16px 35px;
+  float:none;
+}
 .readon.more.contact:hover {
   background-color: #fff;
   color: #0D659D;
@@ -2567,6 +2571,7 @@ h3 .story {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-right:30px;
 }
 .full-width-header .rs-header .menu-area .row-table .col-cell.header-logo {
   display: flex;
@@ -2636,8 +2641,8 @@ h3 .story {
 }
 .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.sub-menu {
   background: #ffffff;
-  margin: 0;
-  padding: 20px 0;
+  margin: -30px;
+  /*padding: 20px 0;*/
 }
 .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.sub-menu li {
   margin: 0 !important;
@@ -3205,6 +3210,7 @@ h3 .story {
 .full-width-header .rs-header.header-style3 .menu-area .main-menu .rs-menu ul.nav-menu li a {
   color: #ffffff;
   font-family: 'Droid Arabic Kufi', serif;
+  text-align:initial;
 }
 .full-width-header .rs-header.header-style3 .expand-btn-inner ul .humburger {
   display: block;
@@ -10709,7 +10715,7 @@ body .search-modal .close:hover {
   color: #0D659D;
 }
 .rs-footer.footer-main-home .footer-top .footer-social li:last-child {
-  margin-right: 0;
+  margin-right: 19px;
 }
 .rs-footer.footer-main-home .footer-top .address-widget li {
   padding: 0 0 29px 40px;
@@ -10718,7 +10724,7 @@ body .search-modal .close:hover {
 .rs-footer.footer-main-home .footer-top .address-widget li i {
   color: #FFFFFF;
   position: absolute;
-  left: 0;
+  right: 0;
 }
 .rs-footer.footer-main-home .footer-top .address-widget li i:before {
   font-size: 24px;
@@ -10727,6 +10733,7 @@ body .search-modal .close:hover {
 }
 .rs-footer.footer-main-home .footer-top .address-widget li .desc {
   color: #ffffff;
+  margin-right: 35px;
 }
 .rs-footer.footer-main-home .footer-top .address-widget li .desc a {
   color: #ffffff;
@@ -10826,6 +10833,7 @@ body .search-modal .close:hover {
   font-weight: 500;
   color: #ffffff;
   margin: 0;
+  float:right;
 }
 .rs-footer.footer-main-home .footer-bottom .copyright p a {
   transition: all 0.4s;

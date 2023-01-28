@@ -144,7 +144,7 @@ body .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.nav-menu li
   color: #ffa000;
 }
 .rs-header .menu-area .main-menu .rs-menu ul.nav-menu li:last-child {
-  margin-right: 0!important;
+  /*margin-right: 0!important;*/
 }
 .rs-header .menu-area .main-menu .rs-menu ul.nav-menu li:last-child i {
   margin: 0;

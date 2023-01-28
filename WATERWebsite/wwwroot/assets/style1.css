@@ -2626,8 +2626,8 @@ h3 .story {
 }
 .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.sub-menu {
   background: #ffffff;
-  margin: 0;
-  padding: 20px 0;
+  margin: -30px;
+  /*padding: 20px 0;*/
 }
 .full-width-header .rs-header .menu-area .main-menu .rs-menu ul.sub-menu li {
   margin: 0 !important;

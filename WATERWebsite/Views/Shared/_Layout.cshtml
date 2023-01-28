@@ -47,7 +47,8 @@
     <link rel="stylesheet" type="text/css" href="~/assets/css/rs-spacing.css">
     <!-- style css -->
     @*<link rel="stylesheet" type="text/css" href="~/assets/style.css">*@ <!-- This stylesheet dynamically changed from style.less -->
-    @if (lang =="ar"){
+    @if (lang == "ar")
+    {
         <link rel="stylesheet" type="text/css" href="~/assets/style1Arabic.css"> <!-- This stylesheet dynamically changed from style.less -->
     }
     @if (lang == "en")
@@ -117,11 +118,15 @@
                                                 <li>
                                                     <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
                                                 </li>
-                                                <li>
-                                                    <a class="lang" href="/Home/SetLanguage?lang=ar">العربية</a>
-                                                </li>
-                                                <li>
-                                                    <a class="lang" href="/Home/SetLanguage?lang=en">English</a>
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="#"
+                                                       id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                                    </a>
+                                                    <ul class="sub-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar" style="font-family:Droid Arabic Kufi;">العربية</a></li>
+                                                        <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=en" style="font-family:Roboto;">English</a></li>
+                                                    </ul>
                                                 </li>
 
                                             </ul> <!-- //.nav-menu -->
@@ -170,7 +175,7 @@
                         </div>
                         <div class="offcanvas-text">
                             <p>
-                                Water Consult was founded in 2014 by Dr. Eng. Ibrahim Hendy as a leading multidisciplinary engineering realm.
+                                @DbRes.T("WATERBrief", "Resources", lang)
                             </p>
                         </div>
                         <div class="canvas-contact">
@@ -180,7 +185,10 @@
                                         <i class="fi fi-rr-map-marker-home"></i>
                                     </div>
                                     <div class="info-content">
-                                        <h4 class="title">Contact us</h4>
+                                        <h4 class="title">
+                                            @DbRes.T("ContactUs", "Resources", lang)
+
+                                        </h4>
                                         <em>8 El Obour Buildings - Cairo, Egypt</em>
                                     </div>
                                 </div>
@@ -189,8 +197,10 @@
                                         <i class="fi fi-rr-envelope-plus"></i>
                                     </div>
                                     <div class="info-content">
-                                        <h4 class="title">Email Us</h4>
-                                        <em><a href="mailto:info@water-consult.net ">info@water-consult.net </a></em>
+                                        <h4 class="title">
+                                            @DbRes.T("EmailUs", "Resources", lang)
+                                        </h4>
+                                        <em><a href="mailto:info@water-consult.net">info@water-consult.net </a></em>
                                     </div>
                                 </div>
                                 <div class="address-list">
@@ -198,7 +208,9 @@
                                         <i class="fi fi-rr-phone-call"></i>
                                     </div>
                                     <div class="info-content">
-                                        <h4 class="title">Call Us Now</h4>
+                                        <h4 class="title">
+                                            @DbRes.T("CallUs", "Resources", lang)
+                                        </h4>
                                         <em>01000327035</em>
                                         <em>01200797973</em>
                                     </div>
@@ -243,6 +255,16 @@
                         <li>
                             <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#"
+                               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @DbRes.T("Language", "Resources", lang)
+                            </a>
+                            <ul class="sub-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar">العربية</a></li>
+                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=en">English</a></li>
+                            </ul>
+                        </li>
                     </ul> <!-- //.nav-menu -->
                     <!-- //.nav-menu -->
                     <!-- //.nav-menu -->
@@ -253,7 +275,9 @@
                                     <i class="fi fi-rr-map-marker-home"></i>
                                 </div>
                                 <div class="info-content">
-                                    <h4 class="title">Contact</h4>
+                                    <h4 class="title">
+                                        @DbRes.T("ContactUs", "Resources", lang)
+                                    </h4>
                                     <em>8 El Obour Buildings - Cairo, Egypt</em>
                                 </div>
                             </div>
@@ -262,7 +286,9 @@
                                     <i class="fi fi-rr-envelope-plus"></i>
                                 </div>
                                 <div class="info-content">
-                                    <h4 class="title">Email</h4>
+                                    <h4 class="title">
+                                        @DbRes.T("EmailUs", "Resources", lang)
+                                    </h4>
                                     <em><a href="mailto:info@water-consult.net">info@water-consult.net</a></em>
                                 </div>
                             </div>
@@ -271,7 +297,9 @@
                                     <i class="fi fi-rr-phone-call"></i>
                                 </div>
                                 <div class="info-content">
-                                    <h4 class="title">Call Us</h4>
+                                    <h4 class="title">
+                                        @DbRes.T("CallUs", "Resources", lang)
+                                    </h4>
                                     <em>01000327035</em>
                                 </div>
                             </div>
@@ -299,12 +327,23 @@
                             <a asp-action="Index" asp-controller="Home"><img src="~/assets/water/logo-white1.png" alt=""></a>
                         </div>
                         <div class="textwidget">
-                            <p class="pb-20">Water Consult was founded in 2014 by Dr. Eng. Ibrahim Hendy as a leading multidisciplinary engineering realm.</p>
-                            <p class="pb-25"><strong>Opening Hours</strong> : Saturday – Thurs: 9am to 5pm</p>
+                            <p class="pb-20">
+                                @DbRes.T("WATERBrief", "Resources", lang)
+                            </p>
+                            <p class="pb-25">
+                                <strong>
+                                    @DbRes.T("OpeningHours", "Resources", lang):
+                                </strong>
+                                <br />
+
+                                @DbRes.T("Saturday", "Resources", lang) –  @DbRes.T("Thurs", "Resources", lang) : @DbRes.T("9am", "Resources", lang) - @DbRes.T("5pm", "Resources", lang)
+                            </p>
                         </div>
                     </div>
                     <div class="col-lg-3 md-mb-10">
-                        <h3 class="footer-title">Contact Info</h3>
+                        <h3 class="footer-title">
+                            @DbRes.T("ContactInfo", "Resources", lang)
+                        </h3>
                         <ul class="address-widget">
                             <li>
                                 <i class="fi fi-rr-map-marker-home"></i>
@@ -323,34 +362,58 @@
                             <li>
                                 <i class="fi fi-rr-envelope-plus"></i>
                                 <div class="desc">
-                                    @*<a href="~/mailto:support@devsdesign.com">support@devsdesign.com</a><br>*@
                                     <a href="~/mailto:info@water-consult.net ">info@water-consult.net</a>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-3 md-mb-10">
-                        <h3 class="footer-title">Our Services</h3>
+                        <h3 class="footer-title">
+                            @DbRes.T("OurServices", "Resources", lang)
+
+                        </h3>
                         <ul class="site-map">
-                            <li><a>General Construction</a></li>
-                            <li><a>General Construction</a></li>
-                            <li><a>General Construction</a></li>
-                            <li><a>General Construction</a></li>
+                            <li>
+                                <a>
+                                    @DbRes.T("OurServices", "Resources", lang)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    @DbRes.T("OurServices", "Resources", lang)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    @DbRes.T("OurServices", "Resources", lang)
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    @DbRes.T("OurServices", "Resources", lang)
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-lg-3">
-                        <h3 class="footer-title">Get In Touch</h3>
-                        <p class="widget-desc">Have any upcoming project?</p>
+                        <h3 class="footer-title">
+                            @DbRes.T("GetInTouch", "Resources", lang)
+                        </h3>
+                        <p class="widget-desc">
+                            @DbRes.T("HaveAnyUpcomingProject", "Resources", lang)
+                        </p>
                         <ul>
                             <li>
                                 <div class="btn-part mb-30">
-                                    <a class="readon more contact" href="#">Request Services</a>
+                                    <a class="readon more contact footer" href="/ContactUs">
+                                        @DbRes.T("RequestServices", "Resources", lang)
+                                    </a>
                                 </div>
                             </li>
                             <li>
 
                                 <div>
-                                    <ul class="footer-social md-mb-30">
+                                    <ul class="footer-social md-mb-30" dir="ltr">
                                         <li><a href="~/#"><i class="fa fa-facebook"></i></a></li>
                                         <li><a href="~/#"><i class="fa fa-twitter"></i></a></li>
                                         <li><a href="~/#"><i class="fa fa-linkedin"></i></a></li>
@@ -364,21 +427,21 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <div class="container">
+            <div class="container" style="max-width:1300px;">
                 <div class="row y-middle">
                     <div class="col-lg-6 md-mb-10 text-lg-end text-center order-last">
-                        <ul class="copy-right-menu">
-                            <li><a asp-action="Index" asp-controller="Home">Home</a></li>
-                            <li><a asp-action="Index" asp-controller="AboutUs">About</a></li>
-                            <li><a asp-action="Index" asp-controller="Services">Services</a></li>
-                            <li><a asp-action="Index" asp-controller="Projects">Project</a></li>
-                            <li><a asp-action="Index" asp-controller="Home">Blog</a></li>
-                            <li><a asp-action="Index" asp-controller="ContactUs">Contact</a></li>
+                        <ul class="copy-right-menu" style="direction: initial;">
+                            <li><a asp-action="Index" asp-controller="Home">@DbRes.T("Home", "Resources", lang)</a></li>
+                            <li><a asp-action="Index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a></li>
+                            <li><a asp-action="Index" asp-controller="Services">@DbRes.T("Services", "Resources", lang)</a></li>
+                            <li><a asp-action="Index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a></li>
+                            <li><a asp-action="Index" asp-controller="Blog">@DbRes.T("Blog", "Resources", lang)</a></li>
+                            <li><a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <div class="copyright text-lg-start text-center">
-                            <p>© 2023 WATER.  All Rights Reserved. @*<a href="https://www.linkedin.com/in/loay-mustafa-22b4ab257/" target="blank">Loay Badwy</a>*@</p>
+                            <p>© @DbRes.T("Rights", "Resources", lang)@*<a href="https://www.linkedin.com/in/loay-mustafa-22b4ab257/" target="blank">Loay Badwy</a>*@</p>
                         </div>
                     </div>
                 </div>
