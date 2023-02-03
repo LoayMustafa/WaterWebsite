@@ -6092,7 +6092,7 @@ body .search-modal .close:hover {
   background-image: url(../imgs/process/style2/3.jpg);
 }
 .rs-process.process-style3 .process-bg {
-  background-image: url(../imgs/process/style3/icons/steps-bg.png);
+  //background-image: url(../imgs/process/style3/icons/steps-bg.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 1050px auto;

@@ -7,7 +7,7 @@ namespace WATERWebsite.Controllers
     public class AboutUsController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private string lang = "ar";
+        private string lang = "en";
 
         public AboutUsController(ApplicationDbContext context)
         {

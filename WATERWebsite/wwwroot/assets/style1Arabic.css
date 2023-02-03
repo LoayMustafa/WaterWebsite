@@ -1949,7 +1949,6 @@ blockquote p {
   background: #0D659D;
   z-index: 1;
   margin-left: 0;
-  left: 0;
   top: -28px;
 }
 .sec-title .title.title4.ser-style1 {
@@ -2133,7 +2132,6 @@ h3 .story {
   background: #0D659D;
   position: absolute;
   bottom: -4px;
-  right: 0;
   left: 50%;
   margin-left: -20px;
   border-radius: 2px;
@@ -3893,6 +3891,7 @@ body .search-modal .close:hover {
   padding: 13px 30px;
   max-width: 300px;
   margin: 0 auto;
+  direction:ltr;
 }
 .rs-breadcrumbs .breadcrumbs-inner .breadcrumbs-area li {
   color: #ffffff;
@@ -6112,7 +6111,7 @@ body .search-modal .close:hover {
   background-image: url(../imgs/process/style2/3.jpg);
 }
 .rs-process.process-style3 .process-bg {
-  background-image: url(../imgs/process/style3/icons/steps-bg.png);
+  //background-image: url(../imgs/process/style3/icons/steps-bg.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 1050px auto;
@@ -7270,7 +7269,7 @@ body .search-modal .close:hover {
 .rs-services.services-style3 .services-item:after {
   display: block;
   width: 47px;
-  left: 124px;
+  right: 124px;
   background: #0D659D;
   content: "";
   height: 4px;
