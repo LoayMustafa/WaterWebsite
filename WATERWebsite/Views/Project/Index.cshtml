@@ -1,8 +1,10 @@
-﻿@model IEnumerable<WATERWebsite.Core.ViewModels.ProjectViewModels.ProjectIndexViewModel>
+﻿@using Westwind.Globalization;
+
+@model IEnumerable<WATERWebsite.Core.ViewModels.ProjectViewModels.ProjectIndexViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var lang = "ar";
+    var lang = "en";
     if (Context.Session.GetString("lang") != null)
     {
         lang = Context.Session.GetString("lang");
@@ -14,17 +16,16 @@
     <div class="container">
         <div class="breadcrumbs-inner">
             <h1 class="page-title">
-                Projects
+                @DbRes.T("Projects", "Resources", lang)
             </h1>
             <span class="sub-text">
-                Excepteur sint occaecat cupidatat non proident, sunt in coulpa qui official<br>
-                modeserunt mollit anim id est 20 years experience.
+                @DbRes.T("ProjectsHeader", "Resources", lang)
             </span>
             <ul class="breadcrumbs-area">
                 <li title="Home">
-                    <a class="active" asp-action="index" asp-controller="Home">Home</a>
+                    <a class="active" href="/">@DbRes.T("Home", "Resources", lang)</a>
                 </li>
-                <li>Projects</li>
+                <li>@DbRes.T("Projects", "Resources", lang)</li>
             </ul>
         </div>
     </div>
@@ -44,7 +45,7 @@
                                 <img src="@project.ProjectPhotoPath" alt="Images">
                             </div>
                             <div class="project-content">
-                                <span class="category"><a asp-action="ProjectDetails" asp-route-ProjectCode="@project.ProjectCode">@project.ProjectLocation</a></span>
+                                @*<span class="category"><a asp-action="ProjectDetails" asp-route-ProjectCode="@project.ProjectCode">@project.ProjectLocation</a></span>*@
                                 <h3 class="title"><a asp-action="ProjectDetails" asp-route-ProjectCode="@project.ProjectCode">@project.ProjectName</a></h3>
                             </div>
                         </div>
