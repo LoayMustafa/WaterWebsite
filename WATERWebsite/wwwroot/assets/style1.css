@@ -940,6 +940,16 @@ blockquote p {
   background-color: #010d14;
   color: #ffffff;
 }
+.send-mail {
+    background-color: #0D659D;
+    border-color: #0D659D;
+    width:100%;
+}
+.send-mail:hover {
+    color: #0D659D;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
 .readon.more.contact {
   padding: 16px 35px 16px 35px;
 }
@@ -1448,6 +1458,10 @@ blockquote p {
 .blog-button.inner-btn:hover a:before {
   right: -10px;
   opacity: 1;
+}
+.blog-photo{
+    max-width: 776px;
+    max-height: 433px;
 }
 /*-- Submit Button CSS --*/
 .form-button .submit-form {

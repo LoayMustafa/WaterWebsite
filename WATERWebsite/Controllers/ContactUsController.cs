@@ -7,6 +7,8 @@ namespace WATERWebsite.Controllers
     public class ContactUsController : Controller
     {
         private readonly IMailingService _mailingService;
+        private string lang = "en";
+
         public ContactUsController(IMailingService mailingService)
         {
             _mailingService = mailingService;
@@ -14,6 +16,10 @@ namespace WATERWebsite.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("lang") != null)
+            {
+                lang = HttpContext?.Session.GetString("lang") ?? "ar";
+            }
             return View();
         }
 

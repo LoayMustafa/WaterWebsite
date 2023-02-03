@@ -1,8 +1,15 @@
-﻿@model WATERWebsite.Core.ViewModels.BlogViewModels.BlogIndexViewModel
+﻿@using Westwind.Globalization;
+
+@model WATERWebsite.Core.ViewModels.BlogViewModels.BlogIndexViewModel
 
 @{
     ViewData["Title"] = "BlogDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var lang = "en";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
 }
 
 <!-- Breadcrumbs Start -->
@@ -15,10 +22,14 @@
             <span class="sub-text">
             </span>
             <ul class="breadcrumbs-area">
-                <li title="Go to konstruk">
-                    <a class="active" href="/">Home</a>
+                <li title="Home">
+                    <a class="active" href="/">
+                        @DbRes.T("Home", "Resources", lang)
+                    </a>
                 </li>
-                <li>Blog</li>
+                <li>
+                    @DbRes.T("Blog", "Resources", lang)
+                </li>
             </ul>
         </div>
     </div>

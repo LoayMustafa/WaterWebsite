@@ -1,8 +1,11 @@
-﻿@model WATERWebsite.Core.ViewModels.ContactUsViewModels.ContactUsMailViewModel
+﻿@using Westwind.Globalization;
+
+@model WATERWebsite.Core.ViewModels.ContactUsViewModels.ContactUsMailViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var lang = "ar";
+
+    var lang = "en";
     if (Context.Session.GetString("lang") != null)
     {
         lang = Context.Session.GetString("lang");
@@ -19,16 +22,16 @@
     <div class="container">
         <div class="breadcrumbs-inner">
             <h1 class="page-title">
-                Contact Us
+                @DbRes.T("ContactUs", "Resources", lang)
             </h1>
             <span class="sub-text">
-                You Can Contact Us NOW!
+                @DbRes.T("WeLoveToHearFromYouContactUs", "Resources", lang)
             </span>
             <ul class="breadcrumbs-area">
-                <li title="Go to konstruk">
-                    <a class="active" href="/">Home</a>
+                <li title="Home">
+                    <a class="active" href="/">@DbRes.T("Home", "Resources", lang)</a>
                 </li>
-                <li>Contact Us</li>
+                <li>@DbRes.T("ContactUs", "Resources", lang)</li>
             </ul>
         </div>
     </div>
@@ -42,25 +45,27 @@
                 <div class="contact-section">
                     <div class="contact-wrap">
                         <div class="sec-title mb-60">
-                            <h2 class="title title4 ser-style4">Get in touch</h2>
+                            <h2 class="title title4 ser-style4">
+                                @DbRes.T("GetInTouch", "Resources", lang)
+                            </h2>
                         </div>
                         <form id="contact-form">
                             <fieldset>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
-                                        <input class="from-control" type="text" asp-for="ClientName" placeholder="Your Name *" required="">
+                                        <input class="from-control" type="text" asp-for="ClientName" placeholder="@DbRes.T("YourName", "Resources", lang) *" required="">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
-                                        <input class="from-control" type="text" asp-for="EmailFrom" placeholder="E-Mail *" required="">
+                                        <input class="from-control" type="text" asp-for="EmailFrom" placeholder="@DbRes.T("E-Mail", "Resources", lang) *" required="">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
-                                        <input class="from-control" type="text" asp-for="ClientNumber" placeholder="Phone Number" required="">
+                                        <input class="from-control" type="text" asp-for="ClientNumber" placeholder="@DbRes.T("PhoneNumber", "Resources", lang) *" required="">
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
-                                        <input class="from-control" type="text" asp-for="Subject" placeholder="Subject *" required="">
+                                        <input class="from-control" type="text" asp-for="Subject" placeholder="@DbRes.T("Subject", "Resources", lang) *" required="">
                                     </div>
                                     <div class="col-lg-12 mb-30">
-                                        <textarea class="from-control" asp-for="body" placeholder="Your Message Here *" required=""></textarea>
+                                        <textarea class="from-control" asp-for="body" placeholder="@DbRes.T("YourMessageHere", "Resources", lang) *" required=""></textarea>
                                     </div>
                                     @*<div class="input-group col-lg-12 mb-30">
                                         <input type="file" class="form-control" placeholder="Attach File if You Want" asp-for="Attachments">
@@ -69,7 +74,7 @@
                                 </div>
                                 <div class="btn-part">
                                     <div class="form-group mb-0">
-                                        <input type="submit" id="OnSubmit" class="btn btn-primary">
+                                        <input type="submit" id="OnSubmit" class="send-mail btn btn-primary" value="@DbRes.T("Send", "Resources", lang)">
                                     </div>
                                 </div>
                             </fieldset>
@@ -98,7 +103,7 @@
                             <img src="~/imgs/contact/style1/icons/1.png" alt="images">
                         </div>
                         <div class="content-text">
-                            <h4 class="title"><a>Office address</a></h4>
+                            <h4 class="title"><a>@DbRes.T("OfficeAddress", "Resources", lang)</a></h4>
                             <p class="services-txt">
                                 8 El Obour Buildings - Salah Salem,
                                 <br> Governorate, Egypt
@@ -112,9 +117,9 @@
                             <img src="~/imgs/contact/style1/icons/2.png" alt="images">
                         </div>
                         <div class="content-text">
-                            <h4 class="title"><a>Email us</a></h4>
+                            <h4 class="title"><a>@DbRes.T("EmailUs", "Resources", lang)</a></h4>
                             <span><a href="mailto:info@water-consult.net ">info@water-consult.net</a></span><br>
-                            <span><a href="mailto:info@codesless.com">info@codesless.com</a></span>
+                            <span><a href="mailto:hr@water-consult.net">hr@water-consult.net</a></span>
                         </div>
                     </div>
                 </div>
@@ -124,7 +129,7 @@
                             <img src="~/imgs/contact/style1/icons/3.png" alt="images">
                         </div>
                         <div class="content-text">
-                            <h4 class="title"><a>Call us</a></h4>
+                            <h4 class="title"><a>@DbRes.T("CallUs", "Resources", lang)</a></h4>
                             <span><a href="tel:01000327035">01000327035</a></span><br>
                             <span> <a href="tel:01200797973">01200797973</a></span>
                         </div>

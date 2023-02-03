@@ -1,4 +1,6 @@
-﻿@model IEnumerable<WATERWebsite.Core.ViewModels.EmployeeViewModels.EmployeeIndexViewModel>
+﻿@using Westwind.Globalization;
+
+@model IEnumerable<WATERWebsite.Core.ViewModels.EmployeeViewModels.EmployeeIndexViewModel>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -28,13 +30,11 @@
                                         <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">@employee.EmployeeName</a>
                                     </h3>
                                     <span class="team-title">@employee.EmployeeJob</span>
-                                    <p class="team-desc"><a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">Details</a></p>
-                                    <ul class="social-icons">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a>   </li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
+                                    <p class="team-desc">
+                                        <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">
+                                            @DbRes.T("Details", "Resources", lang)
+                                        </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

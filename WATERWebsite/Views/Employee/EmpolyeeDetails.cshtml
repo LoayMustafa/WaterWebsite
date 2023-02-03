@@ -1,35 +1,15 @@
-﻿@model WATERWebsite.Core.ViewModels.EmployeeViewModels.EmployeeDetailsViewModel
+﻿@using Westwind.Globalization;
+
+@model WATERWebsite.Core.ViewModels.EmployeeViewModels.EmployeeDetailsViewModel
 @{
     ViewData["Title"] = "EmpolyeeDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var lang = "ar";
+    var lang = "en";
     if (Context.Session.GetString("lang") != null)
     {
         lang = Context.Session.GetString("lang");
     }
 }
-
-@*<!-- Breadcrumbs Start -->
-<div class="rs-breadcrumbs img6">
-    <div class="container">
-        <div class="breadcrumbs-inner">
-            <h1 class="page-title">
-                Team - Single
-            </h1>
-            <span class="sub-text">
-                Excepteur sint occaecat cupidatat non proident, sunt in coulpa qui official<br>
-                modeserunt mollit anim id est 20 years experience.
-            </span>
-            <ul class="breadcrumbs-area">
-                <li title="Go to konstruk">
-                    <a class="active" href="index.html">Home</a>
-                </li>
-                <li>Team - Single</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- Breadcrumbs End -->*@
 
 <!-- Team Start -->
 <div class="rs-team-single pt-120 pb-120 bg24 md-pt-80 md-pb-80">
@@ -52,16 +32,11 @@
                             <ul class="personal-info">
                                 <li>
                                     <span><i class="fa fa-envelope-open-o"></i></span>
-                                    <a href="@Model.EmployeeEmail">@Model.EmployeeEmail</a>
+                                    <a>@Model.EmployeeEmail</a>
                                 </li>
                                 <li>
                                     <span><i class="fa fa-phone"></i></span> @Model.EmployeePhone
                                 </li>
-                            </ul>
-                            <ul class="social-info">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
                     </div>

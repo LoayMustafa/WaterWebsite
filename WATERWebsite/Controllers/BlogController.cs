@@ -33,6 +33,7 @@ namespace WATERWebsite.Controllers
         public IActionResult BlogDetails(int BlogCode)
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
+
             var blog = _db.Blog.Find(BlogCode);
             if (blog == null)
                 return NotFound();

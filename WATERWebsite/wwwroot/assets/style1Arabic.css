@@ -948,6 +948,16 @@ blockquote p {
   background-color: #010d14;
   color: #ffffff;
 }
+.send-mail {
+    background-color: #0D659D;
+    border-color: #0D659D;
+    width:100%;
+}
+.send-mail:hover {
+    color: #0D659D;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
 .readon.more.contact {
   padding: 16px 35px 16px 35px;
   float:left;
@@ -1461,6 +1471,10 @@ blockquote p {
 .blog-button.inner-btn:hover a:before {
   right: -10px;
   opacity: 1;
+}
+.blog-photo {
+    max-width: 776px;
+    max-height: 433px;
 }
 /*-- Submit Button CSS --*/
 .form-button .submit-form {
@@ -9206,6 +9220,7 @@ body .search-modal .close:hover {
   line-height: 24px;
   color: #555;
   font-weight: 400;
+  padding-right:20px;
 }
 .rs-inner-blog .blog-item .blog-content .blog-meta .btm-cate li .blog-date i {
   color: #0D659D;
