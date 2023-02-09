@@ -10671,7 +10671,7 @@ body .search-modal .close:hover {
     background-image: url(../imgs/bg/footer-bg.jpg);
     background-size: cover;
 }
-.rs-footer.footer-main-home .footer-top {
+.rs-footer.footer-main-home .footer-top{
   padding: 45px 0 30px;
 }
 .rs-footer.footer-main-home .footer-top .footer-logo a img {
