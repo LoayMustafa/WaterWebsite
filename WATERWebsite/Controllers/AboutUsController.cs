@@ -15,7 +15,7 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult Index()
         {
-            lang = HttpContext?.Session.GetString("lang") ?? "ar";
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
             //Get Employees
             var employees = _db.Employee.Select(c => new AboutUsTeamViewModel
             {

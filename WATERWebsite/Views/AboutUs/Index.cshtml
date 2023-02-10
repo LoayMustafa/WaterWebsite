@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var lang = "en";
+    var language = "en";
     if (Context.Session.GetString("lang") != null)
     {
-        lang = Context.Session.GetString("lang");
+        language = Context.Session.GetString("lang");
     }
 }
 
@@ -15,16 +15,16 @@
     <div class="container">
         <div class="breadcrumbs-inner">
             <h1 class="page-title">
-                @DbRes.T("AboutUS", "Resources", lang)
+                @DbRes.T("AboutUS", "Resources", language)
             </h1>
             <span class="sub-text">
-                @DbRes.T("AboutUsBrief", "Resources", lang)
+                @DbRes.T("AboutUsBrief", "Resources", language)
             </span>
             <ul class="breadcrumbs-area">
                 <li title="Home">
-                    <a class="active" href="/">@DbRes.T("Home", "Resources", lang)</a>
+                    <a class="active" href="/">@DbRes.T("Home", "Resources", language)</a>
                 </li>
-                <li>@DbRes.T("AboutUS", "Resources", lang)</li>
+                <li>@DbRes.T("AboutUS", "Resources", language)</li>
             </ul>
         </div>
     </div>
@@ -43,20 +43,20 @@
                 <div class="sec-title">
                     <span class="sub-text">
                         <img src="~/imgs/shape-1.png" alt="Images">
-                        @DbRes.T("WhoWeAre", "Resources", lang)
+                        @DbRes.T("WhoWeAre", "Resources", language)
                     </span>
                     <h2 class="title pb-20">
-                        @DbRes.T("OurVision", "Resources", lang):
+                        @DbRes.T("OurVision", "Resources", language):
                     </h2>
                     <p class="desc pb-37">
-                        @DbRes.T("OurVisionBrief", "Resources", lang):
+                        @DbRes.T("OurVisionBrief", "Resources", language):
                     </p>
                     <h2 class="title pb-20">
-                        @DbRes.T("OurMission", "Resources", lang):
+                        @DbRes.T("OurMission", "Resources", language):
                     </h2>
                     <p class="desc pb-37">
-                        @DbRes.T("OurMissionBrief1", "Resources", lang),<br />
-                        @DbRes.T("OurMissionBrief2", "Resources", lang)
+                        @DbRes.T("OurMissionBrief1", "Resources", language),<br />
+                        @DbRes.T("OurMissionBrief2", "Resources", language)
                     </p>
                 </div>
             </div>
@@ -64,7 +64,7 @@
     </div>
 </div>
 <!-- About End -->
-@if (lang == "ar")
+@if (language == "ar")
 {
     <!-- Core Values Arabic Start -->
     <div class="rs-process process-style3 bg23 pt-150 pb-115 md-pt-115 md-pb-80">
@@ -189,7 +189,7 @@
     </div>
     <!-- Core Values Arabic End -->
 }
-else if (lang == "en")
+else if (language == "en")
 {
     <!-- Core Values Start -->
     <div class="rs-process process-style3 bg23 pt-150 pb-115 md-pt-115 md-pb-80">
@@ -318,11 +318,11 @@ else if (lang == "en")
 <div id="rs-services" class="rs-services services-style3 bg5 pt-120 pb-120 md-pt-70 md-pb-80">
     <div class="ml-25">
         <div class="sec-title2 text-center mb-65 md-mb-45">
-            <span class="sub-title">@DbRes.T("OurStory", "Resources", lang)</span>
+            <span class="sub-title">@DbRes.T("OurStory", "Resources", language)</span>
             <h3 class="story" style="font-family:'Roboto';">
-                @DbRes.T("OurStoryBrief1", "Resources", lang).
+                @DbRes.T("OurStoryBrief1", "Resources", language).
                 <br>
-                @DbRes.T("OurStoryBrief2", "Resources", lang).
+                @DbRes.T("OurStoryBrief2", "Resources", language).
             </h3>
             <div class="heading-border-line"></div>
         </div>
@@ -334,15 +334,15 @@ else if (lang == "en")
                             <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                         </div>
                         <div class="services-text">
-                            <h2 class="title">@DbRes.T("GrowthStrategy", "Resources", lang)</h2>
+                            <h2 class="title">@DbRes.T("GrowthStrategy", "Resources", language)</h2>
                             <p class="services-txt">
-                                @DbRes.T("GrowthStrategyBrief", "Resources", lang)
+                                @DbRes.T("GrowthStrategyBrief", "Resources", language)
                             </p>
                             <p class="services-txt">
-                                @DbRes.T("GrowthStrategyBrief1", "Resources", lang)
+                                @DbRes.T("GrowthStrategyBrief1", "Resources", language)
                             </p>
                             <p class="services-txt">
-                                @DbRes.T("GrowthStrategyBrief2", "Resources", lang)
+                                @DbRes.T("GrowthStrategyBrief2", "Resources", language)
                             </p>
                         </div>
                     </div>
@@ -357,10 +357,10 @@ else if (lang == "en")
                     </div>
                     <div class="services-text">
                         <h2 class="title">
-                            @DbRes.T("NatureOfServices", "Resources", lang)
+                            @DbRes.T("NatureOfServices", "Resources", language)
                         </h2>
                         <p class="services-txt">
-                            @DbRes.T("NatureOfServicesBrief", "Resources", lang)
+                            @DbRes.T("NatureOfServicesBrief", "Resources", language)
                         </p>
                     </div>
                 </div>
@@ -371,9 +371,9 @@ else if (lang == "en")
                         <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                     </div>
                     <div class="services-text">
-                        <h2 class="title">@DbRes.T("ExpertiseTeam", "Resources", lang)</h2>
+                        <h2 class="title">@DbRes.T("ExpertiseTeam", "Resources", language)</h2>
                         <p class="services-txt">
-                            @DbRes.T("ExpertiseTeamBrief", "Resources", lang)
+                            @DbRes.T("ExpertiseTeamBrief", "Resources", language)
                         </p>
                     </div>
                 </div>
@@ -387,9 +387,9 @@ else if (lang == "en")
                     <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                 </div>
                 <div class="services-text">
-                    <h2 class="title">@DbRes.T("SatisfiedClients", "Resources", lang)</h2>
+                    <h2 class="title">@DbRes.T("SatisfiedClients", "Resources", language)</h2>
                     <p class="services-txt">
-                        @DbRes.T("SatisfiedClientsBrief", "Resources", lang)
+                        @DbRes.T("SatisfiedClientsBrief", "Resources", language)
                     </p>
                 </div>
             </div>
@@ -400,9 +400,9 @@ else if (lang == "en")
                     <img src="assets/images/services/style3/ser-icon1.png" alt="Services">
                 </div>
                 <div class="services-text">
-                    <h2 class="title">@DbRes.T("ISOAccreditation", "Resources", lang)</h2>
+                    <h2 class="title">@DbRes.T("ISOAccreditation", "Resources", language)</h2>
                     <p class="services-txt">
-                        @DbRes.T("ISOAccreditationBrief", "Resources", lang)
+                        @DbRes.T("ISOAccreditationBrief", "Resources", language)
                     </p>
                 </div>
             </div>
@@ -434,7 +434,7 @@ else if (lang == "en")
                                     <span class="team-title">@employee.EmployeeJob</span>
                                     <p class="team-desc">
                                         <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">
-                                            @DbRes.T("Details", "Resources", lang)
+                                            @DbRes.T("Details", "Resources", language)
                                         </a>
                                     </p>
                                     @*<ul class="social-icons">
@@ -452,7 +452,7 @@ else if (lang == "en")
         </div>
         <div class="btn-part mb-30">
             <a class="readon more contact" href="/Employee/">
-                @DbRes.T("ViewAll", "Resources", lang)
+                @DbRes.T("ViewAll", "Resources", language)
             </a>
         </div>
     </div>
