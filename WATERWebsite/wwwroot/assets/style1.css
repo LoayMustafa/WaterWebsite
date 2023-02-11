@@ -3931,14 +3931,19 @@ body .search-modal .close:hover {
 .rs-breadcrumbs.img6 {
   background: url(../imgs/breadcrumbs/inr-61.jpg);
 }
+.core-value {
+    font-family: monospace;
+    font-size: 100px;
+    margin-left: -7px
+}
 /* ------------------------------------
 	07. Banner Section CSS
 ---------------------------------------*/
 .rs-banner.banner-style1 {
-  background: url(../imgs/banner/banner-1.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background: url(../imgs/banner/banner-1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .rs-banner.banner-style1 .content-wrap {
   padding: 198px 0 165px;
@@ -6122,6 +6127,7 @@ body .search-modal .close:hover {
   padding: 50px;
   border-radius: 50%;
   width: 140px;
+  height: 143px;
   margin: 0 auto;
   display: block;
 }

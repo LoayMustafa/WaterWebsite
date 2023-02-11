@@ -3,6 +3,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ServiceModal">Add Service</button>
 <select class="form-select" id="multiple-select-clear-field ProjectCodes" name="ProjectCodes" data-placeholder="Choose anything" multiple asp-items="@Model.Projects">
     <option></option>
@@ -91,6 +92,9 @@
         </div>
     </div>
 </div>
+<a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar" style="font-family:Droid Arabic Kufi;">العربية</a>
+<a class="dropdown-item lang" href="/Home/SetLanguage?lang=en" style="font-family:Roboto;">English</a>
+
 <script src="~/assets/js/jquery.min.js"></script>
 <!-- Scripts -->
 
