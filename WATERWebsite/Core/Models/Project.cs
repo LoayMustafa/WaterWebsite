@@ -20,7 +20,7 @@
         public string? ProjectOperatorA { get; set; }
         public string? ProjectDeveloperA { get; set; }
         public string? ProjectOverviewA { get; set; }
-        public string ProjectPhotoPath { get; set; } = string.Empty;
+        public string? ProjectPhotoPath { get; set; }
         public DateTime ProjectDate { get; set; }
         public ICollection<ProjectServices>? ProjectServices { get; set; }
 

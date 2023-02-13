@@ -25,7 +25,7 @@ namespace WATERWebsite.Controllers
                 BlogContent = lang == "ar" ? c.BlogContentA : c.BlogContentE,
                 BlogPublisher = lang == "ar" ? c.BlogPublisherA : c.BlogPublisherE,
                 BlogDate = c.BlogDate.ToString("dd/MM/yyyy"),
-                BlogPhoto = c.BlogPhoto
+                BlogPhoto = c.BlogPhotoPath
 
             }).ToList();
             return View(blogs);
@@ -46,7 +46,7 @@ namespace WATERWebsite.Controllers
                 BlogContent = lang == "ar" ? blog.BlogContentA : blog.BlogContentE,
                 BlogPublisher = lang == "ar" ? blog.BlogPublisherA : blog.BlogPublisherE,
                 BlogDate = blog.BlogDate.ToString("dd/MM/yyyy"),
-                BlogPhoto = blog.BlogPhoto
+                BlogPhoto = blog.BlogPhotoPath
             };
             return View(blogDetails);
         }

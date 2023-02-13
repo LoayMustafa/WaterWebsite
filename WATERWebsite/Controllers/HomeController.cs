@@ -52,7 +52,7 @@ namespace WATERWebsite.Controllers
                 BlogTitle = lang == "ar" ? c.BlogTitleA : c.BlogTitleE,
                 BlogPublisher = lang == "ar" ? c.BlogPublisherA : c.BlogPublisherE,
                 BlogDate = c.BlogDate.ToString("dd/MM/yyyy"),
-                BlogPhoto = c.BlogPhoto,
+                BlogPhoto = c.BlogPhotoPath,
             }).ToList();
 
             HomeIndexViewModel viewModel = new HomeIndexViewModel

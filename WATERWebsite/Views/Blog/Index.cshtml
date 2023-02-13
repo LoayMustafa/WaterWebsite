@@ -48,7 +48,16 @@
                             <div class="col-lg-12 mb-50">
                                 <div class="blog-item">
                                     <div class="blog-img">
-                                        <a asp-action="BlogDetails" asp-route-BlogCode="@item.BlogCode"><img class="blog-photo" src="@item.BlogPhoto" alt=""></a>
+                                        <a asp-action="BlogDetails" asp-route-BlogCode="@item.BlogCode">
+                                            @if (item.BlogPhoto != null)
+                                            {
+                                                <img src="@item.BlogPhoto" alt="">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Resourses/Blog/blog-default.jpg" alt="">
+                                            }
+                                        </a>
                                     </div>
                                     <div class="blog-content">
                                         <h3 class="blog-title"><a asp-action="BlogDetails" asp-route-BlogCode="@item.BlogCode">@item.BlogTitle</a></h3>
@@ -79,42 +88,6 @@
                             </div>
                         }
                     }
-                    <div class="col-lg-12 mb-50">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <a href="blog-single.html"><img src="assets/images/blog/style1/1.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-content">
-                                <h3 class="blog-title"><a href="blog-single.html">We really appreciate content about the construction</a></h3>
-                                <div class="blog-meta">
-                                    <ul class="btm-cate">
-                                        <li>
-                                            <div class="author">
-                                                <i class="fi fi-rr-user"></i> Devsdesign
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="blog-date">
-                                                <i class="fi fi-rr-calendar"></i> May 26, 2022
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="tag-line">
-                                                <i class="fi fi-rr-book"></i>
-                                                <a href="#">Educational</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="blog-desc">
-                                    The brand has responded by partnering with skincare experts on social and web content, providing ingredient deep-dives and re-sharing followers’ tips and tricks on social media. The trand has responded by partnering with skincare experts on social and web content, providing ingredient deep-dives and...
-                                </div>
-                                <div class="blog-button inner-btn">
-                                    <a class="blog-btn" href="blog-single.html">Continue Reading</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

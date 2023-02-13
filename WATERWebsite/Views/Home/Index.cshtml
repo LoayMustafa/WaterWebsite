@@ -438,7 +438,14 @@ else
             {
                 <div class="project-item">
                     <div class="project-img">
-                        <img src="@project.ProjectPhotoPath" alt="images">
+                        @if(@project.ProjectPhotoPath != null)
+                        {
+                            <img src="@project.ProjectPhotoPath" alt="project">
+                        }
+                        else
+                        {
+                            <img src="~/Resourses/Projects/projects-default.jpg" alt="project">
+                        }
                     </div>
                     <div class="project-content">
                         <div class="p-icon">
@@ -598,7 +605,16 @@ else
                 {
                     <div class="blog-item">
                         <div class="image-wrap">
-                            <a asp-controller="Blog" asp-action="BlogDetails" asp-route-BlogCode="@blog.BlogCode"><img src="@blog.BlogPhoto" alt=""></a>
+                            <a asp-controller="Blog" asp-action="BlogDetails" asp-route-BlogCode="@blog.BlogCode">
+                                @if(blog.BlogPhoto != null)
+                                {
+                                    <img src="@blog.BlogPhoto" alt="">
+                                }
+                                else
+                                {
+                                    <img src="~/Resourses/Blog/blog-default.jpg" alt="">
+                                }
+                            </a>
                         </div>
                         <div class="blog-content">
                             <ul class="blog-meta">
@@ -619,27 +635,6 @@ else
                     </div>
                 }
             }
-            <div class="blog-item">
-                <div class="image-wrap">
-                    <a href="blog-single.html"><img src="imgs/blog/style1/1.jpg" alt=""></a>
-                </div>
-                <div class="blog-content">
-                    <ul class="blog-meta">
-                        <li class="date"><i class="fa fa-calendar-check-o"></i>26 April 2022</li>
-                        <li class="admin"><i class="fa fa-user-o"></i>Admin</li>
-                    </ul>
-                    <h3 class="blog-title"><a href="blog-single.html">Best practices construction law on construction</a></h3>
-                    <p class="desc">The brand has responded by partnering with skincare experts on...</p>
-                    <div class="blog-button blog-bnt2">
-                        <a href="blog-single.html">
-                            <span class="btn-text">
-                                Read More
-                            </span>
-                            <i class="fi fi-rr-arrow-small-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>

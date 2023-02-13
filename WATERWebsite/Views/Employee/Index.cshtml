@@ -23,7 +23,16 @@
                         <div class="team-item">
                             <div class="team-inner-wrap">
                                 <div class="image-wrap">
-                                    <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode"><img src="@employee.EmployeePhotoPath" alt="Team"></a>
+                                    <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">
+                                        @if (employee.EmployeePhotoPath != null)
+                                        {
+                                            <img src="@employee.EmployeePhotoPath" alt="@employee.EmployeeName">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Resourses/Employees/employee-default.png" alt="@employee.EmployeeName">
+                                        }
+                                    </a>
                                 </div>
                                 <div class="team-content">
                                     <h3 class="team-name">

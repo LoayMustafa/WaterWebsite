@@ -33,4 +33,8 @@
     <PackageReference Include="Westwind.Globalization.AspNetCore" Version="3.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Resourses\Employees\" />
+  </ItemGroup>
+
 </Project>

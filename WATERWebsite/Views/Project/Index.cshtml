@@ -42,7 +42,15 @@
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="project-item">
                             <div class="project-img">
-                                <img src="@project.ProjectPhotoPath" alt="Images">
+                                @if (@project.ProjectPhotoPath != null)
+                                {
+                                    <img src="@project.ProjectPhotoPath" alt="project">
+                                }
+                                else
+                                {
+                                    <img src="~/Resourses/Projects/projects-default.jpg" alt="project">
+
+                                }
                             </div>
                             <div class="project-content">
                                 @*<span class="category"><a asp-action="ProjectDetails" asp-route-ProjectCode="@project.ProjectCode">@project.ProjectLocation</a></span>*@

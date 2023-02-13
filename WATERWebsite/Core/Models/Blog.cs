@@ -9,7 +9,7 @@
         public string BlogBriefA { get; set; } = string.Empty; 
         public string BlogContentE { get; set; } = string.Empty; 
         public string BlogContentA { get; set; } = string.Empty; 
-        public string BlogPhoto { get; set; } = string.Empty; 
+        public string? BlogPhotoPath { get; set; } 
         public DateTime BlogDate { get; set; } 
         public string? BlogPublisherE { get; set; } 
         public string? BlogPublisherA { get; set; } 

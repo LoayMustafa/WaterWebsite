@@ -9,7 +9,7 @@
         public string EmployeeNameA { get; set; } = string.Empty;
         public string EmployeeJobA { get; set; } = string.Empty; 
         public string? EmployeeDescriptionA { get; set; }
-        public string EmployeePhotoPath { get; set; } = string.Empty;
+        public string? EmployeePhotoPath { get; set; }
         public string? EmployeePhone { get; set; }
         public string? EmployeeEmail { get; set; }
         public string? EmployeeCV { get; set; }

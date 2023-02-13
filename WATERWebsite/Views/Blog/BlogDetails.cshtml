@@ -41,7 +41,16 @@
             <div class="col-lg-8 md-mb-50">
                 <div class="blog-details">
                     <div class="bs-img mb-50">
-                        <a href="#"><img src="@Model.BlogPhoto" alt=""></a>
+                        <a>
+                            @if (Model.BlogPhoto != null)
+                            {
+                                <img src="@Model.BlogPhoto" alt="">
+                            }
+                            else
+                            {
+                                <img src="~/Resourses/Blog/blog-default.jpg" alt="">
+                            }
+                        </a>
                     </div>
                     <div class="blog-meta row">
                         <div class="author col-md-2">
