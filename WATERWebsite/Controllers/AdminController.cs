@@ -11,11 +11,13 @@ namespace WATERWebsite.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _db;
+        private readonly IWebHostEnvironment _hostingEnvironment;
         private string lang = "ar";
 
-        public AdminController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _db = context;
+            _hostingEnvironment = hostingEnvironment;
         }
         public IActionResult Index()
         {
@@ -39,6 +41,22 @@ namespace WATERWebsite.Controllers
         [HttpPost]
         public IActionResult CreateProject(CreateProjectDto dto)
         {
+            string dbPath = "~/Resourses/Projects/projects-default.jpg";
+            if (dto.Photo != null)
+            {
+                string uploadFolder = Path.Combine(_hostingEnvironment.WebRootPath, "Resourses", "Projects");
+                if (!Directory.Exists(uploadFolder))
+                {
+                    Directory.CreateDirectory(uploadFolder);
+                }
+                var fileName = Guid.NewGuid().ToString() + "_" + dto.Photo.FileName;
+                var filePath = Path.Combine(uploadFolder, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    dto.Photo.CopyTo(stream);
+                }
+                dbPath = "~/Resourses/Projects/" + fileName;
+            }
             Project project = new Project
             {
                 ProjectNameE = dto.ProjectNameE,
@@ -55,22 +73,10 @@ namespace WATERWebsite.Controllers
                 ProjectOwnerE = dto.ProjectOwnerE,
                 ProjectDate = dto.ProjectDate,
                 ProjectCapacity = dto.ProjectCapacity,
+                ProjectPhotoPath = dbPath,
             };
 
-            if (dto.ServiceCodes != null)
-            {
-                var services = _db.Service.Where(c => dto.ServiceCodes.Contains(c.ServiceCode)).ToList();
-                foreach (var service in services)
-                {
-                    ProjectServices projectService = new ProjectServices
-                    {
-                        ServiceCode = service.ServiceCode,
-                        ProjectCode = project.ProjectCode,
-                    };
-                    _db.ProjectServices.Add(projectService);
-                }
-            }
-            return RedirectToAction("Index");
+            return Json(new { success = true });
         }
         #endregion
 

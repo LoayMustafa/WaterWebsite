@@ -3,86 +3,129 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ServiceModal">Add Service</button>
-<select class="form-select" id="multiple-select-clear-field ProjectCodes" name="ProjectCodes" data-placeholder="Choose anything" multiple asp-items="@Model.Projects">
-    <option></option>
-</select>
-<div class="modal fade" id="ServiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ProjectModal">Add Project</button>
+<div class="modal fade" id="ProjectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Service</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
             </div>
             <div class="modal-body">
                 <div id="rs-checkout" class="rs-checkout">
                     <div class="container">
                         <div class="full-grid">
-                            <form method="Post" asp-action="CreateService">
+                            <form  enctype="multipart/form-data" id="ProjectForm">
                                 <div class="billing-fields">
-
                                     <div class="form-content-box">
-                                        <div class="row">
+                                        <div class="row mb-30">
                                             <div class="col-md-6 col-sm-12 col-xs-12">
                                                 <div class="form-group">
-                                                    <label id="ServiceNameE" name="ServiceNameE">Service Name (EN): <span style="color:red;">*</span></label>
-                                                    <input id="ServiceNameE" name="ServiceNameE" class="form-control-mod" type="text">
+                                                    <label id="ProjectNameE" name="ProjectNameE">Project Name (EN): <span style="color:red;">*</span></label>
+                                                    <input id="ProjectNameE" name="ProjectNameE" class="form-control-mod" type="text" placeholder="Project Name in English">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12 col-xs-12">
                                                 <div class="form-group">
-                                                    <label id="ServiceNameA" name="ServiceNameA">Service Name (AR): <span style="color:red;">*</span></label>
-                                                    <input id="ServiceNameA" name="ServiceNameA" class="form-control-mod" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <div class="form-group">
-                                                    <label id="ServiceBriefE" name="ServiceBriefE">Service Brief (EN): </label>
-                                                    <textarea id="ServiceBriefE" name="ServiceBriefE" placeholder="Give A Brief About This Service"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <div class="form-group">
-                                                    <label id="ServiceBriefA" name="ServiceBriefA">Service Brief (AR): </label>
-                                                    <textarea id="ServiceBriefA" name="ServiceBriefA" placeholder="Give A Brief About This Service"></textarea>
+                                                    <label id="ProjectNameA" name="ProjectNameA">Project Name (AR): <span style="color:red;">*</span></label>
+                                                    <input id="ProjectNameA" name="ProjectNameA" class="form-control-mod" type="text" placeholder="Project Name in English">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-30">
                                             <div class="col-md-6 col-sm-12 col-xs-12">
                                                 <div class="form-group">
-                                                    <label id="ServiceOverviewE" name="ServiceOverviewE">Service Overview (EN): </label>
-                                                    <textarea id="ServiceOverviewE" name="ServiceOverviewE" placeholder="Explain This Service"></textarea>
+                                                    <label id="ProjectLocationE" name="ProjectLocationE">Project Location (EN): </label>
+                                                    <input id="ProjectLocationE" name="ProjectLocationE" class="form-control-mod" placeholder="Project Location in English">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-sm-12 col-xs-12">
                                                 <div class="form-group">
-                                                    <label id="ServiceOverviewA" name="ServiceOverviewA">Service Overview (AR): </label>
-                                                    <textarea id="ServiceOverviewA" name="ServiceOverviewA" placeholder="Explain This Service"></textarea>
+                                                    <label id="ProjectLocationA" name="ProjectLocationA">Project Location (AR): </label>
+                                                    <input id="ProjectLocationA" name="ProjectLocationA" class="form-control-mod" placeholder="Project Location in Arabic">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            @*<div class="col-md-6 col-sm-12 col-xs-12">
-                                            <label id="DivisionCodes" name="DivisionCodes">Divisions: </label>
-                                            <select class="form-select" id="basic-usage" name="DivisionCodes" asp-items="@Model.Divisions" multiple>
-                                            <option></option>
-                                            </select>
-                                            </div>*@
+                                        <div class="row mb-30">
                                             <div class="col-md-6 col-sm-12 col-xs-12">
-                                                <label id="ProjectCodes" name="ProjectCodes">Projects: </label>
-                                                <select class="form-select" id="multiple-select-clear-field ProjectCodes" name="ProjectCodes" data-placeholder="Choose anything" multiple asp-items="@Model.Projects">
-                                                    <option></option>
-                                                </select>
+                                                <div class="form-group">
+                                                    <label id="ProjectOwnerE" name="ProjectOwnerE">Project Owner (EN): </label>
+                                                    <input id="ProjectOwnerE" name="ProjectOwnerE" class="form-control-mod" placeholder="Project Owner in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectOwnerA" name="ProjectOwnerA">Project Owner (AR): </label>
+                                                    <input id="ProjectOwnerA" name="ProjectOwnerA" class="form-control-mod" placeholder="Project Owner in Arabic">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectOperatorE" name="ProjectOperatorE">Project Operator (EN): </label>
+                                                    <input id="ProjectOperatorE" name="ProjectOperatorE" class="form-control-mod" placeholder="Project Operator in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectOperatorA" name="ProjectOperatorA">Project Operator (AR): </label>
+                                                    <input id="ProjectOperatorA" name="ProjectOperatorA" class="form-control-mod" placeholder="Project Operator in Arabic">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectDeveloperE" name="ProjectDeveloperE">Project Developer (EN): </label>
+                                                    <input id="ProjectDeveloperE" name="ProjectDeveloperE" class="form-control-mod" placeholder="Project Developer in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectDeveloperA" name="ProjectDeveloperA">Project Developer (AR): </label>
+                                                    <input id="ProjectDeveloperA" name="ProjectDeveloperA" class="form-control-mod" placeholder="Project Developer in Arabic">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectOverviewE" name="ProjectOverviewE">Project Overview (EN): </label>
+                                                    <textarea id="ProjectOverviewE" name="ProjectOverviewE" class="form-control-mod" placeholder="Explain This Project"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectOverviewA" name="ProjectOverviewA">Project Overview (AR): </label>
+                                                    <textarea id="ProjectOverviewA" name="ProjectOverviewA" class="form-control-mod" placeholder="Explain This Project"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectDate" name="ProjectDate">Project Date: </label>
+                                                    <input id="ProjectDate" name="ProjectDate" type="date" class="form-control-mod">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label id="ProjectCapacity" name="ProjectCapacity">Project Capacity: </label>
+                                                    <input id="ProjectCapacity" name="ProjectCapacity" type="number" class="form-control-mod" placeholder="M/3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="input-group">
+                                                <input type="file" class="form-control" id="Photo" name="Photo">
+                                                <label class="input-group-text" id="Photo" name="Photo">Upload Project Photo</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Send message</button>
+                                    <button class="btn btn-primary" id="AddProject">Add Project</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                 </div>
                             </form>
                         </div>
@@ -92,14 +135,57 @@
         </div>
     </div>
 </div>
-<a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar" style="font-family:Droid Arabic Kufi;">العربية</a>
-<a class="dropdown-item lang" href="/Home/SetLanguage?lang=en" style="font-family:Roboto;">English</a>
 
-<script src="~/assets/js/jquery.min.js"></script>
+
+
+
+<button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ServiceModal">Add Service</button>
+
 <!-- Scripts -->
+<script src="~/assets/js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
     $('#ServiceModal').on('shown.bs.modal', function () {
         $('#ServiceModal').trigger('focus')
     });
+
+    $('#AddProject').click(function (event) {
+        debugger;
+        event.preventDefault();
+        $('#AddProject').hide();
+        $.ajax({
+            type: 'Post',
+            url: '/Admin/CreateProject',
+            data: $('#ProjectForm').serialize(),
+            success: function (res) {
+                if (res.success) {
+                    swal({
+                        type: 'success',
+                        showCancelButton: true,
+                        confirmButtonColor: '#0CC27E',
+                        confirmButtonClass: 'btn btn-success btn-raised mr-5',
+                        cancelButtonClass: 'btn btn-danger btn-raised',
+                        confirmButtonText: 'Ok',
+                        cancelButtonText: 'Back',
+                        buttonsStyling: false
+                    }).then(function () {
+                        location.reload()
+                    }, function (dismiss) {
+                        location.href = "/Admin/Index"
+                    })
+
+                } else {
+                    $('#AddProject').show()
+                    swal("Error!", "errMessage", "error");
+                }
+            },
+            error: function (err) {
+                swal("Error!", err, "error");
+                console.log(err)
+            }
+        })
+    });
+
+
 </script>
