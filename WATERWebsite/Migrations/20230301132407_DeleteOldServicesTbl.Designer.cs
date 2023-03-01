@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WATERWebsite.Presistance;
 
@@ -11,9 +12,10 @@ using WATERWebsite.Presistance;
 namespace WATERWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230301132407_DeleteOldServicesTbl")]
+    partial class DeleteOldServicesTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -275,55 +277,6 @@ namespace WATERWebsite.Migrations
                     b.ToTable("Blog");
                 });
 
-            modelBuilder.Entity("WATERWebsite.Core.Models.Department", b =>
-                {
-                    b.Property<int>("DepartmentCode")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentCode"), 1L, 1);
-
-                    b.Property<string>("DepartmentBriefA")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("DepartmentBriefE")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("DepartmentEndA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentEndE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentLogoPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentNameA")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("DepartmentNameE")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("DepartmentOverviewA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentOverviewE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DepartmentPhotoPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DepartmentCode");
-
-                    b.ToTable("Department");
-                });
-
             modelBuilder.Entity("WATERWebsite.Core.Models.Employee", b =>
                 {
                     b.Property<int>("EmployeeCode")
@@ -459,9 +412,6 @@ namespace WATERWebsite.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceCode"), 1L, 1);
 
-                    b.Property<int?>("DepartmentCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("ServiceBriefA")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
@@ -470,13 +420,8 @@ namespace WATERWebsite.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("ServiceEndA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ServiceEndE")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ServiceLogo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServiceNameA")
@@ -496,60 +441,12 @@ namespace WATERWebsite.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ServicePhotoPath")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ServiceCode");
 
-                    b.HasIndex("DepartmentCode");
-
                     b.ToTable("Service");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.ServiceDetail", b =>
-                {
-                    b.Property<int>("ServiceDetailCode")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceDetailCode"), 1L, 1);
-
-                    b.Property<int?>("ServiceCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ServiceDetailBriefA")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("ServiceDetailBriefE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ServiceDetailEndA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ServiceDetailEndE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ServiceDetailNameA")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("ServiceDetailNameE")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("ServiceDetailOverviewA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ServiceDetailOverviewE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ServiceDetailCode");
-
-                    b.HasIndex("ServiceCode");
-
-                    b.ToTable("ServiceDetail");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -601,36 +498,6 @@ namespace WATERWebsite.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.Service", b =>
-                {
-                    b.HasOne("WATERWebsite.Core.Models.Department", "DepartmentNavigationCode")
-                        .WithMany("Services")
-                        .HasForeignKey("DepartmentCode")
-                        .HasConstraintName("FK_Services_Departments");
-
-                    b.Navigation("DepartmentNavigationCode");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.ServiceDetail", b =>
-                {
-                    b.HasOne("WATERWebsite.Core.Models.Service", "ServiceNavigationCode")
-                        .WithMany("ServiceDetails")
-                        .HasForeignKey("ServiceCode")
-                        .HasConstraintName("FK_ServiceDetails_Services");
-
-                    b.Navigation("ServiceNavigationCode");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.Department", b =>
-                {
-                    b.Navigation("Services");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.Service", b =>
-                {
-                    b.Navigation("ServiceDetails");
                 });
 #pragma warning restore 612, 618
         }

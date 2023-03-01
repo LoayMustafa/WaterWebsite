@@ -16,12 +16,9 @@ namespace WATERWebsite.Presistance
         }
         public virtual DbSet<Employee> Employee { get; set; } = null!;
         public virtual DbSet<Project> Project { get; set; } = null!;
+        public virtual DbSet<Department> Department { get; set; } = null!;
         public virtual DbSet<Service> Service { get; set; } = null!;
-        public virtual DbSet<Division> Division { get; set; } = null!;
-        public virtual DbSet<SubService> SubService { get; set; } = null!;
-        public virtual DbSet<ServiceDivisons> ServiceDivisons { get; set; } = null!;
-        public virtual DbSet<ProjectServices> ProjectServices { get; set; } = null!;
-        public virtual DbSet<DivisionSubServices> DivisionSubServices { get; set; } = null!;
+        public virtual DbSet<ServiceDetail> ServiceDetail { get; set; } = null!;
         public virtual DbSet<Blog> Blog { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -77,6 +74,22 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.ProjectDate).HasColumnType("datetime");
             });
 
+            modelBuilder.Entity<Department>(entity =>
+            {
+                entity.HasKey(c => c.DepartmentCode);
+
+                entity.Property(c => c.DepartmentCode).ValueGeneratedOnAdd();
+
+                entity.Property(c => c.DepartmentNameE).HasMaxLength(255);
+
+                entity.Property(c => c.DepartmentNameA).HasMaxLength(255);
+
+                entity.Property(c => c.DepartmentBriefE).HasMaxLength(255);
+
+                entity.Property(c => c.DepartmentBriefA).HasMaxLength(255);
+
+            });
+
             modelBuilder.Entity<Service>(entity =>
             {
                 entity.HasKey(c => c.ServiceCode);
@@ -88,77 +101,33 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.ServiceNameA).HasMaxLength(255);
 
                 entity.Property(c => c.ServiceBriefA).HasMaxLength(255);
+
+                entity.HasOne(p => p.DepartmentNavigationCode)
+                    .WithMany(d => d.Services)
+                    .HasForeignKey(p => p.DepartmentCode)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Services_Departments");
             });
 
-            modelBuilder.Entity<Division>(entity =>
+            modelBuilder.Entity<ServiceDetail>(entity =>
             {
-                entity.HasKey(c => c.DivisionCode);
+                entity.HasKey(c => c.ServiceDetailCode);
 
-                entity.Property(c => c.DivisionNameE).HasMaxLength(255);
+                entity.Property(c => c.ServiceDetailCode).ValueGeneratedOnAdd();
 
-                entity.Property(c => c.DivisionNameA).HasMaxLength(255);
+                entity.Property(c => c.ServiceDetailNameE).HasMaxLength(255);
 
-                entity.Property(c => c.DivisionNameA).HasMaxLength(255);
+                entity.Property(c => c.ServiceDetailNameA).HasMaxLength(255);
 
-                entity.Property(c => c.DivisionNameA).HasMaxLength(255);
-            });
+                entity.Property(c => c.ServiceDetailBriefA).HasMaxLength(255);
 
-            modelBuilder.Entity<ServiceDivisons>(entity =>
-            {
-                entity.HasKey(e => new { e.ServiceCode, e.DivisionCode });
+                entity.Property(c => c.ServiceDetailBriefA).HasMaxLength(255);
 
-                entity.HasOne(d => d.ServiceCodeNavigation)
-                    .WithMany(p => p.ServiceDivisons)
-                    .HasForeignKey(d => d.ServiceCode)
-                    .HasConstraintName("Fk_ServiceDivisions_Service");
-
-                entity.HasOne(d => d.DivisionCodeNavigation)
-                    .WithMany(p => p.ServiceDivisons)
-                    .HasForeignKey(d => d.DivisionCode)
-                    .HasConstraintName("Fk_ServiceDivisions_Division");
-            });
-
-            modelBuilder.Entity<SubService>(entity =>
-            {
-                entity.HasKey(c => c.SubServiceCode);
-
-                entity.Property(c => c.SubServiceNameE).HasMaxLength(255);
-
-                entity.Property(c => c.SubServiceNameA).HasMaxLength(255);
-
-                entity.Property(c => c.SubServiceBriefA).HasMaxLength(255);
-
-                entity.Property(c => c.SubServiceBriefE).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<ProjectServices>(entity =>
-            {
-                entity.HasKey(e => new { e.ProjectCode, e.ServiceCode });
-
-                entity.HasOne(d => d.ProjectCodeNavigation)
-                    .WithMany(p => p.ProjectServices)
-                    .HasForeignKey(d => d.ProjectCode)
-                    .HasConstraintName("Fk_ProjectServices_Project");
-
-                entity.HasOne(d => d.ServiceCodeNavigation)
-                    .WithMany(p => p.ProjectServices)
-                    .HasForeignKey(d => d.ServiceCode)
-                    .HasConstraintName("Fk_ProjectServices_Service");
-            });
-
-            modelBuilder.Entity<DivisionSubServices>(entity =>
-            {
-                entity.HasKey(e => new { e.DivisionCode, e.SubServiceCode });
-
-                entity.HasOne(d => d.DivisionCodeNavigation)
-                    .WithMany(p => p.DivisionSubServices)
-                    .HasForeignKey(d => d.DivisionCode)
-                    .HasConstraintName("Fk_DivisionSubServices_Division");
-
-                entity.HasOne(d => d.SubServiceCodeNavigation)
-                    .WithMany(p => p.DivisionSubServices)
-                    .HasForeignKey(d => d.SubServiceCode)
-                    .HasConstraintName("Fk_DivisionSubServices_SubService");
+                entity.HasOne(p => p.ServiceNavigationCode)
+                    .WithMany(d => d.ServiceDetails)
+                    .HasForeignKey(p => p.ServiceCode)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ServiceDetails_Services");
             });
 
             modelBuilder.Entity<Blog>(entity =>

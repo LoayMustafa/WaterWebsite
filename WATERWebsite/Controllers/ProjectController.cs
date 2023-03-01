@@ -25,8 +25,6 @@ namespace WATERWebsite.Controllers
                 ProjectName = lang == "ar" ? c.ProjectNameA : c.ProjectNameE,
                 ProjectLocation = lang == "ar" ? c.ProjectLocationA : c.ProjectLocationE,
                 ProjectPhotoPath = c.ProjectPhotoPath,
-                Services = _db.ProjectServices.Where(x => x.ProjectCode == c.ProjectCode).Select(x => x.ProjectCodeNavigation.ProjectNameE).ToList(),
-                //Divisions = _db.ServiceDivisons.Where(x => x.se == c.ProjectCode).Select(x => x.ProjectCodeNavigation.ProjectNameE).ToList(),
             }).ToList();
 
             return View(projects);

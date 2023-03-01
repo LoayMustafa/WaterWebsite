@@ -45,23 +45,23 @@ namespace WATERWebsite.Controllers
             if (service == null)
                 return View("Error");
 
-            var services = _db.Service.ToList();
-
-            //var serviceSpecialized = _db.ServiceSpecializedService.Where(c => c.ServiceId == ServiceCode).ToList();
-            //List<SpecializedService> specializedServiceList = new List<SpecializedService>();
-            ////var colapss = "";
-            //foreach(var specializedServiceId in serviceSpecialized)
-            //{
-            //    var specializedService = _db.SpecializedService.Find(specializedServiceId.SpecializedServiceId);
-            //    if (specializedService != null)
-            //        specializedServiceList.Add(specializedService);
-
-            //    var specialServiceItems = _db.SpecializedServicesItems.Where(c => c.SpecializedServiceId == specializedServiceId.SpecializedServiceId).ToList();
-            //    foreach(var item in specialServiceItems)
-            //    {
-            //        var items = _db.ServiceItem.Find(item.ServiceItemId);
-            //    }
-            //}
+            List<ServiceDetailsDto> serviceDetailsList = new List<ServiceDetailsDto>();
+            var serviceDetail = _db.ServiceDetail.Where(c => c.ServiceCode == ServiceCode).ToList();
+            if(serviceDetail?.Count > 0)
+            {
+                foreach(var item in serviceDetail)
+                {
+                    ServiceDetailsDto serviceDetailItem = new ServiceDetailsDto()
+                    {
+                        ServiceDetailCode = item.ServiceDetailCode,
+                        ServiceDetailName = lang == "ar" ? item.ServiceDetailNameA : item.ServiceDetailNameE,
+                        ServiceDetailBrief = lang == "ar" ? item.ServiceDetailBriefA : item.ServiceDetailBriefE,
+                        ServiceDetailOverview = lang == "ar" ? item.ServiceDetailOverviewA : item.ServiceDetailOverviewE,
+                        ServiceDetailEnd = lang == "ar" ? item.ServiceDetailEndA : item.ServiceDetailEndE,
+                    };
+                    serviceDetailsList.Add(serviceDetailItem);
+                }
+            }
 
             ServiceDetailsViewModel serviceItem = new ServiceDetailsViewModel()
             {
@@ -70,10 +70,8 @@ namespace WATERWebsite.Controllers
                 ServiceOverview = lang == "ar" ? service.ServiceOverviewA : service.ServiceOverviewE,
                 ServiceLogo = service.ServiceLogo,                
                 ServicePhotoPath = service.ServicePhotoPath,
-                //SpecializedService = specializedServiceList,
-                Services = services
+                ServiceDetails = serviceDetailsList
             };
-            
             return View(serviceItem);
         }
         

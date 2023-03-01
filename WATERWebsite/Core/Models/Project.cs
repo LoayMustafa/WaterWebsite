@@ -2,10 +2,6 @@
 {
     public class Project
     {
-        public Project()
-        {
-            ProjectServices = new HashSet<ProjectServices>();
-        }
         public int ProjectCode { get; set; }
         public string ProjectNameE { get; set; } = string.Empty;
         public string ProjectLocationE { get; set; } = string.Empty;
@@ -22,7 +18,6 @@
         public string? ProjectOverviewA { get; set; }
         public string? ProjectPhotoPath { get; set; }
         public DateTime ProjectDate { get; set; }
-        public ICollection<ProjectServices>? ProjectServices { get; set; }
 
     }
 }
