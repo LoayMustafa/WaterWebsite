@@ -5,6 +5,6 @@
         public int ProjectCode { get; set; }
         public string ProjectName { get; set; } = string.Empty;
         public string ProjectLocation { get; set; } = string.Empty;
-        public string ProjectPhotoPath { get; set; } = string.Empty;
+        public string? ProjectPhotoPath { get; set; } = string.Empty;
     }
 }

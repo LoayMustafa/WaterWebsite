@@ -84,10 +84,6 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.DepartmentNameA).HasMaxLength(255);
 
-                entity.Property(c => c.DepartmentBriefE).HasMaxLength(255);
-
-                entity.Property(c => c.DepartmentBriefA).HasMaxLength(255);
-
             });
 
             modelBuilder.Entity<Service>(entity =>
@@ -96,11 +92,7 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.ServiceNameE).HasMaxLength(255);
 
-                entity.Property(c => c.ServiceBriefE).HasMaxLength(255);
-
                 entity.Property(c => c.ServiceNameA).HasMaxLength(255);
-
-                entity.Property(c => c.ServiceBriefA).HasMaxLength(255);
 
                 entity.HasOne(p => p.DepartmentNavigationCode)
                     .WithMany(d => d.Services)
@@ -119,10 +111,6 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.ServiceDetailNameA).HasMaxLength(255);
 
-                entity.Property(c => c.ServiceDetailBriefA).HasMaxLength(255);
-
-                entity.Property(c => c.ServiceDetailBriefA).HasMaxLength(255);
-
                 entity.HasOne(p => p.ServiceNavigationCode)
                     .WithMany(d => d.ServiceDetails)
                     .HasForeignKey(p => p.ServiceCode)
@@ -136,11 +124,7 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.BlogCode).ValueGeneratedOnAdd();
 
-                entity.Property(c => c.BlogBriefA).HasMaxLength(255);
-
-                entity.Property(c => c.BlogBriefE).HasMaxLength(255);
-
-                entity.Property(c => c.BlogTitleA).HasMaxLength(255);
+                entity.Property(c => c.BlogTitleA).HasMaxLength(300);
 
                 entity.Property(c => c.BlogTitleE).HasMaxLength(255);
 
