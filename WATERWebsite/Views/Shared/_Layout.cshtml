@@ -106,8 +106,61 @@
                                                 <li>
                                                     <a asp-action="index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a>
                                                 </li>
-                                                <li>
-                                                    <a asp-action="index" asp-controller="Services">@DbRes.T("Services", "Resources", lang)</a>
+                                                <li class="menu-item-has-children">
+                                                    <a asp-action="index" asp-controller="Services">
+                                                        @DbRes.T("Services", "Resources", lang)
+                                                    </a>
+                                                    <ul class="sub-menu">
+                                                        <li class="menu-item-has-children">
+                                                            <a asp-route-DepartmentCode="3" asp-action="DepartmentDetail" asp-controller="Department">
+                                                                @DbRes.T("WaterEngineering", "Resources", lang)
+                                                            </a>
+                                                            <ul class="sub-menu m-1">
+                                                                <li>
+                                                                    <a asp-route-ServiceCode="8" asp-action="ServiceDetails" asp-controller="Services">
+                                                                        @DbRes.T("PotableWaterTreatment", "Resources", lang)
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a asp-route-ServiceCode="10" asp-action="ServiceDetails" asp-controller="Services">
+                                                                        @DbRes.T("Desalination", "Resources", lang)
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a asp-route-ServiceCode="12" asp-action="ServiceDetails" asp-controller="Services">
+                                                                        @DbRes.T("wastewatertreatment", "Resources", lang)
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a asp-route-ServiceCode="13" asp-action="ServiceDetails" asp-controller="Services">
+                                                                        @DbRes.T("Stormwater Management", "Resources", lang)
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a asp-route-ServiceCode="14" asp-action="ServiceDetails" asp-controller="Services">
+                                                                        @DbRes.T("Stormwater Management", "Resources", lang)
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="menu-item-has-children">
+                                                            <a asp-route-DepartmentCode="4" asp-action="DepartmentDetail" asp-controller="Department">
+                                                                @DbRes.T("CivilEngineering", "Resources", lang)
+                                                            </a>
+                                                            <ul class="sub-menu m-1">
+                                                                <li>
+                                                                    <a asp-route-ServiceCode="8" asp-action="ServiceDetails" asp-controller="Services">
+                                                                        @DbRes.T("PotableWaterTreatment", "Resources", lang)
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a asp-route-ServiceCode="10" asp-action="ServiceDetails" asp-controller="Services">
+                                                                        @DbRes.T("Desalination", "Resources", lang)
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
                                                 </li>
                                                 <li>
                                                     <a asp-action="index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a>

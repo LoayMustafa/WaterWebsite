@@ -43,7 +43,7 @@ namespace WATERWebsite.Controllers
 
             var service = _db.Service.Find(ServiceCode);
             if (service == null)
-                return View("Error");
+                return NotFound();
 
             List<ServiceDetailsDto> serviceDetailsList = new List<ServiceDetailsDto>();
             var serviceDetail = _db.ServiceDetail.Where(c => c.ServiceCode == ServiceCode).ToList();

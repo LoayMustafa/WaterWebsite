@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WATERWebsite.Core.DTOs;
 using WATERWebsite.Core.DTOs.BlogDtos;
 using WATERWebsite.Core.DTOs.ProjectDtos;
 using WATERWebsite.Core.DTOs.ServiceDtos;
@@ -69,6 +70,36 @@ namespace WATERWebsite.Controllers
         {
             HttpContext.Session.SetString("lang", lang);
             return Json(new { success = true });
+        }
+
+        public ServicesNavDto ServicesNav()
+        {
+            var departments = _db.Department.Select(c => new DepartmentNavDto
+            {
+                DepartmentCode = c.DepartmentCode,
+                DepartmentName = lang == "ar" ? c.DepartmentNameA : c.DepartmentNameE,
+            }).ToList();
+
+            var services = _db.Service.Select(c => new ServiceNavDto
+            {
+                ServicetCode = c.ServiceCode,
+                ServiceName = lang == "ar" ? c.ServiceNameA : c.ServiceNameE,
+            }).ToList();
+
+            var servicesDetails = _db.ServiceDetail.Select(c => new ServiceDetailsDto
+            {
+                ServicetDetailsCode = c.ServiceDetailCode,
+                ServiceDetailsName = lang == "ar" ? c.ServiceDetailNameA : c.ServiceDetailNameE,
+            }).ToList();
+
+            ServicesNavDto servicesNavDto = new ServicesNavDto()
+            {
+                Departments = departments,
+                Services = services,
+                ServiceDetails = servicesDetails
+            };
+
+            return servicesNavDto;
         }
     }
 }
