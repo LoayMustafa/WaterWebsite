@@ -15,6 +15,7 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult Index()
         {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
 
             var departments = _db.Department.Select(c => new DeprtmentIndexViewModel
             {

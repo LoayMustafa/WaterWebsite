@@ -47,9 +47,9 @@ namespace WATERWebsite.Controllers
 
             List<ServiceDetailsDto> serviceDetailsList = new List<ServiceDetailsDto>();
             var serviceDetail = _db.ServiceDetail.Where(c => c.ServiceCode == ServiceCode).ToList();
-            if(serviceDetail?.Count > 0)
+            if (serviceDetail?.Count > 0)
             {
-                foreach(var item in serviceDetail)
+                foreach (var item in serviceDetail)
                 {
                     ServiceDetailsDto serviceDetailItem = new ServiceDetailsDto()
                     {
@@ -68,12 +68,30 @@ namespace WATERWebsite.Controllers
                 ServiceName = lang == "ar" ? service.ServiceNameA : service.ServiceNameE,
                 ServiceBrief = lang == "ar" ? service.ServiceBriefA : service.ServiceBriefE,
                 ServiceOverview = lang == "ar" ? service.ServiceOverviewA : service.ServiceOverviewE,
-                ServiceLogo = service.ServiceLogo,                
+                ServiceLogo = service.ServiceLogo,
                 ServicePhotoPath = service.ServicePhotoPath,
                 ServiceDetails = serviceDetailsList
             };
             return View(serviceItem);
         }
-        
+
+        public IActionResult ServiceDetailItem(int ServiceDetailCode)
+        {
+            var serviceDetail = _db.ServiceDetail.Find(ServiceDetailCode);
+            if (serviceDetail == null)
+                return NotFound();
+
+            ServiceDetailsDto serviceDetailItem = new ServiceDetailsDto()
+            {
+                ServiceDetailCode = serviceDetail.ServiceDetailCode,
+                ServiceDetailName = lang == "ar" ? serviceDetail.ServiceDetailNameA : serviceDetail.ServiceDetailNameE,
+                ServiceDetailBrief = lang == "ar" ? serviceDetail.ServiceDetailBriefA : serviceDetail.ServiceDetailBriefE,
+                ServiceDetailOverview = lang == "ar" ? serviceDetail.ServiceDetailOverviewA : serviceDetail.ServiceDetailOverviewE,
+                ServiceDetailEnd = lang == "ar" ? serviceDetail.ServiceDetailEndA : serviceDetail.ServiceDetailEndE,
+            };
+
+            return PartialView("_ServiceDetailItemPartial", serviceDetailItem);
+        }
+
     }
 }

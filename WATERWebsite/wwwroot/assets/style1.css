@@ -215,6 +215,13 @@ ul {
   text-shadow: none;
   color: #ffffff;
 }
+.text-limit {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .bg1 {
   background: url(../imgs/bg/about-bg.jpg);
   background-position: center center;

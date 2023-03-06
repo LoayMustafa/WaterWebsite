@@ -58,7 +58,7 @@
                     @Model.DepartmentOverview
                 </p>
                 <!-- Faq Section Start -->
-                <div class="rs-faq faq-style1 faq-modify1 pt-100 pb-100 md-pt-80 md-pb-60">
+                <div class="rs-faq faq-style1 faq-modify1 pt-30 pb-30 md-pt-80 md-pb-10">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 md-mb-50">
@@ -80,7 +80,8 @@
                                                             <h3> Service Overview</h3>
                                                             <p>@service.ServiceOverview</p>
                                                             <br>
-                                                            MORE DETAILS
+                                                            <a asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@DbRes.T("MoreDetails", "Resources", lang)</a>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,6 +94,10 @@
                     </div>
                 </div>
                 <!-- Faq Section End -->
+                
+                <p class="desc-part pb-10">
+                    @Model.DepartmentEnd
+                </p>
             </div>
             <div class="col-lg-4 pl-36 md-pl-15">
                 <ul class="services-list mb-50">

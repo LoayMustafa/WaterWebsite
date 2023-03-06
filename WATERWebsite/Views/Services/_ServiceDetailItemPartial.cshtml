@@ -1,0 +1,29 @@
+﻿@model WATERWebsite.Core.ViewModels.ServiceDetailsDto
+@{
+    ViewData["Title"] = "_ServiceDetailItemPartial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>_ServiceDetailItemPartial</h1>
+<div class="modal fade" id="ProjectModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                @Model.ServiceDetailName
+            </div>
+            <div class="modal-body">
+                <div id="rs-checkout" class="rs-checkout">
+                    <div class="container">
+                        <div class="full-grid">
+                            <p>@Model.ServiceDetailBrief</p>
+                            <br>
+                            <h3> Service Overview</h3>
+                            <p>@Model.ServiceDetailOverview</p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

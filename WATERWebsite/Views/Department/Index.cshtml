@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var ser = 0;
     var lang = "en";
     if (Context.Session.GetString("lang") != null)
     {
@@ -17,39 +16,59 @@
     <div class="container">
         <div class="breadcrumbs-inner">
             <h1 class="page-title">
-                @DbRes.T("Services", "Resources", lang)
+                @DbRes.T("Departments", "Resources", lang)
             </h1>
             <span class="sub-text">
-                @DbRes.T("ServicesHeader", "Resources", lang)
+                @DbRes.T("DepartmentsHeader", "Resources", lang)
             </span>
             <ul class="breadcrumbs-area">
                 <li title="Home">
                     <a class="active" href="/">@DbRes.T("Home", "Resources", lang)</a>
                 </li>
-                <li>@DbRes.T("Services", "Resources", lang)</li>
+                <li>@DbRes.T("Departments", "Resources", lang)</li>
             </ul>
         </div>
     </div>
 </div>
 <!-- Breadcrumbs End -->
 <!-- Services Start -->
-<div class="rs-services services-style13 gray-bg6 pt-120 pb-120 md-pt-80 md-pb-80">
+<div class="rs-services services-main-home gray-bg pt-120 pb-120 md-pt-80 md-pb-80">
     <div class="container">
         <div class="row">
             @foreach (var item in Model)
             {
-                ser++;
-                <div class="col-xl-4 col-md-6 mb-20">
+                <div class="col-xl-4 col-md-6 mb-30">
                     <div class="services-item">
-                        <div class="serial-number">	@ser</div>
-                        <div class="services-icon">
-                            <img src="@item.DepartmentLogoPath" alt="Images">
-                        </div>
-                        <div class="services-text">
-                            <h4 class="title"><a asp-action="DepartmentDetail" asp-route-DepartmentCode="@item.DepartmentCode">@item.DepartmentName</a></h4>
-                            <p class="services-txt">
-                                @item.DepartmentBrief
-                            </p>
+                        <div class="services-wrap">
+                            <div class="services-image" @*style="min-height:380px;"*@>
+                                <img src="@item.DepartmentPhotoPath" alt="Services">
+                            </div>
+                            <div class="services-content">
+                                <div class="service-inner">
+                                    <div class="icon-top">
+                                        <img src="@item.DepartmentLogoPath" alt="Images">
+                                    </div>
+                                    <div class="services-titles">
+                                        <h4 class="title"><a asp-action="DepartmentDetail" asp-route-DepartmentCode="@item.DepartmentCode">@item.DepartmentName</a></h4>
+                                    </div>
+                                    <p class="services-txt text-limit">
+                                        @item.DepartmentBrief
+                                    </p>
+                                    <div class="services-btn">
+                                        <a class="btn-text" asp-action="DepartmentDetail" asp-route-DepartmentCode="@item.DepartmentCode">
+                                            @DbRes.T("ReadMore", "Resources", lang)
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="normarl-text-area">
+                                <div class="services-titles">
+                                    <h4 class="title"><a asp-action="DepartmentDetail" asp-route-DepartmentCode="@item.DepartmentCode">@item.DepartmentName</a></h4>
+                                </div>
+                                <div class="icon-image">
+                                    <img src="@item.DepartmentLogoPath" alt="Images">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -57,4 +76,5 @@
         </div>
     </div>
 </div>
+
 <!-- Services End -->

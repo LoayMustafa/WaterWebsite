@@ -223,6 +223,13 @@ ul {
   text-shadow: none;
   color: #ffffff;
 }
+.text-limit {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .bg1 {
   background: url(../imgs/bg/about-bg.jpg);
   background-position: center center;
@@ -7135,7 +7142,7 @@ body .search-modal .close:hover {
   align-items: center;
   justify-content: space-between;
   background: #fff;
-  padding-left: 30px;
+  /*padding-left: 30px;*/
   transition: 0.5s;
   position: absolute;
   width: 100%;
@@ -7148,6 +7155,7 @@ body .search-modal .close:hover {
   font-family: "Droid Arabic Kufi", Sans-serif;
   font-weight: 500;
   margin: 0 0 10px;
+  padding-right: 20px;
 }
 .rs-services.services-main-home .services-item .services-wrap .normarl-text-area .services-titles .title a {
   color: #010d14;
