@@ -270,7 +270,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("BlogCode");
 
-                    b.ToTable("Blog");
+                    b.ToTable("Blog", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Department", b =>
@@ -317,7 +317,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("DepartmentCode");
 
-                    b.ToTable("Department");
+                    b.ToTable("Department", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Employee", b =>
@@ -373,7 +373,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("EmployeeCode");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employee", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Project", b =>
@@ -444,7 +444,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("ProjectCode");
 
-                    b.ToTable("Project");
+                    b.ToTable("Project", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Service", b =>
@@ -496,7 +496,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasIndex("DepartmentCode");
 
-                    b.ToTable("Service");
+                    b.ToTable("Service", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.ServiceDetail", b =>
@@ -542,7 +542,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasIndex("ServiceCode");
 
-                    b.ToTable("ServiceDetail");
+                    b.ToTable("ServiceDetail", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -104,5 +104,27 @@ namespace WATERWebsite.Controllers
         }
 
         #endregion
+
+        #region Service Detail
+        [HttpPost]
+        public IActionResult CreateServiceDetail(CreateServiceDetailItemDto dto)
+        {
+            ServiceDetail ServiceDetail = new ServiceDetail
+            {
+                ServiceDetailNameE = dto.ServiceDetailNameE,
+                ServiceDetailNameA = dto.ServiceDetailNameA,
+                ServiceDetailBriefE = dto.ServiceDetailBriefE,
+                ServiceDetailBriefA = dto.ServiceDetailBriefA,
+                ServiceDetailOverviewE = dto.ServiceDetailOverviewE,
+                ServiceDetailOverviewA = dto.ServiceDetailOverviewA,
+                ServiceDetailEndE = dto.ServiceDetailEndE,
+                ServiceDetailEndA = dto.ServiceDetailEndA
+            };
+            _db.ServiceDetail.Add(ServiceDetail);
+            _db.SaveChanges();
+
+            return Json(new { success = true });
+        }
+        #endregion
     }
 }

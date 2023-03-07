@@ -1,4 +1,5 @@
-﻿@model WATERWebsite.Core.ViewModels.ServiceDetailsDto
+﻿@using System.Web;
+@model WATERWebsite.Core.ViewModels.ServiceDetailsDto
 @{
     ViewData["Title"] = "_ServiceDetailItemPartial";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,7 +19,7 @@
                             <p>@Model.ServiceDetailBrief</p>
                             <br>
                             <h3> Service Overview</h3>
-                            <p>@Model.ServiceDetailOverview</p>
+                            @Html.Raw(Model.ServiceDetailOverview);
                             <br>
                         </div>
                     </div>

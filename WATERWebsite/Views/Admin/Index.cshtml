@@ -136,16 +136,126 @@
     </div>
 </div>
 
-
-
-
-<button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ServiceModal">Add Service</button>
+<button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ServiceDetailsModal">Add Service Detail</button>
+<div class="modal fade" id="ServiceDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Service Detail Item</h5>
+            </div>
+            <div class="modal-body">
+                <div id="rs-checkout" class="rs-checkout">
+                    <div class="container">
+                        <div class="full-grid">
+                            <form id="ServiceDetailForm">
+                                <div class="billing-fields">
+                                    <div class="form-content-box">
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailNameE">Service Detail Name (EN): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceDetailNameE" name="ServiceDetailNameE" class="form-control-mod" type="text" placeholder="Service Detail Name in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailNameA">Service Detail Name (AR): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceDetailNameA" name="ServiceDetailNameA" class="form-control-mod" type="text" placeholder="Service Detail Name in English">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailBriefE">Service Detail Brief (EN): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceDetailBriefE" name="ServiceDetailBriefE" class="form-control-mod" type="text" placeholder="Service Detail Brief in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailBriefA">Service Detail Brief (AR): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceDetailBriefA" name="ServiceDetailBriefA" class="form-control-mod" type="text" placeholder="Service Detail Brief in English">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailOverviewE">Service Detail Overview (EN): <span style="color:red;">*</span></label>
+                                                    <textarea id="ServiceDetailOverviewE" name="ServiceDetailOverviewE" placeholder="Service Detail Overview in English"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailOverviewA">Service Detail Overview (AR): <span style="color:red;">*</span></label>
+                                                    <textarea id="ServiceDetailOverviewA" name="ServiceDetailOverviewA" placeholder="Service Detail Overview in English"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailEndE">Service Detail End (EN): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceDetailEndE" name="ServiceDetailEndE" class="form-control-mod" type="text" placeholder="Service Detail End in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="ServiceDetailEndA">Service Detail End (AR): <span style="color:red;">*</span></label>
+                                                    <input id="ServiceDetailEndA" name="ServiceDetailEndA" class="form-control-mod" type="text" placeholder="Service Detail End in English">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" id="AddServiceDetail">Add Service Detail</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Scripts -->
 <script src="~/assets/js/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/tinymce/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
+    tinymce.init({
+        selector: 'textarea#ServiceDetailOverviewE',
+        plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+            'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+            'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ],
+        toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+            'forecolor backcolor emoticons | help',
+        content_css: '//www.tinymce.com/css/codepen.min.css'
+        });
+
+    tinymce.init({
+        selector: 'textarea#ServiceDetailOverviewA',
+        plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+            'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+            'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ],
+        toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+            'forecolor backcolor emoticons | help',
+    });
+
     $('#ServiceModal').on('shown.bs.modal', function () {
         $('#ServiceModal').trigger('focus')
     });
@@ -160,7 +270,7 @@
             data: $('#ProjectForm').serialize(),
             success: function (res) {
                 if (res.success) {
-                    swal({
+                    Swal({
                         type: 'success',
                         showCancelButton: true,
                         confirmButtonColor: '#0CC27E',
@@ -177,11 +287,55 @@
 
                 } else {
                     $('#AddProject').show()
-                    swal("Error!", "errMessage", "error");
+                    Swal("Error!", "errMessage", "error");
                 }
             },
             error: function (err) {
-                swal("Error!", err, "error");
+                Swal("Error!", err, "error");
+                console.log(err)
+            }
+        })
+    });
+
+    $('#AddServiceDetail').click(function (event) {
+        debugger;
+        event.preventDefault();
+        let nameE = $('#ServiceDetailNameE').val();
+        let nameA = $('#ServiceDetailNameA').val();
+        let briefE = $('#ServiceDetailBriefE').val();
+        let briefA = $('#ServiceDetailBriefA').val();
+        let endE = $('#ServiceDetailEndE').val();
+        let endA = $('#ServiceDetailEndA').val();
+        let overviewE = tinymce.get("ServiceDetailOverviewE").getContent();
+        let overviewA = tinymce.get("ServiceDetailOverviewA").getContent();
+        $('#AddServiceDetail').hide();
+        $.ajax({
+            type: 'Post',
+            url: '/Admin/CreateServiceDetail',
+            data: {
+                ServiceDetailNameE: nameE,
+                ServiceDetailNameA: nameA,
+                ServiceDetailBriefE: briefE,
+                ServiceDetailBriefA: briefA,
+                ServiceDetailEndE: endE,
+                ServiceDetailEndA: endA,
+                ServiceDetailOverviewE: overviewE,
+                ServiceDetailOverviewA: overviewA
+            },
+            success: function (res) {
+                if (res.success) {
+                    swal.fire('Saved Successfully').then(function () {
+                        location.reload()
+                    }, function (dismiss) {
+                        location.href = "/Admin/Index"
+                    })
+                } else {
+                    $('#AddServiceDetail').show()
+                    swal.fire("Error!", "errMessage", "error");
+                }
+            },
+            error: function (err) {
+                swal.fire("Error!", err, "error");
                 console.log(err)
             }
         })
