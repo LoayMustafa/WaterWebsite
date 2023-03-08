@@ -230,6 +230,10 @@ ul {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.service-brief-txt {
+    font-size: 13px;
+    text-align: justify;
+}
 .bg1 {
   background: url(../imgs/bg/about-bg.jpg);
   background-position: center center;
@@ -9409,6 +9413,7 @@ body .search-modal .close:hover {
   font-size: 15px;
   color: #0a0a0a;
   transition: all 0.4s ease-in-out 0s;
+  cursor:pointer;
 }
 .rs-inner-blog .widget-area .categories ul li a:hover {
   color: #0D659D;

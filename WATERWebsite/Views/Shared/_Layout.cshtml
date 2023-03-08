@@ -84,152 +84,9 @@
 
                 <!-- Toolbar Area End -->
                 <!-- Menu Start -->
+
                 <partial name="_NavBar" />
                 
-
-                @*<div class="menu-area menu-sticky">
-                    <div class="container">
-                        <div class="row-table">
-                            <div class="col-cell header-logo">
-                                <div class="logo-area">
-                                    <a asp-action="Index" asp-controller="Home">
-                                        <img class="sticky-logo" src="~/assets/water/logo-blue.png" alt="logo">
-                                        <img class="normal-logo" src="~/assets/water/logoLight.png" alt="logo">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-cell">
-                                <div class="rs-menu-area">
-                                    <div class="main-menu">
-                                        <nav class="rs-menu hidden-md">
-                                            <ul class="nav-menu">
-                                                <li id="home">
-                                                    <a asp-action="Index" asp-controller="Home">@DbRes.T("Home", "Resources", lang)</a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a asp-action="index" asp-controller="Services">
-                                                        @DbRes.T("Services", "Resources", lang)
-                                                    </a>
-                                                    <ul class="sub-menu">
-                                                        <li class="menu-item-has-children">
-                                                            <a asp-route-DepartmentCode="3" asp-action="DepartmentDetail" asp-controller="Department">
-                                                                @DbRes.T("WaterEngineering", "Resources", lang)
-                                                            </a>
-                                                            <ul class="sub-menu m-1">
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="8" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("PotableWaterTreatment", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="10" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("Desalination", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="12" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("wastewatertreatment", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="13" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("Stormwater Management", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li class="menu-item-has-children">
-                                                            <a asp-route-DepartmentCode="4" asp-action="DepartmentDetail" asp-controller="Department">
-                                                                @DbRes.T("CivilEngineering", "Resources", lang)
-                                                            </a>
-                                                            <ul class="sub-menu m-1">
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="14" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("Site Planning and Design", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="15" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("Road and Highway Design", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="16" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("Land Development and Zoning Analysis", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="17" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("Geotechnical Engineering and Soil Analysis", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a asp-route-ServiceCode="18" asp-action="ServiceDetails" asp-controller="Services">
-                                                                        @DbRes.T("Structural Design", "Resources", lang)
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <hr style="margin:auto;"/>
-                                                        <li>
-                                                            <a asp-action="index" asp-controller="Department">
-                                                                @DbRes.T("View All Departments", "Resources", lang)
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="Index" asp-controller="Blog">@DbRes.T("Blog", "Resources", lang)</a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
-                                                </li>
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link dropdown-toggle" href="#"
-                                                       id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <i class="fa fa-globe" aria-hidden="true"></i>
-                                                    </a>
-                                                    <ul class="sub-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar" style="font-family:Droid Arabic Kufi;">العربية</a></li>
-                                                        <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=en" style="font-family:Roboto;">English</a></li>
-                                                    </ul>
-                                                </li>
-
-                                            </ul> <!-- //.nav-menu -->
-                                        </nav>
-                                    </div> <!-- //.main-menu -->
-                                </div>
-                            </div>
-                            <div class="col-cell">
-                                <div class="expand-btn-inner">
-                                    <ul>
-                                        <li class="humburger">
-                                            <a id="nav-expander" class="nav-expander bar" href="#">
-                                                <div class="bar">
-                                                    <span class="dot1"></span>
-                                                    <span class="dot2"></span>
-                                                    <span class="dot3"></span>
-                                                    <span class="dot4"></span>
-                                                    <span class="dot5"></span>
-                                                    <span class="dot6"></span>
-                                                    <span class="dot7"></span>
-                                                    <span class="dot8"></span>
-                                                    <span class="dot9"></span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
                 <!-- Menu End -->
                 <!-- Canvas Menu start -->
                 <nav class="right_menu_togle menu-wrap-off  hidden-md">
@@ -315,14 +172,83 @@
                         <li>
                             <a asp-action="index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a>
                         </li>
-                        <li>
-                            <a asp-action="index" asp-controller="Services">@DbRes.T("Services", "Resources", lang)</a>
+                        <li class="menu-item-has-children">
+                            <a asp-action="index" asp-controller="Services">
+                                @DbRes.T("Services", "Resources", lang)
+                            </a>
+                            <ul class="sub-menu">
+                                <li class="menu-item-has-children">
+                                    <a asp-route-DepartmentCode="3" asp-action="DepartmentDetail" asp-controller="Department">
+                                        @DbRes.T("WaterEngineering", "Resources", lang)
+                                    </a>
+                                    <ul class="sub-menu m-1">
+                                        <li>
+                                            <a asp-route-ServiceCode="8" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("PotableWaterTreatment", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-route-ServiceCode="10" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("Desalination", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-route-ServiceCode="12" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("WastewaterTreatment", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-route-ServiceCode="13" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("Stormwater Management", "Resources", lang)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a asp-route-DepartmentCode="4" asp-action="DepartmentDetail" asp-controller="Department">
+                                        @DbRes.T("CivilEngineering", "Resources", lang)
+                                    </a>
+                                    <ul class="sub-menu m-1">
+                                        <li>
+                                            <a asp-route-ServiceCode="14" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("SitePlanningandDesign", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-route-ServiceCode="15" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("Road and Highway Design", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-route-ServiceCode="16" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("LandDevelopmentandZoningAnalysis", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-route-ServiceCode="17" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("GeotechnicalEngineeringandSoilAnalysis", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-route-ServiceCode="18" asp-action="ServiceDetails" asp-controller="Services">
+                                                @DbRes.T("StructuralDesign", "Resources", lang)
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <hr style="margin:auto;" />
+                                <li>
+                                    <a asp-action="index" asp-controller="Department">
+                                        @DbRes.T("ViewAllDepartments", "Resources", lang)
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a asp-action="index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Home">@DbRes.T("Blog", "Resources", lang)</a>
+                            <a asp-action="Index" asp-controller="Blog">@DbRes.T("Blog", "Resources", lang)</a>
                         </li>
                         <li>
                             <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
@@ -330,16 +256,15 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#"
                                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                @DbRes.T("Language", "Resources", lang)
+                                <i class="fa fa-globe" aria-hidden="true"></i>
                             </a>
                             <ul class="sub-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar">العربية</a></li>
-                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=en">English</a></li>
+                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar" style="font-family:Droid Arabic Kufi;">العربية</a></li>
+                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=en" style="font-family:Roboto;">English</a></li>
                             </ul>
                         </li>
+
                     </ul> <!-- //.nav-menu -->
-                    <!-- //.nav-menu -->
-                    <!-- //.nav-menu -->
                     <div class="canvas-contact">
                         <div class="address-area">
                             <div class="address-list">

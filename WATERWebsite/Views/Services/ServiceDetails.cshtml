@@ -58,18 +58,18 @@
                     @Model.ServiceOverview
                 </p>
                 <!-- Faq Section Start -->
-                @if (Model.ServiceDetails?.Count > 0)
-                {
-                    @foreach (var serviceDetail in Model.ServiceDetails)
-                    {
-                        <div class="rs-inner-blog pt-30 pb-20 md-pt-80 md-pb-20">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="widget-area">
-                                        <div class="categories mb-50">
-                                            <div class="widget-title mb-15">
-                                                <h3 class="title">@Model.ServiceName - @DbRes.T("Services", "Resources", lang) -</h3>
-                                            </div>
+                <div class="rs-inner-blog pt-30 pb-20 md-pt-80 md-pb-20">
+                    <div class="container">
+                        <div class="row">
+                            <div class="widget-area">
+                                <div class="categories mb-50">
+                                    <div class="widget-title mb-15">
+                                        <h3 class="title">@Model.ServiceName - @DbRes.T("Services", "Resources", lang) -</h3>
+                                    </div>
+                                    @if (Model.ServiceDetails?.Count > 0)
+                                    {
+                                        @foreach (var serviceDetail in Model.ServiceDetails)
+                                        {
                                             <ul>
                                                 <li>
                                                     <a data-bs-toggle="modal" data-bs-target="#s_@serviceDetail.ServiceDetailCode" @*asp-action="ServiceDetailItem" asp-route-ServiceDetailCode="@serviceDetail.ServiceDetailCode"*@>
@@ -110,13 +110,13 @@
                                                     </div>
                                                 </div>
                                             </ul>
-                                        </div>
-                                    </div>
+                                        }
+                                    }
                                 </div>
                             </div>
                         </div>
-                    }
-                }
+                    </div>
+                </div>
                 <p class="desc-part pb-10">
                     @Model.ServiceEnd
                 </p>

@@ -65,7 +65,14 @@ namespace WATERWebsite.Controllers
 
             return View(viewModel);
         }
+        //public ServicesNavDto servicesNav()
+        //{
+        //    ServicesNavDto ServicesNavDto = new ServicesNavDto
+        //    {
 
+        //    };
+        //    return ServicesNavDto;
+        //}
         public IActionResult SetLanguage(string lang)
         {
             HttpContext.Session.SetString("lang", lang);
