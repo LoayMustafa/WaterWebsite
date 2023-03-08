@@ -10,6 +10,7 @@ namespace WATERWebsite.Core.ViewModels
         public string? ServiceBrief { get; set; }
         public string? ServicePhotoPath { get; set; } = string.Empty;
         public string? ServiceLogo { get; set; } = string.Empty;
+        public string? ServiceEnd { get; set; }
         public List<ServiceDetailsDto>? ServiceDetails { get; set; }
 
     }

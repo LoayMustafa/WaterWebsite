@@ -225,6 +225,10 @@ ul {
 .swal2-container {
     z-index: 20000 !important;
 }
+.service-brief-txt {
+    font-size: 13px;
+    text-align:justify;
+}
 .bg1 {
   background: url(../imgs/bg/about-bg.jpg);
   background-position: center center;

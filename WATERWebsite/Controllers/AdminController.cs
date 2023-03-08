@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WATERWebsite.Core.DTOs.ProjectDtos;
 using WATERWebsite.Core.DTOs.ServiceDtos;
@@ -8,6 +9,7 @@ using WATERWebsite.Presistance;
 
 namespace WATERWebsite.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -35,7 +37,6 @@ namespace WATERWebsite.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public IActionResult CreateProject(CreateProjectDto dto)
         {

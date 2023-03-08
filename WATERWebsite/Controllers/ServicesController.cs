@@ -70,6 +70,7 @@ namespace WATERWebsite.Controllers
                 ServiceOverview = lang == "ar" ? service.ServiceOverviewA : service.ServiceOverviewE,
                 ServiceLogo = service.ServiceLogo,
                 ServicePhotoPath = service.ServicePhotoPath,
+                ServiceEnd = lang == "ar" ? service.ServiceEndA : service.ServiceEndE,
                 ServiceDetails = serviceDetailsList
             };
             return View(serviceItem);
