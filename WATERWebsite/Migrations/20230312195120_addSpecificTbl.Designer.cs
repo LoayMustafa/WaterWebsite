@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WATERWebsite.Presistance;
 
@@ -11,9 +12,10 @@ using WATERWebsite.Presistance;
 namespace WATERWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230312195120_addSpecificTbl")]
+    partial class addSpecificTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -545,51 +547,6 @@ namespace WATERWebsite.Migrations
                     b.ToTable("ServiceDetail");
                 });
 
-            modelBuilder.Entity("WATERWebsite.Core.Models.Specifics", b =>
-                {
-                    b.Property<int>("SpecificsCode")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SpecificsCode"), 1L, 1);
-
-                    b.Property<int?>("ServiceDetailCode")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SpecificsBriefA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecificsBriefE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecificsEndA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecificsEndE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecificsNameA")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecificsNameE")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("SpecificsOverviewA")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SpecificsOverviewE")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("SpecificsCode");
-
-                    b.HasIndex("ServiceDetailCode");
-
-                    b.ToTable("Specifics");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -661,16 +618,6 @@ namespace WATERWebsite.Migrations
                     b.Navigation("ServiceNavigationCode");
                 });
 
-            modelBuilder.Entity("WATERWebsite.Core.Models.Specifics", b =>
-                {
-                    b.HasOne("WATERWebsite.Core.Models.ServiceDetail", "ServiceDetailNavigationCode")
-                        .WithMany("Specifics")
-                        .HasForeignKey("ServiceDetailCode")
-                        .HasConstraintName("FK_Specifics_ServiceDetails");
-
-                    b.Navigation("ServiceDetailNavigationCode");
-                });
-
             modelBuilder.Entity("WATERWebsite.Core.Models.Department", b =>
                 {
                     b.Navigation("Services");
@@ -679,11 +626,6 @@ namespace WATERWebsite.Migrations
             modelBuilder.Entity("WATERWebsite.Core.Models.Service", b =>
                 {
                     b.Navigation("ServiceDetails");
-                });
-
-            modelBuilder.Entity("WATERWebsite.Core.Models.ServiceDetail", b =>
-                {
-                    b.Navigation("Specifics");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WATERWebsite.Core.DTOs;
+using WATERWebsite.Core.DTOs.ServiceDtos;
 using WATERWebsite.Core.Models;
 using WATERWebsite.Core.ViewModels;
 using WATERWebsite.Presistance;
@@ -78,9 +79,24 @@ namespace WATERWebsite.Controllers
 
         public IActionResult ServiceDetailItem(int ServiceDetailCode)
         {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
+
             var serviceDetail = _db.ServiceDetail.Find(ServiceDetailCode);
             if (serviceDetail == null)
                 return NotFound();
+            
+            List<ServiceDetailSpecificsDto> specificsList = new List<ServiceDetailSpecificsDto>();
+            var specific = _db.Specifics.Where(c => c.ServiceDetailCode == serviceDetail.ServiceDetailCode).ToList();
+            foreach( var item in specific)
+            {
+                ServiceDetailSpecificsDto specificItem = new ServiceDetailSpecificsDto()
+                {
+                    SpecificCode = item.SpecificsCode,
+                    SpecificName = lang == "ar" ? item.SpecificsNameA : item.SpecificsNameE,
+                    SpecificBrief = lang == "ar" ? item.SpecificsBriefA : item.SpecificsBriefE,
+                };
+                specificsList.Add(specificItem);
+            }
 
             ServiceDetailsDto serviceDetailItem = new ServiceDetailsDto()
             {
@@ -89,9 +105,28 @@ namespace WATERWebsite.Controllers
                 ServiceDetailBrief = lang == "ar" ? serviceDetail.ServiceDetailBriefA : serviceDetail.ServiceDetailBriefE,
                 ServiceDetailOverview = lang == "ar" ? serviceDetail.ServiceDetailOverviewA : serviceDetail.ServiceDetailOverviewE,
                 ServiceDetailEnd = lang == "ar" ? serviceDetail.ServiceDetailEndA : serviceDetail.ServiceDetailEndE,
+                ServiceDetailSpecifics = specificsList
             };
 
-            return PartialView("_ServiceDetailItemPartial", serviceDetailItem);
+            return View(serviceDetailItem);
+        }
+        
+        public IActionResult SpecificDetail(int SpecificsCode)
+        {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
+
+            var specific = _db.Specifics.Find(SpecificsCode);
+            if (specific == null)
+                return NotFound();
+            SpecificDetailViewModel viewModel = new SpecificDetailViewModel()
+            {
+                SpecificsName = lang == "ar" ? specific.SpecificsNameA : specific.SpecificsNameE,
+                SpecificsBrief = lang == "ar" ? specific.SpecificsBriefA : specific.SpecificsBriefE,
+                SpecificsOverview = lang == "ar" ? specific.SpecificsOverviewA : specific.SpecificsOverviewE,
+                SpecificsEnd = lang == "ar" ? specific.SpecificsEndA : specific.SpecificsEndE,
+            };
+
+            return View(viewModel);
         }
 
     }

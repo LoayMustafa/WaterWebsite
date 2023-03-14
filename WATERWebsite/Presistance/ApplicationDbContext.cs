@@ -19,6 +19,7 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<Department> Department { get; set; } = null!;
         public virtual DbSet<Service> Service { get; set; } = null!;
         public virtual DbSet<ServiceDetail> ServiceDetail { get; set; } = null!;
+        public virtual DbSet<Specifics> Specifics { get; set; } = null!;
         public virtual DbSet<Blog> Blog { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -117,6 +118,24 @@ namespace WATERWebsite.Presistance
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ServiceDetails_Services");
             });
+
+            modelBuilder.Entity<Specifics>(entity =>
+            {
+                entity.HasKey(c => c.SpecificsCode);
+
+                entity.Property(c => c.SpecificsCode).ValueGeneratedOnAdd();
+
+                entity.Property(c => c.SpecificsNameE).HasMaxLength(255);
+
+                entity.Property(c => c.SpecificsNameE).HasMaxLength(255);
+
+                entity.HasOne(p => p.ServiceDetailNavigationCode)
+                    .WithMany(d => d.Specifics)
+                    .HasForeignKey(p => p.ServiceDetailCode)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Specifics_ServiceDetails");
+            });
+
 
             modelBuilder.Entity<Blog>(entity =>
             {

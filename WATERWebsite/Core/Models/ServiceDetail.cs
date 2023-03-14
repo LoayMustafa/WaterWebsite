@@ -2,6 +2,10 @@
 {
     public class ServiceDetail
     {
+        public ServiceDetail()
+        {
+            Specifics = new HashSet<Specifics>();
+        }
         public int ServiceDetailCode { get; set; }
         public string ServiceDetailNameE { get; set; } = string.Empty;
         public string ServiceDetailNameA { get; set; } = string.Empty;
@@ -14,5 +18,6 @@
 
         public virtual int? ServiceCode { get; set; }
         public virtual Service? ServiceNavigationCode { get; set; }
+        public virtual ICollection<Specifics>? Specifics { get; set; }
     }
 }

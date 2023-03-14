@@ -1,0 +1,31 @@
+﻿@using Westwind.Globalization;
+@model WATERWebsite.Core.ViewModels.SpecificDetailViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lang = "en";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
+}
+<div class="rs-services-single pt-120 pb-120 md-pt-80 md-pb-80">
+    <div class="container">
+        <p class="desc-part pb-10">
+            @Model.SpecificsBrief
+        </p>
+        @if (Model.SpecificsOverview != null)
+        {
+            <h3> Specific Overview</h3>
+            <p>@Html.Raw(Model.SpecificsOverview)</p>
+            <br>
+        }
+        <p class="desc-part pb-10">
+            @Model.SpecificsEnd
+        </p>
+    </div>
+</div>
+<script src="~/assets/js/jquery.min.js"></script>
+<script>
+    $("#rs-header").addClass("header-home");
+</script>

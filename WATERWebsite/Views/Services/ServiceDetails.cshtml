@@ -72,7 +72,24 @@
                                         {
                                             <ul>
                                                 <li>
-                                                    <a data-bs-toggle="modal" data-bs-target="#s_@serviceDetail.ServiceDetailCode" @*asp-action="ServiceDetailItem" asp-route-ServiceDetailCode="@serviceDetail.ServiceDetailCode"*@>
+                                                    <a asp-action="ServiceDetailItem" asp-route-ServiceDetailCode="@serviceDetail.ServiceDetailCode">
+                                                        @serviceDetail.ServiceDetailName
+                                                    </a>
+                                                    <p class="service-brief-txt">
+                                                        @serviceDetail.ServiceDetailBrief
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        }
+                                    }
+                                    @*
+                                    @if (Model.ServiceDetails?.Count > 0)
+                                    {
+                                        @foreach (var serviceDetail in Model.ServiceDetails)
+                                        {
+                                            <ul>
+                                                <li>
+                                                    <a data-bs-toggle="modal" data-bs-target="#s_@serviceDetail.ServiceDetailCode">
                                                         @serviceDetail.ServiceDetailName
                                                     </a>
                                                     <p class="service-brief-txt">
@@ -112,6 +129,7 @@
                                             </ul>
                                         }
                                     }
+                                    *@
                                 </div>
                             </div>
                         </div>

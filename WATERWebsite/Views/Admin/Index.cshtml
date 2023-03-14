@@ -221,6 +221,90 @@
     </div>
 </div>
 
+<button type="button" style="margin:120px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#SpecificsModal">Add Service Detail</button>
+<div class="modal fade" id="SpecificsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Specific Item</h5>
+            </div>
+            <div class="modal-body">
+                <div id="rs-checkout" class="rs-checkout">
+                    <div class="container">
+                        <div class="full-grid">
+                            <form id="SpecificForm">
+                                <div class="billing-fields">
+                                    <div class="form-content-box">
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificNameE">Specific Name (EN): <span style="color:red;">*</span></label>
+                                                    <input id="SpecificNameE" name="SpecificNameE" class="form-control-mod" type="text" placeholder="Specific Name in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificNameA">Specific Name (AR): <span style="color:red;">*</span></label>
+                                                    <input id="SpecificNameA" name="SpecificNameA" class="form-control-mod" type="text" placeholder="Specific Name in English">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificBriefE">Specific Brief (EN): <span style="color:red;">*</span></label>
+                                                    <input id="SpecificBriefE" name="SpecificBriefE" class="form-control-mod" type="text" placeholder="Specific Brief in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificBriefA">Specific Brief (AR): <span style="color:red;">*</span></label>
+                                                    <input id="SpecificBriefA" name="SpecificBriefA" class="form-control-mod" type="text" placeholder="Specific Brief in English">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificOverviewE">Specific Overview (EN): <span style="color:red;">*</span></label>
+                                                    <textarea id="SpecificOverviewE" name="SpecificOverviewE" placeholder="Specific Overview in English"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificOverviewA">Specific Overview (AR): <span style="color:red;">*</span></label>
+                                                    <textarea id="SpecificOverviewA" name="SpecificOverviewA" placeholder="Specific Overview in English"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-30">
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificEndE">Specific End (EN): <span style="color:red;">*</span></label>
+                                                    <input id="SpecificEndE" name="SpecificEndE" class="form-control-mod" type="text" placeholder="Specific End in English">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <label name="SpecificEndA">Specific End (AR): <span style="color:red;">*</span></label>
+                                                    <input id="SpecificEndA" name="SpecificEndA" class="form-control-mod" type="text" placeholder="Specific End in English">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" id="AddSpecific">Add Specific</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Scripts -->
 <script src="~/assets/js/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -243,6 +327,34 @@
 
     tinymce.init({
         selector: 'textarea#ServiceDetailOverviewA',
+        plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+            'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+            'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ],
+        toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+            'forecolor backcolor emoticons | help',
+    });
+
+    tinymce.init({
+        selector: 'textarea#SpecificOverviewE',
+        plugins: [
+            'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
+            'anchor', 'pagebreak',
+            'searchreplace', 'wordcount', 'visualblocks', 'visualchars', 'code',
+            'fullscreen', 'insertdatetime',
+            'media', 'table', 'emoticons', 'template', 'help'
+        ],
+        toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+            'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+            'forecolor backcolor emoticons | help',
+    });
+
+    tinymce.init({
+        selector: 'textarea#SpecificOverviewA',
         plugins: [
             'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview',
             'anchor', 'pagebreak',
@@ -335,6 +447,51 @@
             },
             error: function (err) {
                 swal.fire("Error!", err, "error");
+                console.log(err)
+            }
+        })
+    });
+
+    $('#AddSpecific').click(function (event) {
+        debugger;
+        event.preventDefault();
+        let nameE = $('#SpecificNameE').val();
+        let nameA = $('#SpecificNameA').val();
+        let briefE = $('#SpecificBriefE').val();
+        let briefA = $('#SpecificBriefA').val();
+        let endE = $('#SpecificEndE').val();
+        let endA = $('#SpecificEndA').val();
+        let overviewE = tinymce.get("SpecificOverviewE").getContent();
+        let overviewA = tinymce.get("SpecificOverviewA").getContent();
+        $('#AddSpecific').hide();
+        $.ajax({
+            type: 'Post',
+            url: '/Admin/CreateSpecific',
+            data: {
+                SpecificNameE: nameE,
+                SpecificNameA: nameA,
+                SpecificBriefE: briefE,
+                SpecificBriefA: briefA,
+                SpecificEndE: endE,
+                SpecificEndA: endA,
+                SpecificOverviewE: overviewE,
+                SpecificOverviewA: overviewA
+            },
+            success: function (res) {
+                if (res.success) {
+                    swal.fire('Saved Successfully').then(function () {
+                        location.reload()
+                    }, function (dismiss) {
+                        location.href = "/Admin/Index"
+                    })
+                } else {
+                    swal.fire("Error!", "errMessage", "error");
+                    $('#AddSpecific').show()
+                }
+            },
+            error: function (err) {
+                swal.fire("Error!", err, "error");
+                $('#AddSpecific').show()
                 console.log(err)
             }
         })

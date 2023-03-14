@@ -6,6 +6,6 @@ namespace WATERWebsite.Core.DTOs
     {
         public List<DepartmentNavDto>? Departments { get; set; }
         public List<ServiceNavDto>? Services { get; set; }
-        public List<ServiceDetailsDto>? ServiceDetails { get; set; }
+        public List<ServiceDetailDto>? ServiceDetails { get; set; }
     }
 }

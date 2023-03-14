@@ -9,7 +9,6 @@ using WATERWebsite.Presistance;
 
 namespace WATERWebsite.Controllers
 {
-    [Authorize]
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -127,5 +126,33 @@ namespace WATERWebsite.Controllers
             return Json(new { success = true });
         }
         #endregion
+        [HttpPost]
+        public IActionResult CreateSpecific(CreateSpecificDto dto)
+        {
+
+            Specifics specifics = new Specifics
+            {
+                SpecificsNameE = dto.SpecificNameE,
+                SpecificsNameA = dto.SpecificNameA,
+                SpecificsBriefE = dto.SpecificBriefE,
+                SpecificsBriefA = dto.SpecificBriefA,
+                SpecificsOverviewE = dto.SpecificOverviewE,
+                SpecificsOverviewA = dto.SpecificOverviewA,
+                SpecificsEndE = dto.SpecificEndE,
+                SpecificsEndA = dto.SpecificEndA
+            };
+            _db.Specifics.Add(specifics);
+            try
+            {
+
+                _db.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                var dd = ex.Data;
+            }
+
+            return Json(new { success = true }); ;
+        }
     }
 }
