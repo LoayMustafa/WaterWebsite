@@ -32,16 +32,16 @@
 </div>
 <!-- Breadcrumbs End -->
 <!-- Slider Section Start -->
-<div class="rs-slider case-slider-style3 pt-120 md-pt-80">
+<div class="rs-slider case-slider-style3 pt-20 md-pt-10">
     <div class="container">
         <div class="slider-img">
             @if (@Model.ProjectPhotoPath != null)
             {
-                <img src="@Model.ProjectPhotoPath" alt="project">
+                <img src="@Model.ProjectPhotoPath" alt="project" style="width:400px">
             }
             else
             {
-                <img src="~/Resourses/Projects/projects-default.jpg" alt="project">
+                <img src="~/Resourses/Projects/projects-default.jpg" alt="project" style="width:400px">
             }
         </div>
     </div>
@@ -73,22 +73,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6 sm-mb-30 pl-50 md-pl-15">
-                <div class="project-content">
-                    <div class="project-right-border"></div>
-                    <h4 class="title">@DbRes.T("Developer", "Resources", lang)</h4>
-                    <div class="description">
-                        <p>@Model.ProjectDeveloper</p>
-                    </div>
-                </div>
+            @*<div class="col-lg-2 col-md-6 sm-mb-30 pl-50 md-pl-15">
+            <div class="project-content">
+            <div class="project-right-border"></div>
+            <h4 class="title">@DbRes.T("Developer", "Resources", lang)</h4>
+            <div class="description">
             </div>
+            </div>
+            </div>*@
             <div class="col-lg-2 col-md-6 md-mb-30 pl-50 md-pl-15">
                 <div class="project-content">
                     <div class="project-right-border"></div>
 
-                    <h4 class="title">@DbRes.T("Date", "Resources", lang)</h4>
+                    <h4 class="title">@DbRes.T("Cost", "Resources", lang)</h4>
                     <div class="description">
-                        <p>@Model.ProjectDate</p>
+                        <p>@Model.ProjectCost</p>
                     </div>
                 </div>
             </div>
@@ -115,31 +114,7 @@
                 @Model.ProjectOverview
             </div>
         </div>
-        @*<div class="project-txt mb-50">
-        <div class="desc">
-        The languages only differ in their grammar, their pronu nciation and their most common words. pronunciation and more common words. If several languages coalesce. nciation and their most common words. pronunciation and more common words.
-        </div>
-        </div>*@
-        <!-- Counter Section Start -->
-        @*<div class="rs-counter counter-style6">
-        <div class="counter-top bg23 md-pt-80 md-pb-80">
-        <div class="row">
-        <div class="col-lg-3 col-md-6 md-mb-40">
-        <div class="rs-counter-list">
-        <div class="counter-text">
-        <div class="counter-icon">
-        <img src="~/imgs/counter/pro-single/icons1.png" alt="">
-        </div>
-        <span class="title">@DbRes.T("Capacity", "Resources", lang)</span>
-        <div class="counter-number">
-        <span class="title">@Model.ProjectCapacity m3/day </span>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>*@
+
         <!-- Counter Section End -->
 
         <div class="rs-project-goals pt-115 md-pt-75">
@@ -150,64 +125,30 @@
                             <h2 class="title pb-35">@DbRes.T("ProjectServices", "Resources", lang)</h2>
                         </div>
                         <div class="desc pb-30">
-                            European languages are members of the same family. The languages only differ in their grammar, their pronu nciation and their most common words.. are of the same family.
+                            We Provided thise services in the project
                         </div>
                         <ul class="check-lists check-lists3 check-single">
-                            @if (Model.ProjectServiceItemsDto?.Count() > 0)
+                            @if (Model.ProjectSpecificsDto?.Count() > 0)
                             {
-                                foreach (var service in Model.ProjectServiceItemsDto)
+                                foreach (var service in Model.ProjectSpecificsDto)
                                 {
-                                    <li>@service.ServiceName</li>
+                                    @*<li>@service.SpecificName</li>*@
+                                    <a asp-action="SpecificDetail" asp-controller="Services" asp-route-SpecificsCode="@service.SpecificCode" class="btn btn-outline-info">@service.SpecificName</a>
                                 }
                             }
                         </ul>
-                        <div class="desc pt-20">
+                        @*<div class="desc pt-20">
                             Pronunciation and more common words. If several languages the coalesce.  over the years, sometimes by accident, sometimes on purpose. Over the years, sometimes by  purpose.
-                        </div>
+                        </div>*@
                     </div>
                 </div>
-                <div class="col-lg-6 mb-30">
+                @*<div class="col-lg-6 mb-30">
                     <div class="project-goal">
                         <img src="~/imgs/project/details/pro-img1.jpg" alt="">
                     </div>
-                </div>
+                </div>*@
             </div>
-            @*            <div class="outcome-project pt-90 md-pt-80 pb-90 md-pb-80">
-            <div class="row y-middle">
-            <div class="col-lg-6 md-mb-30">
-            <div class="rs-videos career-style1">
-            <div class="images-video">
-            <img src="assets/images/project/details/pro-video.png" alt="">
-            </div>
-            <div class="overly-border">
-            <a class="popup-videos" href="https://www.youtube.com/watch?v=LpdRAyIGg8I">
-            <i class="fa fa-play"></i>
-            </a>
-            </div>
-            </div>
-            </div>
-            <div class="col-lg-6 pl-45 md-pl-15 mt-55">
-            <div class="project-content mb-45 md-mb-0">
-            <div class="project-title">
-            <h2 class="title pb-35">Final Outcome of This Project</h2>
-            </div>
-            <div class="desc pb-20">
-            The languages only differ in their grammar, their pronu nciation and their most common words. sometimes by accident, sometimes on purpose. European languages are members of the same family european languages are members of the same family.
-            </div>
-            <ul class="check-lists check-lists3 check-single">
-            <li>How will digital activities impact traditional manufacturing.</li>
-            <li>All these digital elements and projects aim to enhance .</li>
-            <li>I monitor my staff with software that takes screenshots.</li>
-            <li>Dolore magna niacin sodium aliquam hendrerit.</li>
-            <li>Minim veniam quis niacin nostrud exerci dolor.</li>
-            </ul>
-            <div class="desc pt-20">
-            If several languages coalesce.  over the years, sometimes by accident, sometimes on purpose. Over the years, sometimes by accident, on purpose uropean languages the same family
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>*@
+
         </div>
     </div>
 </div>

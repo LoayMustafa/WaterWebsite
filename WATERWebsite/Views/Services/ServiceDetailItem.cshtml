@@ -15,12 +15,12 @@
         <p class="desc-part pb-10">
             @Model.ServiceDetailBrief
         </p>
-        @*@if (Model.ServiceDetailOverview != "" || Model.ServiceDetailOverview != null)
+        @if (Model.ServiceDetailOverview != "" || Model.ServiceDetailOverview != null)
         {
-        <h3> Service Overview</h3>
-        <p>@Html.Raw(Model.ServiceDetailOverview)</p>
-        <br>
-        }*@
+            <h3> Service Overview</h3>
+            <p>@Html.Raw(Model.ServiceDetailOverview)</p>
+            <br>
+        }
         @if (Model.ServiceDetailSpecifics?.Count > 0)
         {
             @foreach (var specific in Model.ServiceDetailSpecifics)
@@ -28,7 +28,15 @@
                 <div style="width: 80%; margin: 0px 0 20px 50px;">
                     <i style="color:#0D659D;" class="fi fi-rr-comment-info"></i>
                     <span style="font-size: 18px; font-weight: bold;">
-                        <a asp-action="SpecificDetail" asp-route-SpecificsCode="@specific.SpecificCode">@specific.SpecificName:</a>
+                        @if (specific.SpecificOverView != null)
+                        {
+                            <a asp-action="SpecificDetail" asp-route-SpecificsCode="@specific.SpecificCode">@specific.SpecificName:</a>
+                        }
+                        else
+                        {
+                            <span style="color:#0D659D;">@specific.SpecificName:</span>
+
+                        }
                     </span>
                     <span>
                         @specific.SpecificBrief

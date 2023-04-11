@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WATERWebsite.Presistance;
 
@@ -11,9 +12,10 @@ using WATERWebsite.Presistance;
 namespace WATERWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230411221435_addProjectsSpecificsTbl")]
+    partial class addProjectsSpecificsTbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -458,9 +460,6 @@ namespace WATERWebsite.Migrations
                     b.Property<long?>("ProjectCapacity")
                         .HasMaxLength(25)
                         .HasColumnType("bigint");
-
-                    b.Property<decimal?>("ProjectCost")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("ProjectLocationA")
                         .IsRequired()

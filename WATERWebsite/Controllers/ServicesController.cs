@@ -94,6 +94,7 @@ namespace WATERWebsite.Controllers
                     SpecificCode = item.SpecificsCode,
                     SpecificName = lang == "ar" ? item.SpecificsNameA : item.SpecificsNameE,
                     SpecificBrief = lang == "ar" ? item.SpecificsBriefA : item.SpecificsBriefE,
+                    SpecificOverView = lang == "ar" ? item.SpecificsOverviewE : item.SpecificsOverviewA,
                 };
                 specificsList.Add(specificItem);
             }

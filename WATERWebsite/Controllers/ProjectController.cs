@@ -19,7 +19,7 @@ namespace WATERWebsite.Controllers
             lang = HttpContext?.Session.GetString("lang") ?? "en";
 
             //Get Projects
-            var projects = _db.Project.Select(c => new ProjectIndexViewModel
+            var projects = _db.Projects.Select(c => new ProjectIndexViewModel
             {
                 ProjectCode = c.ProjectCode,
                 ProjectName = lang == "ar" ? c.ProjectNameA : c.ProjectNameE,
@@ -35,43 +35,37 @@ namespace WATERWebsite.Controllers
             lang = HttpContext?.Session.GetString("lang") ?? "en";
 
             //Get Project
-            var project = _db.Project.Find(ProjectCode);
+            var project = _db.Projects.Find(ProjectCode);
             if (project == null)
                 return NotFound();
 
-            //Get Project Service Items
-            //var projectServItems = _db.ProjectsServiceItems.Where(c => c.ProjectId == ProjectCode);
-
-            //List<ProjectServiceItemsDto> projectServiceItemsList = new List<ProjectServiceItemsDto>();
-            //if (projectServItems != null)
-            //{
-            //    foreach (var item in projectServItems)
-            //    {
-            //        var service = _db.ServiceItem.Find(item.ServiceItemId);
-            //        if (service != null)
-            //        {
-            //            ProjectServiceItemsDto projectServiceItem = new ProjectServiceItemsDto()
-            //            {
-            //                ServiceName = lang == "ar" ? service.ServiceItemNameA : service.ServiceItemNameE,
-            //            };
-            //            projectServiceItemsList.Add(projectServiceItem);
-            //        }
-
-            //    }
-            //}
+            var projectSpecifics = _db.ProjectSpecific.Where(c => c.ProjectCode == ProjectCode);
+            List <ProjectSpecificsDto> projectSpecificsList = new List<ProjectSpecificsDto>();
+            if(projectSpecifics.Count() != 0)
+            {
+                foreach (var specifics in projectSpecifics)
+                {
+                    var specific = _db.Specifics.Find(specifics.SpecificCode);
+                    ProjectSpecificsDto specificsDto = new ProjectSpecificsDto()
+                    {
+                        SpecificCode = specifics.SpecificCode,
+                        SpecificName = specific?.SpecificsNameE
+                    };
+                    projectSpecificsList.Add(specificsDto);
+                }
+            }
 
             ProjectDetailsViewModel viewModel = new ProjectDetailsViewModel
             {
                 ProjectName = lang == "ar" ? project.ProjectNameA : project.ProjectNameE,
                 ProjectLocation = lang == "ar" ? project.ProjectLocationA : project.ProjectLocationE,
                 ProjectCapacity = project.ProjectCapacity,
-                ProjectDeveloper = lang == "ar" ? project.ProjectDeveloperA : project.ProjectDeveloperE,
                 ProjectOwner = lang == "ar" ? project.ProjectOwnerA : project.ProjectOwnerE,
                 ProjectOverview = lang == "ar" ? project.ProjectOverviewA : project.ProjectOverviewE,
                 ProjectOperator = lang == "ar" ? project.ProjectOperatorA : project.ProjectOperatorE,
                 ProjectPhotoPath = project.ProjectPhotoPath,
-                ProjectDate = project.ProjectDate.ToString("dd/MM/yyyy"),
-                //ProjectServiceItemsDto = projectServiceItemsList
+                ProjectCost = project.ProjectCost,
+                ProjectSpecificsDto = projectSpecificsList
             };
             return View(viewModel);
         }

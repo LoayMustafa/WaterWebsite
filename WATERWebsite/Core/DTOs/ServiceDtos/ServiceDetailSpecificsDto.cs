@@ -4,6 +4,7 @@
     {
         public int SpecificCode { get; set; }
         public string? SpecificName { get; set; }
+        public string? SpecificOverView { get; set; }
         public string? SpecificBrief { get; set; }
     }
 }
