@@ -39,19 +39,22 @@ namespace WATERWebsite.Controllers
             if (project == null)
                 return NotFound();
 
-            var projectSpecifics = _db.ProjectSpecific.Where(c => c.ProjectCode == ProjectCode);
-            List <ProjectSpecificsDto> projectSpecificsList = new List<ProjectSpecificsDto>();
-            if(projectSpecifics.Count() != 0)
+            var projectServices = _db.ProjectService.Where(c => c.ProjectCode == ProjectCode);
+            List <ProjectServicesDto> projectSpecificsList = new List<ProjectServicesDto>();
+            if(projectServices.Count() != 0)
             {
-                foreach (var specifics in projectSpecifics)
+                foreach (var services in projectServices)
                 {
-                    var specific = _db.Specifics.Find(specifics.SpecificCode);
-                    ProjectSpecificsDto specificsDto = new ProjectSpecificsDto()
+                    var service = _db.Service.Find(services.ServiceCode);
+                    if (service != null)
                     {
-                        SpecificCode = specifics.SpecificCode,
-                        SpecificName = specific?.SpecificsNameE
-                    };
-                    projectSpecificsList.Add(specificsDto);
+                        ProjectServicesDto servicesDto = new ProjectServicesDto()
+                        {
+                            ServiceCode = service.ServiceCode,
+                            ServiceName = lang == "ar" ? service?.ServiceNameA : service?.ServiceNameE
+                        };
+                        projectSpecificsList.Add(servicesDto);
+                    }
                 }
             }
 

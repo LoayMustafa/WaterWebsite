@@ -44,97 +44,48 @@
                 <p class="desc-part pb-24">
                     @Model.ServiceBrief
                 </p>
-                <ul class="check-lists3">
-                    @*@if (Model.SpecializedService != null)
-                    {
-                    @foreach (var ss in Model.SpecializedService)
-                    {
-                    <li>@ss.SpecializedServiceNameE</li>
-                    }
-                    }*@
-                </ul>
-
                 <p class="desc-part pb-10">
                     @Model.ServiceOverview
                 </p>
                 <!-- Faq Section Start -->
-                <div class="rs-inner-blog pt-30 pb-20 md-pt-80 md-pb-20">
-                    <div class="container">
-                        <div class="row">
-                            <div class="widget-area">
-                                <div class="categories mb-50">
-                                    <div class="widget-title mb-15">
-                                        <h3 class="title">@Model.ServiceName - @DbRes.T("Services", "Resources", lang) -</h3>
+                @if (Model.ServiceDetails?.Count > 0)
+                {
+                    <div class="rs-inner-blog pt-30 pb-20 md-pt-80 md-pb-20">
+                        <div class="container">
+                            <div class="row">
+                                <div class="widget-area">
+                                    <div class="categories mb-50">
+                                        <div class="widget-title mb-15">
+                                            <h3 class="title">@Model.ServiceName - @DbRes.T("Services", "Resources", lang) -</h3>
+                                        </div>
+                                        @foreach (var serviceDetail in Model.ServiceDetails)
+                                        {
+                                            <ul>
+                                                <li>
+                                                    @if (serviceDetail.ServiceDetailOverview != null)
+                                                    {
+                                                        <a asp-action="ServiceDetailItem" asp-route-ServiceDetailCode="@serviceDetail.ServiceDetailCode">
+                                                            @serviceDetail.ServiceDetailName
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a style="cursor:default;">
+                                                            @serviceDetail.ServiceDetailName
+                                                        </a>
+                                                    }
+                                                    <p class="service-brief-txt">
+                                                        @serviceDetail.ServiceDetailBrief
+                                                    </p>
+                                                </li>
+                                            </ul>
+                                        }
                                     </div>
-                                    @if (Model.ServiceDetails?.Count > 0)
-                                    {
-                                        @foreach (var serviceDetail in Model.ServiceDetails)
-                                        {
-                                            <ul>
-                                                <li>
-                                                    <a asp-action="ServiceDetailItem" asp-route-ServiceDetailCode="@serviceDetail.ServiceDetailCode">
-                                                        @serviceDetail.ServiceDetailName
-                                                    </a>
-                                                    <p class="service-brief-txt">
-                                                        @serviceDetail.ServiceDetailBrief
-                                                    </p>
-                                                </li>
-                                            </ul>
-                                        }
-                                    }
-                                    @*
-                                    @if (Model.ServiceDetails?.Count > 0)
-                                    {
-                                        @foreach (var serviceDetail in Model.ServiceDetails)
-                                        {
-                                            <ul>
-                                                <li>
-                                                    <a data-bs-toggle="modal" data-bs-target="#s_@serviceDetail.ServiceDetailCode">
-                                                        @serviceDetail.ServiceDetailName
-                                                    </a>
-                                                    <p class="service-brief-txt">
-                                                        @serviceDetail.ServiceDetailBrief
-                                                    </p>
-                                                </li>
-                                                <div id="s_@serviceDetail.ServiceDetailCode" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-xl" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">@serviceDetail.ServiceDetailName</h5>
-                                                                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div id="rs-checkout" class="rs-checkout">
-                                                                    <div class="container">
-                                                                        <div class="full-grid">
-                                                                            <p>@serviceDetail.ServiceDetailBrief</p>
-                                                                            <br>
-                                                                            @if (serviceDetail.ServiceDetailOverview != "" || serviceDetail.ServiceDetailOverview != null)
-                                                                            {
-                                                                                <h3> Service Overview</h3>
-                                                                                <p>@Html.Raw(serviceDetail.ServiceDetailOverview)</p>
-                                                                                <br>
-                                                                            }
-                                                                            <p>@serviceDetail.ServiceDetailEnd</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </ul>
-                                        }
-                                    }
-                                    *@
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
                 <p class="desc-part pb-10">
                     @Model.ServiceEnd
                 </p>

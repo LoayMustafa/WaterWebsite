@@ -35,7 +35,7 @@ namespace WATERWebsite.Controllers
             }).ToList();
 
             //Get Projects
-            var projects = _db.Project.Select(c => new ProjectHomeDto
+            var projects = _db.Projects.Select(c => new ProjectHomeDto
             {
                 ProjectCode = c.ProjectCode,
                 ProjectName = lang == "ar" ? c.ProjectNameA : c.ProjectNameE,

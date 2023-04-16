@@ -2,10 +2,6 @@
 {
     public class Specifics
     {
-        public Specifics()
-        {
-            ProjectSpecific = new HashSet<ProjectSpecific>();
-        }
         public int SpecificsCode { get; set; }
         public string SpecificsNameE { get; set; } = string.Empty;
         public string SpecificsNameA { get; set; } = string.Empty;
@@ -18,7 +14,5 @@
 
         public virtual int? ServiceDetailCode { get; set; }
         public virtual ServiceDetail? ServiceDetailNavigationCode { get; set; }
-        public virtual ICollection<ProjectSpecific>? ProjectSpecific { get; set; }
-
     }
 }

@@ -15,14 +15,13 @@ namespace WATERWebsite.Presistance
         {
         }
         public virtual DbSet<Employee> Employee { get; set; } = null!;
-        public virtual DbSet<Project> Project { get; set; } = null!;
-        public virtual DbSet<Projects> Projects { get; set; } = null!;
+        public virtual DbSet<Project> Projects { get; set; } = null!;
         public virtual DbSet<Department> Department { get; set; } = null!;
         public virtual DbSet<Service> Service { get; set; } = null!;
         public virtual DbSet<ServiceDetail> ServiceDetail { get; set; } = null!;
         public virtual DbSet<Specifics> Specifics { get; set; } = null!;
-        public virtual DbSet<ProjectSpecific> ProjectSpecific { get; set; } = null!;
         public virtual DbSet<Blog> Blog { get; set; } = null!;
+        public virtual DbSet<ProjectService> ProjectService { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,31 +49,6 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.EmployeePhone).HasMaxLength(15);
                 
                 entity.Property(c => c.EmployeeEmail).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<Project>(entity =>
-            {
-                entity.HasKey(c => c.ProjectCode);
-
-                entity.Property(c => c.ProjectNameE).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectOwnerE).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectOperatorE).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectDeveloperE).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectNameA).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectCapacity).HasMaxLength(25);
-
-                entity.Property(c => c.ProjectOwnerA).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectOperatorA).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectDeveloperA).HasMaxLength(255);
-
-                entity.Property(c => c.ProjectDate).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Department>(entity =>
@@ -155,7 +129,7 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.BlogPublisherA).HasMaxLength(25);
             });
 
-            modelBuilder.Entity<Projects>(entity =>
+            modelBuilder.Entity<Project>(entity =>
             {
                 entity.HasKey(c => c.ProjectCode);
 
@@ -176,17 +150,17 @@ namespace WATERWebsite.Presistance
                 entity.Property(c => c.ProjectCapacity).HasMaxLength(25);
             });
 
-            modelBuilder.Entity<ProjectSpecific>(entity =>
+            modelBuilder.Entity<ProjectService>(entity =>
             {
-                entity.HasKey(ps => new { ps.ProjectCode, ps.SpecificCode });
+                entity.HasKey(ps => new { ps.ProjectCode, ps.ServiceCode });
 
                 entity.HasOne(ps => ps.Project)
-                    .WithMany(p => p.ProjectSpecific)
+                    .WithMany(p => p.ProjectService)
                     .HasForeignKey(ps => ps.ProjectCode);
 
-                entity.HasOne(ps => ps.Specific)
-                    .WithMany(s => s.ProjectSpecific)
-                    .HasForeignKey(ps => ps.SpecificCode);
+                entity.HasOne(ps => ps.Service)
+                    .WithMany(s => s.ProjectService)
+                    .HasForeignKey(ps => ps.ServiceCode);
             });
         }
     }

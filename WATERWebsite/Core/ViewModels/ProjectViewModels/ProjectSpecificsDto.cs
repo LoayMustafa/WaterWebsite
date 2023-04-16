@@ -1,8 +1,8 @@
 ﻿namespace WATERWebsite.Core.ViewModels.ProjectViewModels
 {
-    public class ProjectSpecificsDto
+    public class ProjectServicesDto
     {
-        public int SpecificCode { get; set; }
-        public string? SpecificName { get; set; }
+        public int ServiceCode { get; set; }
+        public string? ServiceName { get; set; }
     }
 }

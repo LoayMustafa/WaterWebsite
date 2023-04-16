@@ -5,6 +5,7 @@
         public Service()
         {
             ServiceDetails = new HashSet<ServiceDetail>();
+            ProjectService = new HashSet<ProjectService>();
         }
         public int ServiceCode { get; set; }
         public string ServiceNameE { get; set; } = string.Empty;
@@ -21,6 +22,7 @@
         public int? DepartmentCode { get; set; }
         public virtual Department? DepartmentNavigationCode { get; set; }
         public virtual ICollection<ServiceDetail>? ServiceDetails { get; set; }
+        public virtual ICollection<ProjectService>? ProjectService { get; set; }
 
 
     }
