@@ -12,14 +12,16 @@
 }
 <div class="rs-services-single pt-120 pb-120 md-pt-80 md-pb-80">
     <div class="container">
+        <div class="sec-title text-center">
+            <h2 class="title">@Model.ServiceDetailName</h2>
+            <br />
+        </div>
         <p class="desc-part pb-10">
             @Model.ServiceDetailBrief
         </p>
         @if (Model.ServiceDetailOverview != "" || Model.ServiceDetailOverview != null)
         {
-            <h3> Service Overview</h3>
             <p>@Html.Raw(Model.ServiceDetailOverview)</p>
-            <br>
         }
         @if (Model.ServiceDetailSpecifics?.Count > 0)
         {
@@ -42,7 +44,6 @@
                         @specific.SpecificBrief
                     </span>
                 </div>
-                <br />
             }
         }
         <p class="desc-part pb-10">

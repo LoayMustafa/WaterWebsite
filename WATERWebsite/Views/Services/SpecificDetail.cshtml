@@ -11,14 +11,16 @@
 }
 <div class="rs-services-single pt-120 pb-120 md-pt-80 md-pb-80">
     <div class="container">
+        <div class="sec-title text-center">
+            <h2 class="title">@Model.SpecificsName</h2>
+            <br />
+        </div>
         <p class="desc-part pb-10">
             @Model.SpecificsBrief
         </p>
         @if (Model.SpecificsOverview != null)
         {
-            <h3> Specific Overview</h3>
             <p>@Html.Raw(Model.SpecificsOverview)</p>
-            <br>
         }
         <p class="desc-part pb-10">
             @Model.SpecificsEnd

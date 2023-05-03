@@ -32,14 +32,12 @@
 </div>
 <!-- Breadcrumbs End -->
 <!-- Services Single Start -->
-<div class="rs-services-single pt-120 pb-120 md-pt-80 md-pb-80">
+<div class="rs-services-single pt-60 pb-60 md-pt-80 md-pb-80">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 md-mb-50">
-                <div class="services-img mb-35">
-                    <img src="@Model.ServicePhotoPath" alt="">
-                </div>
-                <div class="services-title pb-24">
+            <div class="col-lg-8 md-mb-10">
+                <div class="services-img mb-15">
+                    <img src="@Model.ServicePhotoPath" style="width: 775px; height: 450px;">
                 </div>
                 <p class="desc-part pb-24">
                     @Model.ServiceBrief
@@ -50,11 +48,11 @@
                 <!-- Faq Section Start -->
                 @if (Model.ServiceDetails?.Count > 0)
                 {
-                    <div class="rs-inner-blog pt-30 pb-20 md-pt-80 md-pb-20">
-                        <div class="container">
+                    <div class="rs-inner-blog pt-10 pb-10 md-pt-40 md-pb-10">
+                        <div class="container" style="padding: 0;">
                             <div class="row">
                                 <div class="widget-area">
-                                    <div class="categories mb-50">
+                                    <div class="categories mb-10">
                                         <div class="widget-title mb-15">
                                             <h3 class="title">@Model.ServiceName - @DbRes.T("Services", "Resources", lang) -</h3>
                                         </div>

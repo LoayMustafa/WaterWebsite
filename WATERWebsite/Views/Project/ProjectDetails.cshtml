@@ -53,11 +53,11 @@
         <div class="slider-img text-center">
             @if (@Model.ProjectPhotoPath != null)
             {
-                <img src="@Model.ProjectPhotoPath" alt="project" style="width:400px">
+                <img src="@Model.ProjectPhotoPath" alt="project" style="height:400px; width:1175px;">
             }
             else
             {
-                <img src="~/Resourses/Projects/projects-default.jpg" alt="project" style="width:400px">
+                <img src="~/Resourses/Projects/projects-default.jpg" alt="project" style="height:400px; width:1175px;">
             }
         </div>
     </div>
@@ -67,19 +67,19 @@
 <div class="rs-project-details pt-10 md-pt-80">
     <div class="project-information mb-25">
         <div class="row">
-            <div class="col-lg-3 col-md-6 md-mb-30 md-pl-15">
+            <div class="col-lg-5 col-md-6 md-mb-30 md-pl-15">
                 <div class="project-content">
                     @if (lang == "en")
                     {
                         <div class="project-right-border"></div>
                     }
-                    <h4 class="title">@DbRes.T("Owner", "Resources", lang)</h4>
+                    <h4 class="title">@DbRes.T("Contractor", "Resources", lang)</h4>
                     <div class="description">
                         <p>@Model.ProjectOwner</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 md-mb-30 pl-50 md-pl-15">
+            <div class="col-lg-5 col-md-6 md-mb-30 pl-50 md-pl-15">
                 <div class="project-content">
                     <div class="project-right-border"></div>
 
@@ -90,14 +90,14 @@
                 </div>
             </div>
             @*<div class="col-lg-2 col-md-6 sm-mb-30 pl-50 md-pl-15">
-            <div class="project-content">
-            <div class="project-right-border"></div>
-            <h4 class="title">@DbRes.T("Developer", "Resources", lang)</h4>
-            <div class="description">
-            </div>
-            </div>
+                <div class="project-content">
+                    <div class="project-right-border"></div>
+                    <h4 class="title">@DbRes.T("Developer", "Resources", lang)</h4>
+                    <div class="description">
+                    </div>
+                </div>
             </div>*@
-            <div class="col-lg-2 col-md-6 md-mb-30 pl-50 md-pl-15">
+            @*<div class="col-lg-2 col-md-6 md-mb-30 pl-50 md-pl-15">
                 <div class="project-content">
                     <div class="project-right-border"></div>
 
@@ -106,7 +106,7 @@
                         <p>@Model.ProjectCost</p>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <div class="col-lg-2 col-md-6 md-mb-30 pl-50 md-pl-15">
                 <div class="project-content">
                     @if (lang == "ar")
@@ -137,14 +137,14 @@
             <div class="row y-middle">
                 <div class="col-lg-12 pr-50 md-pr-15 md-mb-30">
                     <div class="project-content mb-45">
-                        <div class="project-title">
-                            <h2 class="title pb-35">@DbRes.T("ProjectServices", "Resources", lang)</h2>
-                        </div>
-                        <div class="desc pb-30">
-                            We Provided thise services in the project
-                        </div>
                         @if (Model.ProjectSpecificsDto?.Count() > 0)
                         {
+                            <div class="project-title">
+                                <h2 class="title pb-35">@DbRes.T("ProjectServices", "Resources", lang)</h2>
+                            </div>
+                            <div class="desc pb-30">
+                                We Provided thise services in the project
+                            </div>
                             foreach (var service in Model.ProjectSpecificsDto)
                             {
                                 <footer id="rs-footer" class="rs-footer footer-main-home" style="background-image:none;">
@@ -154,7 +154,7 @@
                                                 @*<li>@service.SpecificName</li>*@
                                                 <li>
                                                     <a asp-action="ServiceDetails" asp-controller="Services" asp-route-ServiceCode="@service.ServiceCode" style="color: #0D659D;">
-                                                        <i class="fa fa-circle-o-notch" aria-hidden="true"style="color: #0D659D;"></i>
+                                                        <i class="fa fa-circle-o-notch" aria-hidden="true" style="color: #0D659D;"></i>
                                                         @service.ServiceName
                                                     </a>
                                                 </li>
