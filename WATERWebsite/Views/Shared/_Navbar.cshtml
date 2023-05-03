@@ -32,22 +32,22 @@
                                 <li id="home">
                                     <a asp-action="Index" asp-controller="Home">@DbRes.T("Home", "Resources", lang)</a>
                                 </li>
-                                <li class="menu-item-has-children">
+                                <li>
                                     <a asp-action="index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a>
                                     <ul class="sub-menu">
-                                        <li class="menu-item-has-children">
+                                        <li>
                                             <a asp-action="Index" asp-controller="AboutUs">
                                                 @DbRes.T("AboutUs", "Resources", lang)
                                             </a>
                                         </li>
-                                        <li class="menu-item-has-children">
+                                        <li>
                                             <a asp-action="Index" asp-controller="Employee">
                                                 @DbRes.T("Employee", "Resources", lang)
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children">
+                                <li>
                                     <a asp-action="index" asp-controller="Services">
                                         @DbRes.T("Services", "Resources", lang)
                                     </a>
