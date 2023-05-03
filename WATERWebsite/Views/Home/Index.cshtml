@@ -306,10 +306,10 @@ else
                         <h2 class="title pb-20">
                             @*Making your vision come true at the basics.*@
                         </h2>
-                        <p class="desc pb-20">
-                            The office has more than 10 years of experience in engineering consulting.<br>
-                            It has more than 60 highly trained and qualified employees, including civil engineers, architects, planners, and other high-level engineers.<br />
-                            It is the only office that is authorized to issue licenses in accordance with the new building law.
+                        <p class="desc pb-20" style="text-align:justify;">
+                            WATER CONSULTATIONS is a leading engineering consultancy firm that provides high-quality consultation services across a diverse range of engineering disciplines.<br>
+                            including water engineering, mechanical engineering, electrical engineering, geotechnical and structural design, architecture design, and medical planning.<br />
+                            Our team of Experts had a strong reputation for delivering innovative solutions that meet the most demanding engineering challenges. We are committed to providing our clients with high-quality services that are tailored to their specific needs.
                         </p>
                         <h4 class="small-title pb-15">
                             Our office is among the best in consulting and <br />
@@ -371,29 +371,29 @@ else
              data-ipad-device2="2" data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-md-device="3"
              data-md-device-nav="false" data-md-device-dots="true" style="direction:ltr;">
 
-            @if (Model.ServicesDto?.Count() > 0)
+            @if (Model.DepartmentsDto?.Count() > 0)
             {
-                @foreach (var service in Model.ServicesDto)
+                @foreach (var department in Model.DepartmentsDto)
                 {
                     <div class="services-slider">
                         <div class="services-img">
                             <a href="general-construction.html">
-                                <img src="@service.ServiceLogo" alt="Services">
+                                <img src="@department.DepartementLogo" alt="Department">
                             </a>
                         </div>
                         <div class="services-content">
                             <div class="services-titles" style="height:70px;">
                                 <h4 class="title">
-                                    <a asp-action="ServiceDetails" asp-controller="Services"
-                               asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a>
+                                    <a asp-action="DepartmentDetail" asp-controller="Department"
+                               asp-route-ServiceCode="@department.DepartementCode">@department.DepartementName</a>
                                 </h4>
                             </div>
-                            <p class="services-txt">
-                                @service.ServiceBrief
+                            <p class="services-txt" style="overflow-y:auto; max-height: 475px;">
+                                @department.DepartementBrief
                             </p>
                             <div class="services-btn btn-style2">
-                                <a class="btn-text" asp-action="ServiceDetails" asp-controller="Services"
-                           asp-route-ServiceCode="@service.ServiceCode">
+                                <a class="btn-text" asp-action="DepartmentDetail" asp-controller="Department"
+                           asp-route-ServiceCode="@department.DepartementCode">
                                     @DbRes.T("KnowMore", "Resources", lang)
                                     <i class="fi fi-rr-arrow-small-right"></i>
                                 </a>
@@ -438,7 +438,7 @@ else
             {
                 <div class="project-item">
                     <div class="project-img">
-                        @if(@project.ProjectPhotoPath != null)
+                        @if (@project.ProjectPhotoPath != null)
                         {
                             <img src="@project.ProjectPhotoPath" alt="project">
                         }
@@ -500,7 +500,7 @@ else
         <div class="sec-title text-center">
             <span class="sub-text sub-text2">
                 @DbRes.T("OurClients", "Resources", lang)
-                
+
             </span>
             <h2 class="title">
                 @DbRes.T("OurClientsBrief", "Resources", lang)
@@ -594,7 +594,7 @@ else
             </span>
             <h2 class="title">
                 @DbRes.T("OurlatestNewsPostandArticles", "Resources", lang)
-                
+
             </h2>
         </div>
         <div class="rs-carousel owl-carousel" style="direction:ltr;" data-loop="true" data-items="3" data-margin="30" data-autoplay="true" data-hoverpause="false" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="3" data-md-device-nav="false" data-md-device-dots="false">
@@ -605,7 +605,7 @@ else
                     <div class="blog-item">
                         <div class="image-wrap">
                             <a asp-controller="Blog" asp-action="BlogDetails" asp-route-BlogCode="@blog.BlogCode">
-                                @if(blog.BlogPhoto != null)
+                                @if (blog.BlogPhoto != null)
                                 {
                                     <img src="@blog.BlogPhoto" alt="">
                                 }

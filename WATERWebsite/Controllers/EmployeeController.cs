@@ -17,16 +17,17 @@ namespace WATERWebsite.Controllers
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
 
-            var emplyees = _db.Employee.Select(c => new EmployeeIndexViewModel
+
+            var emplyees = _db.Employee.Where(c => c.EmployeeLevel != 0).Select(c => new EmployeeIndexViewModel
             {
                 EmployeeCode = c.EmployeeCode,
                 EmployeeName = lang == "ar" ? c.EmployeeNameA : c.EmployeeNameE,
                 EmployeeJob = lang == "ar" ? c.EmployeeJobA : c.EmployeeJobE,
-                EmployeeDescription = lang == "ar" ? c.EmployeeDescriptionA : c.EmployeeDescriptionE,
+                EmployeeBio = lang == "ar" ? c.EmployeeBioA : c.EmployeeBioE,
                 EmployeePhotoPath = c.EmployeePhotoPath,
                 EmployeePhone = c.EmployeePhone,
                 EmployeeEmail = c.EmployeeEmail,
-                IsKey = c.IsKey
+                EmployeeLvl = c.EmployeeLevel
             }).ToList();
             return View(emplyees);
         }
@@ -42,13 +43,14 @@ namespace WATERWebsite.Controllers
             {
                 EmployeeName = lang == "ar" ? employee.EmployeeNameA : employee.EmployeeNameE,
                 EmployeeJob = lang == "ar" ? employee.EmployeeJobA : employee.EmployeeJobE,
-                EmployeeDescription = lang == "ar" ? employee.EmployeeDescriptionA : employee.EmployeeDescriptionE,
+                EmployeeDescription = lang == "ar" ? employee.EmployeeBioA : employee.EmployeeBioE,
                 EmployeeEmail = employee.EmployeeEmail,
+                EmployeeLinkedIn = employee.EmployeeLinkedIn,
                 EmployeePhone = employee.EmployeePhone,
                 EmployeePhotoPath = employee.EmployeePhotoPath,
             };
 
-            return View(viewModel);
+            return PartialView("_EmpolyeeDetailsPartial", viewModel);
         }
     }
 }

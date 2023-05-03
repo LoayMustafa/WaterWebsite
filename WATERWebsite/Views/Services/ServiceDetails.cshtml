@@ -62,7 +62,7 @@
                                         {
                                             <ul>
                                                 <li>
-                                                    @if (serviceDetail.ServiceDetailOverview != null)
+                                                    @if (serviceDetail.IsClickable)
                                                     {
                                                         <a asp-action="ServiceDetailItem" asp-route-ServiceDetailCode="@serviceDetail.ServiceDetailCode">
                                                             @serviceDetail.ServiceDetailName

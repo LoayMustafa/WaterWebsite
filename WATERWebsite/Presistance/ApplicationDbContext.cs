@@ -40,9 +40,9 @@ namespace WATERWebsite.Presistance
 
                 entity.Property(c => c.EmployeeNameE).HasMaxLength(255);
 
-                entity.Property(c => c.EmployeeJobE).HasMaxLength(255);
-                
                 entity.Property(c => c.EmployeeNameA).HasMaxLength(255);
+                
+                entity.Property(c => c.EmployeeJobE).HasMaxLength(255);
                 
                 entity.Property(c => c.EmployeeJobA).HasMaxLength(255);
                 

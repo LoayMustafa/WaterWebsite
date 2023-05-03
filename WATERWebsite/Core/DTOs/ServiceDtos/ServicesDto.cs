@@ -1,10 +1,10 @@
 ﻿namespace WATERWebsite.Core.DTOs.ServiceDtos
 {
-    public class ServicesDto
+    public class DepartmentsHomeDto
     {
-        public int ServiceCode { get; set; }
-        public string ServiceName { get; set; } = string.Empty;
-        public string? ServiceBrief { get; set; }
-        public string? ServiceLogo { get; set; } = string.Empty;
+        public int DepartementCode { get; set; }
+        public string DepartementName { get; set; } = string.Empty;
+        public string? DepartementBrief { get; set; }
+        public string? DepartementLogo { get; set; } = string.Empty;
     }
 }

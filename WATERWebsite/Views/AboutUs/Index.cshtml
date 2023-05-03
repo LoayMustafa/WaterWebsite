@@ -49,13 +49,13 @@
                         @DbRes.T("OurVision", "Resources", language):
                     </h2>
                     <p class="desc pb-37">
-                        @DbRes.T("OurVisionBrief", "Resources", language):
+                        @DbRes.T("OurVisionBrief", "Resources", language)
                     </p>
                     <h2 class="title pb-20">
                         @DbRes.T("OurMission", "Resources", language):
                     </h2>
                     <p class="desc pb-37">
-                        @DbRes.T("OurMissionBrief1", "Resources", language),<br />
+                        @DbRes.T("OurMissionBrief1", "Resources", language)<br />
                         @DbRes.T("OurMissionBrief2", "Resources", language)
                     </p>
                 </div>
@@ -359,71 +359,97 @@ else if (language == "en")
                 </div>
             </div>
         </div>
+    </div>
+    <div class="sec-title2 text-center mb-65 md-mb-45">
+        <span class="sub-title">@DbRes.T("CeoWord", "Resources", language)</span>
+        <div class="heading-border-line"></div>
+    </div>
+    <div class="container">
         <div class="row">
-            <div class="col-md-6 mb-60">
+            <div class="col-md-12 mb-60">
                 <div class="services-item">
                     <div class="services-icon">
                         <img src="~/imgs/services/style7/icons/1.png" alt="Services">
                     </div>
                     <div class="services-text">
-                        <h2 class="title">
-                            @DbRes.T("NatureOfServices", "Resources", language)
-                        </h2>
                         <p class="services-txt">
-                            @DbRes.T("NatureOfServicesBrief", "Resources", language)
+                            @DbRes.T("CeoWordBrief", "Resources", language)
                         </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 mb-60">
-                <div class="services-item">
-                    <div class="services-icon">
-                        <img src="~/imgs/services/style7/icons/1.png" alt="Services">
-                    </div>
-                    <div class="services-text">
-                        <h2 class="title">@DbRes.T("ExpertiseTeam", "Resources", language)</h2>
                         <p class="services-txt">
-                            @DbRes.T("ExpertiseTeamBrief", "Resources", language)
+                            @DbRes.T("CeoWordBrief1", "Resources", language)
+                        </p>
+                        <p class="services-txt">
+                            @DbRes.T("CeoWordBrief2", "Resources", language)
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+@*<div class="row">
+    <div class="col-md-6 mb-60">
+    <div class="services-item">
+    <div class="services-icon">
+    <img src="~/imgs/services/style7/icons/1.png" alt="Services">
+    </div>
+    <div class="services-text">
+    <h2 class="title">
+    @DbRes.T("NatureOfServices", "Resources", language)
+    </h2>
+    <p class="services-txt">
+    @DbRes.T("NatureOfServicesBrief", "Resources", language)
+    </p>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6 mb-60">
+    <div class="services-item">
+    <div class="services-icon">
+    <img src="~/imgs/services/style7/icons/1.png" alt="Services">
+    </div>
+    <div class="services-text">
+    <h2 class="title">@DbRes.T("ExpertiseTeam", "Resources", language)</h2>
+    <p class="services-txt">
+    @DbRes.T("ExpertiseTeamBrief", "Resources", language)
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
     <div class="row">
-        <div class="col-md-6 mb-60">
-            <div class="services-item">
-                <div class="services-icon">
-                    <img src="~/imgs/services/style7/icons/1.png" alt="Services">
-                </div>
-                <div class="services-text">
-                    <h2 class="title">@DbRes.T("SatisfiedClients", "Resources", language)</h2>
-                    <p class="services-txt">
-                        @DbRes.T("SatisfiedClientsBrief", "Resources", language)
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 mb-60">
-            <div class="services-item">
-                <div class="services-icon">
-                    <img src="~/imgs/services/style7/icons/1.png" alt="Services">
-                </div>
-                <div class="services-text">
-                    <h2 class="title">@DbRes.T("ISOAccreditation", "Resources", language)</h2>
-                    <p class="services-txt">
-                        @DbRes.T("ISOAccreditationBrief", "Resources", language)
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div class="col-md-6 mb-60">
+    <div class="services-item">
+    <div class="services-icon">
+    <img src="~/imgs/services/style7/icons/1.png" alt="Services">
     </div>
-
-
-</div>
+    <div class="services-text">
+    <h2 class="title">@DbRes.T("SatisfiedClients", "Resources", language)</h2>
+    <p class="services-txt">
+    @DbRes.T("SatisfiedClientsBrief", "Resources", language)
+    </p>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6 mb-60">
+    <div class="services-item">
+    <div class="services-icon">
+    <img src="~/imgs/services/style7/icons/1.png" alt="Services">
+    </div>
+    <div class="services-text">
+    <h2 class="title">@DbRes.T("ISOAccreditation", "Resources", language)</h2>
+    <p class="services-txt">
+    @DbRes.T("ISOAccreditationBrief", "Resources", language)
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>*@
 <!-- Services End -->
-
 <!-- Team Section Start -->
+@*
 <div class="rs-team team-style6 pt-120 pb-205 md-pt-80 md-pb-165">
     <div class="container">
         <div class="row">
@@ -443,7 +469,7 @@ else if (language == "en")
                                         else
                                         {
                                             <img src="~/Resourses/Employees/employee-default.png" alt="@employee.EmployeeName">
-                                        }                                    
+                                        }
                                     </a>
                                 </div>
                                 <div class="team-content">
@@ -456,12 +482,6 @@ else if (language == "en")
                                             @DbRes.T("Details", "Resources", language)
                                         </a>
                                     </p>
-                                    @*<ul class="social-icons">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a>   </li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            </ul>*@
                                 </div>
                             </div>
                         </div>
@@ -475,7 +495,9 @@ else if (language == "en")
             </a>
         </div>
     </div>
-</div>
+</div>*@
+
+
 <!-- Team Section End -->
 <!-- Skillbar Choose Start -->
 @*<div class="rs-skillbar skillbar-style1 skillbar-modify5 bg22 pt-30 pb-30">

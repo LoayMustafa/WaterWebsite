@@ -1,0 +1,62 @@
+﻿@using Westwind.Globalization;
+
+@model WATERWebsite.Core.ViewModels.EmployeeViewModels.EmployeeDetailsViewModel
+@{
+    ViewData["Title"] = "EmpolyeeDetails";
+    var lang = "en";
+    if (Context.Session.GetString("lang") != null)
+    {
+        lang = Context.Session.GetString("lang");
+    }
+}
+
+
+<div class="row align-items-center">
+    @*<div class="col-lg-5 md-mb-50">
+    <div class="images-part">
+    @if (Model.EmployeePhotoPath != null)
+    {
+    <img src="@Model.EmployeePhotoPath" alt="@Model.EmployeeName">
+    }
+    else
+    {
+    <img src="~/Resourses/Employees/employee-default.png" alt="@Model.EmployeeName">
+    }
+    </div>
+    </div>*@
+    <div class="rs-team-single mb-3">
+        <div class="container">
+            <div class="btm-info-team">
+                <div class="col-lg-12">
+                    <div class="con-info">
+                        <span class="designation-info">@Model.EmployeeJob</span>
+                        <h2 class="title">@Model.EmployeeName</h2>
+                        <div class="short-desc">
+                            @Model.EmployeeDescription
+                        </div>
+                        <div class="ps-informations">
+                            <ul class="personal-info">
+                                <li>
+                                    @if (Model.EmployeeEmail != null)
+                                    {
+                                        <span><a href="@Model.EmployeeEmail" target="_blank"><i style="font-size: 30px;" class="fa fa-envelope"></i></a></span>
+                                    }
+                                    @if (Model.EmployeeLinkedIn != null)
+                                    {
+                                        <span><a href="@Model.EmployeeLinkedIn" target="_blank"><i style="font-size: 30px;" class="fa fa-linkedin-square"></i></a></span>
+                                    }
+                                </li>
+                                <li>
+                                    @if (Model.EmployeePhone != null)
+                                    {
+                                        <span><i class="fa fa-phone"></i></span> @Model.EmployeePhone
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

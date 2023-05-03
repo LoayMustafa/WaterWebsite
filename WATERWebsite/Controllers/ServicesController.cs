@@ -52,6 +52,7 @@ namespace WATERWebsite.Controllers
             {
                 foreach (var item in serviceDetail)
                 {
+                    var specifics = _db.Specifics.Where(c => c.ServiceDetailCode == item.ServiceDetailCode);
                     ServiceDetailsDto serviceDetailItem = new ServiceDetailsDto()
                     {
                         ServiceDetailCode = item.ServiceDetailCode,
@@ -59,6 +60,7 @@ namespace WATERWebsite.Controllers
                         ServiceDetailBrief = lang == "ar" ? item.ServiceDetailBriefA : item.ServiceDetailBriefE,
                         ServiceDetailOverview = lang == "ar" ? item.ServiceDetailOverviewA : item.ServiceDetailOverviewE,
                         ServiceDetailEnd = lang == "ar" ? item.ServiceDetailEndA : item.ServiceDetailEndE,
+                        IsClickable = specifics.Count() != 0 || item.ServiceDetailOverviewE != null
                     };
                     serviceDetailsList.Add(serviceDetailItem);
                 }

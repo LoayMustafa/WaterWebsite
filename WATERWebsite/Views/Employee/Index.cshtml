@@ -10,7 +10,11 @@
         lang = Context.Session.GetString("lang");
     }
 }
-
+<style>
+    a {
+        cursor: pointer;
+    }
+</style>
 <!-- Team Section Start -->
 <div class="rs-team team-style6 pt-120 pb-205 md-pt-80 md-pb-165">
     <div class="container">
@@ -19,44 +23,119 @@
             {
                 @foreach (var employee in Model)
                 {
-                    <div class="col-lg-4 col-md-6 mb-135">
-                        <div class="team-item">
-                            <div class="team-inner-wrap">
-                                <div class="image-wrap">
-                                    <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">
-                                        @if (employee.EmployeePhotoPath != null)
-                                        {
-                                            <img src="@employee.EmployeePhotoPath" alt="@employee.EmployeeName">
-                                        }
-                                        else
-                                        {
-                                            <img src="~/Resourses/Employees/employee-default.png" alt="@employee.EmployeeName">
-                                        }
-                                    </a>
-                                </div>
-                                <div class="team-content">
-                                    <h3 class="team-name">
-                                        <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">@employee.EmployeeName</a>
-                                    </h3>
-                                    <span class="team-title">@employee.EmployeeJob</span>
-                                    <p class="team-desc">
-                                        <a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">
-                                            @DbRes.T("Details", "Resources", lang)
-                                        </a>
-                                    </p>
+                    @if (employee.EmployeeLvl == 1)
+                    {
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6 mb-135">
+                                <div class="team-item">
+                                    <div class="team-inner-wrap">
+                                        <div class="image-wrap">
+                                            @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
+                                            <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">
+                                                @if (employee.EmployeePhotoPath != null)
+                                                {
+                                                    <img src="@employee.EmployeePhotoPath" alt="@employee.EmployeeName">
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Resourses/Employees/employee-default.png" alt="@employee.EmployeeName">
+                                                }
+                                            </a>
+                                        </div>
+                                        <div class="team-content">
+                                            <h3 class="team-name">
+                                                @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">@employee.EmployeeName</a>*@
+                                                <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">@employee.EmployeeName</a>
+                                            </h3>
+                                            <span class="team-title">@employee.EmployeeJob</span>
+                                            <p class="team-desc">
+                                                @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
+                                                <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">
+                                                    @DbRes.T("Details", "Resources", lang)
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <br />
+                    }
+                    @if (employee.EmployeeLvl == 2)
+                    {
+                        <div class="col-lg-4 col-md-6 mb-135">
+                            <div class="team-item">
+                                <div class="team-inner-wrap">
+                                    <div class="image-wrap">
+                                        @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
+                                        <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">
+
+                                            @if (employee.EmployeePhotoPath != null)
+                                            {
+                                                <img src="@employee.EmployeePhotoPath" alt="@employee.EmployeeName">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Resourses/Employees/employee-default.png" alt="@employee.EmployeeName">
+                                            }
+                                        </a>
+                                    </div>
+                                    <div class="team-content">
+                                        <h3 class="team-name">
+                                            @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
+                                            <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">
+                                                @employee.EmployeeName
+                                            </a>
+
+                                        </h3>
+                                        <span class="team-title">@employee.EmployeeJob</span>
+                                        <p class="team-desc">
+                                            @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
+                                            <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">
+
+                                                @DbRes.T("Details", "Resources", lang)
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 }
             }
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="FormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-bs-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #dee2e6;">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+
+            <div class="modal-body">
+            </div>
         </div>
     </div>
 </div>
 <!-- Team Section End -->
 <script src="~/assets/js/jquery.min.js"></script>
 <script>
-    debugger;
     $("#rs-header").addClass("header-home");
+
+    function EmployeeDetails(EmployeeCode) {
+        $('.modal-dialog').addClass('modal-lg');
+        $.ajax({
+            type: 'Get',
+            data: { EmployeeCode: EmployeeCode },
+            url: '/Employee/EmpolyeeDetails',
+            success: function (res) {
+                $('.modal-body').empty()
+                //$('#exampleModalLabel').text('Details')
+                $('.modal-body').html(res)
+            }
+        })
+    }
 </script>
 

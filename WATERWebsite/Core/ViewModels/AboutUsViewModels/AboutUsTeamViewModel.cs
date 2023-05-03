@@ -4,9 +4,9 @@
     {
         public int EmployeeCode { get; set; }
         public string EmployeeName { get; set; } = string.Empty;
-        public string EmployeeJob { get; set; } = string.Empty;
-        public string EmployeePhotoPath { get; set; } = string.Empty;
-        public string? EmployeeDescription { get; set; }
+        public string? EmployeeJob { get; set; } = string.Empty;
+        public string? EmployeePhotoPath { get; set; }
+        public string? EmployeeBio { get; set; }
 
     }
 }

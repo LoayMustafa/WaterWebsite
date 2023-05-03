@@ -26,12 +26,12 @@ namespace WATERWebsite.Controllers
                 lang = HttpContext?.Session.GetString("lang") ?? "ar";
             }
             //Get Services
-            var services = _db.Service.Take(10).Select(c => new ServicesDto
+            var departments = _db.Department.Select(c => new DepartmentsHomeDto
             {
-                ServiceCode = c.ServiceCode,
-                ServiceName = lang == "ar" ? c.ServiceNameA : c.ServiceNameE,
-                ServiceBrief = lang == "ar" ? c.ServiceBriefA : c.ServiceBriefE,
-                ServiceLogo = c.ServiceLogo
+                DepartementCode = c.DepartmentCode,
+                DepartementName = lang == "ar" ? c.DepartmentNameA : c.DepartmentNameE,
+                DepartementBrief = lang == "ar" ? c.DepartmentBriefA : c.DepartmentBriefE,
+                DepartementLogo = c.DepartmentLogoPath
             }).ToList();
 
             //Get Projects
@@ -58,21 +58,13 @@ namespace WATERWebsite.Controllers
 
             HomeIndexViewModel viewModel = new HomeIndexViewModel
             {
-                ServicesDto = services,
+                DepartmentsDto = departments,
                 ProjectHomeDto = projects,
                 BlogHomeDto = blogs
             };
 
             return View(viewModel);
         }
-        //public ServicesNavDto servicesNav()
-        //{
-        //    ServicesNavDto ServicesNavDto = new ServicesNavDto
-        //    {
-
-        //    };
-        //    return ServicesNavDto;
-        //}
         public IActionResult SetLanguage(string lang)
         {
             HttpContext.Session.SetString("lang", lang);
