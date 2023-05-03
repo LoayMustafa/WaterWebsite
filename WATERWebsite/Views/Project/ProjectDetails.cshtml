@@ -10,7 +10,23 @@
         lang = Context.Session.GetString("lang");
     }
 }
+@*<style>
+    .rs-footer.footer-main-home {
+        background-image:none;
+    }
 
+    .rs-footer.footer-main-home .footer-top {
+        padding: 0;
+    }
+
+    .rs-footer.footer-main-home .footer-top .site-map li a:before {
+        color: black;
+    }
+
+    .rs-footer.footer-main-home .footer-top .site-map li a {
+        color: black;
+    }
+</style>*@
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs img1">
     <div class="container">
@@ -127,25 +143,36 @@
                         <div class="desc pb-30">
                             We Provided thise services in the project
                         </div>
-                        <ul class="check-lists check-lists3 check-single">
-                            @if (Model.ProjectSpecificsDto?.Count() > 0)
+                        @if (Model.ProjectSpecificsDto?.Count() > 0)
+                        {
+                            foreach (var service in Model.ProjectSpecificsDto)
                             {
-                                foreach (var service in Model.ProjectSpecificsDto)
-                                {
-                                    @*<li>@service.SpecificName</li>*@
-                                    <a asp-action="ServiceDetails" asp-controller="Services" asp-route-ServiceCode="@service.ServiceCode" class="btn btn-outline-info">@service.ServiceName</a>
-                                }
+                                <footer id="rs-footer" class="rs-footer footer-main-home" style="background-image:none;">
+                                    <div class="footer-top" style="padding: 0;">
+                                        <div class="container">
+                                            <ul class="site-map">
+                                                @*<li>@service.SpecificName</li>*@
+                                                <li>
+                                                    <a asp-action="ServiceDetails" asp-controller="Services" asp-route-ServiceCode="@service.ServiceCode" style="color: #0D659D;">
+                                                        <i class="fa fa-circle-o-notch" aria-hidden="true"style="color: #0D659D;"></i>
+                                                        @service.ServiceName
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </footer>
                             }
-                        </ul>
+                        }
                         @*<div class="desc pt-20">
-                            Pronunciation and more common words. If several languages the coalesce.  over the years, sometimes by accident, sometimes on purpose. Over the years, sometimes by  purpose.
+                        Pronunciation and more common words. If several languages the coalesce.  over the years, sometimes by accident, sometimes on purpose. Over the years, sometimes by  purpose.
                         </div>*@
                     </div>
                 </div>
                 @*<div class="col-lg-6 mb-30">
-                    <div class="project-goal">
-                        <img src="~/imgs/project/details/pro-img1.jpg" alt="">
-                    </div>
+                <div class="project-goal">
+                <img src="~/imgs/project/details/pro-img1.jpg" alt="">
+                </div>
                 </div>*@
             </div>
 

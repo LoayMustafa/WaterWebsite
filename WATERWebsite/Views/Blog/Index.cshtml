@@ -90,6 +90,37 @@
                     }
                 </div>
             </div>
+            <div class="col-lg-4 col-md-12 pl-25 md-pl-15">
+                <div class="widget-area">
+                    <div class="recent-posts mb-50">
+                        <div class="widget-title">
+                            <h3 class="title">Recent Posts</h3>
+                        </div>
+                        @if (Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="recent-post-widget">
+                                    <div class="post-img">
+                                        @if (item.BlogPhoto != null)
+                                        {
+                                            <img src="@item.BlogPhoto" alt="">
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Resourses/Blog/blog-default.jpg" alt="">
+                                        }
+                                    </div>
+                                    <div class="post-desc">
+                                        <a asp-action="BlogDetails" asp-route-BlogCode="@item.BlogCode">@item.BlogTitle</a>
+                                        <span class="date-post"> <i class="fi fi-rr-calendar"></i>@item.BlogDate</span>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
