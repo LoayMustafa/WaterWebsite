@@ -24,3 +24,21 @@
         margin-top:3rem;
     }
 }
+@media only screen and (min-width: 992px) {
+    .container-nav {
+        max-width: 1070px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .container-nav {
+        max-width: 1240px;
+    }
+}
+@media only screen and (min-width: 1300px) {
+    .container-nav {
+        max-width: 1400px !important;
+        width: 100% !important;
+    }
+}
+
+
