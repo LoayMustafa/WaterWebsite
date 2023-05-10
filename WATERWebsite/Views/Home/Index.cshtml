@@ -532,54 +532,18 @@ else
                  data-mobile-device-nav="false"
                  data-mobile-device-dots="false"
                  style="direction:ltr;">
-                <div class="logo-img">
-                    <a>
-                        <img class="hovers-logos rs-grid-img" src="~/imgs/partner/style1/1.png" title="" alt="">
-                        <img class="mains-logos rs-grid-img " src="~/imgs/partner/style1/1.png" title="" alt="">
-                    </a>
-                </div>
-                <div class="logo-img">
-                    <a>
-
-                        <img class="hovers-logos rs-grid-img" src="~/imgs/partner/style1/2.png" title="" alt="">
-                        <img class="mains-logos rs-grid-img " src="~/imgs/partner/style1/2.png" title="" alt="">
-                    </a>
-
-                </div>
-                <div class="logo-img">
-                    <a>
-                        <img class="hovers-logos rs-grid-img" src="~/imgs/partner/style1/3.png" title="" alt="">
-                        <img class="mains-logos rs-grid-img " src="~/imgs/partner/style1/3.png" title="" alt="">
-                    </a>
-                </div>
-                <div class="logo-img">
-                    <a>
-                        <img class="hovers-logos rs-grid-img" src="~/imgs/partner/style1/4.png" title="" alt="">
-                        <img class="mains-logos rs-grid-img " src="~/imgs/partner/style1/4.png" title="" alt="">
-                    </a>
-
-                </div>
-                <div class="logo-img">
-                    <a>
-                        <img class="hovers-logos rs-grid-img" src="~/imgs/partner/style1/5.png" title="" alt="">
-                        <img class="mains-logos rs-grid-img " src="~/imgs/partner/style1/5.png" title="" alt="">
-                    </a>
-
-                </div>
-                <div class="logo-img">
-                    <a>
-                        <img class="hovers-logos rs-grid-img" src="~/imgs/partner/style1/6.png" title="" alt="">
-                        <img class="mains-logos rs-grid-img " src="~/imgs/partner/style1/6.png" title="" alt="">
-                    </a>
-
-                </div>
-                <div class="logo-img">
-                    <a>
-                        <img class="hovers-logos rs-grid-img" src="~/imgs/partner/style1/7.png" title="" alt="">
-                        <img class="mains-logos rs-grid-img " src="~/imgs/partner/style1/7.png" title="" alt="">
-                    </a>
-
-                </div>
+                @if (Model.HomeClientDto?.Count > 0)
+                {
+                    foreach (var client in Model.HomeClientDto)
+                    {
+                        <div class="logo-img">
+                            <a>
+                                <img class="hovers-logos rs-grid-img" src="@client.ClientPhotoPath" title="@client.ClientName" alt="@client.ClientName">
+                                <img class="mains-logos rs-grid-img " src="@client.ClientPhotoPath" title="@client.ClientName" alt="@client.ClientName">
+                            </a>
+                        </div>
+                    }  
+                }
             </div>
         </div>
     </div>

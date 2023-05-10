@@ -9,6 +9,7 @@ namespace WATERWebsite.Core.ViewModels.HomeViewModels
         public List<DepartmentsHomeDto>? DepartmentsDto { get; set; }
         public List<ProjectHomeDto>? ProjectHomeDto { get; set; }
         public List<BlogHomeDto>? BlogHomeDto { get; set; }
+        public List<HomeClientViewModel>? HomeClientDto { get; set; }
 
     }
 }

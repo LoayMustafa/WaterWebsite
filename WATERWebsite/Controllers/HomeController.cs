@@ -44,6 +44,11 @@ namespace WATERWebsite.Controllers
             }).ToList();
 
             //GetPartners
+            var clients = _db.OfficeClient.Select(c => new HomeClientViewModel
+            {
+                ClientName = c.ClientName,
+                ClientPhotoPath = c.ClientPhotoPath,
+            }).ToList();
 
             //GetBlogs
             var blogs =_db.Blog.Select(c => new BlogHomeDto
@@ -60,7 +65,8 @@ namespace WATERWebsite.Controllers
             {
                 DepartmentsDto = departments,
                 ProjectHomeDto = projects,
-                BlogHomeDto = blogs
+                BlogHomeDto = blogs,
+                HomeClientDto = clients,
             };
 
             return View(viewModel);

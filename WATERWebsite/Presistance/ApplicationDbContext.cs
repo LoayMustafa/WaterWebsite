@@ -22,6 +22,7 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<Specifics> Specifics { get; set; } = null!;
         public virtual DbSet<Blog> Blog { get; set; } = null!;
         public virtual DbSet<ProjectService> ProjectService { get; set; } = null!;
+        public virtual DbSet<OfficeClient> OfficeClient { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -162,6 +163,14 @@ namespace WATERWebsite.Presistance
                     .WithMany(s => s.ProjectService)
                     .HasForeignKey(ps => ps.ServiceCode);
             });
+
+            modelBuilder.Entity<OfficeClient>(entity =>
+            {
+                entity.HasKey(c => c.ClientCode);
+
+                entity.Property(c => c.ClientCode).ValueGeneratedOnAdd();
+            });
+
         }
     }
 }
