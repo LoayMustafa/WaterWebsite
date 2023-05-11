@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using WATERWebsite.Core.Models;
 using WATERWebsite.Presistance;
 using WATERWebsite.Services;
 using WATERWebsite.Settings;
@@ -38,6 +39,10 @@ builder.Services.AddRazorPages();
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
 builder.Services.AddTransient<IMailingService, MailingService>();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddControllersWithViews(options =>
+{
+    options.EnableEndpointRouting = false; // Disable default route generation
+});
 
 // Add services to the container.
 

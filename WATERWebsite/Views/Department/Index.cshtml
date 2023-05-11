@@ -18,9 +18,7 @@
             <h1 class="page-title">
                 @DbRes.T("Departments", "Resources", lang)
             </h1>
-            <span class="sub-text">
-                @DbRes.T("DepartmentsHeader", "Resources", lang)
-            </span>
+
             <ul class="breadcrumbs-area">
                 <li title="Home">
                     <a class="active" href="/">@DbRes.T("Home", "Resources", lang)</a>
@@ -32,12 +30,12 @@
 </div>
 <!-- Breadcrumbs End -->
 <!-- Services Start -->
-<div class="rs-services services-main-home gray-bg pt-120 pb-120 md-pt-80 md-pb-80">
+<div class="rs-services services-main-home gray-bg pt-60 pb-60 md-pt-80 md-pb-80">
     <div class="container">
         <div class="row">
             @foreach (var item in Model)
             {
-                <div class="col-xl-4 col-md-6 mb-30">
+                <div class="col-xl-6 col-md-6 mb-30">
                     <div class="services-item">
                         <div class="services-wrap">
                             <div class="services-image" @*style="min-height:380px;"*@>

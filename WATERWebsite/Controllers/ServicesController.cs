@@ -38,6 +38,8 @@ namespace WATERWebsite.Controllers
             }
             return View(servicesList);
         }
+
+        [HttpGet("/Services/ServiceDetails/{ServiceCode}")]
         public IActionResult ServiceDetails(int ServiceCode)
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
@@ -72,13 +74,14 @@ namespace WATERWebsite.Controllers
                 ServiceBrief = lang == "ar" ? service.ServiceBriefA : service.ServiceBriefE,
                 ServiceOverview = lang == "ar" ? service.ServiceOverviewA : service.ServiceOverviewE,
                 ServiceLogo = service.ServiceLogo,
-                ServicePhotoPath = service.ServicePhotoPath,
+                ServicePhotoPath = $"{Request.Scheme}://{Request.Host}/{service.ServicePhotoPath?.TrimStart('/')}",
                 ServiceEnd = lang == "ar" ? service.ServiceEndA : service.ServiceEndE,
                 ServiceDetails = serviceDetailsList
             };
             return View(serviceItem);
         }
 
+        [HttpGet("/Services/ServiceDetailItem/{ServiceDetailCode}")]
         public IActionResult ServiceDetailItem(int ServiceDetailCode)
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
@@ -113,7 +116,8 @@ namespace WATERWebsite.Controllers
 
             return View(serviceDetailItem);
         }
-        
+
+        [HttpGet("/Services/SpecificDetail/{SpecificsCode}")]
         public IActionResult SpecificDetail(int SpecificsCode)
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";

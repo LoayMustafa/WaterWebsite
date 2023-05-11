@@ -11,7 +11,24 @@
         lang = Context.Session.GetString("lang");
     }
 }
+<style>
+    .rs-breadcrumbs {
+        height: 250px;
+    }
 
+        .rs-breadcrumbs .breadcrumbs-inner {
+            padding-top: 100px
+        }
+
+    .rs-services-single .services-add .address-wrap-item a {
+        font-size: unset;
+        line-height: unset;
+    }
+
+    .rs-breadcrumbs .breadcrumbs-inner .page-title:after {
+        top: 85px;
+    }
+</style>
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs img3">
     <div class="container">
@@ -19,86 +36,61 @@
             <h1 class="page-title">
                 @Model.DepartmentName
             </h1>
-            <span class="sub-text">
-            </span>
-            <ul class="breadcrumbs-area">
-                <li title="Home">
-                    <a class="active" asp-action="Index">@DbRes.T("Services", "Resources", lang)</a>
-                </li>
-                <li>@Model.DepartmentName</li>
-            </ul>
         </div>
     </div>
 </div>
 <!-- Breadcrumbs End -->
 <!-- Services Single Start -->
-<div class="rs-services-single pt-120 pb-120 md-pt-80 md-pb-80">
+<div class="rs-services-single pt-40 pb-40 md-pt-80 md-pb-80">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 md-mb-50">
-                <div class="services-img mb-35">
-                    <img src="@Model.DepartmentPhotoPath" alt="">
+                <div class="services-img">
+                    <img class="serv-img" src="@Model.DepartmentPhotoPath" alt="">
                 </div>
                 <div class="services-title pb-24">
                 </div>
                 <p class="desc-part pb-24">
                     @Model.DepartmentBrief
                 </p>
-                <ul class="check-lists3">
-                    @*@if (Model.SpecializedService != null)
-                    {
-                    @foreach (var ss in Model.SpecializedService)
-                    {
-                    <li>@ss.SpecializedServiceNameE</li>
-                    }
-                    }*@
-                </ul>
-
                 <p class="desc-part pb-10">
                     @Model.DepartmentOverview
                 </p>
                 <!-- Faq Section Start -->
                 <div class="rs-faq faq-style1 faq-modify1 pt-30 pb-30 md-pt-80 md-pb-10">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 md-mb-50">
-                                <div class="faq-content">
-                                    <div id="accordion" class="accordion">
-                                        @if (Model.ServicesList?.Count > 0)
+                    <div class="row">
+                        <div class="col-lg-12 md-mb-50">
+                            <div class="faq-content">
+                                <div id="accordion" class="accordion">
+                                    @if (Model.ServicesList?.Count > 0)
+                                    {
+                                        @foreach (var service in Model.ServicesList)
                                         {
-                                            @foreach (var service in Model.ServicesList)
-                                            {
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <a class="card-link collapsed" href="#" data-bs-toggle="collapse"
-                                                   data-bs-target="#c_@service.ServiceCode" aria-expanded="false">@service.ServiceName</a>
-                                                    </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <a class="card-link collapsed" href="#" data-bs-toggle="collapse"
+                                               data-bs-target="#c_@service.ServiceCode" aria-expanded="false">@service.ServiceName</a>
+                                                </div>
+                                                @if (service.ServiceOverview != null)
+                                                {
                                                     <div id="c_@service.ServiceCode" class="collapse" data-bs-parent="#accordion" style="">
                                                         <div class="card-body">
                                                             <p>@service.ServiceBrief</p>
-                                                            <br>
-                                                            @if (service.ServiceOverview != null)
-                                                            {
-                                                                <h3> Service Overview</h3>
-                                                                <p>@service.ServiceOverview</p>
-                                                                <br>
-                                                                <a class="btn btn-primary" asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@DbRes.T("MoreDetails", "Resources", lang)</a>
-                                                            }
-                                                            
-                                                            
+                                                            <p>@service.ServiceOverview</p>
+                                                            <a class="btn btn-primary" asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@DbRes.T("MoreDetails", "Resources", lang)</a>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            }
+                                                }
+                                            </div>
                                         }
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Faq Section End -->
-                
+
                 <p class="desc-part pb-10">
                     @Model.DepartmentEnd
                 </p>
@@ -109,7 +101,14 @@
                     {
                         @foreach (var service in Model.ServicesList)
                         {
-                            <li><a asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a></li>
+                            @if (service.ServiceOverview != null)
+                            {
+                                <li><a asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a></li>
+                            }
+                            else
+                            {
+                                <li><a>@service.ServiceName</a></li>
+                            }
                         }
                     }
                 </ul>
@@ -117,14 +116,18 @@
                     <div class="services-overlay"></div>
                     <div class="address-wrap-item mb-20">
                         <div class="icon-part mb-37">
-                            <i class="fa fa-phone"></i>
+                            <i class="fa fa-cogs"></i>
                         </div>
-                        <h2 class="title">@DbRes.T("HaveAnyUpcomingProject", "Resources", lang) @DbRes.T("CallUs", "Resources", lang) <span>@DbRes.T("Today", "Resources", lang)!</span></h2>
+                        <h2 class="title">
+                            @DbRes.T("HaveAnyUpcomingProject", "Resources", lang) @DbRes.T("GetThisService", "Resources", lang) <span>
+                                @DbRes.T("Now", "Resources", lang)!
+                            </span>
+                        </h2>
                         <div class="divider">
                             <span class="divider-separator"></span>
                         </div>
                         <div class="contact">
-                            <a href="tel:01000327035">01000327035</a>
+                            <a class="readon more contact footer" href="/ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
                         </div>
                     </div>
                 </div>

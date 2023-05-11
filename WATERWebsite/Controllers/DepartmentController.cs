@@ -8,7 +8,7 @@ namespace WATERWebsite.Controllers
     {
         private readonly ApplicationDbContext _db;
         private string lang = "en";
-
+        
         public DepartmentController(ApplicationDbContext context)
         {
             _db = context;
@@ -29,6 +29,7 @@ namespace WATERWebsite.Controllers
             return View(departments);
         }
 
+        [HttpGet("/Department/DepartmentDetail/{DepartmentCode}")]
         public IActionResult DepartmentDetail(int DepartmentCode)
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
@@ -55,7 +56,6 @@ namespace WATERWebsite.Controllers
                     departmentServicesList.Add(departmentService);
                 }
             }
-
             // Get Department Detail
             DepartmentDetailViewModel departmentDetail = new DepartmentDetailViewModel
             {
@@ -65,7 +65,7 @@ namespace WATERWebsite.Controllers
                 DepartmentOverview = lang == "ar" ? department.DepartmentOverviewA : department.DepartmentOverviewE,
                 DepartmentEnd = lang == "ar" ? department.DepartmentEndA : department.DepartmentEndE,
                 DepartmentLogoPath = department.DepartmentLogoPath,
-                DepartmentPhotoPath = department.DepartmentPhotoPath,
+                DepartmentPhotoPath = $"{Request.Scheme}://{Request.Host}/{department.DepartmentPhotoPath?.TrimStart('/')}",
                 ServicesList = departmentServicesList
             };
             return View(departmentDetail);

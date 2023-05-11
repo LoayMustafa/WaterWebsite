@@ -19,6 +19,40 @@
 .address-text{
     font-weight:500
 }
+.rs-partner.partner-main-home .partner-content-widget .logo-img {
+    padding: 0px 10px !important;
+}
+.serv-img {
+    width: 776px;
+    height: 453px;
+}
+.rs-breadcrumbs .breadcrumbs-inner .page-title{
+    font-family:'Cambria Math';
+}
+.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link{
+    color: #ffffff !important;
+}
+.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link:after {
+    color: #ffffff !important;
+}
+.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link.collapsed:after {
+    color: #ffffff !important;
+}
+ul.services-list li a:hover{
+    color: #ffffff !important;
+}
+.row {
+    text-align: justify;
+}
+.rs-services.services-style13 .services-item .services-text .title{
+    text-align:center;
+}
+/*.services-item{
+    height:78%
+}
+.services-wrap{
+    height:100%
+}*/
 @media only screen and (max-width: 991px) {
     .info-cards{
         margin-top:3rem;

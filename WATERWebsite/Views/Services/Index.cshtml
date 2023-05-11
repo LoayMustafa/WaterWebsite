@@ -40,13 +40,22 @@
             {
                 ser++;
                 <div class="col-xl-4 col-md-6 mb-20">
-                    <div class="services-item" style="height:500px">
+                    <div class="services-item" style="height:400px">
                         <div class="serial-number">	@ser</div>
-                        <div class="services-icon">
+                        @*<div class="services-icon">
                             <img src="@item.ServiceLogo" alt="Images">
-                        </div>
+                        </div>*@
                         <div class="services-text">
-                            <h4 class="title"><a asp-action="ServiceDetails" asp-route-ServiceCode="@item.ServiceCode">@item.ServiceName</a></h4>
+                            <h4 class="title">
+                                @if(item.ServiceOverview != null)
+                                {
+                                    <a asp-action="ServiceDetails" asp-route-ServiceCode="@item.ServiceCode">@item.ServiceName</a>
+                                }
+                                else
+                                {
+                                    <a>@item.ServiceName</a>
+                                }
+                            </h4>
                             <p class="services-txt" style="overflow-y:auto; max-height: 300px;">
                                 @item.ServiceBrief
                             </p>
