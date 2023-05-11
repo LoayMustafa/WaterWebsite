@@ -47,6 +47,9 @@ ul.services-list li a:hover{
 .rs-services.services-style13 .services-item .services-text .title{
     text-align:center;
 }
+.rs-project-details .project-information {
+    padding: 40px 20px 40px 46px;
+}
 /*.services-item{
     height:78%
 }

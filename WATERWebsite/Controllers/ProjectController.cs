@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WATERWebsite.Core.DTOs.ProjectDtos;
+using WATERWebsite.Core.Models;
 using WATERWebsite.Core.ViewModels.ProjectViewModels;
 using WATERWebsite.Presistance;
 
@@ -30,6 +31,7 @@ namespace WATERWebsite.Controllers
             return View(projects);
         }
 
+        [HttpGet("/Project/ProjectDetails/{ProjectCode}")]
         public IActionResult ProjectDetails(int ProjectCode)
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
@@ -66,7 +68,7 @@ namespace WATERWebsite.Controllers
                 ProjectOwner = lang == "ar" ? project.ProjectOwnerA : project.ProjectOwnerE,
                 ProjectOverview = lang == "ar" ? project.ProjectOverviewA : project.ProjectOverviewE,
                 ProjectOperator = lang == "ar" ? project.ProjectOperatorA : project.ProjectOperatorE,
-                ProjectPhotoPath = project.ProjectPhotoPath,
+                ProjectPhotoPath = project.ProjectPhotoPath != null ? $"{Request.Scheme}://{Request.Host}/{project.ProjectPhotoPath?.TrimStart('/')}" : null,
                 ProjectCost = project.ProjectCost,
                 ProjectSpecificsDto = projectSpecificsList
             };

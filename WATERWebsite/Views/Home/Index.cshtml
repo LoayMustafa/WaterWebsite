@@ -436,15 +436,15 @@ else
         {
             @foreach (var project in Model.ProjectHomeDto)
             {
-                <div class="project-item">
-                    <div class="project-img">
+                <div class="project-item" style="height:250px">
+                    <div class="project-img" style="height:100%">
                         @if (@project.ProjectPhotoPath != null)
                         {
-                            <img src="@project.ProjectPhotoPath" alt="project">
+                            <img src="@project.ProjectPhotoPath" alt="project" style="height:100%">
                         }
                         else
                         {
-                            <img src="~/Resourses/Projects/projects-default.jpg" alt="project">
+                            <img src="~/Resourses/Projects/projects-default.jpg" alt="project" style="height:100%">
                         }
                     </div>
                     <div class="project-content">

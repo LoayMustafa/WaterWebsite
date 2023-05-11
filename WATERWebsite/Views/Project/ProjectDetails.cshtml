@@ -10,23 +10,33 @@
         lang = Context.Session.GetString("lang");
     }
 }
-@*<style>
-    .rs-footer.footer-main-home {
-        background-image:none;
+<style>
+    .rs-breadcrumbs {
+        height: 300px;
     }
 
-    .rs-footer.footer-main-home .footer-top {
-        padding: 0;
+        .rs-breadcrumbs .breadcrumbs-inner {
+            padding-top: 100px
+        }
+
+    .rs-services-single .services-add .address-wrap-item a {
+        font-size: unset;
+        line-height: unset;
     }
 
-    .rs-footer.footer-main-home .footer-top .site-map li a:before {
-        color: black;
+    .rs-breadcrumbs .breadcrumbs-inner .page-title:after {
+        top: 85px;
     }
 
-    .rs-footer.footer-main-home .footer-top .site-map li a {
-        color: black;
+    .rs-breadcrumbs .breadcrumbs-inner .page-title{
+        font-size: 30px;
+        
     }
-</style>*@
+
+    .rs-breadcrumbs .breadcrumbs-inner .page-title:after{
+        content: unset;
+    }
+</style>
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs img1">
     <div class="container">
@@ -37,12 +47,6 @@
             <span class="sub-text">
                 @Model.ProjectLocation
             </span>
-            <ul class="breadcrumbs-area">
-                <li title="Home">
-                    <a class="active" asp-action="index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a>
-                </li>
-                <li>@Model.ProjectName</li>
-            </ul>
         </div>
     </div>
 </div>
@@ -53,11 +57,11 @@
         <div class="slider-img text-center">
             @if (@Model.ProjectPhotoPath != null)
             {
-                <img src="@Model.ProjectPhotoPath" alt="project" style="height:400px; width:1175px;">
+                <img src="@Model.ProjectPhotoPath" alt="project" style="width:900px;">
             }
             else
             {
-                <img src="~/Resourses/Projects/projects-default.jpg" alt="project" style="height:400px; width:1175px;">
+                <img src="~/Resourses/Projects/projects-default.jpg" alt="project" style="width:900px;">
             }
         </div>
     </div>
@@ -65,64 +69,45 @@
 <!-- Slider Section End -->
 <!-- Project Details Section Start -->
 <div class="rs-project-details pt-10 md-pt-80">
-    <div class="project-information mb-25">
-        <div class="row">
-            <div class="col-lg-5 col-md-6 md-mb-30 md-pl-15">
-                <div class="project-content">
-                    @if (lang == "en")
-                    {
+    <div class="container">
+        <div class="project-information mb-25">
+            <div class="row">
+                <div class="col-lg-5 col-md-6 md-mb-30 md-pl-15">
+                    <div class="project-content">
+                        @if (lang == "en")
+                        {
+                            <div class="project-right-border"></div>
+                        }
+                        <h4 class="title">@DbRes.T("Contractor", "Resources", lang)</h4>
+                        <div class="description">
+                            <p>@Model.ProjectOwner</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 md-mb-30 pl-50 md-pl-15">
+                    <div class="project-content">
                         <div class="project-right-border"></div>
-                    }
-                    <h4 class="title">@DbRes.T("Contractor", "Resources", lang)</h4>
-                    <div class="description">
-                        <p>@Model.ProjectOwner</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-6 md-mb-30 pl-50 md-pl-15">
-                <div class="project-content">
-                    <div class="project-right-border"></div>
 
-                    <h4 class="title">@DbRes.T("Operator", "Resources", lang)</h4>
-                    <div class="description">
-                        <p>@Model.ProjectOperator</p>
+                        <h4 class="title">@DbRes.T("Operator", "Resources", lang)</h4>
+                        <div class="description">
+                            <p>@Model.ProjectOperator</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @*<div class="col-lg-2 col-md-6 sm-mb-30 pl-50 md-pl-15">
-                <div class="project-content">
-                    <div class="project-right-border"></div>
-                    <h4 class="title">@DbRes.T("Developer", "Resources", lang)</h4>
-                    <div class="description">
-                    </div>
-                </div>
-            </div>*@
-            @*<div class="col-lg-2 col-md-6 md-mb-30 pl-50 md-pl-15">
-                <div class="project-content">
-                    <div class="project-right-border"></div>
-
-                    <h4 class="title">@DbRes.T("Cost", "Resources", lang)</h4>
-                    <div class="description">
-                        <p>@Model.ProjectCost</p>
-                    </div>
-                </div>
-            </div>*@
-            <div class="col-lg-2 col-md-6 md-mb-30 pl-50 md-pl-15">
-                <div class="project-content">
-                    @if (lang == "ar")
-                    {
-                        <div class="project-right-border"></div>
-                    }
-                    <h4 class="title">@DbRes.T("Capacity", "Resources", lang)</h4>
-                    <div class="description">
-                        <p>@Model.ProjectCapacity m3/day</p>
+                <div class="col-lg-2 col-md-6 md-mb-30 pl-50 md-pl-15">
+                    <div class="project-content">
+                        @if (lang == "ar")
+                        {
+                            <div class="project-right-border"></div>
+                        }
+                        <h4 class="title">@DbRes.T("Capacity", "Resources", lang)</h4>
+                        <div class="description">
+                            <p>@Model.ProjectCapacity m3/day</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="container">
         <div class="project-txt mb-30">
             <h2 class="title pb-35 mb-10">@DbRes.T("ProjectOverview", "Resources", lang)</h2>
 
@@ -135,7 +120,7 @@
 
         <div class="rs-project-goals md-pt-75">
             <div class="row y-middle">
-                <div class="col-lg-12 pr-50 md-pr-15 md-mb-30">
+                <div class="col-lg-8 pr-50 md-pr-15 md-mb-30">
                     <div class="project-content mb-45">
                         @if (Model.ProjectSpecificsDto?.Count() > 0)
                         {
@@ -169,11 +154,29 @@
                         </div>*@
                     </div>
                 </div>
-                @*<div class="col-lg-6 mb-30">
-                <div class="project-goal">
-                <img src="~/imgs/project/details/pro-img1.jpg" alt="">
+                <div class="col-lg-4 pr-50 md-pr-15 md-mb-30">
+                    <div class="rs-services-single">
+                        <div class="services-add mb-50">
+                            <div class="services-overlay"></div>
+                            <div class="address-wrap-item mb-20">
+                                <div class="icon-part mb-37">
+                                    <i class="fa fa-cogs"></i>
+                                </div>
+                                <h2 class="title">
+                                    @DbRes.T("HaveSimilarProject", "Resources", lang) @DbRes.T("ContactUs", "Resources", lang) <span>
+                                        @DbRes.T("Now", "Resources", lang)!
+                                    </span>
+                                </h2>
+                                <div class="divider">
+                                    <span class="divider-separator"></span>
+                                </div>
+                                <div class="contact">
+                                    <a class="readon more contact footer" href="/ContactUs">@DbRes.T("GetInTouch", "Resources", lang)</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>*@
             </div>
 
         </div>

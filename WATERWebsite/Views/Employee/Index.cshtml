@@ -16,7 +16,7 @@
     }
 </style>
 <!-- Team Section Start -->
-<div class="rs-team team-style6 pt-120 pb-205 md-pt-80 md-pb-165">
+<div class="rs-team team-style6 pt-180 pb-205 md-pt-80 md-pb-165">
     <div class="container">
         <div class="row">
             @if (Model.Count() > 0)
@@ -26,11 +26,10 @@
                     @if (employee.EmployeeLvl == 1)
                     {
                         <div class="row justify-content-center">
-                            <div class="col-lg-4 col-md-6 mb-135">
+                            <div class="col-lg-4 col-md-6 mb-200 mt-5">
                                 <div class="team-item">
                                     <div class="team-inner-wrap">
-                                        <div class="image-wrap">
-                                            @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
+                                        @*<div class="image-wrap">
                                             <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">
                                                 @if (employee.EmployeePhotoPath != null)
                                                 {
@@ -41,7 +40,7 @@
                                                     <img src="~/Resourses/Employees/employee-default.png" alt="@employee.EmployeeName">
                                                 }
                                             </a>
-                                        </div>
+                                        </div>*@
                                         <div class="team-content">
                                             <h3 class="team-name">
                                                 @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">@employee.EmployeeName</a>*@
@@ -63,11 +62,10 @@
                     }
                     @if (employee.EmployeeLvl == 2)
                     {
-                        <div class="col-lg-4 col-md-6 mb-135">
+                        <div class="col-lg-4 col-md-6 mb-200">
                             <div class="team-item">
                                 <div class="team-inner-wrap">
-                                    <div class="image-wrap">
-                                        @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
+                                    @*<div class="image-wrap">
                                         <a data-bs-toggle="modal" data-bs-target="#FormModal" onclick="EmployeeDetails(@employee.EmployeeCode)">
 
                                             @if (employee.EmployeePhotoPath != null)
@@ -79,7 +77,7 @@
                                                 <img src="~/Resourses/Employees/employee-default.png" alt="@employee.EmployeeName">
                                             }
                                         </a>
-                                    </div>
+                                    </div>*@
                                     <div class="team-content">
                                         <h3 class="team-name">
                                             @*<a asp-action="EmpolyeeDetails" asp-controller="Employee" asp-route-EmployeeCode="@employee.EmployeeCode">*@
