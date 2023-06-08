@@ -46,11 +46,8 @@
         <div class="row">
             <div class="col-lg-8 md-mb-10">
                 @*<div class="services-img mb-15">
-                    <img src="@Model.ServicePhotoPath" style="width: 775px; height: 450px;">
+                <img src="@Model.ServicePhotoPath" style="width: 775px; height: 450px;">
                 </div>*@
-                <p class="desc-part pb-24">
-                    @Model.ServiceBrief
-                </p>
                 <p class="desc-part pb-10">
                     @Model.ServiceOverview
                 </p>
@@ -98,6 +95,28 @@
                 </p>
             </div>
             <div class="col-lg-4 pl-36 md-pl-15">
+                <h5 class="side-title">
+                    Other Services
+                </h5>
+                <ul class="mb-50">
+                    @if (Model.ServiceList?.Count > 0)
+                    {
+                        @foreach (var service in Model.ServiceList)
+                        {
+                            if(service.ServiceOverview != null)
+                            {
+                                <li><a class ="btn btn-outline-primary btn-list w-100" asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a>
+
+                                </li>
+                            }
+                            else
+                            {
+                                <li><a class="btn btn-outline-primary btn-list w-100" style="cursor:default;">@service.ServiceName</a></li>
+
+                            }
+                        }
+                    }
+                </ul>
                 <div class="services-add mb-50">
                     <div class="services-overlay"></div>
                     <div class="address-wrap-item mb-20">

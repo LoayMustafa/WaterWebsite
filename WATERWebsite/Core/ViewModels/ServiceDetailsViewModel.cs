@@ -12,6 +12,7 @@ namespace WATERWebsite.Core.ViewModels
         public string? ServiceLogo { get; set; } = string.Empty;
         public string? ServiceEnd { get; set; }
         public List<ServiceDetailsDto>? ServiceDetails { get; set; }
+        public List<ServicesIndexViewModel>? ServiceList { get; set; }
 
     }
 }

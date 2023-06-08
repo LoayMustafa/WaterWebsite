@@ -9,6 +9,7 @@
         language = Context.Session.GetString("lang");
     }
 }
+<link rel="stylesheet" type="text/css" href="~/assets/css/style.css" />
 
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs img1">
@@ -33,10 +34,10 @@
 <!-- About Start -->
 <div class="rs-about about-style1 bg1 pt-60 pb-60 md-pt-80 md-pb-75">
     <div class="container">
-        <div class="row y-middle">
+        <div class="row y-middle mb-5">
             <div class="col-lg-6 md-mb-50">
                 <div class="images-part">
-                    <img src="~/imgs/about/style1/about.png" alt="About">
+                    <img src="~/imgs/about/style1/who.jpg" alt="About">
                 </div>
             </div>
             <div class="col-lg-6 pl-50 md-pl-15">
@@ -45,6 +46,15 @@
                         <img src="~/imgs/shape-1.png" alt="Images">
                         @DbRes.T("WhoWeAre", "Resources", language)
                     </span>
+                    <p class="desc pb-37">
+                        @DbRes.T("WhoWeAreBrief", "Resources", language)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row y-middle">
+            <div class="col-lg-6 pl-50 md-pl-15">
+                <div class="sec-title">
                     <h2 class="title pb-20">
                         @DbRes.T("OurVision", "Resources", language):
                     </h2>
@@ -60,264 +70,195 @@
                     </p>
                 </div>
             </div>
+            <div class="col-lg-6 md-mb-50">
+                <div class="images-part">
+                    <img src="~/imgs/about/style1/about.png" alt="About">
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <!-- About End -->
 @if (language == "ar")
 {
-    <!-- Core Values Arabic Start -->
-    <div class="rs-process process-style3 bg23 pt-150 pb-115 md-pt-115 md-pb-80">
+    <!-- Core Values Start -->
+    <div class="rs-process process-style3 bg23 pt-20 pb-20 md-pt-20 md-pb-20">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="sec-title mb-70 md-mb-15">
-                        <h2 class="title title4 ser-style1">
-                            قيمنا الأساسية<br>
-                        </h2>
+            <h1 class="project-name">Our Core Values</h1>
+            <p class="services-txt container text-center" style="color:#ffffff">
+                As an organization, our name serves as a symbolic representation of the values we stand for and strive to embody in our professional endeavors.
+                The term "water" in our name carries a deeper connotation that extends beyond its literal meaning,
+                encapsulating the core principles and ideals that are integral to our mission and vision.
+                It is through our unwavering commitment to these values that we have been able to carve a distinct identity for ourselves in the industry, and continue to lead.
+
+            </p>
+            <div id="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.943,0l-3.665,20.914-5.278-12.05-5.31,12.133L3.054,0H0L3.744,21.56c.24,1.26,1.214,
+                            2.202,2.48,2.401,.164,.025,.326,.039,.486,.038,1.099,0,2.088-.604,2.671-1.68l2.621-5.981,2.677,6.101c.604,1.104,1.843,1.724,3.098,
+                            1.522,1.267-.199,2.24-1.142,2.48-2.4L24,0h-3.057Z" />
+                            </g>
+                            </svg>
+
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Work Ethics</h2>
                     </div>
                 </div>
-                @*<div class="col-lg-4 text-right md-left md-mb-40">
-            <div class="btn-part mt-20">
-            <a class="readon more touch" href="/ContactUs">@DbRes.T("GetInTouch", "Resources", lang)</a>
-            </div>
-            </div>*@
-            </div>
-        </div>
-        <div class="custom3">
-            <div class="process-bg">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <img src="assets/images/process/style3/icons/p1.png" alt="Images">
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">01</span>
-                                </div>
-                                <h3 class="number-title"> العمل </h3>
-                                <ul>
-                                    <li><p class="number-txt">• الالتزام بالمعايير العالية في مشاريعنا</p></li>
-                                    <li><p class="number-txt">• الدفاع عن مبادئنا ومعتقداتنا</p></li>
-                                    <li><p class="number-txt">• نقدم أفضل الحلول ولا نضلل أبدًا</p></li>
-                                    <li><p class="number-txt">• نلتزم ونتعلم من أخطائنا</p></li>
-                                </ul>
-                            </div>
-                        </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.766,24h3.234L15.307,1.938c-.596-1.195-1.797-1.938-3.133-1.938-1.358,0-2.539,.749-3.173,2.031L0,24H3.25l2.455-6h12.702l2.36,6ZM6.932,15L11.728,3.277c.177-.357,.778-.234,.845-.109l4.653,11.832H6.932Z" />
+                                </g>
+                                </svg>
+
                     </div>
-                    <div class="col-md-6">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <img src="assets/images/process/style3/icons/p1.png" alt="Images">
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">02</span>
-                                </div>
-                                <h3 class="number-title"> الدقة </h3>
-                                <ul>
-                                    <li><p class="number-txt">• تقديم خدمات متميزة وقيم مميزة</p></li>
-                                    <li><p class="number-txt">• تطوير مقاييس أدائنا</p></li>
-                                    <li><p class="number-txt">• نقدم أفضل الحلول ولا نضلل أبدًا</p></li>
-                                    <li><p class="number-txt">• نحن دائما على دراية وتحديث</p></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="timeline-content right">
+                        <h2>Accuracy</h2>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <img src="assets/images/process/style3/icons/p1.png" alt="Images">
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">03</span>
-                                </div>
-                                <h3 class="number-title"> الموهبة والعمل الجماعي </h3>
-                                <ul>
-                                    <li><p class="number-txt">• العمل الجماعي سيضاعف نمونا</p></li>
-                                    <li><p class="number-txt">• نحن نؤمن باحترام ثقافات ومعتقدات الآخرين</p></li>
-                                    <li><p class="number-txt">• نحن دائمًا مرنون وداعمون ومتعاطفون</p></li>
-                                </ul>
-                            </div>
-                        </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.5,0H3.5c-1.972,.034-1.971,2.966,0,3h7V22.5c.034,1.972,2.966,1.971,3,0V3h7c1.972-.034,1.971-2.966,0-3Z" />
+                                </g>
+                                </svg>
+
                     </div>
-                    <div class="col-md-4">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <img src="assets/images/process/style3/icons/p1.png" alt="Images">
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">04</span>
-                                </div>
-                                <h3 class="number-title"> الكفاءة </h3>
-                                <ul>
-                                    <li><p class="number-txt">•	نحن دائمًا نشيطون ومستجيبون</p></li>
-                                    <li><p class="number-txt">• نلتزم دائمًا بالمواعيد النهائية لدينا بأعلى جودة</p></li>
-                                    <li><p class="number-txt">• نحن لا نخاف من التحديات. نسعى دائمًا لتحقيق الكمال</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <img src="assets/images/process/style3/icons/p1.png" alt="Images">
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">05</span>
-                                </div>
-                                <h3 class="number-title"> المسؤولية والالتزام </h3>
-                                <ul>
-                                    <li><p class="number-txt">•	نحن دائما لدينا رؤية و متعاونون</p></li>
-                                    <li><p class="number-txt">• نحن دائما موثوقون وخاضعون للمساءلة</p></li>
-                                    <li><p class="number-txt">• نحن لا نغفل عن أهدافنا النهائية</p></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="timeline-content">
+                        <h2>Talent and Teamwork</h2>
                     </div>
                 </div>
-                <div class="row">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.5,21H7.5c-1.379,0-2.5-1.122-2.5-2.5v-5.5h11.5c1.972-.034,1.971-2.967,0-3H5V5.5c0-1.378,1.121-2.5,2.5-2.5h13c1.972-.034,1.971-2.967,0-3H7.5C4.468,0,2,2.467,2,5.5v13c0,3.033,2.468,5.5,5.5,5.5h13c1.972-.034,1.971-2.967,0-3Z" />
+                                </g>
+                                </svg>
+
+                    </div>
+                    <div class="timeline-content right">
+                        <h2>Efficiency</h2>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M17.657,14.294C24.829,10.966,22.51,.038,14.5,0H7.5C4.467,0,2,2.468,2,5.5V22.5c.034,1.972,2.967,1.971,3,0v-7.5H14.5c.038,0,.076-.005,.114-.006l4.575,8.234c.405,.731,1.33,.981,2.04,.583,.725-.402,.985-1.315,.583-2.04l-4.154-7.478ZM5,5.5c0-1.379,1.122-2.5,2.5-2.5h7c5.935,.156,5.931,8.846,0,9H5V5.5Z" />
+                                </g>
+                                </svg>
+
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Resposibility</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Core Values Arabic End -->
+    <!-- Core Values End -->
 }
 else if (language == "en")
 {
     <!-- Core Values Start -->
-    <div class="rs-process process-style3 bg23 pt-150 pb-115 md-pt-115 md-pb-80">
+    <div class="rs-process process-style3 bg23 pt-20 pb-20 md-pt-20 md-pb-20">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="sec-title mb-70 md-mb-15">
-                        <h2 class="title title4 ser-style1">
-                            Our Core Values<br>
-                        </h2>
+            <h1 class="project-name">Our Core Values</h1>
+            <p class="services-txt container text-center" style="color:#ffffff">
+                As an organization, our name serves as a symbolic representation of the values we stand for and strive to embody in our professional endeavors. 
+                The term "water" in our name carries a deeper connotation that extends beyond its literal meaning, 
+                encapsulating the core principles and ideals that are integral to our mission and vision. 
+                It is through our unwavering commitment to these values that we have been able to carve a distinct identity for ourselves in the industry, and continue to lead.
+
+            </p>
+            <div id="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.943,0l-3.665,20.914-5.278-12.05-5.31,12.133L3.054,0H0L3.744,21.56c.24,1.26,1.214,
+                            2.202,2.48,2.401,.164,.025,.326,.039,.486,.038,1.099,0,2.088-.604,2.671-1.68l2.621-5.981,2.677,6.101c.604,1.104,1.843,1.724,3.098,
+                            1.522,1.267-.199,2.24-1.142,2.48-2.4L24,0h-3.057Z" />
+                        </g>
+                        </svg>
+
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Work Ethics</h2>
                     </div>
                 </div>
-                @*<div class="col-lg-4 text-right md-left md-mb-40">
-            <div class="btn-part mt-20">
-            <a class="readon more touch" href="/ContactUs">@DbRes.T("GetInTouch", "Resources", lang)</a>
-            </div>
-            </div>*@
-            </div>
-        </div>
-        <div class="custom3">
-            <div class="process-bg">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <h2 class="title pb-20 core-value">
-                                    W
-                                </h2>
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">01</span>
-                                </div>
-                                <h3 class="number-title"> Work </h3>
-                                <ul>
-                                    <li><p class="number-txt">• adhere to the high standards in our projects</p></li>
-                                    <li><p class="number-txt">• stand up for our principles & beliefs</p></li>
-                                    <li><p class="number-txt">• provide the best solutions & we never mislead</p></li>
-                                    <li><p class="number-txt">• committed & learn from our mistakes</p></li>
-                                </ul>
-                            </div>
-                        </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.766,24h3.234L15.307,1.938c-.596-1.195-1.797-1.938-3.133-1.938-1.358,0-2.539,.749-3.173,2.031L0,24H3.25l2.455-6h12.702l2.36,6ZM6.932,15L11.728,3.277c.177-.357,.778-.234,.845-.109l4.653,11.832H6.932Z" />
+                            </g>
+                            </svg>
+
                     </div>
-                    <div class="col-md-6">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <h2 class="title pb-20 core-value">
-                                    A
-                                </h2>
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">02</span>
-                                </div>
-                                <h3 class="number-title"> Accuracy </h3>
-                                <ul>
-                                    <li><p class="number-txt">• provide outstanding services & Premium Values</p></li>
-                                    <li><p class="number-txt">• develop our performance metrics</p></li>
-                                    <li><p class="number-txt">• provide the best solutions & we never mislead</p></li>
-                                    <li><p class="number-txt">• knowledgeable & Updated</p></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="timeline-content right">
+                        <h2>Accuracy</h2>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <h2 class="title pb-20 core-value">
-                                    T
-                                </h2>
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">03</span>
-                                </div>
-                                <h3 class="number-title"> Talent & Teamwork </h3>
-                                <ul>
-                                    <li><p class="number-txt">• Teamwork will multiply our growth</p></li>
-                                    <li><p class="number-txt">• We believe in respecting others’ cultures & beliefs</p></li>
-                                    <li><p class="number-txt">• We are always flexible, supportive, empathic</p></li>
-                                </ul>
-                            </div>
-                        </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.5,0H3.5c-1.972,.034-1.971,2.966,0,3h7V22.5c.034,1.972,2.966,1.971,3,0V3h7c1.972-.034,1.971-2.966,0-3Z" />
+                            </g>
+                            </svg>
+
                     </div>
-                    <div class="col-md-4">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <h2 class="title pb-20 core-value">
-                                    E
-                                </h2>
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">04</span>
-                                </div>
-                                <h3 class="number-title"> Efficiency </h3>
-                                <ul>
-                                    <li><p class="number-txt">•	We are always Energetic & Responsive</p></li>
-                                    <li><p class="number-txt">• We always meet our deadlines with the highest quality</p></li>
-                                    <li><p class="number-txt">• We are not afraid of challenges; we always pursue the perfection</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="process-item process-gap">
-                            <div class="number-image">
-                                <h2 class="title pb-20 core-value">
-                                    R
-                                </h2>
-                            </div>
-                            <div class="number-text">
-                                <div class="number-area">
-                                    <span class="number-prefix">05</span>
-                                </div>
-                                <h3 class="number-title"> Responsibility & Commitment </h3>
-                                <ul>
-                                    <li><p class="number-txt">•	We are always visionary, helpful</p></li>
-                                    <li><p class="number-txt">• We are always reliable, accountable</p></li>
-                                    <li><p class="number-txt">• We never lose sight of our ultimate goals</p></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="timeline-content">
+                        <h2>Talent and Teamwork</h2>
                     </div>
                 </div>
-                <div class="row">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M20.5,21H7.5c-1.379,0-2.5-1.122-2.5-2.5v-5.5h11.5c1.972-.034,1.971-2.967,0-3H5V5.5c0-1.378,1.121-2.5,2.5-2.5h13c1.972-.034,1.971-2.967,0-3H7.5C4.468,0,2,2.467,2,5.5v13c0,3.033,2.468,5.5,5.5,5.5h13c1.972-.034,1.971-2.967,0-3Z" />
+                            </g>
+                            </svg>
+
+                    </div>
+                    <div class="timeline-content right">
+                        <h2>Efficiency</h2>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="30px" height="30px" viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve">
+                        <g>
+                        <path fill="#FFFFFF" d="M17.657,14.294C24.829,10.966,22.51,.038,14.5,0H7.5C4.467,0,2,2.468,2,5.5V22.5c.034,1.972,2.967,1.971,3,0v-7.5H14.5c.038,0,.076-.005,.114-.006l4.575,8.234c.405,.731,1.33,.981,2.04,.583,.725-.402,.985-1.315,.583-2.04l-4.154-7.478ZM5,5.5c0-1.379,1.122-2.5,2.5-2.5h7c5.935,.156,5.931,8.846,0,9H5V5.5Z" />
+                            </g>
+                            </svg>
+
+                    </div>
+                    <div class="timeline-content">
+                        <h2>Resposibility</h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -331,9 +272,10 @@ else if (language == "en")
             <span class="sub-title">@DbRes.T("OurStory", "Resources", language)</span>
             <h3 class="story" style="font-family:'Roboto';">
                 @DbRes.T("OurStoryBrief1", "Resources", language).
-                <br>
-                @DbRes.T("OurStoryBrief2", "Resources", language).
             </h3>
+            <p class="services-txt container">
+                @DbRes.T("GrowthStrategyBrief", "Resources", language)
+            </p>
             <div class="heading-border-line"></div>
         </div>
         <div class="container">
@@ -344,9 +286,6 @@ else if (language == "en")
                             <div class="col-md-8 mb-60">
                                 <div class="services-text">
                                     <h2 class="title">@DbRes.T("GrowthStrategy", "Resources", language)</h2>
-                                    <p class="services-txt">
-                                        @DbRes.T("GrowthStrategyBrief", "Resources", language)
-                                    </p>
                                     <p class="services-txt">
                                         @DbRes.T("GrowthStrategyBrief1", "Resources", language)
                                     </p>

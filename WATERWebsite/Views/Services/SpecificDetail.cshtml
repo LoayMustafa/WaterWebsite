@@ -9,25 +9,97 @@
         lang = Context.Session.GetString("lang");
     }
 }
-<div class="rs-services-single pt-120 pb-120 md-pt-80 md-pb-80">
-    <div class="container">
-        <div class="sec-title text-center">
-            <h2 class="title">@Model.SpecificsName</h2>
-            <br />
-        </div>
-        <p class="desc-part pb-10">
-            @Model.SpecificsBrief
-        </p>
-        @if (Model.SpecificsOverview != null)
-        {
-            <p>@Html.Raw(Model.SpecificsOverview)</p>
+<style>
+    .rs-breadcrumbs {
+        height: 250px;
+    }
+
+        .rs-breadcrumbs .breadcrumbs-inner {
+            padding-top: 100px
         }
-        <p class="desc-part pb-10">
-            @Model.SpecificsEnd
-        </p>
+
+    .rs-services-single .services-add .address-wrap-item a {
+        font-size: unset;
+        line-height: unset;
+    }
+
+    .rs-breadcrumbs .breadcrumbs-inner .page-title:after {
+        top: 85px;
+    }
+</style>
+<div class="rs-breadcrumbs img3">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                @Model.SpecificsName
+            </h1>
+        </div>
     </div>
 </div>
-<script src="~/assets/js/jquery.min.js"></script>
-<script>
-    $("#rs-header").addClass("header-home");
-</script>
+<div class="rs-services-single pt-60 pb-60 md-pt-80 md-pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 md-mb-10">
+                @*<div class="sec-title text-center">
+                <h2 class="title">@Model.SpecificsName</h2>
+                <br />
+                </div>*@
+                <p class="desc-part pb-10">
+                    @Model.SpecificsBrief
+                </p>
+                @if (Model.SpecificsOverview != null)
+                {
+                    <p>@Html.Raw(Model.SpecificsOverview)</p>
+                }
+                <p class="desc-part pb-10">
+                    @Model.SpecificsEnd
+                </p>
+            </div>
+            <div class="col-lg-4 pl-36 md-pl-15">
+                <h5 class="side-title">
+                    Other Services
+                </h5>
+                <ul class="mb-50">
+                    @if (Model.SpecificsList?.Count > 0)
+                    {
+                        @foreach (var specific in Model.SpecificsList)
+                        {
+                            if (specific.SpecificOverView != null)
+                            {
+                                <li>
+                                    <a class="btn btn-outline-primary btn-list w-100" asp-action="SpecificDetail" asp-route-SpecificsCode="@specific.SpecificCode">@specific.SpecificName</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li><a class="btn btn-outline-primary btn-list w-100" style="cursor:default;">@specific.SpecificName</a></li>
+
+                            }
+                        }
+                    }
+                </ul>
+                <div class="services-add mb-50">
+                    <div class="services-overlay"></div>
+                    <div class="address-wrap-item mb-20">
+                        <div class="icon-part mb-37">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <h2 class="title">
+                            @DbRes.T("HaveAnyUpcomingProject", "Resources", lang) @DbRes.T("GetThisService", "Resources", lang) <span>
+                                @DbRes.T("Now", "Resources", lang)!
+                            </span>
+                        </h2>
+                        <div class="divider">
+                            <span class="divider-separator"></span>
+                        </div>
+                        <div class="contact">
+                            <a class="readon more contact footer" href="/ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

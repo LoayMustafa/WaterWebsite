@@ -50,9 +50,6 @@
                 </div>
                 <div class="services-title pb-24">
                 </div>
-                <p class="desc-part pb-24">
-                    @Model.DepartmentBrief
-                </p>
                 <p class="desc-part pb-10">
                     @Model.DepartmentOverview
                 </p>
@@ -75,7 +72,6 @@
                                                 {
                                                     <div id="c_@service.ServiceCode" class="collapse" data-bs-parent="#accordion" style="">
                                                         <div class="card-body">
-                                                            <p>@service.ServiceBrief</p>
                                                             <p>@service.ServiceOverview</p>
                                                             <a class="btn btn-primary" asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@DbRes.T("MoreDetails", "Resources", lang)</a>
                                                         </div>
@@ -96,19 +92,15 @@
                 </p>
             </div>
             <div class="col-lg-4 pl-36 md-pl-15">
-                <ul class="services-list mb-50">
-                    @if (Model.ServicesList?.Count > 0)
+                <h5 class="side-title">
+                    Other Departments
+                </h5>
+                <ul class="mb-50">
+                    @if (Model.DepartmentsList?.Count > 0)
                     {
-                        @foreach (var service in Model.ServicesList)
+                        @foreach (var depart in Model.DepartmentsList)
                         {
-                            @if (service.ServiceOverview != null)
-                            {
-                                <li><a asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a></li>
-                            }
-                            else
-                            {
-                                <li><a>@service.ServiceName</a></li>
-                            }
+                            <li><a class="btn btn-outline-primary btn-list w-100" asp-controller="Department" asp-action="DepartmentDetail" asp-route-DepartmentCode="@depart.DepartmentCode">@depart.DepartmentName</a></li>
                         }
                     }
                 </ul>

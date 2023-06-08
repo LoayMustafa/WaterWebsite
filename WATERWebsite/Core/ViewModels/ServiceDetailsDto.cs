@@ -11,6 +11,8 @@ namespace WATERWebsite.Core.ViewModels
         public string? ServiceDetailOverview { get; set; }
         public string? ServiceDetailEnd { get; set; }
         public List<ServiceDetailSpecificsDto>? ServiceDetailSpecifics { get; set; }
+        public List<ServiceDetailsDto>? ServiceDetailList { get; set; }
         public bool IsClickable { get; set; }
+
     }
 }

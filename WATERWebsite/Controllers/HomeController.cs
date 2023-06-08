@@ -31,6 +31,7 @@ namespace WATERWebsite.Controllers
                 DepartementCode = c.DepartmentCode,
                 DepartementName = lang == "ar" ? c.DepartmentNameA : c.DepartmentNameE,
                 DepartementBrief = lang == "ar" ? c.DepartmentBriefA : c.DepartmentBriefE,
+                DepartementHomeDesc = lang == "ar" ? c.HomeDescA : c.HomeDescE,
                 DepartementLogo = c.DepartmentLogoPath
             }).ToList();
 

@@ -13,5 +13,6 @@ namespace WATERWebsite.Core.ViewModels.DepartmentViewModels
         public string? DepartmentLogoPath { get; set; }
 
         public List<DepartmentServiceDto>? ServicesList { get; set; }
+        public List<DeprtmentIndexViewModel>? DepartmentsList { get; set; }
     }
 }

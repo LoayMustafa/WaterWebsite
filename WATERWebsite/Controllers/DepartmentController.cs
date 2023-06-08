@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using WATERWebsite.Core.Models;
 using WATERWebsite.Core.ViewModels.DepartmentViewModels;
 using WATERWebsite.Presistance;
 
@@ -39,6 +41,8 @@ namespace WATERWebsite.Controllers
                 return View("Error");
 
             // Get Department Services
+            var allDepartments = GetAllDepartments(DepartmentCode);
+
             var deprtmentServ = _db.Service.Where(c => c.DepartmentCode == DepartmentCode).ToList();
             List<DepartmentServiceDto> departmentServicesList = new List<DepartmentServiceDto>();
             if (deprtmentServ.Count > 0)
@@ -66,9 +70,27 @@ namespace WATERWebsite.Controllers
                 DepartmentEnd = lang == "ar" ? department.DepartmentEndA : department.DepartmentEndE,
                 DepartmentLogoPath = department.DepartmentLogoPath,
                 DepartmentPhotoPath = $"{Request.Scheme}://{Request.Host}/{department.DepartmentPhotoPath?.TrimStart('/')}",
-                ServicesList = departmentServicesList
+                ServicesList = departmentServicesList,
+                DepartmentsList = allDepartments
             };
             return View(departmentDetail);
+        }
+        public List<DeprtmentIndexViewModel> GetAllDepartments(int DepartmentCode)
+        {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
+
+            var department = _db.Department.Find(DepartmentCode);
+            var allDepartments = new List<DeprtmentIndexViewModel>();
+            if (department != null)
+                allDepartments = _db.Department.Where(c => c.DepartmentCode != DepartmentCode).Select(c => new DeprtmentIndexViewModel
+                {
+                    DepartmentCode = c.DepartmentCode,
+                    DepartmentName = lang == "ar" ? c.DepartmentNameA : c.DepartmentNameE,
+                    DepartmentBrief = lang == "ar" ? c.DepartmentBriefA : c.DepartmentBriefE,
+                    DepartmentLogoPath = c.DepartmentLogoPath,
+                    DepartmentPhotoPath = c.DepartmentPhotoPath,
+                }).ToList();
+            return allDepartments;
         }
     }
 }

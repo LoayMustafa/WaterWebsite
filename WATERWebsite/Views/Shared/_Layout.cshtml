@@ -88,7 +88,7 @@
                 <!-- Menu Start -->
 
                 <partial name="_NavBar" />
-                
+
                 <!-- Menu End -->
                 <!-- Canvas Menu start -->
                 <nav class="right_menu_togle menu-wrap-off  hidden-md">
@@ -120,7 +120,7 @@
                                             @DbRes.T("ContactUs", "Resources", lang)
 
                                         </h4>
-                                        <em>8 El Obour Buildings - Cairo, Egypt</em>
+                                        <em>7 El Obour Buildings - Cairo, Egypt</em>
                                     </div>
                                 </div>
                                 <div class="address-list">
@@ -148,9 +148,9 @@
                                 </div>
                             </div>
                             <ul class="social">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.facebook.com/WATERCONSULT.IBRAHIMHENDY" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/water-engineering-environmental-consultations/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                             </ul>
                         </div>
@@ -187,7 +187,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a asp-action="index" asp-controller="Services">
+                            <a asp-action="index" asp-controller="Department">
                                 @DbRes.T("Services", "Resources", lang)
                             </a>
                             <ul class="sub-menu">
@@ -406,12 +406,6 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <hr style="margin:auto;" />
-                                <li>
-                                    <a asp-action="index" asp-controller="Department">
-                                        @DbRes.T("ViewAllDepartments", "Resources", lang)
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li>
@@ -445,7 +439,7 @@
                                     <h4 class="title">
                                         @DbRes.T("ContactUs", "Resources", lang)
                                     </h4>
-                                    <em>8 El Obour Buildings - Cairo, Egypt</em>
+                                    <em>7 El Obour Buildings - Cairo, Egypt</em>
                                 </div>
                             </div>
                             <div class="address-list">
@@ -487,10 +481,10 @@
     <!-- Footer Start -->
     <footer id="rs-footer" class="rs-footer footer-main-home">
         <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 pr-20 md-pr-15 md-mb-20">
-                        <div class="footer-logo mb-51 md-mb-30">
+            <div class="container-fluid footer-padding">
+                <div class="row" style="text-align: initial;">
+                    <div class="col-lg-4 pr-20 md-pr-15 md-mb-20">
+                        <div class="footer-logo mb-10">
                             <a asp-action="Index" asp-controller="Home"><img src="~/assets/water/logo-white1.png" alt=""></a>
                         </div>
                         <div class="textwidget">
@@ -515,15 +509,22 @@
                             <li>
                                 <i class="fi fi-rr-map-marker-home"></i>
                                 <div class="desc">
-                                    8 El Obour Buildings - Salah Salem Cairo, <br>
+                                    7 El Obour Buildings - Salah Salem Cairo, <br>
                                     Cairo Governorate, Egypt
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa fa-fax"></i>
+                                <div class="desc">
+                                    <a>02 240 39 218</a><br>
                                 </div>
                             </li>
                             <li>
                                 <i class="fi fi-rr-phone-call"></i>
                                 <div class="desc">
                                     <a href="~/tel:01000327035">01000327035</a><br>
-                                    <a href="~/tel:01200797973">01200797973</a>
+                                    <a href="~/tel:01200797973">01200797973</a><br>
+                                    <a href="~/tel:0224039216 ">0224039216</a>
                                 </div>
                             </li>
                             <li>
@@ -565,7 +566,7 @@
                                     @DbRes.T("EnvironmentalEngineering", "Resources", lang)
                                 </a>
                             </li>
-                            
+
                             <li>
                                 <a>
                                     @DbRes.T("ArchitectureDesign", "Resources", lang)
@@ -573,12 +574,12 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-2">
                         <h3 class="footer-title">
                             @DbRes.T("GetInTouch", "Resources", lang)
                         </h3>
                         <p class="widget-desc">
-                            @DbRes.T("HaveAnyUpcomingProject", "Resources", lang)
+                            @DbRes.T("HaveUpcomingProjects", "Resources", lang)
                         </p>
                         <ul>
                             <li>
@@ -592,10 +593,10 @@
 
                                 <div>
                                     <ul class="footer-social md-mb-30" dir="ltr">
-                                        <li><a href="~/#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="~/#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="~/#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="~/#"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="https://www.facebook.com/WATERCONSULT.IBRAHIMHENDY" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/company/water-engineering-environmental-consultations/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href=""><i class="fa fa-instagram"></i></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -607,18 +608,8 @@
         <div class="footer-bottom">
             <div class="container" style="max-width:1300px;">
                 <div class="row y-middle">
-                    <div class="col-lg-6 md-mb-10 text-lg-end text-center order-last">
-                        <ul class="copy-right-menu" style="direction: initial;">
-                            <li><a asp-action="Index" asp-controller="Home">@DbRes.T("Home", "Resources", lang)</a></li>
-                            <li><a asp-action="Index" asp-controller="AboutUs">@DbRes.T("AboutUS", "Resources", lang)</a></li>
-                            <li><a asp-action="Index" asp-controller="Services">@DbRes.T("Services", "Resources", lang)</a></li>
-                            <li><a asp-action="Index" asp-controller="Project">@DbRes.T("Projects", "Resources", lang)</a></li>
-                            <li><a asp-action="Index" asp-controller="Blog">@DbRes.T("Blog", "Resources", lang)</a></li>
-                            <li><a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="copyright text-lg-start text-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="copyright text-center">
                             <p>© @DbRes.T("Rights", "Resources", lang)@*<a href="https://www.linkedin.com/in/loay-mustafa-22b4ab257/" target="blank">Loay Badwy</a>*@</p>
                         </div>
                     </div>

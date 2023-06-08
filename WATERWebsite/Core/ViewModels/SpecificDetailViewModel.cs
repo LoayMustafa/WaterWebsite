@@ -1,4 +1,5 @@
-﻿using WATERWebsite.Core.Models;
+﻿using WATERWebsite.Core.DTOs.ServiceDtos;
+using WATERWebsite.Core.Models;
 
 namespace WATERWebsite.Core.ViewModels
 {
@@ -8,5 +9,6 @@ namespace WATERWebsite.Core.ViewModels
         public string? SpecificsBrief { get; set; }
         public string? SpecificsOverview { get; set; }
         public string? SpecificsEnd { get; set; }
+        public List<ServiceDetailSpecificsDto>? SpecificsList { get; set; }
     }
 }

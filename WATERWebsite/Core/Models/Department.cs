@@ -17,6 +17,8 @@
         public string? DepartmentEndA { get; set; }
         public string? DepartmentPhotoPath { get; set; }
         public string? DepartmentLogoPath { get; set; }
+        public string? HomeDescE { get; set; }
+        public string? HomeDescA { get; set; }
 
         public virtual ICollection<Service>? Services { get; set; }
     }

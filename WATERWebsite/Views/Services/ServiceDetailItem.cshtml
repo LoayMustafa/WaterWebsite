@@ -10,48 +10,124 @@
         lang = Context.Session.GetString("lang");
     }
 }
-<div class="rs-services-single pt-120 pb-120 md-pt-80 md-pb-80">
-    <div class="container">
-        <div class="sec-title text-center">
-            <h2 class="title">@Model.ServiceDetailName</h2>
-            <br />
-        </div>
-        <p class="desc-part pb-10">
-            @Model.ServiceDetailBrief
-        </p>
-        @if (Model.ServiceDetailOverview != "" || Model.ServiceDetailOverview != null)
-        {
-            <p>@Html.Raw(Model.ServiceDetailOverview)</p>
-        }
-        @if (Model.ServiceDetailSpecifics?.Count > 0)
-        {
-            @foreach (var specific in Model.ServiceDetailSpecifics)
-            {
-                <div style="width: 80%; margin: 0px 0 20px 50px;">
-                    @*<i style="color:#0D659D;" class="fi fi-rr-comment-info"></i>*@
-                    <span style="font-size: 18px; font-weight: bold;">
-                        @if (specific.SpecificOverView != null)
-                        {
-                            <a asp-action="SpecificDetail" asp-route-SpecificsCode="@specific.SpecificCode">@specific.SpecificName:</a>
-                        }
-                        else
-                        {
-                            <span style="color:#0D659D;">@specific.SpecificName:</span>
+<style>
+    .rs-breadcrumbs {
+        height: 250px;
+    }
 
-                        }
-                    </span>
-                    <span>
-                        @specific.SpecificBrief
-                    </span>
-                </div>
-            }
+        .rs-breadcrumbs .breadcrumbs-inner {
+            padding-top: 100px
         }
-        <p class="desc-part pb-10">
-            @Model.ServiceDetailEnd
-        </p>
+
+    .rs-services-single .services-add .address-wrap-item a {
+        font-size: unset;
+        line-height: unset;
+    }
+
+    .rs-breadcrumbs .breadcrumbs-inner .page-title:after {
+        top: 85px;
+    }
+</style>
+<div class="rs-breadcrumbs img3">
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                @Model.ServiceDetailName
+            </h1>
+        </div>
     </div>
 </div>
-<script src="~/assets/js/jquery.min.js"></script>
+<div class="rs-services-single pt-60 pb-60 md-pt-80 md-pb-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 md-mb-10">
+                @*<div class="sec-title text-center">
+                <h2 class="title">@Model.ServiceDetailName</h2>
+                <br />
+                </div>*@
+                <p class="desc-part pb-10">
+                    @Model.ServiceDetailBrief
+                </p>
+                @if (Model.ServiceDetailOverview != "" || Model.ServiceDetailOverview != null)
+                {
+                    <p>@Html.Raw(Model.ServiceDetailOverview)</p>
+                }
+                @if (Model.ServiceDetailSpecifics?.Count > 0)
+                {
+                    @foreach (var specific in Model.ServiceDetailSpecifics)
+                    {
+                        <div style="width: 80%; margin: 0px 0 20px 50px;">
+                            @*<i style="color:#0D659D;" class="fi fi-rr-comment-info"></i>*@
+                            <span style="font-size: 18px; font-weight: bold;">
+                                @if (specific.SpecificOverView != null)
+                                {
+                                    <a asp-action="SpecificDetail" asp-route-SpecificsCode="@specific.SpecificCode">@specific.SpecificName:</a>
+                                }
+                                else
+                                {
+                                    <span style="color:#0D659D;">@specific.SpecificName:</span>
+
+                                }
+                            </span>
+                            <span>
+                                @specific.SpecificBrief
+                            </span>
+                        </div>
+                    }
+                }
+                <p class="desc-part pb-10">
+                    @Model.ServiceDetailEnd
+                </p>
+            </div>
+            <div class="col-lg-4 pl-36 md-pl-15">
+                <h5 class="side-title">
+                    Other Services
+                </h5>
+                <ul class="mb-50">
+                    @if (Model.ServiceDetailList?.Count > 0)
+                    {
+                        @foreach (var service in Model.ServiceDetailList)
+                        {
+                            if (service.IsClickable)
+                            {
+                                <li>
+                                    <a class="btn btn-outline-primary btn-list w-100" asp-action="ServiceDetailItem" asp-route-ServiceDetailCode="@service.ServiceDetailCode">
+                                        @service.ServiceDetailName
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li><a class="btn btn-outline-primary btn-list w-100" style="cursor:default;">@service.ServiceDetailName</a></li>
+
+                            }
+                        }
+                    }
+                </ul>
+                <div class="services-add mb-50">
+                    <div class="services-overlay"></div>
+                    <div class="address-wrap-item mb-20">
+                        <div class="icon-part mb-37">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <h2 class="title">
+                            @DbRes.T("HaveAnyUpcomingProject", "Resources", lang) @DbRes.T("GetThisService", "Resources", lang) <span>
+                                @DbRes.T("Now", "Resources", lang)!
+                            </span>
+                        </h2>
+                        <div class="divider">
+                            <span class="divider-separator"></span>
+                        </div>
+                        <div class="contact">
+                            <a class="readon more contact footer" href="/ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<script src="~/assets/js/jquery.min.js"></script>
 <script>
     $("#rs-header").addClass("header-home");
-</script>
+</script*@>

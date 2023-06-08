@@ -1,81 +1,164 @@
 ﻿:root {
     --primary-color: #0D659D
 }
+
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color) !important;
 }
+
 .rs-contact.contact-style6 .contact-section {
     padding: 100px 40px 85px 40px !important;
     background-color: #031c2c !important;
 }
+
 .rs-contact.contact-style6 .contact-box {
     padding: 61px 35px 61px 35px !important;
     background-color: #031c2c !important;
 }
-.contact-map{
-    max-height:555px
+
+.contact-map {
+    max-height: 555px
 }
-.address-text{
-    font-weight:500
+
+.address-text {
+    font-weight: 500
 }
+
 .rs-partner.partner-main-home .partner-content-widget .logo-img {
     padding: 0px 10px !important;
 }
+
+.services-img {
+    text-align: center;
+}
+
 .serv-img {
-    width: 776px;
-    height: 453px;
+    //width: 776px;
+    height: 380px;
 }
-.rs-breadcrumbs .breadcrumbs-inner .page-title{
-    font-family:'Cambria Math';
+
+.rs-breadcrumbs .breadcrumbs-inner .page-title {
+    font-family: 'Cambria Math';
 }
-.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link{
+
+ul.services-list li a:hover {
     color: #ffffff !important;
 }
-.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link:after {
-    color: #ffffff !important;
-}
-.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link.collapsed:after {
-    color: #ffffff !important;
-}
-ul.services-list li a:hover{
-    color: #ffffff !important;
-}
+
 .row {
     text-align: justify;
 }
-.rs-services.services-style13 .services-item .services-text .title{
-    text-align:center;
+
+.rs-services.services-style13 .services-item .services-text .title {
+    text-align: center;
 }
+
 .rs-project-details .project-information {
     padding: 40px 20px 40px 46px;
 }
-/*.services-item{
-    height:78%
+
+.rs-services.services-style1 .services-slider {
+    height: 100%;
+    padding: 10px 15px 43px 15px;
 }
-.services-wrap{
-    height:100%
-}*/
+
+    .rs-services.services-style1 .services-slider .services-content .services-txt {
+        height: 235px;
+    }
+
+.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link.collapsed {
+    background-color: #e8eaee;
+    color: #000000;
+    margin: 0px 0px 5px 0px;
+    font-size: 16px;
+}
+
+    .rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link.collapsed:hover {
+        background-color: var(--primary-color);
+        color: #ffffff;
+    }
+
+    .rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link.collapsed:after {
+        color: #000000;
+    }
+
+.rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link {
+    color: #ffffff;
+}
+
+    .rs-faq.faq-style1 .faq-content .accordion .card .card-header .card-link:after {
+        color: #ffffff;
+    }
+.rs-slider.rs-slider-style2.rs-slider-style7 .container .content-part .sl-title {
+    line-height: 50px;
+    font-family: 'Roboto';
+}
+.rs-slider.rs-slider-style2.rs-slider-style7 .container .slide-layer{
+    border-radius:10px;
+}
+.side-title {
+    font-family: 'Roboto';
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.btn-list {
+    border-radius: 20px;
+    margin-bottom: 10px
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+.rs-services-single .services-add {
+    /*border-radius: 80px 0px 80px 0px;*/
+    border-radius: 0px 80px 0px 80px;
+    background-color: #041f31fc;
+}
+    .rs-services-single .services-add .services-overlay {
+        border-radius: 0px 80px 0px 80px;
+    }
+    .rs-services-single .services-add .address-wrap-item a {
+        border-radius: 20px;
+    }
+.rs-footer.footer-main-home .footer-top {
+    padding: 35px 0 5px;
+}
+.footer-padding {
+    padding-left: 79px;
+    padding-right: 79px;
+}
+.readon.more.contact {
+    padding: 16px 20px 16px 20px
+}
 @media only screen and (max-width: 991px) {
-    .info-cards{
-        margin-top:3rem;
+    .info-cards {
+        margin-top: 3rem;
     }
 }
+
 @media only screen and (min-width: 992px) {
     .container-nav {
         max-width: 1070px;
     }
 }
+
 @media only screen and (min-width: 1200px) {
     .container-nav {
         max-width: 1240px;
     }
 }
+
 @media only screen and (min-width: 1300px) {
     .container-nav {
         max-width: 1400px !important;
         width: 100% !important;
     }
 }
-
-

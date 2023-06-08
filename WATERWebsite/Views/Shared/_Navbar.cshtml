@@ -38,7 +38,7 @@
                                     <ul class="sub-menu">
                                         <li>
                                             <a asp-action="Index" asp-controller="AboutUs">
-                                                @DbRes.T("AboutUS", "Resources", lang)
+                                                @DbRes.T("WhoWeAre", "Resources", lang)
                                             </a>
                                         </li>
                                         <li>
@@ -49,7 +49,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a asp-action="index" asp-controller="Services">
+                                    <a asp-action="index" asp-controller="Department">
                                         @DbRes.T("Services", "Resources", lang)
                                     </a>
                                     <ul class="sub-menu">
@@ -267,12 +267,6 @@
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </li>
-                                        <hr style="margin:auto;" />
-                                        <li>
-                                            <a asp-action="index" asp-controller="Department">
-                                                @DbRes.T("ViewAllDepartments", "Resources", lang)
-                                            </a>
                                         </li>
                                     </ul>
                                 </li>
