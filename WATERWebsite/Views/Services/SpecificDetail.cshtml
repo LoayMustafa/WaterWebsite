@@ -26,6 +26,10 @@
     .rs-breadcrumbs .breadcrumbs-inner .page-title:after {
         top: 85px;
     }
+
+    ul.services-list li a:before {
+        content: none;
+    }
 </style>
 <div class="rs-breadcrumbs img3">
     <div class="container">
@@ -56,10 +60,12 @@
                 </p>
             </div>
             <div class="col-lg-4 pl-36 md-pl-15">
-                <h5 class="side-title">
-                    Other Services
-                </h5>
-                <ul class="mb-50">
+                <div class="sec-title">
+                    <span class="sub-text sub-text2">
+                        Other Services
+                    </span>
+                </div>
+                <ul class="services-list mb-50">
                     @if (Model.SpecificsList?.Count > 0)
                     {
                         @foreach (var specific in Model.SpecificsList)
@@ -67,12 +73,12 @@
                             if (specific.SpecificOverView != null)
                             {
                                 <li>
-                                    <a class="btn btn-outline-primary btn-list w-100" asp-action="SpecificDetail" asp-route-SpecificsCode="@specific.SpecificCode">@specific.SpecificName</a>
+                                    <a asp-action="SpecificDetail" asp-route-SpecificsCode="@specific.SpecificCode">@specific.SpecificName</a>
                                 </li>
                             }
                             else
                             {
-                                <li><a class="btn btn-outline-primary btn-list w-100" style="cursor:default;">@specific.SpecificName</a></li>
+                                <li><a style="cursor:default;">@specific.SpecificName</a></li>
 
                             }
                         }
@@ -81,9 +87,6 @@
                 <div class="services-add mb-50">
                     <div class="services-overlay"></div>
                     <div class="address-wrap-item mb-20">
-                        <div class="icon-part mb-37">
-                            <i class="fa fa-cogs"></i>
-                        </div>
                         <h2 class="title">
                             @DbRes.T("HaveAnyUpcomingProject", "Resources", lang) @DbRes.T("GetThisService", "Resources", lang) <span>
                                 @DbRes.T("Now", "Resources", lang)!

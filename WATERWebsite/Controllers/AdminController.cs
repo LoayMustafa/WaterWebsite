@@ -22,11 +22,12 @@ namespace WATERWebsite.Controllers
         }
         public IActionResult Index()
         {
-            AdminIndexViewModel viewModel = new AdminIndexViewModel
-            {
-                Services = new SelectList(_db.Service.ToList(), "ServiceCode", lang == "ar" ? "ServiceNameA" : "ServiceNameE"),
-            };
-            return View(viewModel);
+            return NotFound();
+            //AdminIndexViewModel viewModel = new AdminIndexViewModel
+            //{
+            //    Services = new SelectList(_db.Service.ToList(), "ServiceCode", lang == "ar" ? "ServiceNameA" : "ServiceNameE"),
+            //};
+            //return View(viewModel);
         }
 
         #region Service

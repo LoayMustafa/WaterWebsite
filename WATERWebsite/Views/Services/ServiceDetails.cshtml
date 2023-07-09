@@ -28,6 +28,10 @@
     .rs-breadcrumbs .breadcrumbs-inner .page-title:after {
         top: 85px;
     }
+
+    ul.services-list li a:before {
+        content: none;
+    }
 </style>
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs img3">
@@ -95,23 +99,45 @@
                 </p>
             </div>
             <div class="col-lg-4 pl-36 md-pl-15">
-                <h5 class="side-title">
-                    Other Services
-                </h5>
-                <ul class="mb-50">
+                <div class="sec-title">
+                    <span class="sub-text sub-text2">
+                        Other Services
+                    </span>
+                </div>
+                @*<ul class="mb-50">
+                @if (Model.ServiceList?.Count > 0)
+                {
+                @foreach (var service in Model.ServiceList)
+                {
+                if(service.ServiceOverview != null)
+                {
+                <li><a class ="btn btn-outline-primary btn-list w-100" asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a>
+
+                </li>
+                }
+                else
+                {
+                <li><a class="btn btn-outline-primary btn-list w-100" style="cursor:default;">@service.ServiceName</a></li>
+
+                }
+                }
+                }
+                </ul>*@
+                <ul class="services-list mb-50">
                     @if (Model.ServiceList?.Count > 0)
                     {
                         @foreach (var service in Model.ServiceList)
                         {
-                            if(service.ServiceOverview != null)
+                            if (service.ServiceOverview != null)
                             {
-                                <li><a class ="btn btn-outline-primary btn-list w-100" asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a>
+                                <li>
+                                    <a asp-controller="Services" asp-action="ServiceDetails" asp-route-ServiceCode="@service.ServiceCode">@service.ServiceName</a>
 
                                 </li>
                             }
                             else
                             {
-                                <li><a class="btn btn-outline-primary btn-list w-100" style="cursor:default;">@service.ServiceName</a></li>
+                                <li><a style="cursor:default;">@service.ServiceName</a></li>
 
                             }
                         }
@@ -120,9 +146,6 @@
                 <div class="services-add mb-50">
                     <div class="services-overlay"></div>
                     <div class="address-wrap-item mb-20">
-                        <div class="icon-part mb-37">
-                            <i class="fa fa-cogs"></i>
-                        </div>
                         <h2 class="title">
                             @DbRes.T("HaveAnyUpcomingProject", "Resources", lang) @DbRes.T("GetThisService", "Resources", lang) <span>
                                 @DbRes.T("Now", "Resources", lang)!

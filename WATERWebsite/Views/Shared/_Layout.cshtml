@@ -417,16 +417,16 @@
                         <li>
                             <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#"
-                               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-globe" aria-hidden="true"></i>
-                            </a>
-                            <ul class="sub-menu dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar" style="font-family:Droid Arabic Kufi;">العربية</a></li>
-                                <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=en" style="font-family:Roboto;">English</a></li>
-                            </ul>
-                        </li>
+                        @*<li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#"
+                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        </a>
+                        <ul class="sub-menu dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=ar" style="font-family:Droid Arabic Kufi;">العربية</a></li>
+                        <li><a class="dropdown-item lang" href="/Home/SetLanguage?lang=en" style="font-family:Roboto;">English</a></li>
+                        </ul>
+                        </li>*@
 
                     </ul> <!-- //.nav-menu -->
                     <div class="canvas-contact">
@@ -484,9 +484,9 @@
             <div class="container-fluid footer-padding">
                 <div class="row" style="text-align: initial;">
                     <div class="col-lg-4 pr-20 md-pr-15 md-mb-20">
-                        <div class="footer-logo mb-10">
-                            <a asp-action="Index" asp-controller="Home"><img src="~/assets/water/logo-white1.png" alt=""></a>
-                        </div>
+                        <h3 class="footer-title">
+                            @DbRes.T("Who We Are ?", "Resources", lang)
+                        </h3>
                         <div class="textwidget">
                             <p class="pb-20">
                                 @DbRes.T("WATERBrief", "Resources", lang)
@@ -590,7 +590,11 @@
                                 </div>
                             </li>
                             <li>
-
+                                <div class="footer-logo mb-16">
+                                    <a asp-action="Index" asp-controller="Home"><img src="~/assets/water/logo-white1.png" alt=""></a>
+                                </div>
+                            </li>
+                            <li class="text-center">
                                 <div>
                                     <ul class="footer-social md-mb-30" dir="ltr">
                                         <li><a href="https://www.facebook.com/WATERCONSULT.IBRAHIMHENDY" target="_blank"><i class="fa fa-facebook"></i></a></li>
@@ -680,12 +684,12 @@
             }
             $('.nav-menu li a').each(function () {
                 var $this = $(this);
-                // if the current path is like this link, make it active
-                if ($this.attr('href').indexOf(current) !== -1) {
+                var href = $this.attr('href');
+                if (href && current && href.indexOf(current) !== -1) {
                     $this.addClass('current-menu-item');
                 }
-            })
-        })
+            });
+        });
 
         $('.lang').on('click', function (e) {
             e.preventDefault()

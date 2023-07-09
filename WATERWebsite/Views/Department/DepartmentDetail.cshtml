@@ -28,6 +28,10 @@
     .rs-breadcrumbs .breadcrumbs-inner .page-title:after {
         top: 85px;
     }
+
+    ul.services-list li a:before {
+        content: none;
+    }
 </style>
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs img3">
@@ -92,24 +96,35 @@
                 </p>
             </div>
             <div class="col-lg-4 pl-36 md-pl-15">
-                <h5 class="side-title">
-                    Other Departments
+                @*<h5 class="side-title">
+                Other Departments
                 </h5>
                 <ul class="mb-50">
+                @if (Model.DepartmentsList?.Count > 0)
+                {
+                @foreach (var depart in Model.DepartmentsList)
+                {
+                <li><a class="btn btn-outline-primary btn-list w-100" asp-controller="Department" asp-action="DepartmentDetail" asp-route-DepartmentCode="@depart.DepartmentCode">@depart.DepartmentName</a></li>
+                }
+                }
+                </ul>*@
+                <div class="sec-title">
+                    <span class="sub-text sub-text2">
+                        Other Departments
+                    </span>
+                </div>
+                <ul class="services-list mb-50">
                     @if (Model.DepartmentsList?.Count > 0)
                     {
                         @foreach (var depart in Model.DepartmentsList)
                         {
-                            <li><a class="btn btn-outline-primary btn-list w-100" asp-controller="Department" asp-action="DepartmentDetail" asp-route-DepartmentCode="@depart.DepartmentCode">@depart.DepartmentName</a></li>
+                            <li><a asp-controller="Department" asp-action="DepartmentDetail" asp-route-DepartmentCode="@depart.DepartmentCode">@depart.DepartmentName</a></li>
                         }
                     }
                 </ul>
                 <div class="services-add mb-50">
                     <div class="services-overlay"></div>
                     <div class="address-wrap-item mb-20">
-                        <div class="icon-part mb-37">
-                            <i class="fa fa-cogs"></i>
-                        </div>
                         <h2 class="title">
                             @DbRes.T("HaveAnyUpcomingProject", "Resources", lang) @DbRes.T("GetThisService", "Resources", lang) <span>
                                 @DbRes.T("Now", "Resources", lang)!
