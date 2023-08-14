@@ -278,6 +278,18 @@
                                 </li>
                                 <li>
                                     <a asp-action="Index" asp-controller="ContactUs">@DbRes.T("ContactUs", "Resources", lang)</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a asp-action="Index" asp-controller="ContactUs">
+                                                @DbRes.T("ContactUs", "Resources", lang)
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="Index" asp-controller="Career">
+                                                @DbRes.T("Career", "Resources", lang)
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 @*<li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#"

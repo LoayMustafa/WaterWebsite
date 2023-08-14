@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="btn-part">
                                         <div class="form-group mb-0">
-                                            <input disabled type="submit" id="OnSubmit" class="send-mail btn btn-primary" value="@DbRes.T("Soon", "Resources", lang)">
+                                            <input type="submit" id="OnSubmit" class="send-mail btn btn-primary" value="@DbRes.T("Send", "Resources", lang)">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -153,52 +153,6 @@
             </div>
 
         </div>
-        <!-- Contact Icons Section End -->
-        @*<div class="rs-contact pt-120 md-pt-80">
-        <div class="container">
-        <div class="row">
-        <div class="col-lg-4 col-md-6 md-mb-30">
-        <div class="contact-box">
-        <div class="contact-icon">
-        <img src="~/imgs/contact/style1/icons/1.png" alt="images">
-        </div>
-        <div class="content-text">
-        <h4 class="title"><a>@DbRes.T("OfficeAddress", "Resources", lang)</a></h4>
-        <p class="services-txt">
-        8 El Obour Buildings - Salah Salem,
-        <br> Governorate, Egypt
-        </p>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-4 col-md-6 sm-mb-30">
-        <div class="contact-box">
-        <div class="contact-icon">
-        <img src="~/imgs/contact/style1/icons/2.png" alt="images">
-        </div>
-        <div class="content-text">
-        <h4 class="title"><a>@DbRes.T("EmailUs", "Resources", lang)</a></h4>
-        <span><a href="mailto:info@water-consult.net ">info@water-consult.net</a></span><br>
-        <span><a href="mailto:hr@water-consult.net">hr@water-consult.net</a></span>
-        </div>
-        </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-        <div class="contact-box">
-        <div class="contact-icon">
-        <img src="~/imgs/contact/style1/icons/3.png" alt="images">
-        </div>
-        <div class="content-text">
-        <h4 class="title"><a>@DbRes.T("CallUs", "Resources", lang)</a></h4>
-        <span><a href="tel:01000327035">01000327035</a></span><br>
-        <span> <a href="tel:01200797973">01200797973</a></span>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>*@
-        <!-- Contact Icons Section End -->
     </div>
 </div>
 <!-- Contact Section End -->
@@ -207,7 +161,6 @@
 
 <script>
     $('#OnSubmit').on('click', function (event) {
-        window.location.reload();
         $('#contact-form').validate({ // initialize the plugin
             rules: {
                 ClientName: {

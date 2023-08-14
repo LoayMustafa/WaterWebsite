@@ -23,6 +23,7 @@ namespace WATERWebsite.Presistance
         public virtual DbSet<Blog> Blog { get; set; } = null!;
         public virtual DbSet<ProjectService> ProjectService { get; set; } = null!;
         public virtual DbSet<OfficeClient> OfficeClient { get; set; } = null!;
+        public virtual DbSet<Job> Job { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -169,6 +170,17 @@ namespace WATERWebsite.Presistance
                 entity.HasKey(c => c.ClientCode);
 
                 entity.Property(c => c.ClientCode).ValueGeneratedOnAdd();
+            });
+
+            modelBuilder.Entity<Job>(entity =>
+            {
+                entity.HasKey(c => c.JobCode);
+
+                entity.Property(c => c.JobCode).ValueGeneratedOnAdd();
+                
+                entity.Property(c => c.JobNameE).HasMaxLength(255);
+                
+                entity.Property(c => c.JobNameA).HasMaxLength(255);
             });
 
         }

@@ -15,7 +15,7 @@ namespace WATERWebsite.Services
             _mailSettings = mailSettings.Value;
         }
 
-        public async Task<bool> SendEmailAsync(string mailTo, string mailFrom, string clientName, string clientNumber, string subject, string body, IList<IFormFile>? attachments)
+        public async Task<bool> SendEmailAsync(string mailTo, string mailFrom, string clientName, string clientNumber, string subject, string body, IList<IFormFile>? attachments, bool isApp)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace WATERWebsite.Services
                     };
                 }
 
-                string emailBody = $"You Have New Contact : \n" +
+                string emailBody = isApp ? $"New Application From : \n" : $"You Have New Contact : \n" +
                             $"Email : {mailFrom}\n" +
                             $"Client Name : {clientName} \n" +
                             $"Client Number : {clientNumber} \n" +
@@ -54,11 +54,11 @@ namespace WATERWebsite.Services
 
                 builder.HtmlBody = emailBody;
                 email.Body = builder.ToMessageBody();
-                email.From.Add(new MailboxAddress("New Contact", _mailSettings.Email));
+                email.From.Add(new MailboxAddress("New Contact", mailTo));
                 using var smtp = new SmtpClient();
 
 
-                smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
+                smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.Auto);
                 smtp.Authenticate(_mailSettings.Email, _mailSettings.Password);
                 await smtp.SendAsync(email);
 
@@ -66,8 +66,9 @@ namespace WATERWebsite.Services
 
                 return true;
             }
-            catch
+            catch(Exception ex) 
             {
+                var exs = ex;
                 return false;
             }
         }

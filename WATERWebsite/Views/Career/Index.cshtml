@@ -1,0 +1,57 @@
+﻿@using Westwind.Globalization;
+@model IEnumerable<WATERWebsite.Core.ViewModels.JobViewModels.JobIndexViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var language = "en";
+    if (Context.Session.GetString("lang") != null)
+    {
+        language = Context.Session.GetString("lang");
+    }
+}
+<!-- Breadcrumbs Start -->
+<div class="rs-breadcrumbs img1">
+	<div class="container">
+		<div class="breadcrumbs-inner">
+			<h1 class="page-title">
+				@DbRes.T("Career", "Resources", language)
+			</h1>
+			<ul class="breadcrumbs-area">
+				<li title="Home">
+					<a class="active" href="/">@DbRes.T("Home", "Resources", language)</a>
+				</li>
+				<li>@DbRes.T("Career", "Resources", language)</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Services Section Start -->
+<div id="rs-services" class="rs-services services-style8 bg5 pt-120 pb-120 md-pt-75 md-pb-80">
+	<div class="container">
+		<div class="sec-title3 text-center mb-60 md-mb-45">
+			<span class="sub-title">Jobs Available</span>
+			<div class="heading-border-line"></div>
+		</div>
+		<div class="row">
+			@foreach(var job in Model)
+			{
+				if (job.IsAvailable)
+				{
+					<div class="col-lg-4 col-md-6 mb-20">
+						<div class="services-item">
+							<div class="services-icon">
+								<img src="assets/images/services/style8/icons1.png" alt="">
+							</div>
+							<div class="services-text">
+								<h3 class="title"><a href="services-style2.html">@job.JobName</a></h3>
+								<p class="services-txt">@job.JobDescription</p>
+							</div>
+						</div>
+					</div>
+				}
+			}
+		</div>
+	</div>
+</div>
+<!-- Services Section End -->
