@@ -72,7 +72,10 @@
                                     </div>
                                     <div class="btn-part">
                                         <div class="form-group mb-0">
-                                            <input type="submit" id="OnSubmit" class="send-mail btn btn-primary" value="@DbRes.T("Send", "Resources", lang)">
+                                            <button type="submit" id="OnSubmit" class="send-mail btn btn-primary">
+                                                <img src="~/imgs/load.gif" id="load" hidden style="width:4%" />
+                                                @DbRes.T("Send", "Resources", lang)
+                                            </button>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -199,6 +202,7 @@
             },
             submitHandler: function () {
 
+                $('#load').attr("hidden", false);
                 $('#OnSubmit').attr("disabled", "disabled");
 
                 $.ajax({
@@ -206,17 +210,21 @@
                     data: $("#contact-form").serialize(),
                     url: "/ContactUs/SendMail",
                     success: function (res) {
-                        debugger;
-                        if (res.success)
+                        if (res.success) {
+                            $('#load').attr("hidden", true);
+                            alert("Email has been send Successfully")
                             location.href = "/ContactUs"
+                        }
                         else {
                             alert(res.errorMessage)
-                            $('#OnSubmit').show()
+                            $('#OnSubmit').attr("disabled", false);
+                            $('#load').attr("hidden", true);
                         }
                     },
                     error: function (err) {
+                        $('#load').attr("hidden", true);
                         alert("Sorry Error in Sending Email")
-                        $('#OnSubmit').show()
+                        $('#OnSubmit').attr("disabled", false);
                     }
                 })
             }

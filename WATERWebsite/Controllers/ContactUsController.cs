@@ -27,9 +27,7 @@ namespace WATERWebsite.Controllers
         public async Task<IActionResult> SendMail([FromForm] ContactUsMailViewModel viewModel)
         {
             var mailTo = "contact@water-consult.com";
-            var isApp = viewModel.IsApplication;
-            if (isApp)
-                mailTo = "contact@water-consult.com";
+            var isApp = false;
             await _mailingService.SendEmailAsync(mailTo, viewModel.EmailFrom, viewModel.ClientName, viewModel.ClientNumber, 
                             viewModel.Subject,viewModel.body, viewModel.Attachments, isApp);
 

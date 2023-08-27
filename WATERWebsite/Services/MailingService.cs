@@ -44,7 +44,13 @@ namespace WATERWebsite.Services
                     };
                 }
 
-                string emailBody = isApp ? $"New Application From : \n" : $"You Have New Contact : \n" +
+                string emailBody = isApp ? $"New Application From : \n" +
+                            $"Email : {mailFrom}\n" +
+                            $"Client Name : {clientName} \n" +
+                            $"Client Number : {clientNumber} \n" +
+                            $"Contact Message : \n {body} \n"
+                            
+                            : $"You Have New Contact : \n" +
                             $"Email : {mailFrom}\n" +
                             $"Client Name : {clientName} \n" +
                             $"Client Number : {clientNumber} \n" +

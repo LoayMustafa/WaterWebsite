@@ -3,55 +3,207 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var language = "en";
+    var lang = "en";
     if (Context.Session.GetString("lang") != null)
     {
-        language = Context.Session.GetString("lang");
+        lang = Context.Session.GetString("lang");
     }
 }
+<style>
+    .error{
+        color:red;
+        font-style: italic;
+    }
+</style>
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs img1">
-	<div class="container">
-		<div class="breadcrumbs-inner">
-			<h1 class="page-title">
-				@DbRes.T("Career", "Resources", language)
-			</h1>
-			<ul class="breadcrumbs-area">
-				<li title="Home">
-					<a class="active" href="/">@DbRes.T("Home", "Resources", language)</a>
-				</li>
-				<li>@DbRes.T("Career", "Resources", language)</li>
-			</ul>
-		</div>
-	</div>
+    <div class="container">
+        <div class="breadcrumbs-inner">
+            <h1 class="page-title">
+                @DbRes.T("Career", "Resources", lang)
+            </h1>
+            <ul class="breadcrumbs-area">
+                <li title="Home">
+                    <a class="active" href="/">@DbRes.T("Home", "Resources", lang)</a>
+                </li>
+                <li>@DbRes.T("Career", "Resources", lang)</li>
+            </ul>
+        </div>
+    </div>
 </div>
 <!-- Breadcrumbs End -->
 <!-- Services Section Start -->
 <div id="rs-services" class="rs-services services-style8 bg5 pt-120 pb-120 md-pt-75 md-pb-80">
-	<div class="container">
-		<div class="sec-title3 text-center mb-60 md-mb-45">
-			<span class="sub-title">Jobs Available</span>
-			<div class="heading-border-line"></div>
-		</div>
-		<div class="row">
-			@foreach(var job in Model)
-			{
-				if (job.IsAvailable)
-				{
-					<div class="col-lg-4 col-md-6 mb-20">
-						<div class="services-item">
-							<div class="services-icon">
-								<img src="assets/images/services/style8/icons1.png" alt="">
-							</div>
-							<div class="services-text">
-								<h3 class="title"><a href="services-style2.html">@job.JobName</a></h3>
-								<p class="services-txt">@job.JobDescription</p>
-							</div>
-						</div>
-					</div>
-				}
-			}
-		</div>
-	</div>
+    <div class="container">
+        <div class="sec-title3 text-center mb-60 md-mb-45">
+            <span class="sub-title">Jobs Available</span>
+            <div class="heading-border-line"></div>
+        </div>
+        <div class="row">
+            @if (Model.Count() > 0)
+            {
+                @foreach (var job in Model)
+                {
+                    if (job.IsAvailable)
+                    {
+                        <div class="col-lg-4 col-md-6 mb-20">
+                            <div class="services-item">
+                                <div class="services-text">
+                                    <h3 class="title"><a>@job.JobName</a></h3>
+                                    <p class="services-txt">@job.JobDescription</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+            else
+            {
+                <h3 class="title">Sorry, No Jobs Available For Now!</h3>
+            }
+
+        </div>
+    </div>
+</div>
+<div class="rs-contact contact-style6" style="background-image: url(../imgs/bg/join.jpg);background-size: cover;">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="contact-section">
+                        <div class="contact-wrap">
+                            <div class="sec-title">
+                                <h2 class="title4 ser-style4">
+                                    Join Our Team
+                                </h2>
+                                <p style="color: darkblue;">
+                                    You can apply jor a job to join our office Now!<br />
+                                    Fill the form below and add your CV and we will contact you soon.
+                                </p>
+                            </div>
+                            <form id="contact-form" method="post" enctype="multipart/form-data">
+                                <input hidden name="IsApplication" id="IsApplication" value=@true>
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                            <input class="from-control" type="text" name="ClientName" id="ClientName" placeholder="@DbRes.T("YourName", "Resources", lang) *" required="">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                            <input class="from-control" type="text" name="EmailFrom" id="EmailFrom" placeholder="@DbRes.T("E-Mail", "Resources", lang) *" required="">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                            <input class="from-control" type="text" name="ClientNumber" id="ClientNumber" placeholder="@DbRes.T("PhoneNumber", "Resources", lang) *" required="">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                            <input class="from-control" type="text" name="Subject" id="Subject" placeholder="@DbRes.T("Subject", "Resources", lang) *" required="">
+                                        </div>
+                                        <div class="input-group col-lg-12 mb-30">
+                                            <input type="file" class="form-control" placeholder="Attach File if You Want" name="Attachments" id="Attachments" required="">
+                                            <label class="input-group-text" for="Attachments">Upload CV</label>
+                                        </div>
+                                        <div class="col-lg-12 mb-30">
+                                            <textarea class="from-control" name="body" placeholder="@DbRes.T("YourMessageHere", "Resources", lang) *" required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="btn-part">
+                                        <div class="form-group mb-0">
+                                            <button type="submit" id="OnSubmit" class="send-mail btn btn-primary">
+                                                <img src="~/imgs/load.gif" id="load" hidden style="width:4%"/>
+                                                @DbRes.T("Send", "Resources", lang)
+                                            </button>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+        </div>
+    </div>
 </div>
 <!-- Services Section End -->
+
+<script src="~/assets/js/jquery.min.js"></script>
+
+<script>
+    $('#OnSubmit').on('click', function (event) {
+        $('#contact-form').validate({ // initialize the plugin
+            rules: {
+                ClientName: {
+                    required: true,
+                },
+                EmailFrom: {
+                    required: true,
+                },
+                Subject: {
+                    required: true,
+                },
+                body: {
+                    required: true,
+                },
+                ClientNumber: {
+                    required: true,
+                    number: true,
+                },
+                Attachments: {
+                    required: true,
+                }
+            },
+            messages: {
+                ClientName: {
+                    required: 'Please Enter Your Name',
+                },
+                EmailFrom: {
+                    required: 'Please Enter Your Email',
+                },
+                Subject: {
+                    required: 'Please Enter Your Subject',
+                },
+                body: {
+                    required: 'Please Enter Your Message',
+                },
+                ClientNumber: {
+                    required: 'Please Enter Your Number',
+                },
+                Attachments: {
+                    required: 'Please Add your CV',
+                }
+            },
+            submitHandler: function () {
+                $('#load').attr("hidden", false);
+                $('#OnSubmit').attr("disabled", "disabled");
+
+                var formData = new FormData($("#contact-form")[0]);
+                $.ajax({
+                    type: "Post",
+                    processData: false, // Don't process the data
+                    contentType: false, // Don't set content type (jQuery will set it)
+                    data: formData,
+                    url: "/Career/SendMail",
+                    success: function (res) {
+                        if (res.success) {
+                            $('#load').attr("hidden", true);
+                            alert("Email has been send Successfully")
+                            location.href = "/Career"
+                        }
+                        else {
+                            alert(res.errorMessage)
+                            $('#OnSubmit').attr("disabled", false);
+                            $('#load').attr("hidden", true);
+                        }
+                    },
+                    error: function (err) {
+                        $('#load').attr("hidden", true);
+                        alert("Sorry, Failed To send Email! (File may be too large)")
+                        $('#OnSubmit').attr("disabled", false);
+
+                    }
+                })
+            }
+
+        });
+    })
+
+</script>
