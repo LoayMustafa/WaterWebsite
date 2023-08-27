@@ -70,6 +70,7 @@ namespace WATERWebsite.Controllers
                 ProjectOperator = lang == "ar" ? project.ProjectOperatorA : project.ProjectOperatorE,
                 ProjectPhotoPath = project.ProjectPhotoPath != null ? $"{Request.Scheme}://{Request.Host}/{project.ProjectPhotoPath?.TrimStart('/')}" : null,
                 ProjectCost = project.ProjectCost,
+                ProjectCategoryCode = project.ProjectCategoryCode,
                 ProjectSpecificsDto = projectSpecificsList
             };
             return View(viewModel);

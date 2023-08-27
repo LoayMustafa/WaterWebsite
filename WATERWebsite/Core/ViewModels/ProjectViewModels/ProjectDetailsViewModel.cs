@@ -14,6 +14,8 @@ namespace WATERWebsite.Core.ViewModels.ProjectViewModels
         public string? ProjectOperator{ get; set; }
         public string? ProjectOverview { get; set; }
         public string? ProjectPhotoPath { get; set; } = string.Empty;
+        public int? ProjectCategoryCode { get; set; }
+
         public List<ProjectServicesDto>? ProjectSpecificsDto { get; set; }
     }
 }

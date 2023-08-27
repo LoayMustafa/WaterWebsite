@@ -20,6 +20,7 @@
         public long? ProjectCapacity { get; set; }
         public decimal? ProjectCost { get; set; }
         public string? ProjectPhotoPath { get; set; }
+        public int? ProjectCategoryCode { get; set; }
         public virtual ICollection<ProjectService>? ProjectService { get; set; }
     }
 }

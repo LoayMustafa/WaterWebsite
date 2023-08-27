@@ -86,8 +86,14 @@
                             <div>
                                 <div class="project-content">
                                     <div class="project-right-border"></div>
-
-                                    <h4 class="title">@DbRes.T("Operator", "Resources", lang)</h4>
+                                    @if (Model.ProjectCategoryCode == 3 || Model.ProjectCategoryCode == 2)
+                                    {
+                                        <h4 class="title">@DbRes.T("Owner", "Resources", lang)</h4>
+                                    }
+                                    else
+                                    {
+                                        <h4 class="title">@DbRes.T("Operator", "Resources", lang)</h4>
+                                    }
                                     <div class="description">
                                         <p>@Model.ProjectOperator</p>
                                     </div>
