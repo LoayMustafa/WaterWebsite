@@ -6,6 +6,7 @@ using WATERWebsite.Presistance;
 using WATERWebsite.Services;
 using WATERWebsite.Settings;
 using Westwind.Globalization.AspnetCore;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +35,8 @@ builder.Services.AddWestwindGlobalization();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddRazorPages();
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection(nameof(MailSettings)));
@@ -52,7 +55,15 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequiredLength = 6;
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredUniqueChars = 0;
+});
 
 var app = builder.Build();
 
@@ -66,7 +77,9 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.UseSession();
 app.MapControllerRoute(
     name: "default",

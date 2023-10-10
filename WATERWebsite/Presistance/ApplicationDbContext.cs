@@ -29,7 +29,7 @@ namespace WATERWebsite.Presistance
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=LOAY\\SQLEXPRESS;Initial Catalog=WATER_DB;Trusted_Connection=True;Encrypt=False;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=WATER_DB;Trusted_Connection=True;Encrypt=False;MultipleActiveResultSets=true");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

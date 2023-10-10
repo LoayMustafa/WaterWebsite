@@ -20,7 +20,7 @@ namespace WATERWebsite.Migrations
                 .HasAnnotation("ProductVersion", "6.0.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -55,7 +55,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -145,7 +145,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -226,7 +226,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogCode"));
 
                     b.Property<string>("BlogBriefA")
                         .IsRequired()
@@ -270,7 +270,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("BlogCode");
 
-                    b.ToTable("Blog");
+                    b.ToTable("Blog", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Department", b =>
@@ -279,7 +279,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentCode"));
 
                     b.Property<string>("DepartmentBriefA")
                         .HasColumnType("nvarchar(max)");
@@ -323,7 +323,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("DepartmentCode");
 
-                    b.ToTable("Department");
+                    b.ToTable("Department", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Employee", b =>
@@ -332,7 +332,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeCode"));
 
                     b.Property<string>("EmployeeBioA")
                         .HasColumnType("nvarchar(max)");
@@ -380,7 +380,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("EmployeeCode");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employee", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Job", b =>
@@ -389,7 +389,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobCode"));
 
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
@@ -412,7 +412,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("JobCode");
 
-                    b.ToTable("Job");
+                    b.ToTable("Job", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.OfficeClient", b =>
@@ -421,7 +421,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientCode"));
 
                     b.Property<string>("ClientName")
                         .IsRequired()
@@ -432,7 +432,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("ClientCode");
 
-                    b.ToTable("OfficeClient");
+                    b.ToTable("OfficeClient", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Project", b =>
@@ -441,7 +441,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectCode"));
 
                     b.Property<long?>("ProjectCapacity")
                         .HasMaxLength(25)
@@ -498,7 +498,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasKey("ProjectCode");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Projects", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.ProjectService", b =>
@@ -513,7 +513,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasIndex("ServiceCode");
 
-                    b.ToTable("ProjectService");
+                    b.ToTable("ProjectService", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Service", b =>
@@ -522,7 +522,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceCode"));
 
                     b.Property<int?>("DepartmentCode")
                         .HasColumnType("int");
@@ -565,7 +565,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasIndex("DepartmentCode");
 
-                    b.ToTable("Service");
+                    b.ToTable("Service", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.ServiceDetail", b =>
@@ -574,7 +574,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceDetailCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ServiceDetailCode"));
 
                     b.Property<int?>("ServiceCode")
                         .HasColumnType("int");
@@ -611,7 +611,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasIndex("ServiceCode");
 
-                    b.ToTable("ServiceDetail");
+                    b.ToTable("ServiceDetail", (string)null);
                 });
 
             modelBuilder.Entity("WATERWebsite.Core.Models.Specifics", b =>
@@ -620,7 +620,7 @@ namespace WATERWebsite.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SpecificsCode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SpecificsCode"));
 
                     b.Property<int?>("ServiceDetailCode")
                         .HasColumnType("int");
@@ -656,7 +656,7 @@ namespace WATERWebsite.Migrations
 
                     b.HasIndex("ServiceDetailCode");
 
-                    b.ToTable("Specifics");
+                    b.ToTable("Specifics", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
