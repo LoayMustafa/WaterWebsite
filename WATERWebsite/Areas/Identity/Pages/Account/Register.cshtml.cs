@@ -85,7 +85,7 @@ namespace WATERWebsite.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl ??= Url.Content("~/");
+            returnUrl ??= Url.Content("/dashboard");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             var users = _userManager.Users.Where(c => c.Email.ToLower() == Input.Email.ToLower()).ToList();
             if (users.Any())

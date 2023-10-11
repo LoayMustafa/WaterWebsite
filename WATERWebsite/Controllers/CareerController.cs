@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WATERWebsite.Core.Models;
 using WATERWebsite.Core.ViewModels.ContactUsViewModels;
 using WATERWebsite.Core.ViewModels.JobViewModels;
 using WATERWebsite.Presistance;
@@ -28,7 +29,39 @@ namespace WATERWebsite.Controllers
 			}).ToList();
             return View(jobs);
         }
+        [HttpGet]
+        public IActionResult Jobs()
+        {
+            lang = HttpContext?.Session.GetString("lang") ?? "en";
+            var jobs = _db.Job.Select(c => new JobIndexViewModel
+            {
+                JobName = lang == "ar" ? c.JobNameA : c.JobNameE,
+                JobDescription = lang == "ar" ? c.JobDescriptionA : c.JobDescriptionE,
+                IsAvailable = c.IsAvailable
+            }).ToList();
+            return View(jobs);
+        }
+        [HttpGet]
+        public IActionResult AddJob()
+        {
+            return PartialView("_AddJobPartial");
+        }
+        [HttpPost]
+        public IActionResult AddJob(string jobName, string jobDesc)
+        {
+            Job record = new Job
+            {
+                JobNameE = jobName,
+                JobDescriptionE = jobDesc,
+                IsAvailable = true,
+                JobDescriptionA = jobDesc,
+                JobNameA = jobName
+            };
+            _db.Job.Add(record);
+            _db.SaveChanges();
 
+            return RedirectToAction("Jobs");
+        }
         [HttpPost]
         public async Task<IActionResult> SendMail([FromForm] ContactUsMailViewModel viewModel)
         {

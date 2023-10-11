@@ -33,18 +33,6 @@ File: Main Js File
         if (document.getElementById("header-lang-img")) {
             if (lang == "en") {
                 document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/us.svg";
-            } else if (lang == "sp") {
-                document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/spain.svg";
-            } else if (lang == "gr") {
-                document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/germany.svg";
-            } else if (lang == "it") {
-                document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/italy.svg";
-            } else if (lang == "ru") {
-                document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/russia.svg";
-            } else if (lang == "ch") {
-                document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/china.svg";
-            } else if (lang == "fr") {
-                document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/french.svg";
             } else if (lang == "ar") {
                 document.getElementById("header-lang-img").src = "/assetsDashboard/images/flags/ae.svg";
             }
@@ -1067,19 +1055,19 @@ File: Main Js File
                 });
             });
 
-            var removeItem = document.getElementById('removeNotificationModal');
-            removeItem.addEventListener('show.bs.modal', function (event) {
-                document.getElementById("delete-notification").addEventListener("click", function () {
-                    Array.from(document.querySelectorAll(".notification-item")).forEach(function (element) {
-                        if (element.classList.contains("active")) {
-                            element.remove();
-                        }
-                    });
-                    emptyNotification();
+            //var removeItem = document.getElementById('removeNotificationModal');
+            //removeItem.addEventListener('show.bs.modal', function (event) {
+            //    document.getElementById("delete-notification").addEventListener("click", function () {
+            //        Array.from(document.querySelectorAll(".notification-item")).forEach(function (element) {
+            //            if (element.classList.contains("active")) {
+            //                element.remove();
+            //            }
+            //        });
+            //        emptyNotification();
 
-                    document.getElementById("NotificationModalbtn-close").click();
-                })
-            })
+            //        document.getElementById("NotificationModalbtn-close").click();
+            //    })
+            //})
         }
     }
 

@@ -30,12 +30,10 @@ var editlist = false;
 //Table
 var options = {
     valueNames: [
-        "id",
-        "customer_name",
-        "email",
-        "date",
-        "phone",
-        "status",
+        "job_name",
+        "job_desc",
+        "availiable",
+        "action",
     ],
     page: perPage,
     pagination: true,
