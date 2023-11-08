@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WATERWebsite.Core.DTOs.ProjectDtos;
-using WATERWebsite.Core.Models;
+using WaterClassLibrary.Core.Models;
 using WATERWebsite.Core.ViewModels.ProjectViewModels;
-using WATERWebsite.Presistance;
+using WaterClassLibrary.Presistance;
 
 namespace WATERWebsite.Controllers
 {

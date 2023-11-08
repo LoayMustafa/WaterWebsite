@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
-using WATERWebsite.Core.Models;
+using WaterClassLibrary.Core.Models;
 using WATERWebsite.Core.ViewModels.DepartmentViewModels;
-using WATERWebsite.Presistance;
+using WaterClassLibrary.Presistance;
 
 namespace WATERWebsite.Controllers
 {
@@ -75,7 +75,7 @@ namespace WATERWebsite.Controllers
                 DepartmentOverview = lang == "ar" ? department.DepartmentOverviewA : department.DepartmentOverviewE,
                 DepartmentEnd = lang == "ar" ? department.DepartmentEndA : department.DepartmentEndE,
                 DepartmentLogoPath = department.DepartmentLogoPath,
-                DepartmentPhotoPath = $"{Request.Scheme}://{Request.Host}/{department.DepartmentPhotoPath?.TrimStart('/')}",
+                DepartmentPhotoPath = department.DepartmentPhotoPath,
                 ServicesList = departmentServicesList,
                 DepartmentsList = allDepartments
             };

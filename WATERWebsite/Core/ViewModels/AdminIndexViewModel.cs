@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using WATERWebsite.Core.Models;
+using WaterClassLibrary.Core.Models;
 
 namespace WATERWebsite.Core.ViewModels
 {

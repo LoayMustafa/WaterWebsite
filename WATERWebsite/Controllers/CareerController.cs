@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WATERWebsite.Core.Models;
+using WaterClassLibrary.Core.Models;
 using WATERWebsite.Core.ViewModels.ContactUsViewModels;
 using WATERWebsite.Core.ViewModels.JobViewModels;
-using WATERWebsite.Presistance;
+using WaterClassLibrary.Presistance;
 using WATERWebsite.Services;
 
 namespace WATERWebsite.Controllers

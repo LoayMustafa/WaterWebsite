@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
-using WATERWebsite.Core.Models;
-using WATERWebsite.Presistance;
+using WaterClassLibrary.Presistance;
 using WATERWebsite.Services;
 using WATERWebsite.Settings;
 using Westwind.Globalization.AspnetCore;

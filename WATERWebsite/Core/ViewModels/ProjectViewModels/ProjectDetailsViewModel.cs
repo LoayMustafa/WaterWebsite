@@ -1,5 +1,5 @@
 ﻿using WATERWebsite.Core.DTOs.ProjectDtos;
-using WATERWebsite.Core.Models;
+using WaterClassLibrary.Core.Models;
 
 namespace WATERWebsite.Core.ViewModels.ProjectViewModels
 {

@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WaterClassLibrary.Presistance;
 using WATERWebsite.Core.DTOs;
 using WATERWebsite.Core.DTOs.ServiceDtos;
-using WATERWebsite.Core.Models;
+using WaterClassLibrary.Core.Models;
 using WATERWebsite.Core.ViewModels;
 using WATERWebsite.Core.ViewModels.DepartmentViewModels;
-using WATERWebsite.Presistance;
 
 namespace WATERWebsite.Controllers
 {

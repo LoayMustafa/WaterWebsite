@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WATERWebsite.Core.ViewModels.BlogViewModels;
-using WATERWebsite.Presistance;
+using WaterClassLibrary.Presistance;
 
 namespace WATERWebsite.Controllers
 {

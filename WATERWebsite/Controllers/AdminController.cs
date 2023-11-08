@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using WATERWebsite.Core.DTOs.ProjectDtos;
 using WATERWebsite.Core.DTOs.ServiceDtos;
-using WATERWebsite.Core.Models;
+using WaterClassLibrary.Core.Models;
 using WATERWebsite.Core.ViewModels;
-using WATERWebsite.Presistance;
+using WaterClassLibrary.Presistance;
 
 namespace WATERWebsite.Controllers
 {
