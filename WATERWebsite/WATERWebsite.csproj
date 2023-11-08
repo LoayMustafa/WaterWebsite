@@ -34,10 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\Resourses\Employees\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Views\SharedDashboard\_customizer.cshtml" />
     <None Include="Views\SharedDashboard\_footer.cshtml" />
     <None Include="Views\SharedDashboard\_head_css.cshtml" />

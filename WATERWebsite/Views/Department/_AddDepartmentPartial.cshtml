@@ -1,0 +1,103 @@
+﻿@model WATERWebsite.Core.ViewModels.DepartmentViewModels.DepartmentActionViewModel
+<form asp-controller="Department" asp-action="AddDepartment" method="post" class="needs-validation" enctype="multipart/form-data">
+    <input asp-for="DepartmentCode" hidden />
+    <div class="row">
+        <div class="col-lg-6">
+            <label asp-for="DepartmentNameE" class="col-form-label">Department Name English:</label>
+            <input asp-for="DepartmentNameE" type="text" class="form-control">
+            <span asp-validation-for="DepartmentNameE"></span>
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="DepartmentNameA" class="col-form-label">Department Name Arabic:</label>
+            <input asp-for="DepartmentNameA" type="text" class="form-control">
+            <div class="invalid-feedback">
+                Please insert a Department Name Arabic.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <label asp-for="DepartmentOverviewE" class="col-form-label">Department Overview English:</label>
+            <textarea asp-for="DepartmentOverviewE" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Department Overview English.
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <label asp-for="DepartmentOverviewA" class="col-form-label">Department Overview Arabic:</label>
+            <textarea asp-for="DepartmentOverviewA" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Department Overview Arabic.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <label asp-for="DepartmentBriefE" class="col-form-label">Department Brief English:</label>
+            <textarea asp-for="DepartmentBriefE" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Department Brief English.
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="DepartmentBriefA" class="col-form-label">Department Brief Arabic:</label>
+            <textarea asp-for="DepartmentBriefA" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Department Brief Arabic.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <label asp-for="DepartmentEndE" class="col-form-label">Department End English:</label>
+            <textarea asp-for="DepartmentEndE" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Home Description English.
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="DepartmentEndA" class="col-form-label">Department End Arabic:</label>
+            <textarea asp-for="DepartmentEndA" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Home Description Arabic.
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <label asp-for="HomeDescE" class="col-form-label">Home Description English:</label>
+            <textarea asp-for="HomeDescE" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Home Description English.
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <label asp-for="HomeDescA" class="col-form-label">Home Description Arabic:</label>
+            <textarea asp-for="HomeDescA" type="text" class="form-control"></textarea>
+            <div class="invalid-feedback">
+                Please insert a Home Description Arabic.
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-lg-6 align-self-center">
+            <label asp-for="PhotoFile" class="form-label">Department Image</label>
+            <input asp-for="PhotoFile" class="form-control" type="file" id="formFile"
+                   onchange="document.getElementById('ImagePreview').src= window.URL.createObjectURL(this.files[0])">
+        </div>
+        <div class="col-lg-6 text-center">
+            <img id="ImagePreview" src="~/resourses/departments/@(Model.DepartmentPhotoPath is null ? "noimage.jpg" : Model.DepartmentPhotoPath)" class="img-thumbnail" style="height:150px" />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <h6 class="fw-semibold">Multi Select</h6>
+        <select class="js-example-basic-multiple" asp-for="ServiceCodes" asp-items="Model.Services" multiple="multiple">
+        </select>
+    </div>
+    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Back</button>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

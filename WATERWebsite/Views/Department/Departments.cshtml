@@ -1,0 +1,238 @@
+﻿@model List<WATERWebsite.Core.ViewModels.DepartmentViewModels.DeprtmentIndexViewModel>
+@{
+    ViewBag.Title = "Departments";
+    ViewBag.pTitle = "Departments";
+    ViewBag.pageTitle = "Departments";
+    Layout = "~/Views/SharedDashboard/_Layout.cshtml";
+    var ser = 1;
+}
+
+@section styles{
+    <!--datatable css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <link href="~/assetsDashboard/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <style>
+        .text-limit {
+            width: 700px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: pre-wrap !important;
+        }
+
+        i {
+            font-size: large;
+        }
+
+        .ri-checkbox-circle-fill {
+            color: green;
+        }
+
+        .ri-close-circle-fill {
+            color: red;
+        }
+    </style>
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <button id="addNewDepartment" type="button" class="btn btn-primary">Add Department</button>
+            </div>
+            <div class="card-body">
+                <table id="scroll-horizontal" class="table table-striped nowrap align-middle" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th width="5px">Ser</th>
+                            <th>Department Name</th>
+                            @*<th>Describtion</th>*@
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var deprtment in Model)
+                        {
+                            <tr>
+                                <td>@ser</td>
+                                <td>@deprtment.DepartmentName</td>
+                                @*<td class="job_desc text-limit">@Html.Raw(@job.JobDescription)</td>*@
+                                <td>
+                                    <div class="dropdown d-inline-block">
+                                        <div class="d-flex gap-2">
+                                            <div class="edit">
+                                                <button data-departmentcode="@deprtment.DepartmentCode" class="btn btn-sm btn-success edit-item-btn edit-department">
+                                                    Edit
+                                                </button>
+                                            </div>
+                                            <div class="remove">
+                                                <button data-departmentcode="@deprtment.DepartmentCode" class="btn btn-sm btn-danger remove-item-btn delete-department">Remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            ser++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><!--end col-->
+</div><!--end row-->
+@*MODAl*@
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-content">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+@*MODAl*@
+
+<!--end row-->
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--datatable js-->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="~/assetsDashboard/js/pages/datatables.init.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="~/assetsDashboard/libs/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Sweet alert init js-->
+    <script src="~/assetsDashboard/js/pages/sweetalerts.init.js"></script>
+    <!-- ckeditor -->
+    <script src="~/assetsDashboard/libs/@@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+    <!-- prismjs plugin -->
+    <script src="~/assetsDashboard/libs/prismjs/prism.js"></script>
+    <script src="~/assetsDashboard/js/pages/form-editor.init.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/assetsDashboard/js/pages/select2.init.js"></script>
+    <!-- App js -->
+    <script src="~/assetsDashboard/js/app.js"></script>
+
+    <script>
+        function initializeFormValidation() {
+            // Fetch the form inside the modal
+            var modalForm = document.querySelector("#myModal form");
+            if (modalForm) {
+                modalForm.addEventListener('submit', function (event) {
+                    if (modalForm.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    modalForm.classList.add('was-validated');
+                }, false);
+            }
+        }
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+
+            $('#myModal').on('shown.bs.modal', function () {
+                initializeFormValidation();
+            });
+            $("#addNewDepartment").click(function () {
+                $("#myModal").modal("show");
+
+                $.ajax({
+                    url: "/Department/AddDepartment",
+                    type: "GET",
+                    success: function (data) {
+                        $("#modal-content").html(data);
+                        initializeFormValidation();
+                    },
+                    error: function () {
+                        alert("An error occurred");
+                    }
+                });
+            });
+            $(".edit-department").click(function () {
+                var departmentCode = $(this).data("departmentcode");
+                $("#myModal").modal("show");
+                $.ajax({
+                    url: "/Department/AddDepartment?DepartmentCode=" + departmentCode,
+                    type: "GET",
+                    success: function (data) {
+                        $("#modal-content").html(data);
+                        initializeFormValidation();
+                    },
+                    error: function () {
+                        alert("An error occurred");
+                    }
+                });
+            });
+            $(".delete-department").click(function () {
+                var departmentCode = $(this).data("departmentcode");
+                Swal.fire({
+                    title: 'Are You Sure You want To delete This item ?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Submit',
+                    showLoaderOnConfirm: true,
+                    confirmButtonClass: 'btn btn-primary w-xs me-2',
+                    cancelButtonClass: 'btn btn-danger w-xs',
+                    buttonsStyling: false,
+                    showCloseButton: true,
+                    allowOutsideClick: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "/Department/DeleteDepartment?DepartmentCode=" + departmentCode,
+                            type: "GET",
+                            success: function (res) {
+                                if (res.success) {
+                                    Swal.fire({
+                                        title: 'Item has been deleted successfully',
+                                        confirmButtonClass: 'btn btn-primary w-xs mt-2',
+                                        buttonsStyling: false,
+                                        showCloseButton: true
+                                    }).then((result) => {
+                                        // Reload the page after the Swal message is confirmed
+                                        if (result.isConfirmed) {
+                                            location.reload();
+                                        }
+                                    });
+                                }
+                                else {
+                                    Swal.fire({
+                                        title: 'Something went wrong',
+                                        confirmButtonClass: 'btn btn-danger w-xs mt-2',
+                                        buttonsStyling: false,
+                                        showCloseButton: true
+                                    })
+                                }
+                            },
+                            error: function () {
+                                Swal.fire({
+                                    title: 'Something went wrong',
+                                    confirmButtonClass: 'btn btn-danger w-xs mt-2',
+                                    buttonsStyling: false,
+                                    showCloseButton: true
+                                })
+                            }
+                        });
+                    }
+                })
+            });
+        });
+    </script>
+}

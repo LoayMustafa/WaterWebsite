@@ -60,7 +60,7 @@
                                                 Please enter email
                                             </div>
                                         </div>
-                                        
+
                                         <div class="mb-3">
                                             <label class="form-label" asp-for="Input.Password">Password</label>
                                             <div class="position-relative auth-pass-inputgroup">
@@ -72,11 +72,14 @@
                                         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
 
                                         <div class="mt-4">
-                                            <button id ="registerSubmit" class="btn btn-success w-100" type="submit">Sign in</button>
+                                            <button id="registerSubmit" class="btn btn-success w-100" type="submit">Sign in</button>
                                         </div>
                                     </form>
 
                                 </div>
+                            <div class="mt-4 text-center">
+                                <p class="mb-0">Register New account ? <a href="/Identity/account/Register" class="fw-semibold text-primary text-decoration-underline"> Sign Up </a> </p>
+                            </div>
                             </div>
                             <!-- end card body -->
                         </div>
@@ -112,9 +115,9 @@
     <script src="~/assetsDashboard/js/pages/particles.app.js"></script>
     <!-- password create init -->
     <script src="~/assetsDashboard/js/pages/passowrd-create.init.js"></script>
-    
+
     <partial name="_ValidationScriptsPartial" />
-    
+
 
 </body>
 </html>
