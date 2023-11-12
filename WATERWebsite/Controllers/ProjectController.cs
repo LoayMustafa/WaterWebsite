@@ -20,7 +20,7 @@ namespace WATERWebsite.Controllers
             lang = HttpContext?.Session.GetString("lang") ?? "en";
 
             //Get Projects
-            var projects = _db.Projects.Select(c => new ProjectIndexViewModel
+            var projects = _db.Projects.Where(c => c.IsDeleted == false).Select(c => new ProjectIndexViewModel
             {
                 ProjectCode = c.ProjectCode,
                 ProjectName = lang == "ar" ? c.ProjectNameA : c.ProjectNameE,

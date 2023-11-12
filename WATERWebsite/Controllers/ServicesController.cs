@@ -21,7 +21,7 @@ namespace WATERWebsite.Controllers
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
 
-            var services = _db.Service.ToList();
+            var services = _db.Service.Where(c => c.IsDeleted == false).ToList();
             List<ServicesIndexViewModel> servicesList = new List<ServicesIndexViewModel>();
 
             foreach (var service in services)

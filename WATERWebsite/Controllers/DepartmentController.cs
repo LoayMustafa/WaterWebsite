@@ -25,7 +25,7 @@ namespace WATERWebsite.Controllers
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
 
-            var departments = _db.Department.Select(c => new DeprtmentIndexViewModel
+            var departments = _db.Department.Where(c => c.IsDeleted == false).Select(c => new DeprtmentIndexViewModel
             {
                 DepartmentCode = c.DepartmentCode,
                 DepartmentName = lang == "ar" ? c.DepartmentNameA : c.DepartmentNameE,

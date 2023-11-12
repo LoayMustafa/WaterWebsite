@@ -17,7 +17,7 @@ namespace WATERWebsite.Controllers
         {
             lang = HttpContext?.Session.GetString("lang") ?? "en";
 
-            var blogs = _db.Blog.Select(c => new BlogIndexViewModel
+            var blogs = _db.Blog.Where(c => c.IsDeleted == false).Select(c => new BlogIndexViewModel
             {
                 BlogCode = c.BlogCode,
                 BlogTitle = lang == "ar" ? c.BlogTitleA : c.BlogTitleE,
