@@ -44,11 +44,11 @@
                         <a>
                             @if (Model.BlogPhoto != null)
                             {
-                                <img src=".. /../resourses/Blog/@Model.BlogPhoto" alt="">
+                                <img src="~/resourses/Blog/@Model.BlogPhoto" alt="">
                             }
                             else
                             {
-                                <img src="~/Resourses/Blog/blog-default.jpg" alt="">
+                                <img src="~/resourses/Blog/blog-default.jpg" alt="">
                             }
                         </a>
                     </div>
@@ -65,7 +65,7 @@
                     <div class="blog-full">
                         <div class="blog-content-full">
                             <p class="pb-25">
-                                @Model.BlogContent
+                                @Html.Raw(Model.BlogContent)
                             </p>
                         </div>
                     </div>

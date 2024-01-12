@@ -51,11 +51,11 @@
                                         <a asp-action="BlogDetails" asp-route-BlogCode="@item.BlogCode">
                                             @if (item.BlogPhoto != null)
                                             {
-                                                <img src=".. /../resourses/Blog/@item.BlogPhoto" alt="">
+                                                <img src="~/resourses/Blog/@item.BlogPhoto" alt="">
                                             }
                                             else
                                             {
-                                                <img src="~/Resourses/Blog/blog-default.jpg" alt="">
+                                                <img src="~/resourses/Blog/blog-default.jpg" alt="">
                                             }
                                         </a>
                                     </div>
@@ -104,7 +104,7 @@
                                     <div class="post-img">
                                         @if (item.BlogPhoto != null)
                                         {
-                                            <img src="@item.BlogPhoto" alt="">
+                                            <img src="~/resourses/Blog/@item.BlogPhoto" alt="">
                                         }
                                         else
                                         {
