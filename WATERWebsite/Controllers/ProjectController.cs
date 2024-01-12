@@ -68,7 +68,7 @@ namespace WATERWebsite.Controllers
                 ProjectOwner = lang == "ar" ? project.ProjectOwnerA : project.ProjectOwnerE,
                 ProjectOverview = lang == "ar" ? project.ProjectOverviewA : project.ProjectOverviewE,
                 ProjectOperator = lang == "ar" ? project.ProjectOperatorA : project.ProjectOperatorE,
-                ProjectPhotoPath = project.ProjectPhotoPath != null ? $"{Request.Scheme}://{Request.Host}/{project.ProjectPhotoPath?.TrimStart('/')}" : null,
+                ProjectPhotoPath = project.ProjectPhotoPath,
                 ProjectCost = project.ProjectCost,
                 ProjectCategoryCode = project.ProjectCategoryCode,
                 ProjectSpecificsDto = projectSpecificsList
